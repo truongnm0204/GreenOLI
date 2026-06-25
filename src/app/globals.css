@@ -1,0 +1,181 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+ * Green Oli — "Molecular Precision" design tokens (from Stitch designTheme)
+ * Primary green #80BC00, secondary violet #6d43c5, Be Vietnam Pro,
+ * 24px card radius signature, 1280px container, 80/48px section padding.
+ * ------------------------------------------------------------------------- */
+@theme {
+  /* Brand */
+  --color-primary: #80bc00;
+  --color-primary-dark: #456800;
+  --color-primary-light: #b5f64a;
+  --color-primary-fixed: #9ad92e;
+  --color-on-primary: #ffffff;
+
+  --color-secondary: #6d43c5;
+  --color-secondary-strong: #410099;
+  --color-on-secondary: #ffffff;
+
+  --color-tertiary: #5c5f5a;
+
+  /* Surfaces */
+  --color-surface: #faf9ff;
+  --color-surface-light: #f7faf2;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f1f3ff;
+  --color-surface-container: #e9edfe;
+  --color-surface-container-high: #e4e8f9;
+
+  /* Text */
+  --color-text-primary: #1a1f2b;
+  --color-text-muted: #5c6470;
+  --color-on-surface: #161b27;
+  --color-on-surface-variant: #424936;
+
+  /* Lines + state */
+  --color-border-soft: #e5ebe0;
+  --color-outline: #737a64;
+  --color-outline-variant: #c2cab0;
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+
+  /* Typography */
+  --font-sans: var(--font-be-vietnam-pro), system-ui, -apple-system, "Segoe UI",
+    Roboto, sans-serif;
+
+  /* Radii */
+  --radius-card: 1.5rem;       /* 24px signature */
+  --radius-button: 0.75rem;    /* 12px */
+  --radius-input: 0.5rem;      /* 8px */
+  --radius-chip: 9999px;
+
+  /* Layout */
+  --container-2xl: 1280px;
+  --spacing-section-lg: 80px;
+  --spacing-section-md: 48px;
+  --spacing-gutter: 24px;
+  --spacing-gutter-mobile: 16px;
+  --spacing-stack-lg: 32px;
+  --spacing-stack-md: 16px;
+
+  /* Elevation — ambient lift for cards/modals */
+  --shadow-ambient: 0 10px 30px rgba(26, 31, 43, 0.04);
+  --shadow-ambient-lg: 0 20px 50px rgba(26, 31, 43, 0.08);
+
+  /* Type scale (matches Stitch typography spec) */
+  --text-display-lg: 3rem;       /* 48px */
+  --text-display-lg--line-height: 3.5rem;
+  --text-display-lg--letter-spacing: -0.02em;
+  --text-display-lg--font-weight: 700;
+
+  --text-headline-lg: 2rem;      /* 32px */
+  --text-headline-lg--line-height: 2.5rem;
+  --text-headline-lg--font-weight: 700;
+
+  --text-headline-md: 1.5rem;    /* 24px */
+  --text-headline-md--line-height: 2rem;
+  --text-headline-md--font-weight: 600;
+
+  --text-body-lg: 1.125rem;      /* 18px */
+  --text-body-lg--line-height: 1.75rem;
+
+  --text-body-md: 1rem;          /* 16px */
+  --text-body-md--line-height: 1.5rem;
+
+  --text-label-md: 0.875rem;     /* 14px */
+  --text-label-md--line-height: 1.25rem;
+  --text-label-md--letter-spacing: 0.01em;
+  --text-label-md--font-weight: 500;
+
+  --text-caption: 0.75rem;       /* 12px */
+  --text-caption--line-height: 1rem;
+
+  /* Animations */
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-fade-up: fade-up 0.6s ease-out both;
+  --animate-pulse-ring: pulse-ring 2.5s ease-out infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 0 0 0 rgba(128, 188, 0, 0.45); }
+  100% { box-shadow: 0 0 0 18px rgba(128, 188, 0, 0); }
+}
+
+/* ---------------------------------------------------------------------------
+ * Base
+ * ------------------------------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+  background: var(--color-surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "ss01", "cv11";
+}
+
+/* Selection */
+::selection {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+/* Container helper (max 1280 with responsive gutter) */
+.container-page {
+  width: 100%;
+  max-width: var(--container-2xl);
+  margin-inline: auto;
+  padding-inline: var(--spacing-gutter-mobile);
+}
+
+@media (min-width: 768px) {
+  .container-page {
+    padding-inline: var(--spacing-gutter);
+  }
+}
+
+/* Subtle molecular dot watermark used on ecological/category sections */
+.molecular-pattern {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(128, 188, 0, 0.08) 1px,
+    transparent 0
+  );
+  background-size: 28px 28px;
+}
+
+/* Ambient lift used on premium cards */
+.shadow-ambient {
+  box-shadow: var(--shadow-ambient);
+}
+
+.shadow-ambient-lg {
+  box-shadow: var(--shadow-ambient-lg);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

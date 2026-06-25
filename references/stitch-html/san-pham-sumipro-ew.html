@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SUMIPRO EW | Oli Xanh - Giải pháp bảo vệ môi trường</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#444842",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#dee2f3",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#d5d9ea",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c2cab0",
+                        "outline": "#737a64",
+                        "surface-container-high": "#e4e8f9",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#80bc00",
+                        "surface-bright": "#faf9ff",
+                        "inverse-surface": "#2b303d",
+                        "primary-fixed-dim": "#9ad92e",
+                        "surface": "#faf9ff",
+                        "secondary-fixed": "#eaddff",
+                        "on-surface": "#161b27",
+                        "surface-variant": "#dee2f3",
+                        "error": "#ba1a1a",
+                        "surface-light": "#F7FAF2",
+                        "text-muted": "#5C6470",
+                        "on-primary-fixed-variant": "#334f00",
+                        "on-surface-variant": "#424936",
+                        "primary-fixed": "#b5f64a",
+                        "on-secondary-container": "#380085",
+                        "inverse-primary": "#9ad92e",
+                        "secondary": "#6d43c5",
+                        "surface-tint": "#456800",
+                        "primary": "#456800",
+                        "on-background": "#161b27",
+                        "on-secondary-fixed-variant": "#5426ac",
+                        "on-tertiary-fixed": "#191d18",
+                        "inverse-on-surface": "#edf0ff",
+                        "border-soft": "#E5EBE0",
+                        "tertiary-fixed-dim": "#c4c8c0",
+                        "on-tertiary-container": "#3c403b",
+                        "on-secondary-fixed": "#24005b",
+                        "tertiary-fixed": "#e0e4dc",
+                        "on-primary-container": "#2d4600",
+                        "text-primary": "#1A1F2B",
+                        "surface-container-low": "#f1f3ff",
+                        "on-primary-fixed": "#121f00",
+                        "secondary-fixed-dim": "#d1bcff",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#5c5f5a",
+                        "secondary-container": "#a47bff",
+                        "surface-container": "#e9edfe",
+                        "background": "#faf9ff",
+                        "tertiary-container": "#a8aca5",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1.5rem",
+                        "pill": "9999px"
+                    },
+                    "spacing": {
+                        "stack-gap-md": "16px",
+                        "stack-gap-lg": "32px",
+                        "gutter": "24px",
+                        "section-padding-md": "48px",
+                        "container-max": "1280px",
+                        "section-padding-lg": "80px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Be Vietnam Pro"],
+                        "display-lg": ["Be Vietnam Pro"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "label-md": ["Be Vietnam Pro"],
+                        "headline-lg": ["Be Vietnam Pro"],
+                        "headline-md": ["Be Vietnam Pro"],
+                        "caption": ["Be Vietnam Pro"],
+                        "headline-lg-mobile": ["Be Vietnam Pro"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+        .molecular-pattern {
+            background-image: radial-gradient(circle at 2px 2px, #80bc00 1px, transparent 0);
+            background-size: 32px 32px;
+            opacity: 0.05;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.33); }
+            80%, 100% { opacity: 0; }
+        }
+        .pulse-effect::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: #80bc00;
+            animation: pulse-ring 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar -->
+<header class="fixed w-full top-0 z-50 bg-surface/90 backdrop-blur-md shadow-[0_10px_30px_rgba(26,31,43,0.04)]">
+<div class="max-w-container-max mx-auto flex justify-between items-center px-gutter py-4">
+<a class="font-headline-md text-headline-md font-bold text-primary" href="#">Oli Xanh</a>
+<nav class="hidden md:flex items-center gap-stack-gap-lg">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Trang chủ</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Giới thiệu</a>
+<a class="font-label-md text-label-md text-primary font-bold border-b-2 border-primary" href="#">Sản phẩm</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Tin tức</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Liên hệ</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="bg-primary text-on-primary px-6 py-2 rounded-pill font-label-md text-label-md transition-transform active:scale-95">Call Hotline</button>
+<span class="material-symbols-outlined cursor-pointer text-on-surface-variant">search</span>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-section-padding-lg">
+<!-- Breadcrumb -->
+<div class="max-w-container-max mx-auto px-gutter py-6">
+<nav class="flex text-label-md font-label-md text-on-surface-variant gap-2 items-center">
+<a class="hover:text-primary transition-colors" href="#">Trang chủ</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Cửa hàng</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Hóa chất diệt côn trùng</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-bold">Sumipro EW</span>
+</nav>
+</div>
+<!-- Product Hero -->
+<section class="max-w-container-max mx-auto px-gutter mb-stack-gap-lg">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-stack-gap-lg items-start">
+<!-- Left: Image Gallery -->
+<div class="space-y-4">
+<div class="bg-white rounded-2xl p-8 shadow-[0_10px_30px_rgba(26,31,43,0.04)] border border-border-soft overflow-hidden relative group">
+<div class="absolute inset-0 molecular-pattern"></div>
+<img class="w-full h-auto object-contain mix-blend-multiply transition-transform duration-500 group-hover:scale-105" data-alt="A premium commercial studio photograph of a 1L bottle of SUMIPRO EW insecticide. The bottle is white plastic with a professional chemical label featuring Sumitomo Chemical branding and yellow/blue accents. It is centered in a brightly lit, minimalist white studio setting with soft ambient shadows and a crisp, clinical aesthetic that highlights its scientific purity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDPDf3-viBhs-P6xnfx61YWptsScdfLCWrUu2ce2QE_w0F4GtrTJP62ROxOOf9LE6-i6XSD73y6CWCvLVD6NiW5mDKkhVTSrShKZHfm79kA8tZBWES6eGDPjvYFDwGCgZe6PX7nWIZbs7JGmAaOVOMKgRjVM62tzfJ9EHOS54ZPoYjOOy9PuQkzFJ4h8xrmIpZxhHj7BFhj33D7iKJxike85Lq0o2iO8TonccizMkSi4_RClICKwM6hxcq2fm1o1H53omRDANsW3bT"/>
+</div>
+<div class="grid grid-cols-4 gap-4">
+<div class="bg-white rounded-xl p-2 border-2 border-primary cursor-pointer">
+<img class="w-full aspect-square object-contain" data-alt="Close up thumbnail of a white industrial insecticide bottle showing the Sumitomo Chemical logo and product name SUMIPRO EW with high precision lighting in a sterile laboratory environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBWj4Vz1zcDERgU417HAuPgKjGELZz__-luIfdma8nbwfxEk0VXNr9vGTBIuVUzJg2e6I295skHdkhwyz3L1n8LMx7oKv6kSevigesblPMiafK49x4KXXyirWRdIIvDoaiHqPRkJhCZvw0n-ykRYbdBZe97ELwvKAOiWuB4D-JH0iXT7HBeI0gbfp9asCaCMjlKK8Y4RiF3mm4byzt6Mj8bs03JNP1cc3snsI_iXVOIGRZUpDUrGq91gvXzIB2NbduSDpxoE1-y3-6"/>
+</div>
+<div class="bg-white rounded-xl p-2 border border-border-soft hover:border-primary cursor-pointer transition-colors">
+<img class="w-full aspect-square object-contain" data-alt="Technical side view thumbnail of a chemical product bottle showing concentration labels and safety icons in a modern light mode aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDd3PrTE4Lik3uNMlYFK2x3ciPMbN-c3ezzAbiDvL9dgt0geQveRJjdCwCtdjJv95mYB3YSmGZXbYW9YuWT1KcZjDBAhb82v2Xy5pVf2-hSK2dV053j6SfceL3CL2luIli0io9J-SiXL_dIvYcPmfE6dAaqoZrbboHdh4rNs--qBg1hVBJt-CZcs4ZYbJK7SGlyijtgJvFcEAl16C5qDIEp3YjpxmqwBM-aIHzZneUmEq72wlEFdvpVHG4fYR_rFSt8UPKYIlpzK14V"/>
+</div>
+<div class="bg-white rounded-xl p-2 border border-border-soft hover:border-primary cursor-pointer transition-colors">
+<img class="w-full aspect-square object-contain" data-alt="Back of the label shot showing safety instructions and ingredient list for a professional pesticide in a clean studio setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAh_lM8MipqnJhOng9R4v-rSxa7QynudKLc_alZ_vSJ5oKBtyIZZFkUR9iUlIrR3LnEdEP1PXiPFENGUfAZ1K2uzAoTm76K3RTuKUw-PDWy7TsmiiG1KG6rTZLeuKY0DTnhZT_dKz8xn6s75GUOJZZ3D1nQkLevNgap884vwOvHkRfB7he4f6mrcRCLQxUqMOlzo1cayv-QSZk3mqlVnbAfJ5EvA3bXnowLPBP6dqywX1Tz13iDlwyBp7iM4PQzxCbFm8kuslFgV8_N"/>
+</div>
+<div class="bg-white rounded-xl p-2 border border-border-soft hover:border-primary cursor-pointer transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">play_circle</span>
+</div>
+</div>
+</div>
+<!-- Right: Product Info -->
+<div class="flex flex-col gap-6">
+<div>
+<span class="bg-surface-light text-primary px-4 py-1 rounded-pill text-label-md font-bold uppercase tracking-wider">HÓA CHẤT DIỆT CÔN TRÙNG</span>
+<h1 class="font-display-lg text-display-lg text-primary mt-4">SUMIPRO EW</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-4 leading-relaxed">
+                            Giải pháp hàng đầu từ Sumitomo Chemical Nhật Bản. Sumipro EW được thiết kế đặc biệt để kiểm soát muỗi và ruồi hiệu quả vượt trội, an toàn cho môi trường sống hiện đại.
+                        </p>
+</div>
+<div class="bg-surface-light border border-primary-container/30 p-6 rounded-2xl flex items-start gap-4">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">info</span>
+<p class="font-label-md text-label-md text-on-primary-fixed-variant">
+                            Liên hệ ngay để nhận báo giá tốt nhất cho doanh nghiệp và hộ gia đình. Đội ngũ chuyên gia của chúng tôi sẵn sàng hỗ trợ bạn 24/7.
+                        </p>
+</div>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="bg-primary hover:bg-primary/90 text-on-primary px-8 py-4 rounded-xl font-headline-md text-headline-md flex items-center gap-2 transition-all active:scale-95 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">call</span>
+                            Gọi hotline tư vấn
+                        </button>
+<button class="border-2 border-secondary text-secondary hover:bg-secondary/5 px-8 py-4 rounded-xl font-headline-md text-headline-md flex items-center gap-2 transition-all active:scale-95">
+<span class="material-symbols-outlined">chat</span>
+                            Chat Zalo/Messenger
+                        </button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t border-border-soft">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<span class="font-label-md text-label-md">Chính hãng Sumitomo</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<span class="font-label-md text-label-md">An toàn sinh học</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<span class="font-label-md text-label-md">Hiệu quả tức thì</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Product Details Main Content -->
+<section class="max-w-container-max mx-auto px-gutter mt-section-padding-md">
+<div class="bg-white rounded-2xl shadow-[0_10px_30px_rgba(26,31,43,0.04)] border border-border-soft overflow-hidden">
+<!-- Section Nav -->
+<div class="flex overflow-x-auto border-b border-border-soft bg-surface-light">
+<a class="px-8 py-5 font-label-md text-label-md text-primary border-b-2 border-primary whitespace-nowrap" href="#intro">Tìm hiểu chung</a>
+<a class="px-8 py-5 font-label-md text-label-md text-on-surface-variant hover:text-primary whitespace-nowrap transition-colors" href="#usage">Công dụng</a>
+<a class="px-8 py-5 font-label-md text-label-md text-on-surface-variant hover:text-primary whitespace-nowrap transition-colors" href="#ingredients">Thành phần</a>
+<a class="px-8 py-5 font-label-md text-label-md text-on-surface-variant hover:text-primary whitespace-nowrap transition-colors" href="#guide">Hướng dẫn sử dụng</a>
+<a class="px-8 py-5 font-label-md text-label-md text-on-surface-variant hover:text-primary whitespace-nowrap transition-colors" href="#safety">Lưu ý an toàn</a>
+</div>
+<div class="p-8 lg:p-12 space-y-section-padding-md">
+<!-- 1. Scientific Intro -->
+<div class="scroll-mt-24" id="intro">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-3xl">science</span>
+                            Tìm hiểu chung về Sumipro EW
+                        </h2>
+<div class="font-body-md text-body-md text-on-surface-variant leading-relaxed max-w-4xl">
+                            Sumipro EW là chế phẩm diệt côn trùng thế hệ mới, được nghiên cứu và phát triển bởi tập đoàn Sumitomo Chemical (Nhật Bản). Sản phẩm sử dụng công nghệ nhũ dầu (EW) tiên tiến, giúp các hoạt chất phân tán đều và bám dính tốt trên mọi bề mặt, tăng cường hiệu quả tiêu diệt muỗi, ruồi trong thời gian dài mà không gây mùi khó chịu hay để lại vết ố.
+                        </div>
+</div>
+<!-- 2. Target Pests -->
+<div class="scroll-mt-24" id="usage">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-3xl">pest_control</span>
+                            Công dụng chính
+                        </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex gap-4 p-6 rounded-xl bg-surface-light border border-border-soft">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined">bug_report</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2">Kiểm soát muỗi</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Tiêu diệt nhanh chóng muỗi truyền bệnh sốt xuất huyết, sốt rét và Zika ngay tại các điểm tập trung.</p>
+</div>
+</div>
+<div class="flex gap-4 p-6 rounded-xl bg-surface-light border border-border-soft">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined">flutter_dash</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2">Tiêu diệt ruồi</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Hiệu quả cao đối với các loại ruồi nhà, ruồi nhặng gây mất vệ sinh và lan truyền bệnh tiêu hóa.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- 3. Ingredients -->
+<div class="scroll-mt-24" id="ingredients">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-3xl">biotech</span>
+                            Thành phần hoạt chất
+                        </h2>
+<div class="bg-surface-variant/20 rounded-2xl overflow-hidden border border-border-soft">
+<table class="w-full text-left font-body-md text-body-md">
+<thead class="bg-surface-variant/50">
+<tr>
+<th class="p-4 font-bold text-primary">Thành phần</th>
+<th class="p-4 font-bold text-primary">Hàm lượng (w/w)</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-soft">
+<tr>
+<td class="p-4">Metofluthrin</td>
+<td class="p-4">0.10%</td>
+</tr>
+<tr>
+<td class="p-4">d-d-trans-cyphenothrin</td>
+<td class="p-4">6.00%</td>
+</tr>
+<tr>
+<td class="p-4">Piperonyl butoxide (chất hỗ trợ)</td>
+<td class="p-4">10.00%</td>
+</tr>
+<tr class="bg-surface-light">
+<td class="p-4">Phụ gia vừa đủ</td>
+<td class="p-4">100%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- 4. Usage Guide -->
+<div class="scroll-mt-24" id="guide">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-3xl">task_alt</span>
+                            Hướng dẫn sử dụng
+                        </h2>
+<div class="space-y-6">
+<div class="p-6 border-l-4 border-primary bg-surface-light rounded-r-xl">
+<h4 class="font-label-md text-label-md font-bold text-primary mb-2">PHUN MÙ NÓNG (FOGGING)</h4>
+<p class="text-body-md">Pha 1 phần Sumipro EW với 50-100 phần dầu Diesel. Phun 10-20 lít dung dịch cho 1 hecta diện tích ngoài trời.</p>
+</div>
+<div class="p-6 border-l-4 border-primary bg-surface-light rounded-r-xl">
+<h4 class="font-label-md text-label-md font-bold text-primary mb-2">PHUN ULV (ULTRA LOW VOLUME)</h4>
+<p class="text-body-md">Pha loãng với nước theo tỷ lệ 1:10. Phun 500ml dung dịch cho mỗi hecta hoặc 100ml cho 1000m3 không gian.</p>
+</div>
+</div>
+</div>
+<!-- 5. Safety -->
+<div class="scroll-mt-24" id="safety">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-3xl">health_and_safety</span>
+                            Lưu ý an toàn
+                        </h2>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+<div class="text-center space-y-2">
+<div class="w-16 h-16 mx-auto bg-error/10 rounded-full flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-3xl">masks</span>
+</div>
+<span class="text-caption font-label-md block">Đeo khẩu trang</span>
+</div>
+<div class="text-center space-y-2">
+<div class="w-16 h-16 mx-auto bg-error/10 rounded-full flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-3xl">pan_tool</span>
+</div>
+<span class="text-caption font-label-md block">Găng tay bảo hộ</span>
+</div>
+<div class="text-center space-y-2">
+<div class="w-16 h-16 mx-auto bg-error/10 rounded-full flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-3xl">visibility_off</span>
+</div>
+<span class="text-caption font-label-md block">Bảo vệ mắt</span>
+</div>
+<div class="text-center space-y-2">
+<div class="w-16 h-16 mx-auto bg-error/10 rounded-full flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-3xl">child_care</span>
+</div>
+<span class="text-caption font-label-md block">Tránh xa trẻ em</span>
+</div>
+<div class="text-center space-y-2">
+<div class="w-16 h-16 mx-auto bg-error/10 rounded-full flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-3xl">restaurant</span>
+</div>
+<span class="text-caption font-label-md block">Cách ly thực phẩm</span>
+</div>
+<div class="text-center space-y-2">
+<div class="w-16 h-16 mx-auto bg-error/10 rounded-full flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-3xl">wash</span>
+</div>
+<span class="text-caption font-label-md block">Rửa tay sau dùng</span>
+</div>
+</div>
+<div class="mt-8 p-6 bg-error-container text-on-error-container rounded-xl font-label-md text-label-md">
+<strong>NGUY HIỂM:</strong> Đọc kỹ nhãn thuốc trước khi dùng. Không phun vào người, vật nuôi. Đưa người và vật nuôi ra khỏi khu vực phun thuốc ít nhất 30 phút. Bảo quản nơi khô ráo, thoáng mát, xa nguồn thực phẩm và tầm tay trẻ em.
+                        </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Related Products -->
+<section class="max-w-container-max mx-auto px-gutter mt-section-padding-lg">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary">Sản phẩm liên quan</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Các giải pháp diệt côn trùng chuyên nghiệp khác</p>
+</div>
+<a class="text-primary font-bold hover:underline flex items-center gap-1" href="#">
+                    Xem tất cả <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Related 1 -->
+<div class="group bg-white rounded-2xl border border-border-soft overflow-hidden hover:shadow-xl transition-all duration-300">
+<div class="relative aspect-square overflow-hidden bg-surface-light p-8">
+<img class="w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" data-alt="A clean product shot of Sumithrin 10SEC insecticide bottle by Sumitomo Chemical. The bottle is white with professional blue and white labeling, presented in a high-key, modern light mode aesthetic with soft shadows against a pure white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgpXw850jL4ABt24O-hDkDocS9b4Qob2v6FecZlj5P86nChP6UWXsVuJmcmiLbV8sA8crKLTz_E5oFjcF7YBbozjH2Pk8ek57kRj8pBJ3v1jFHUMBK3j1sAgq8zpTutNavLrq-v1bqbZcn4bXQgb9QitwVhRGSO1ic68WYn5qFll-Pp-RkS9J9-SmOPkHtsVQKeF5IIrMwxzIytKUSAPJx9SuMDspj2sEM0u3zuvnVsZ9nyWOnmutQspe6CENV5xH0ijroAa761A1B"/>
+</div>
+<div class="p-6">
+<span class="text-caption font-bold text-on-surface-variant uppercase">Sumitomo</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-1 group-hover:text-primary transition-colors">Sumithrin 10SEC</h3>
+<p class="text-label-md text-on-surface-variant mt-2 line-clamp-2">Chế phẩm diệt muỗi, ruồi, bọ chét hiệu quả cao.</p>
+<button class="w-full mt-6 py-3 border-2 border-primary text-primary font-bold rounded-xl hover:bg-primary hover:text-on-primary transition-all">Liên hệ báo giá</button>
+</div>
+</div>
+<!-- Related 2 -->
+<div class="group bg-white rounded-2xl border border-border-soft overflow-hidden hover:shadow-xl transition-all duration-300">
+<div class="relative aspect-square overflow-hidden bg-surface-light p-8">
+<img class="w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHa7FQP1N65ZHwyoRzy3Nzp9-fC2vnEMROTUUhgXNr2NvIK6tLNi72iiE6Y8mKtoSjCXSBr--Ja7UAEU8t5uXuC1McpIPd48rL-BS_9naUMaaISHmu21DteJGq3aqYQseMOkUQOwE4a_iLHnVSCa7rayO6B8JuGvFMmtYWXjVD_qywG2Tlq0w4y1ycTstn9v5yyOiFLGjAtsP-xDgFFpiSJP35TMYvJMeSFj7j5SVL7HN89pcD9_kiP10gicQk0QtcetS5_zaPTyIR"/>
+</div>
+<div class="p-6">
+<span class="text-caption font-bold text-on-surface-variant uppercase">Sumitomo</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-1 group-hover:text-primary transition-colors">Pesguard FG 161</h3>
+<p class="text-label-md text-on-surface-variant mt-2 line-clamp-2">Dòng sản phẩm chuyên dùng cho kiểm soát côn trùng y tế.</p>
+<button class="w-full mt-6 py-3 border-2 border-primary text-primary font-bold rounded-xl hover:bg-primary hover:text-on-primary transition-all">Liên hệ báo giá</button>
+</div>
+</div>
+<!-- Related 3 -->
+<div class="group bg-white rounded-2xl border border-border-soft overflow-hidden hover:shadow-xl transition-all duration-300">
+<div class="relative aspect-square overflow-hidden bg-surface-light p-8">
+<img class="w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" data-alt="A professional product image of a high-end insecticide bottle for outdoor vector control. Clean white packaging with green and blue technical text, displayed in a sterile minimalist light-mode gallery setting with diffuse lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDChbycLRRKbMhCDos0M3zqH7Pce5caFZ9kMfYFdnHwUOo552O-lsgySn_UYlS7-E-2i9ruhCCF4NnRMARqfpAQt1TJj0vphhueZgzYxag0UCLPJEQ0fVtPa03PXmrf7uE4KPXlzBBFHIPQmJ4cQygDBXUblRKLHAkh0koI04-JIPTDI0c0pHZeF-_1RRmHF-QITxJc-AY7kE77v6EfBbS8xtL0JyOgKBgn5-Bkb95nmODHnJl3fIy6qpS10cudJx2uOGFALBBW5Qdf"/>
+</div>
+<div class="p-6">
+<span class="text-caption font-bold text-on-surface-variant uppercase">Professional</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-1 group-hover:text-primary transition-colors">Gokilaht-S 5EC</h3>
+<p class="text-label-md text-on-surface-variant mt-2 line-clamp-2">Chuyên dụng diệt trừ côn trùng bay và bò nhanh chóng.</p>
+<button class="w-full mt-6 py-3 border-2 border-primary text-primary font-bold rounded-xl hover:bg-primary hover:text-on-primary transition-all">Liên hệ báo giá</button>
+</div>
+</div>
+<!-- Related 4 -->
+<div class="group bg-white rounded-2xl border border-border-soft overflow-hidden hover:shadow-xl transition-all duration-300">
+<div class="relative aspect-square overflow-hidden bg-surface-light p-8">
+<img class="w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" data-alt="Technical product shot of an advanced pest control solution bottle from Sumitomo. White container with detailed safety and ingredient labels, high-precision focus, presented in a corporate science aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDS-qpdgcCgNPQYKOvIt6VtxEBgshr6XxSPHntGSs22B5MXwh5zoj8bplp02MCpdjBMzLrCsvZsdUAVKOmIus596yE6TOPcxXXnjjLLihrdo8iFMqP-LldN57ErdwwsQiuEoU9YJiQ9vegERZhfkxZ3FzRlVGJgnKBpexfKV4iD4ArX2peSso0H5NSVPGCmAIqLnE6ffcCNBQWcIUx4SM9Hn3vmRPUdRWHLhAciBKr5lwVOXvtI7wLssx687sXtSE5rXUSXvCFUByDS"/>
+</div>
+<div class="p-6">
+<span class="text-caption font-bold text-on-surface-variant uppercase">Sumitomo</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-1 group-hover:text-primary transition-colors">Sumilarv 0.5G</h3>
+<p class="text-label-md text-on-surface-variant mt-2 line-clamp-2">Sản phẩm ức chế sinh trưởng ấu trùng côn trùng cực kỳ hiệu quả.</p>
+<button class="w-full mt-6 py-3 border-2 border-primary text-primary font-bold rounded-xl hover:bg-primary hover:text-on-primary transition-all">Liên hệ báo giá</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-border-soft w-full py-section-padding-lg">
+<div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-4 gap-stack-gap-lg">
+<div class="col-span-1 md:col-span-1">
+<span class="font-headline-md text-headline-md font-bold text-primary mb-4 block">Oli Xanh</span>
+<p class="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+                    Đơn vị cung cấp giải pháp kiểm soát côn trùng hàng đầu, đồng hành cùng sức khỏe cộng đồng và sự bền vững của môi trường.
+                </p>
+<div class="flex gap-4 mt-6">
+<a class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors" href="#">
+<span class="material-symbols-outlined">public</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors" href="#">
+<span class="material-symbols-outlined">video_library</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="font-label-md text-label-md font-bold text-on-surface mb-6">Liên kết nhanh</h4>
+<nav class="flex flex-col gap-3 font-body-md text-body-md">
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:underline" href="#">Chính sách bảo mật</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:underline" href="#">Điều khoản sử dụng</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:underline" href="#">Câu hỏi thường gặp</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:underline" href="#">Tuyển dụng</a>
+</nav>
+</div>
+<div>
+<h4 class="font-label-md text-label-md font-bold text-on-surface mb-6">Sản phẩm</h4>
+<nav class="flex flex-col gap-3 font-body-md text-body-md">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Diệt muỗi &amp; Ruồi</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Diệt Mối &amp; Kiến</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Khử trùng &amp; Diệt khuẩn</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Thiết bị bảo hộ</a>
+</nav>
+</div>
+<div>
+<h4 class="font-label-md text-label-md font-bold text-on-surface mb-6">Liên hệ</h4>
+<div class="space-y-4 font-body-md text-body-md text-on-surface-variant">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary shrink-0">location_on</span>
+<span>40 Phạm Ngọc Thạch, Võ Thị Sáu, Quận 3, TP. Hồ Chí Minh</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary shrink-0">call</span>
+<span>028 3822 0127</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary shrink-0">mail</span>
+<span>contact@olixanh.vn</span>
+</div>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-gutter mt-section-padding-md pt-8 border-t border-border-soft text-center text-caption font-body-md text-on-surface-variant">
+            © 2024 Green Oli. All rights reserved. Scientific Protection for Modern Environments.
+        </div>
+</footer>
+<!-- Floating Social Panel -->
+<div class="fixed right-6 bottom-32 z-50 flex flex-col gap-4">
+<a class="w-14 h-14 bg-white rounded-full shadow-lg flex items-center justify-center text-red-600 hover:scale-110 transition-transform border border-border-soft" href="#">
+<span class="material-symbols-outlined">video_library</span>
+</a>
+<a class="w-14 h-14 bg-[#0084FF] rounded-full shadow-lg flex items-center justify-center text-white hover:scale-110 transition-transform" href="#">
+<span class="material-symbols-outlined">chat</span>
+</a>
+<a class="w-14 h-14 bg-primary rounded-full shadow-lg flex items-center justify-center text-white hover:scale-110 transition-transform relative pulse-effect" href="tel:02838220127">
+<span class="material-symbols-outlined relative z-10">call</span>
+</a>
+<a class="w-14 h-14 bg-[#0068FF] rounded-full shadow-lg flex items-center justify-center text-white hover:scale-110 transition-transform font-bold italic" href="#">
+            Zalo
+        </a>
+<a class="w-14 h-14 bg-white rounded-full shadow-lg flex items-center justify-center text-on-surface hover:scale-110 transition-transform border border-border-soft" href="#">
+<span class="material-symbols-outlined">location_on</span>
+</a>
+</div>
+<script>
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update active state in nav
+                    document.querySelectorAll('#usage-nav a').forEach(a => {
+                        a.classList.remove('text-primary', 'border-b-2', 'border-primary');
+                        a.classList.add('text-on-surface-variant');
+                    });
+                    this.classList.add('text-primary', 'border-b-2', 'border-primary');
+                    this.classList.remove('text-on-surface-variant');
+                }
+            });
+        });
+    </script>
+</body></html>

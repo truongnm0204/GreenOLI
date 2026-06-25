@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Giới thiệu | Oli Xanh - Giải pháp kiểm soát côn trùng</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#d5d9ea",
+                    "on-primary-container": "#2d4600",
+                    "inverse-primary": "#9ad92e",
+                    "on-surface-variant": "#424936",
+                    "error": "#ba1a1a",
+                    "on-secondary": "#ffffff",
+                    "inverse-on-surface": "#edf0ff",
+                    "tertiary": "#5c5f5a",
+                    "background": "#faf9ff",
+                    "on-primary-fixed-variant": "#334f00",
+                    "surface-container-lowest": "#ffffff",
+                    "text-muted": "#5C6470",
+                    "primary-container": "#80bc00",
+                    "text-primary": "#1A1F2B",
+                    "tertiary-container": "#a8aca5",
+                    "primary-fixed": "#b5f64a",
+                    "on-primary": "#ffffff",
+                    "outline-variant": "#c2cab0",
+                    "tertiary-fixed": "#e0e4dc",
+                    "outline": "#737a64",
+                    "surface-container": "#e9edfe",
+                    "surface-light": "#F7FAF2",
+                    "on-tertiary-fixed-variant": "#444842",
+                    "surface-container-highest": "#dee2f3",
+                    "secondary": "#6d43c5",
+                    "primary-fixed-dim": "#9ad92e",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#456800",
+                    "on-error": "#ffffff",
+                    "surface": "#faf9ff",
+                    "on-primary-fixed": "#121f00",
+                    "on-secondary-fixed": "#24005b",
+                    "tertiary-fixed-dim": "#c4c8c0",
+                    "on-tertiary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed": "#eaddff",
+                    "surface-container-low": "#f1f3ff",
+                    "inverse-surface": "#2b303d",
+                    "primary": "#456800",
+                    "secondary-fixed-dim": "#d1bcff",
+                    "on-surface": "#161b27",
+                    "on-secondary-fixed-variant": "#5426ac",
+                    "surface-bright": "#faf9ff",
+                    "on-tertiary-container": "#3c403b",
+                    "on-secondary-container": "#380085",
+                    "border-soft": "#E5EBE0",
+                    "on-tertiary-fixed": "#191d18",
+                    "on-background": "#161b27",
+                    "surface-container-high": "#e4e8f9",
+                    "surface-variant": "#dee2f3",
+                    "secondary-container": "#a47bff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "12px",
+                    "xl": "24px",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1280px",
+                    "stack-gap-md": "16px",
+                    "stack-gap-lg": "32px",
+                    "gutter": "24px",
+                    "section-padding-md": "48px",
+                    "section-padding-lg": "80px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Be Vietnam Pro"],
+                    "headline-lg": ["Be Vietnam Pro"],
+                    "body-lg": ["Be Vietnam Pro"],
+                    "label-md": ["Be Vietnam Pro"],
+                    "body-md": ["Be Vietnam Pro"],
+                    "headline-lg-mobile": ["Be Vietnam Pro"],
+                    "headline-md": ["Be Vietnam Pro"],
+                    "caption": ["Be Vietnam Pro"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; background-color: #faf9ff; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .molecular-bg {
+            background-image: radial-gradient(circle at 2px 2px, #80bc00 1px, transparent 0);
+            background-size: 40px 40px;
+            opacity: 0.05;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(250, 249, 255, 0.9) 0%, rgba(229, 235, 224, 0.4) 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(229, 235, 224, 0.5);
+        }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- TopNavBar -->
+<header class="fixed w-full top-0 z-50 bg-surface/90 backdrop-blur-md shadow-[0_10px_30px_rgba(26,31,43,0.04)]">
+<nav class="max-w-container-max mx-auto flex justify-between items-center px-gutter py-4">
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md font-bold text-primary">Oli Xanh</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Trang chủ</a>
+<a class="font-label-md text-label-md text-primary font-bold border-b-2 border-primary" href="#">Giới thiệu</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Sản phẩm</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Tin tức</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Liên hệ</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden lg:flex items-center gap-2 bg-primary text-on-primary px-6 py-2.5 rounded-lg font-label-md transition-transform active:scale-95">
+<span class="material-symbols-outlined text-[20px]">call</span>
+                    Call Hotline
+                </button>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+</header>
+<main class="pt-20">
+<!-- Breadcrumb -->
+<div class="bg-surface-light py-4">
+<div class="max-w-container-max mx-auto px-gutter">
+<nav class="flex text-label-md font-label-md gap-2 text-on-surface-variant">
+<a class="hover:text-primary" href="#">Trang chủ</a>
+<span>/</span>
+<span class="text-primary font-bold">Giới thiệu</span>
+</nav>
+</div>
+</div>
+<!-- Hero Section -->
+<section class="relative py-section-padding-lg overflow-hidden">
+<div class="absolute inset-0 molecular-bg -z-10"></div>
+<div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="space-y-6">
+<h1 class="font-display-lg text-display-lg text-[#FF4081] leading-tight">
+                        GREEN OLI - GIẢI PHÁP KIỂM SOÁT CÔN TRÙNG HIỆN ĐẠI - BỀN VỮNG THEO THỜI GIAN
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                        Tự hào là đơn vị phân phối hàng đầu các giải pháp kiểm soát sinh vật gây hại tại khu vực miền Bắc Việt Nam. Green Oli cam kết mang đến sự an tâm tuyệt đối thông qua các sản phẩm khoa học, an toàn và thân thiện với môi trường.
+                    </p>
+<button class="bg-primary text-on-primary px-8 py-4 rounded-xl font-label-md text-lg hover:shadow-lg transition-all active:scale-95">
+                        Liên hệ ngay
+                    </button>
+</div>
+<div class="relative">
+<div class="rounded-xl overflow-hidden shadow-2xl">
+<img class="w-full h-[500px] object-cover" data-alt="A brightly lit, ultra-modern scientific laboratory interior with clean white surfaces, professional stainless steel equipment, and researchers in lab coats working in the background. The lighting is soft and high-key, reflecting a corporate and expert environment with a clinical, sterile, yet welcoming atmosphere in a light-mode aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOlMGwqiu4QcYK-XEF1FPHQD2RCmls45ohRrPJxaWbnGiWl4r1m7OJ3P6A-n_oemF494J2XAUeLzPEUYyb6C_VAmRdsZVefLeRDrHfGSEbwFyqTapgbYAym3QDRVOBGnPyRtVMKCaag5DkTmiMcgnM0XFG9fp4Yf1xwP-SrKuA6PgHAcA4EWeYk3lXzim15WJGns5Oyo_f9Hs7_XnZy08Yt0QggxcLP_euFzpXzfadhyawBvo2X22PNR4YBNDhnDVf4euhwUBve97a"/>
+</div>
+<div class="absolute -bottom-6 -left-6 glass-card p-6 rounded-xl shadow-lg max-w-[240px]">
+<p class="font-headline-md text-primary font-bold">10+ Năm</p>
+<p class="font-label-md text-on-surface-variant">Kinh nghiệm thực chiến trong ngành kiểm soát côn trùng</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Expertise Section -->
+<section class="py-section-padding-lg bg-surface-container-low">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Đội Ngũ Nhân Lực</h2>
+<div class="w-24 h-1.5 bg-secondary mx-auto rounded-full"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Card 01 -->
+<div class="bg-surface p-8 rounded-xl shadow-[0_10px_30px_rgba(26,31,43,0.04)] border border-border-soft transition-all hover:-translate-y-2">
+<div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-on-primary font-bold text-lg mb-6">01</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Ban cố vấn 10+ năm</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Quy tụ những chuyên gia đầu ngành, dạn dày kinh nghiệm trong việc phân tích và xử lý các ca khó nhất.</p>
+</div>
+<!-- Card 02 -->
+<div class="bg-surface p-8 rounded-xl shadow-[0_10px_30px_rgba(26,31,43,0.04)] border border-border-soft transition-all hover:-translate-y-2">
+<div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-on-primary font-bold text-lg mb-6">02</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Kỹ thuật viên chuyên nghiệp</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Được đào tạo bài bản, nắm vững các quy trình an toàn và vận hành thiết bị hiện đại theo tiêu chuẩn quốc tế.</p>
+</div>
+<!-- Card 03 -->
+<div class="bg-surface p-8 rounded-xl shadow-[0_10px_30px_rgba(26,31,43,0.04)] border border-border-soft transition-all hover:-translate-y-2">
+<div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-on-primary font-bold text-lg mb-6">03</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Chuyên gia hỗ trợ 24/7</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Sẵn sàng giải đáp mọi thắc mắc kỹ thuật và đưa ra phương án xử lý kịp thời cho khách hàng bất cứ lúc nào.</p>
+</div>
+<!-- Card 04 -->
+<div class="bg-surface p-8 rounded-xl shadow-[0_10px_30px_rgba(26,31,43,0.04)] border border-border-soft transition-all hover:-translate-y-2">
+<div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-on-primary font-bold text-lg mb-6">04</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Chăm sóc khách hàng tận tâm</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Luôn lắng nghe và đồng hành cùng khách hàng để mang lại trải nghiệm dịch vụ hài lòng và hiệu quả cao nhất.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Vision & Mission Section (Molecular Precision) -->
+<section class="py-section-padding-lg relative overflow-hidden">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Vision -->
+<div class="p-10 rounded-xl bg-white shadow-[0_10px_30px_rgba(26,31,43,0.04)] text-center relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full -z-0"></div>
+<span class="material-symbols-outlined text-primary text-5xl mb-6 block" style="font-variation-settings: 'FILL' 0">visibility</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-bold">TẦM NHÌN</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Trở thành thương hiệu kiểm soát côn trùng 4.0 hàng đầu, tiên phong trong việc áp dụng công nghệ số vào bảo vệ môi trường sống.</p>
+</div>
+<!-- Mission -->
+<div class="p-10 rounded-xl bg-white shadow-[0_10px_30px_rgba(26,31,43,0.04)] text-center border-2 border-primary/10 relative overflow-hidden">
+<div class="absolute -bottom-4 -left-4 w-24 h-24 bg-secondary/5 rounded-tr-full -z-0"></div>
+<span class="material-symbols-outlined text-secondary text-5xl mb-6 block" style="font-variation-settings: 'FILL' 0">rocket_launch</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-bold">SỨ MỆNH</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Giúp khách hàng tiếp cận với các giải pháp kiểm soát côn trùng hiệu quả, thông minh và an toàn sức khỏe con người.</p>
+</div>
+<!-- Core Values -->
+<div class="p-10 rounded-xl bg-white shadow-[0_10px_30px_rgba(26,31,43,0.04)] text-center relative overflow-hidden">
+<div class="absolute top-1/2 left-0 w-16 h-16 bg-primary/5 rounded-full -translate-x-1/2 -z-0"></div>
+<span class="material-symbols-outlined text-primary text-5xl mb-6 block" style="font-variation-settings: 'FILL' 0">verified</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4 font-bold">GIÁ TRỊ CỐT LÕI</h3>
+<p class="font-headline-md text-primary font-bold">Thực chiến - Hiệu quả - Đồng hành</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Detailed Mission Section -->
+<section class="py-section-padding-lg bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="space-y-8">
+<div class="space-y-4">
+<p class="text-primary font-bold tracking-widest text-sm uppercase">Sứ mệnh chúng tôi</p>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Kiến tạo môi trường sống an toàn và bền vững</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                            Tại Green Oli, sứ mệnh của chúng tôi không chỉ dừng lại ở việc tiêu diệt côn trùng. Chúng tôi hướng đến việc xây dựng một hệ sinh thái kiểm soát chủ động, sử dụng các chế phẩm sinh học đạt chuẩn quốc tế để bảo vệ môi trường. Mỗi dự án là một cam kết về sự tỉ mỉ, từ khâu khảo sát thực địa đến việc áp dụng các công nghệ bẫy bả thông minh, đảm bảo không gây hại cho trẻ nhỏ, vật nuôi và không gian sống xung quanh.
+                        </p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span class="font-label-md text-on-surface">Công nghệ 4.0</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span class="font-label-md text-on-surface">An toàn sinh học</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span class="font-label-md text-on-surface">Tối ưu chi phí</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span class="font-label-md text-on-surface">Hỗ trợ trọn đời</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-3 grid-rows-2 gap-4 h-[500px]">
+<div class="col-span-2 row-span-2 rounded-xl overflow-hidden shadow-md">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVicLnOWrcd0m5RXl_Yht9rTEqiWFQF4-ChEoQeDWBMbkwK0RUmlT2iZFy91X-r7-rD62U9xtxtO6VUKkplmC1dt3rVH5O9p5j2rv3V3OtXoPNMqDbBciyC2fGjQB9jYZ6OQW9NjwQMfVAHuA2W-YyVsW0Pr3_Otx1hQZEf6r4HcSTZNy0APCT1v_uKnv9ja75fm2xISviE2b3JISnqcMZhet5LbvGGlKMaf0YhSQ71_gG2ArzZ7162vcK2I9vOTTAKY1e7rME7vlZ"/>
+</div>
+<div class="rounded-xl overflow-hidden shadow-md">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqI7glBnnjBj4hOKefdhToEKb460tw9GOyFgG7tIHx8YghSEaqYJPRMoiC93d3PpJjRSMOads8NX6uAMlly6KDSNJ2_e7jDHfX5WYCvMjG6mut53Yg1bO3xAOykl35e0bc0F_2F1oIA1Cpk1ankUi4Rd4fIi-fncVOFGesNrj5ovNORzchS4l7z4dTKLJHM6I0uudlP0MdAAkjFhrMNiSi6aI8yvVAdF8HvA61cxwB80iayrI1mdXocibrGkPHfOfhdDd5scJ8jXjg"/>
+</div>
+<div class="rounded-xl overflow-hidden shadow-md bg-primary/10 flex items-center justify-center p-4">
+<img class="w-full h-full object-cover opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVicLnOWrcd0m5RXl_Yht9rTEqiWFQF4-ChEoQeDWBMbkwK0RUmlT2iZFy91X-r7-rD62U9xtxtO6VUKkplmC1dt3rVH5O9p5j2rv3V3OtXoPNMqDbBciyC2fGjQB9jYZ6OQW9NjwQMfVAHuA2W-YyVsW0Pr3_Otx1hQZEf6r4HcSTZNy0APCT1v_uKnv9ja75fm2xISviE2b3JISnqcMZhet5LbvGGlKMaf0YhSQ71_gG2ArzZ7162vcK2I9vOTTAKY1e7rME7vlZ"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Core Values Section (Văn Hóa Cốt Lõi) -->
+<section class="py-section-padding-lg bg-surface-dim/20">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Văn Hóa Cốt Lõi</h2>
+<p class="text-on-surface-variant font-body-md">Giá trị nền tảng tạo nên sự khác biệt của Green Oli</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Value Box 1 -->
+<div class="flex bg-surface-light border-l-4 border-primary rounded-r-xl p-8 shadow-sm transition-transform hover:scale-[1.01]">
+<div class="space-y-3">
+<h4 class="font-headline-md text-headline-md text-primary">Thực chiến</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Không chỉ lý thuyết suông, chúng tôi tập trung vào những giải pháp đã được chứng minh hiệu quả qua hàng ngàn dự án thực tế trên khắp miền Bắc.</p>
+</div>
+</div>
+<!-- Value Box 2 -->
+<div class="flex bg-surface-light border-l-4 border-primary rounded-r-xl p-8 shadow-sm transition-transform hover:scale-[1.01]">
+<div class="space-y-3">
+<h4 class="font-headline-md text-headline-md text-primary">Hiệu quả</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Cam kết kết quả tối ưu trong thời gian ngắn nhất, giúp khách hàng tiết kiệm nguồn lực và duy trì môi trường sạch sẽ lâu dài.</p>
+</div>
+</div>
+<!-- Value Box 3 -->
+<div class="flex bg-surface-light border-l-4 border-primary rounded-r-xl p-8 shadow-sm transition-transform hover:scale-[1.01]">
+<div class="space-y-3">
+<h4 class="font-headline-md text-headline-md text-primary">Đồng hành</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Chúng tôi coi khách hàng là đối tác chiến lược, luôn sát cánh hỗ trợ kỹ thuật và tư vấn phòng ngừa côn trùng định kỳ.</p>
+</div>
+</div>
+<!-- Value Box 4 -->
+<div class="flex bg-surface-light border-l-4 border-primary rounded-r-xl p-8 shadow-sm transition-transform hover:scale-[1.01]">
+<div class="space-y-3">
+<h4 class="font-headline-md text-headline-md text-primary">Cam kết</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Tuyệt đối tuân thủ các quy định về an toàn hóa chất, cam kết sử dụng hàng chính hãng và bảo hành dịch vụ uy tín.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-section-padding-md bg-secondary text-on-secondary">
+<div class="max-w-container-max mx-auto px-gutter flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="text-center md:text-left">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-2">Bạn cần tư vấn giải pháp kiểm soát côn trùng?</h2>
+<p class="font-body-md text-on-secondary/80">Liên hệ ngay để nhận khảo sát miễn phí trong vòng 24h.</p>
+</div>
+<button class="bg-white text-secondary px-10 py-4 rounded-lg font-bold hover:bg-surface-dim transition-colors whitespace-nowrap">
+                    Nhận tư vấn miễn phí
+                </button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-inverse-surface py-section-padding-lg border-t border-outline-variant">
+<div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-4 gap-stack-gap-lg">
+<div class="col-span-1 md:col-span-1">
+<span class="font-headline-md text-headline-md font-bold text-primary-fixed-dim mb-4 block">Oli Xanh</span>
+<p class="font-body-md text-body-md text-surface-variant mb-6">Chuyên gia hàng đầu về giải pháp bảo vệ môi trường sống từ nền tảng khoa học và công nghệ hiện đại.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">public</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-white mb-6 uppercase tracking-wider text-sm">Về chúng tôi</h4>
+<ul class="space-y-4">
+<li><a class="font-body-md text-surface-variant hover:text-primary transition-colors" href="#">Giới thiệu công ty</a></li>
+<li><a class="font-body-md text-surface-variant hover:text-primary transition-colors" href="#">Tầm nhìn - Sứ mệnh</a></li>
+<li><a class="font-body-md text-surface-variant hover:text-primary transition-colors" href="#">Đội ngũ chuyên gia</a></li>
+<li><a class="font-body-md text-surface-variant hover:text-primary transition-colors" href="#">Tuyển dụng</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-white mb-6 uppercase tracking-wider text-sm">Hỗ trợ khách hàng</h4>
+<ul class="space-y-4">
+<li><a class="font-body-md text-surface-variant hover:text-primary transition-colors" href="#">Chính sách bảo mật</a></li>
+<li><a class="font-body-md text-surface-variant hover:text-primary transition-colors" href="#">Điều khoản sử dụng</a></li>
+<li><a class="font-body-md text-surface-variant hover:text-primary transition-colors" href="#">Câu hỏi thường gặp</a></li>
+<li><a class="font-body-md text-surface-variant hover:text-primary transition-colors" href="#">Liên hệ báo giá</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-white mb-6 uppercase tracking-wider text-sm">Văn phòng</h4>
+<p class="font-body-md text-surface-variant mb-4">
+<span class="font-bold text-primary-fixed-dim">Miền Bắc:</span><br/>
+                    Tòa nhà TechCenter, Q. Cầu Giấy, Hà Nội
+                </p>
+<p class="font-body-md text-surface-variant">
+<span class="font-bold text-primary-fixed-dim">Hotline:</span><br/>
+                    1900 68XX (24/7)
+                </p>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-gutter mt-16 pt-8 border-t border-white/10 text-center">
+<p class="font-caption text-surface-variant/60">© 2024 Green Oli. All rights reserved. Scientific Protection for Modern Environments.</p>
+</div>
+</footer>
+<script>
+        // Micro-interactions and subtle scroll effects
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+        });
+        
+        // Simple hover animation for molecular background
+        document.addEventListener('mousemove', (e) => {
+            const bg = document.querySelector('.molecular-bg');
+            if(bg) {
+                const moveX = (e.clientX / window.innerWidth) * 20;
+                const moveY = (e.clientY / window.innerHeight) * 20;
+                bg.style.backgroundPosition = `${moveX}px ${moveY}px`;
+            }
+        });
+    </script>
+</body></html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tin Tức | Green Oli - Chuyên Gia Nông Nghiệp</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .molecular-pattern {
+            background-color: #faf9ff;
+            background-image: radial-gradient(#80bc00 0.5px, transparent 0.5px), radial-gradient(#80bc00 0.5px, #faf9ff 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            opacity: 0.05;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#dee2f3",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#c2cab0",
+                        "surface-tint": "#456800",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#6d43c5",
+                        "on-primary-fixed": "#121f00",
+                        "primary-container": "#80bc00",
+                        "tertiary-fixed": "#e0e4dc",
+                        "on-tertiary-fixed": "#191d18",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#e4e8f9",
+                        "on-background": "#161b27",
+                        "secondary-fixed": "#eaddff",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#2d4600",
+                        "background": "#faf9ff",
+                        "secondary-container": "#a47bff",
+                        "surface-container": "#e9edfe",
+                        "on-secondary-fixed": "#24005b",
+                        "primary": "#456800",
+                        "primary-fixed-dim": "#9ad92e",
+                        "inverse-surface": "#2b303d",
+                        "on-surface-variant": "#424936",
+                        "inverse-on-surface": "#edf0ff",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#5c5f5a",
+                        "inverse-primary": "#9ad92e",
+                        "surface-variant": "#dee2f3",
+                        "on-secondary-container": "#380085",
+                        "secondary-fixed-dim": "#d1bcff",
+                        "surface-bright": "#faf9ff",
+                        "on-tertiary-container": "#3c403b",
+                        "text-muted": "#5C6470",
+                        "on-secondary-fixed-variant": "#5426ac",
+                        "surface-container-low": "#f1f3ff",
+                        "on-tertiary-fixed-variant": "#444842",
+                        "tertiary-container": "#a8aca5",
+                        "on-primary-fixed-variant": "#334f00",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#c4c8c0",
+                        "border-soft": "#E5EBE0",
+                        "on-surface": "#161b27",
+                        "primary-fixed": "#b5f64a",
+                        "outline": "#737a64",
+                        "surface-dim": "#d5d9ea",
+                        "text-primary": "#1A1F2B",
+                        "surface-light": "#F7FAF2",
+                        "on-error": "#ffffff",
+                        "surface": "#faf9ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "3xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-padding-md": "48px",
+                        "section-padding-lg": "80px",
+                        "gutter": "24px",
+                        "stack-gap-lg": "32px",
+                        "container-max": "1280px",
+                        "margin-mobile": "16px",
+                        "stack-gap-md": "16px"
+                    },
+                    "fontFamily": {
+                        "caption": ["Be Vietnam Pro"],
+                        "headline-md": ["Be Vietnam Pro"],
+                        "headline-lg-mobile": ["Be Vietnam Pro"],
+                        "display-lg": ["Be Vietnam Pro"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "headline-lg": ["Be Vietnam Pro"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "label-md": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="bg-surface/90 dark:bg-surface-dim/90 backdrop-blur-md shadow-sm fixed top-0 w-full z-50">
+<nav class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-20">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">
+                Green Oli
+            </div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant dark:text-on-tertiary-fixed-variant hover:text-primary transition-colors font-body-md" href="#">Trang chủ</a>
+<a class="text-on-surface-variant dark:text-on-tertiary-fixed-variant hover:text-primary transition-colors font-body-md" href="#">Giới thiệu</a>
+<a class="text-on-surface-variant dark:text-on-tertiary-fixed-variant hover:text-primary transition-colors font-body-md" href="#">Cửa hàng</a>
+<a class="text-primary dark:text-primary-fixed-dim font-bold border-b-2 border-primary font-body-md" href="#">Tin tức</a>
+<a class="text-on-surface-variant dark:text-on-tertiary-fixed-variant hover:text-primary transition-colors font-body-md" href="#">Liên hệ</a>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center bg-surface-container rounded-full px-4 py-2">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md ml-2 w-32" placeholder="Tìm kiếm..." type="text"/>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-label-md hover:opacity-90 transition-all">
+                    Đăng nhập
+                </button>
+</div>
+</nav>
+</header>
+<!-- SideNavBar (Contact Anchors) -->
+<aside class="fixed right-4 top-1/2 -translate-y-1/2 z-40 flex flex-col items-center gap-4 bg-surface-container-high dark:bg-surface-container-highest shadow-lg rounded-full py-4 w-16">
+<a class="text-secondary dark:text-secondary-fixed p-3 hover:bg-secondary-container hover:scale-110 transition-transform flex items-center justify-center" href="#" title="Zalo">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+</a>
+<a class="text-secondary dark:text-secondary-fixed p-3 hover:bg-secondary-container hover:scale-110 transition-transform flex items-center justify-center" href="#" title="Messenger">
+<span class="material-symbols-outlined" data-icon="forum">forum</span>
+</a>
+<a class="bg-secondary text-on-secondary rounded-full p-3 hover:scale-110 transition-transform flex items-center justify-center" href="#" title="Hotline">
+<span class="material-symbols-outlined" data-icon="call">call</span>
+</a>
+<a class="text-secondary dark:text-secondary-fixed p-3 hover:bg-secondary-container hover:scale-110 transition-transform flex items-center justify-center" href="#" title="Email">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+</a>
+</aside>
+<main class="mt-20">
+<!-- Page Header Section -->
+<section class="relative pt-section-padding-md pb-12 overflow-hidden">
+<div class="absolute inset-0 molecular-pattern pointer-events-none"></div>
+<div class="max-w-container-max mx-auto px-gutter relative z-10">
+<nav class="flex mb-6 text-on-surface-variant font-label-md">
+<a class="hover:text-primary transition-colors" href="#">Trang chủ</a>
+<span class="mx-2">/</span>
+<span class="text-primary font-bold">Tin tức</span>
+</nav>
+<div class="max-w-3xl">
+<h1 class="font-display-lg text-display-lg text-text-primary mb-4 leading-tight">
+                        Tin Tức <span class="text-primary">Nhà Nông</span>
+</h1>
+<p class="text-body-lg text-on-surface-variant leading-relaxed">
+                        Cập nhật kiến thức nông nghiệp bền vững, kỹ thuật canh tác hiện đại và các giải pháp kiểm soát côn trùng tiên tiến nhất từ chuyên gia Santari.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Featured Article Section -->
+<section class="pb-section-padding-lg">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Large Featured Card -->
+<div class="lg:col-span-8 group">
+<div class="relative rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 bg-white">
+<div class="aspect-video w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A cinematic, wide-angle shot of a lush, vibrant organic farm during golden hour, where sunlight filters through green leaves. In the foreground, a modern expert in a clean lab coat examines a leaf with precision. The atmosphere is professional, serene, and clean, featuring soft focus on a high-tech agricultural device. The lighting is warm yet crisp, emphasizing the clinical purity and organic vitality of the Green Oli brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeGpEEcfVCdcy-ZrRB4xE2ElulXZgkBwL9e8Ja7HqPKNhMghW_wL8bfUfOurX3uKxvhVlZOdXWWh0KWX1e6goefpLPAVmm478THkhn3K23BzIxNEHugQKdPME6pn7l_QqaJJ0HY4Vt0W8AFe_hmRfOlYGQy92VsUA-Xa1qcWDzbQcUZ5FQlHguHj3tlOW-Gyf2HO5dcOW-tusywhHj06YLt4tqIrLGrw-2lwlFBnG5tjZHgluu7_msOgGEnsDXWDCmv3o05DxEb6JJ"/>
+</div>
+<div class="p-8">
+<div class="flex items-center gap-4 mb-4">
+<span class="bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full text-caption font-bold">NỔI BẬT</span>
+<span class="text-on-surface-variant text-caption flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span> 12/05/2024
+                                    </span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-text-primary mb-4 group-hover:text-primary transition-colors">
+                                    Giải pháp kiểm soát sâu bệnh sinh học: Tương lai của nông nghiệp sạch
+                                </h2>
+<p class="text-body-md text-on-surface-variant mb-6 line-clamp-3">
+                                    Sử dụng các chế phẩm sinh học không chỉ bảo vệ cây trồng hiệu quả mà còn giữ vững hệ sinh thái đất. Chuyên gia Green Oli phân tích cách thức hoạt động của các phân tử hữu cơ trong việc ngăn chặn côn trùng gây hại mà không gây độc hại cho môi trường...
+                                </p>
+<a class="inline-flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all" href="#">
+                                    Xem chi tiết bài viết <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Side Articles Column -->
+<div class="lg:col-span-4 flex flex-col gap-6">
+<div class="flex gap-4 group cursor-pointer">
+<div class="w-32 h-24 rounded-2xl overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A close-up shot of healthy green leaves being misted with a fine, clear water spray in a bright, modern greenhouse. The lighting is clinical and bright, highlighting individual water droplets that sparkle like diamonds. The background is a soft-focus blur of advanced agricultural equipment, maintaining a professional and scientific guardian aesthetic with subtle green and white tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCshydV1140Sc8IQFR0keIiz1eD1tgsIpkKpmexYQYfyofI3O4_yjVlmbM1veJJqF0v5iAzQn0kpCNJNszilnJj2TOahSv9Gad78rpqaQf2viEfbYvxwq2bGbziQFHdnB0VQDi62c2p3pG1VpMPJj6dSo_Di5z0fUuE3iSEyn7h_F5ZHKEU_KSTj3Nn9Ypb57dRqCWsD85vwWaJ1ygRY4JN4E8LLqENozXyENGiGPJItHtk7kQMprRDNVHWeCkPllLsvCp4xrje8I1f"/>
+</div>
+<div class="flex flex-col justify-center">
+<span class="text-primary text-caption font-bold mb-1">KỸ THUẬT</span>
+<h3 class="text-body-md font-bold text-text-primary line-clamp-2 group-hover:text-primary transition-colors">Cách tối ưu hóa lượng phân bón cho cây ăn trái</h3>
+</div>
+</div>
+<div class="flex gap-4 group cursor-pointer">
+<div class="w-32 h-24 rounded-2xl overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Microscopic view of organic molecular structures rendered in a clean, 3D digital style with a soft green and violet glow. The atmosphere is scientific and professional, symbolizing ecological protection and chemical purity. Soft ambient lighting creates a lifted, modern feel against a white gallery-style background, following the Green Oli brand's corporate minimalist personality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx-shKt7m7pbCYoh3mGVf048-3lBdAciEcVtBiQg3jsJi2Hj1k8yq7bk0Anw4KQ46feplpgr9fbA5HFvrbDmOme4EexsmcH3eeedk8diyQiJaiL3Mc9yFvbWWbZZ6TTnQAWnIeT2ZGRfHrgb4CO4fC3eVzjuSpD2DglN10sK_qu6HsQNLK4D31pdN6rcTonWmZKnZO7nh8Db_tqb5EzAlWwCAvJVGpvbsrRXzUIy425IftRWoyHyIbo5D_BIEDTTCoziSDKRIQja1e"/>
+</div>
+<div class="flex flex-col justify-center">
+<span class="text-primary text-caption font-bold mb-1">CÔNG NGHỆ</span>
+<h3 class="text-body-md font-bold text-text-primary line-clamp-2 group-hover:text-primary transition-colors">Công nghệ Nano trong bảo vệ thực vật</h3>
+</div>
+</div>
+<div class="flex gap-4 group cursor-pointer">
+<div class="w-32 h-24 rounded-2xl overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A wide, minimalist landscape of a sustainable orchard under a clear blue sky. The rows of trees are perfectly aligned, demonstrating precision and expert care. The lighting is high-key and optimistic, reflecting a safe, eco-conscious environment. The visual style is crisp and modern, emphasizing the role of the Scientific Guardian in protecting nature through advanced expertise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6fArP-bxY5lQJRpLMMaflZLnA54csRhes30ljhfeH5RjRTYwT3Anp9nXyci09LA_E1rp42CMCCaByqOv2vMi3MVaWwvNuHdTubIXPss8N-UOjNuoi2tD5Zn080inUB8YDGv4jcfb-SNk0g25C774HZ97uEz4hO9EEXnrYQIyyTTQ_TSk1Lu11nME5zj5oKndkOy6qVYzbhLv2_nDWtIaXyug3ZOwvkGtmoAFLieCbPBj6BOybmtNnao-ADmHS91MRvTXprl3gaiaJ"/>
+</div>
+<div class="flex flex-col justify-center">
+<span class="text-primary text-caption font-bold mb-1">XU HƯỚNG</span>
+<h3 class="text-body-md font-bold text-text-primary line-clamp-2 group-hover:text-primary transition-colors">Xu hướng nông nghiệp bền vững năm 2024</h3>
+</div>
+</div>
+<!-- CTA Newsletter -->
+<div class="mt-4 p-6 rounded-3xl bg-secondary-container/10 border border-secondary/20 relative overflow-hidden">
+<div class="relative z-10">
+<h4 class="text-body-md font-bold text-secondary mb-2">Đăng ký nhận bản tin</h4>
+<p class="text-caption text-on-surface-variant mb-4">Nhận thông báo về kiến thức mới nhất hàng tuần.</p>
+<div class="flex gap-2">
+<input class="flex-1 bg-white rounded-xl border-border-soft focus:border-secondary focus:ring-0 text-caption px-4" placeholder="Email của bạn" type="email"/>
+<button class="bg-secondary text-on-secondary p-2 rounded-xl">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+<div class="absolute -bottom-4 -right-4 w-24 h-24 bg-secondary/5 rounded-full blur-xl"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- News Grid Section -->
+<section class="py-section-padding-lg bg-surface-container-low">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-text-primary mb-2">Kiến Thức Chuyên Sâu</h2>
+<div class="w-20 h-1.5 bg-primary-container rounded-full"></div>
+</div>
+<div class="flex gap-3">
+<button class="px-5 py-2 rounded-full bg-primary text-on-primary font-label-md">Tất cả</button>
+<button class="px-5 py-2 rounded-full bg-white border border-border-soft text-on-surface-variant hover:border-primary hover:text-primary transition-all font-label-md">Kỹ thuật</button>
+<button class="px-5 py-2 rounded-full bg-white border border-border-soft text-on-surface-variant hover:border-primary hover:text-primary transition-all font-label-md">Sản phẩm</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-stack-gap-lg">
+<!-- Card 1 -->
+<div class="rounded-2xl overflow-hidden shadow-sm group hover:translate-y-[-8px] transition-all duration-300 flex flex-col h-full" style="background: linear-gradient(to right, #01931C, #0A680C);">
+<div class="aspect-[16/10] overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Close up of a vibrant green coffee plant leaf being examined under soft, professional lighting. The leaf is healthy and clean, symbolizing successful protection. The atmosphere is clinical and safe, with a bright white-mode aesthetic. High-quality digital photography emphasizing the expert, scientific approach of Green Oli in ecological preservation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMxdYBkI7ayaeD-sKficBYUIwdoRSeOWDIfH8enJCqD0LT7TSRD3GDRhKNcsVRC0aKt4qJFcLK6MGYbAitOUXEggvCKX9Bf6R0Vsq9Qa_KHlAEegVlrRL4kx-Hdl1PrnDUCcQVtLVbx-4Q07dm5oh3vNtz8H3RiR1O1nDdbRQh0bS9ymztAK605dlBbxBHXKlsp7FH1dxr4gh7X-T472vXM17IFWtDrI9PcFv6HgcgOWIOYgaGxLs1gDZhKLbB5zwepjmxnj99LiPG"/>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<h3 class="text-headline-md font-bold text-white mb-3 line-clamp-2">Bảo vệ cây cà phê khỏi rệp sáp bằng công nghệ mới</h3>
+<p class="text-white/95 text-body-md mb-6 line-clamp-3">Tìm hiểu cách Green Oli ứng dụng các phân tử hữu cơ để kiểm soát rệp sáp hiệu quả mà không làm ảnh hưởng đến chất lượng hạt cà phê xuất khẩu.</p>
+<div class="mt-auto">
+<a class="text-white font-bold inline-flex items-center gap-1 hover:gap-3 transition-all" href="#">
+                                    Chi tiết bài viết <span class="material-symbols-outlined">arrow_right_alt</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="rounded-2xl overflow-hidden shadow-sm group hover:translate-y-[-8px] transition-all duration-300 flex flex-col h-full" style="background: linear-gradient(to right, #01931C, #0A680C);">
+<div class="aspect-[16/10] overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A clean, modern soil lab where a scientist in protective gear is working with organic soil samples. The room is flooded with natural light, creating a bright and airy atmosphere. The focus is on precision and scientific purity, using a color palette of pristine whites and lush greens to convey a sense of ecological guardianship." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxPo0vqjlW3gN1BhEuUDlqkC_nQ3oHcSjQ2iwbjb3L48sSrulUH8lZ8UZEvMZKU-oUPuuccxcga_M9wcYFJ47llSxWgcYSs8dBUP4h-a5eG8bR-eQXCK09_5NgiJpTQPcpo0U_u9Wm2JBG6x0uTbcB3t5GNpq6be6QAsxmYxzVXQPQsGE4kO9bwpvGpAp_aeYxqcU83vJqV8IKQ2PNOuQBkZ48C5kyIM4MxByPia54FZ2woAl3tv3DY41S4pV8Ial9pn4IA1keGc9W"/>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<h3 class="text-headline-md font-bold text-white mb-3 line-clamp-2">Cải tạo đất bạc màu bằng phương pháp sinh học</h3>
+<p class="text-white/95 text-body-md mb-6 line-clamp-3">Đất khỏe mạnh là nền tảng của nông nghiệp. Khám phá quy trình 5 bước cải tạo đất bạc màu bằng vi sinh vật bản địa kết hợp dưỡng chất hữu cơ.</p>
+<div class="mt-auto">
+<a class="text-white font-bold inline-flex items-center gap-1 hover:gap-3 transition-all" href="#">
+                                    Chi tiết bài viết <span class="material-symbols-outlined">arrow_right_alt</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="rounded-2xl overflow-hidden shadow-sm group hover:translate-y-[-8px] transition-all duration-300 flex flex-col h-full" style="background: linear-gradient(to right, #01931C, #0A680C);">
+<div class="aspect-[16/10] overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A close-up of a high-tech agricultural sensor placed in a field of lush green vegetables. The sensor is sleek and modern, representing the intersection of technology and nature. The lighting is crisp and clear, emphasizing the purity of the environment. The overall mood is professional and expert, fitting the Green Oli brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxRZ1YgJivByPkl-EzUePQVvsTbzNbBRD7BPge874tcIoqELzGwAmh3zj91A82bbiEvbeQCgyI0Z0O04GazcBC1-JS7kXZVzYhHNX9Ad1_qOwFelJzQU64LhxbyTJD_fEFIzPOrEgsUbROktSiYpZo_gCOZeT2tUf0-YzdmQEQvJgPhIF6yd1otIRn2xFDOVOc-g3dvd7IvtI_7mePxIXGiz4uoBgOXaj5gJBcRlb86FRNPPW1subnLj143nv6zGcLYA-pSMroesPE"/>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<h3 class="text-headline-md font-bold text-white mb-3 line-clamp-2">Ứng dụng IoT trong quản lý vườn thông minh</h3>
+<p class="text-white/95 text-body-md mb-6 line-clamp-3">Làm thế nào để kết hợp công nghệ cảm biến và các sản phẩm của Green Oli để tạo ra một hệ thống tự động hóa chăm sóc cây trồng tối ưu.</p>
+<div class="mt-auto">
+<a class="text-white font-bold inline-flex items-center gap-1 hover:gap-3 transition-all" href="#">
+                                    Chi tiết bài viết <span class="material-symbols-outlined">arrow_right_alt</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-16 flex justify-center items-center gap-2">
+<button class="w-10 h-10 rounded-full border border-border-soft flex items-center justify-center hover:bg-primary-container hover:text-white transition-all">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">1</button>
+<button class="w-10 h-10 rounded-full border border-border-soft flex items-center justify-center hover:bg-primary-container hover:text-white transition-all">2</button>
+<button class="w-10 h-10 rounded-full border border-border-soft flex items-center justify-center hover:bg-primary-container hover:text-white transition-all">3</button>
+<button class="w-10 h-10 rounded-full border border-border-soft flex items-center justify-center hover:bg-primary-container hover:text-white transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- CTA Expert Advice -->
+<section class="py-section-padding-lg">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="relative rounded-3xl overflow-hidden bg-primary p-12 lg:p-20 text-center">
+<div class="absolute inset-0 molecular-pattern opacity-10"></div>
+<div class="relative z-10 max-w-2xl mx-auto">
+<h2 class="font-display-lg text-display-lg text-white mb-6">Bạn đang gặp vấn đề về sâu bệnh?</h2>
+<p class="text-body-lg text-white/90 mb-10">Kết nối trực tiếp với đội ngũ chuyên gia của chúng tôi để được tư vấn giải pháp kiểm soát côn trùng an toàn và hiệu quả nhất cho trang trại của bạn.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="bg-white text-primary px-8 py-4 rounded-full font-bold hover:scale-105 transition-transform">
+                                Liên hệ chuyên gia ngay
+                            </button>
+<button class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white hover:text-primary transition-all">
+                                Xem danh mục sản phẩm
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-inverse-surface border-t border-border-soft">
+<div class="w-full py-section-padding-lg px-gutter max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-stack-gap-lg">
+<div class="col-span-1 md:col-span-1">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim mb-6">
+                    Green Oli
+                </div>
+<p class="text-on-surface-variant font-body-md mb-6 leading-relaxed">
+                    Người bảo vệ khoa học cho hệ sinh thái của bạn. Chúng tôi cung cấp các giải pháp sinh học tiên tiến cho một nền nông nghiệp bền vững.
+                </p>
+<div class="flex gap-4">
+<a class="text-primary hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="text-primary hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined">mail</span></a>
+<a class="text-primary hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined">call</span></a>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-text-primary">Về chúng tôi</h4>
+<a class="text-on-surface-variant hover:text-secondary transition-all" href="#">Giới thiệu</a>
+<a class="text-on-surface-variant hover:text-secondary transition-all" href="#">Đội ngũ chuyên gia</a>
+<a class="text-on-surface-variant hover:text-secondary transition-all" href="#">Dự án cộng đồng</a>
+<a class="text-on-surface-variant hover:text-secondary transition-all" href="#">Tuyển dụng</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-text-primary">Hỗ trợ khách hàng</h4>
+<a class="text-on-surface-variant hover:text-secondary transition-all" href="#">Chính sách bảo mật</a>
+<a class="text-on-surface-variant hover:text-secondary transition-all" href="#">Điều khoản sử dụng</a>
+<a class="text-on-surface-variant hover:text-secondary transition-all" href="#">Hướng dẫn mua hàng</a>
+<a class="text-on-surface-variant hover:text-secondary transition-all" href="#">Câu hỏi thường gặp</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-text-primary">Liên hệ</h4>
+<p class="text-on-surface-variant text-body-md">Địa chỉ: 123 Đường Công Nghệ, Khu Công Nghệ Cao, TP. HCM</p>
+<p class="text-on-surface-variant text-body-md">Hotline: 1900 1234</p>
+<p class="text-on-surface-variant text-body-md">Email: contact@greenoli.com</p>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-gutter py-8 border-t border-border-soft text-center text-on-surface-variant text-caption">
+            © 2024 Green Oli. All rights reserved. Scientific Guardian of Ecology.
+        </div>
+</footer>
+<script>
+        // Micro-interactions and simple animations
+        document.querySelectorAll('.group').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                // Potential hover effects via JS if needed
+            });
+        });
+    </script>
+</body></html>

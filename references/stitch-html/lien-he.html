@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Liên Hệ | Green Oli - Scientific Guardian of Ecology</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100..900&display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(229, 235, 224, 0.5);
+        }
+        .molecular-pattern {
+            background-image: radial-gradient(#80bc00 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            opacity: 0.05;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#eaddff",
+                        "surface-variant": "#dee2f3",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#d1bcff",
+                        "primary": "#456800",
+                        "on-error": "#ffffff",
+                        "text-primary": "#1A1F2B",
+                        "surface-container": "#e9edfe",
+                        "on-tertiary-fixed-variant": "#444842",
+                        "inverse-primary": "#9ad92e",
+                        "secondary": "#6d43c5",
+                        "primary-fixed-dim": "#9ad92e",
+                        "border-soft": "#E5EBE0",
+                        "on-primary": "#ffffff",
+                        "on-surface-variant": "#424936",
+                        "outline": "#737a64",
+                        "outline-variant": "#c2cab0",
+                        "surface-tint": "#456800",
+                        "on-primary-fixed-variant": "#334f00",
+                        "surface-light": "#F7FAF2",
+                        "inverse-on-surface": "#edf0ff",
+                        "error": "#ba1a1a",
+                        "surface": "#faf9ff",
+                        "on-tertiary-container": "#3c403b",
+                        "surface-container-highest": "#dee2f3",
+                        "tertiary-fixed-dim": "#c4c8c0",
+                        "tertiary": "#5c5f5a",
+                        "tertiary-fixed": "#e0e4dc",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#380085",
+                        "surface-dim": "#d5d9ea",
+                        "on-tertiary-fixed": "#191d18",
+                        "surface-container-low": "#f1f3ff",
+                        "background": "#faf9ff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#5426ac",
+                        "inverse-surface": "#2b303d",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#121f00",
+                        "on-secondary-fixed": "#24005b",
+                        "on-background": "#161b27",
+                        "surface-container-high": "#e4e8f9",
+                        "primary-fixed": "#b5f64a",
+                        "text-muted": "#5C6470",
+                        "secondary-container": "#a47bff",
+                        "surface-bright": "#faf9ff",
+                        "primary-container": "#80bc00",
+                        "on-surface": "#161b27",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#2d4600",
+                        "tertiary-container": "#a8aca5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "section-padding-md": "48px",
+                        "stack-gap-md": "16px",
+                        "section-padding-lg": "80px",
+                        "stack-gap-lg": "32px",
+                        "gutter": "24px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Be Vietnam Pro"],
+                        "label-md": ["Be Vietnam Pro"],
+                        "headline-lg": ["Be Vietnam Pro"],
+                        "caption": ["Be Vietnam Pro"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "headline-md": ["Be Vietnam Pro"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="bg-surface/90 backdrop-blur-md shadow-sm sticky top-0 z-50 w-full h-20 transition-all duration-300">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-full">
+<div class="font-headline-md text-headline-md font-bold text-primary">Green Oli</div>
+<!-- Desktop Links -->
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors" href="#">Trang chủ</a>
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors" href="#">Giới thiệu</a>
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors" href="#">Cửa hàng</a>
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors" href="#">Tin tức</a>
+<a class="text-primary font-bold border-b-2 border-primary font-body-md" href="#">Liên hệ</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant p-2 hover:bg-surface-container rounded-full transition-colors">search</button>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-label-md hover:opacity-90 active:scale-95 transition-all">Đăng nhập</button>
+</div>
+</div>
+</nav>
+<!-- Page Header & Breadcrumb -->
+<header class="relative py-16 bg-surface-light overflow-hidden">
+<div class="molecular-pattern absolute inset-0"></div>
+<div class="relative max-w-container-max mx-auto px-gutter">
+<nav class="flex items-center gap-2 text-on-surface-variant mb-4">
+<a class="hover:text-primary transition-colors" href="#">Trang chủ</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-primary font-medium">Liên hệ</span>
+</nav>
+<h1 class="font-headline-lg text-headline-lg text-text-primary tracking-tight">Liên Hệ</h1>
+<p class="text-on-surface-variant mt-2 max-w-2xl font-body-lg">Đội ngũ Green Oli luôn sẵn sàng lắng nghe và hỗ trợ mọi nhu cầu về bảo vệ môi trường và giải pháp sinh thái của bạn.</p>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-gutter py-section-padding-lg">
+<div class="grid grid-cols-1 lg:grid-cols-5 gap-stack-gap-lg">
+<!-- Left: Contact Form (3/5) -->
+<div class="lg:col-span-3">
+<div class="bg-surface-container-lowest rounded-2xl p-8 shadow-[0_10px_30px_rgba(26,31,43,0.04)] border border-border-soft relative overflow-hidden h-full">
+<div class="molecular-pattern absolute -top-12 -right-12 w-48 h-48 rounded-full"></div>
+<div class="relative">
+<h2 class="font-headline-md text-headline-md text-text-primary mb-8">Đăng Ký Nhận Tư Vấn</h2>
+<form class="space-y-6">
+<div class="flex flex-wrap gap-6 mb-8">
+<label class="flex items-center gap-2 cursor-pointer group">
+<input checked="" class="w-5 h-5 text-primary border-outline-variant focus:ring-primary focus:ring-offset-2" name="title" type="radio"/>
+<span class="text-on-surface-variant group-hover:text-primary transition-colors">Anh</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary focus:ring-offset-2" name="title" type="radio"/>
+<span class="text-on-surface-variant group-hover:text-primary transition-colors">Chị</span>
+</label>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-md text-text-primary block ml-1">Họ và tên *</label>
+<input class="w-full bg-surface-light border-border-soft rounded-lg px-4 py-3 focus:border-primary focus:ring-0 transition-all placeholder:text-on-surface-variant/40" placeholder="Nhập họ và tên" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-text-primary block ml-1">Số điện thoại *</label>
+<input class="w-full bg-surface-light border-border-soft rounded-lg px-4 py-3 focus:border-primary focus:ring-0 transition-all placeholder:text-on-surface-variant/40" placeholder="Nhập số điện thoại" type="tel"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-text-primary block ml-1">Email</label>
+<input class="w-full bg-surface-light border-border-soft rounded-lg px-4 py-3 focus:border-primary focus:ring-0 transition-all placeholder:text-on-surface-variant/40" placeholder="Nhập địa chỉ email" type="email"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-text-primary block ml-1">Nội dung tư vấn</label>
+<textarea class="w-full bg-surface-light border-border-soft rounded-lg px-4 py-3 focus:border-primary focus:ring-0 transition-all placeholder:text-on-surface-variant/40 resize-none" placeholder="Bạn cần chúng tôi giúp đỡ điều gì?" rows="4"></textarea>
+</div>
+<div class="pt-4">
+<button class="bg-primary text-on-primary px-10 py-4 rounded-full font-label-md hover:shadow-lg hover:shadow-primary/20 active:scale-95 transition-all w-full md:w-auto" type="submit">Gửi Yêu Cầu</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+<!-- Right: Contact Info (2/5) -->
+<div class="lg:col-span-2">
+<div class="bg-primary-container/10 border border-primary/20 rounded-2xl p-8 h-full">
+<h2 class="font-headline-md text-headline-md text-text-primary mb-8">Thông Tin Liên Hệ</h2>
+<div class="space-y-8">
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center flex-shrink-0 text-on-primary shadow-sm">
+<span class="material-symbols-outlined">call</span>
+</div>
+<div>
+<p class="font-label-md text-primary mb-1">Hotline</p>
+<p class="font-body-md text-on-surface font-semibold">0904.394.655 / 0903.175.183</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center flex-shrink-0 text-primary">
+<span class="material-symbols-outlined">engineering</span>
+</div>
+<div>
+<p class="font-label-md text-on-surface-variant mb-1">Hỗ trợ kỹ thuật</p>
+<p class="font-body-md text-on-surface font-semibold">0903175183</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center flex-shrink-0 text-primary">
+<span class="material-symbols-outlined">headset_mic</span>
+</div>
+<div>
+<p class="font-label-md text-on-surface-variant mb-1">Chăm sóc khách hàng</p>
+<p class="font-body-md text-on-surface font-semibold">0789917927</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center flex-shrink-0 text-primary">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div>
+<p class="font-label-md text-on-surface-variant mb-1">Email</p>
+<p class="font-body-md text-on-surface font-semibold">Santarivietnam@gmail.com</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center flex-shrink-0 text-primary">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div>
+<p class="font-label-md text-on-surface-variant mb-1">Địa chỉ</p>
+<p class="font-body-md text-on-surface leading-relaxed">285 Nguyễn Kim Cương, Ấp 7A, xã Tân Thạnh Đông, huyện Củ Chi, TPHCM</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center flex-shrink-0 text-primary">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div>
+<p class="font-label-md text-on-surface-variant mb-1">Giờ làm việc</p>
+<p class="font-body-md text-on-surface font-semibold">8:00 - 17:30 (T2 - T7)</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Google Maps Section -->
+<section class="w-full h-[500px] bg-surface-variant relative grayscale hover:grayscale-0 transition-all duration-700">
+<div class="absolute inset-0 flex items-center justify-center text-on-surface-variant opacity-50 z-0 pointer-events-none">
+<span class="material-symbols-outlined text-6xl">map</span>
+</div>
+<!-- Using data-location as per instructions for map integration -->
+<div class="w-full h-full relative z-10">
+<div class="w-full h-full bg-cover bg-center flex items-center justify-center overflow-hidden" data-alt="A detailed aerial satellite map view of the Cu Chi district in Ho Chi Minh City, featuring lush green ecological landscapes and precise industrial planning. The map uses a modern clean UI aesthetic with professional geographic labels. Soft natural lighting emphasizes the harmony between urban development and environmental preservation, dominated by a professional green and white color palette." data-location="Cu Chi, Ho Chi Minh City, Vietnam" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAKLctA7bAVOjhTrozf2K6ft55zihPJ3x5j28f_0O9lDw7zsd8F4TI_RSKqDJH56-08QNMX7O7yE88V1pCXOneKpZwSASlKbz6RTn3wbc7ozW6hX2cyczCew5josbC5J9NO1EhR-ZO4_kC1DAtfCUYZpR1-S5a-2fn1oC684BlZkV_bf3rg9jn-xFbuNFEMUgsUDtE_21t3gBHioW6Nbj2z-7V8DqcH7MZWZkIUc-PbOFyCcYJ_BggyZ0_Obmm9vH5GuECfNk-p20D6')">
+<!-- Map UI Overlay -->
+<div class="absolute bottom-10 left-10 bg-surface-container-lowest p-6 rounded-2xl shadow-xl border border-border-soft max-w-sm">
+<p class="font-headline-md text-primary mb-2">Green Oli Headquarters</p>
+<p class="font-body-md text-on-surface-variant">285 Nguyễn Kim Cương, Ấp 7A, Tân Thạnh Đông, Củ Chi</p>
+<a class="mt-4 inline-flex items-center gap-2 text-primary font-semibold hover:underline" href="https://maps.google.com" target="_blank">
+                        Xem trên Google Maps
+                        <span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- SideNavBar (Contact Anchors) -->
+<aside class="fixed right-4 top-1/2 -translate-y-1/2 z-40 flex flex-col items-center gap-4 bg-surface-container-high dark:bg-surface-container-highest shadow-lg rounded-full py-4 w-16">
+<a class="group relative bg-secondary text-on-secondary rounded-full p-3 hover:bg-secondary-container transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">chat</span>
+<span class="absolute right-full mr-3 px-3 py-1 bg-secondary text-on-secondary rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">Zalo</span>
+</a>
+<a class="group relative text-secondary p-3 hover:bg-secondary-container rounded-full transition-all hover:scale-110 active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span class="absolute right-full mr-3 px-3 py-1 bg-secondary text-on-secondary rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">Messenger</span>
+</a>
+<a class="group relative text-secondary p-3 hover:bg-secondary-container rounded-full transition-all hover:scale-110 active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">call</span>
+<span class="absolute right-full mr-3 px-3 py-1 bg-secondary text-on-secondary rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">Hotline</span>
+</a>
+<a class="group relative text-secondary p-3 hover:bg-secondary-container rounded-full transition-all hover:scale-110 active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">mail</span>
+<span class="absolute right-full mr-3 px-3 py-1 bg-secondary text-on-secondary rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">Email</span>
+</a>
+</aside>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-inverse-surface border-t border-border-soft">
+<div class="w-full py-section-padding-lg px-gutter max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-stack-gap-lg">
+<div class="space-y-6">
+<div class="font-headline-md text-headline-md font-bold text-primary">Green Oli</div>
+<p class="text-on-surface-variant font-body-md">Kiến tạo tương lai xanh bền vững thông qua các giải pháp khoa học sinh thái đột phá.</p>
+<div class="flex gap-4">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">verified</span></a>
+</div>
+</div>
+<div class="space-y-4">
+<h3 class="font-headline-md text-[18px] text-text-primary font-bold">Liên kết</h3>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant font-body-md hover:text-secondary transition-all" href="#">Giới thiệu</a></li>
+<li><a class="text-on-surface-variant font-body-md hover:text-secondary transition-all" href="#">Sản phẩm</a></li>
+<li><a class="text-on-surface-variant font-body-md hover:text-secondary transition-all" href="#">Blog khoa học</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h3 class="font-headline-md text-[18px] text-text-primary font-bold">Chính sách</h3>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant font-body-md hover:text-secondary transition-all" href="#">Chính sách bảo mật</a></li>
+<li><a class="text-on-surface-variant font-body-md hover:text-secondary transition-all" href="#">Điều khoản sử dụng</a></li>
+<li><a class="text-on-surface-variant font-body-md hover:text-secondary transition-all" href="#">Chính sách vận chuyển</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h3 class="font-headline-md text-[18px] text-text-primary font-bold">Bản tin</h3>
+<p class="text-on-surface-variant font-body-md">Đăng ký để nhận tin tức về môi trường sớm nhất.</p>
+<div class="flex">
+<input class="bg-surface-container border-border-soft rounded-l-lg px-4 py-2 w-full focus:ring-0" placeholder="Email của bạn" type="email"/>
+<button class="bg-secondary text-on-secondary px-4 py-2 rounded-r-lg hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-gutter py-8 border-t border-border-soft flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-on-surface-variant text-body-md">© 2024 Green Oli. All rights reserved. Scientific Guardian of Ecology.</p>
+<div class="flex gap-6">
+<span class="text-primary-container font-medium">Bảo vệ trái đất</span>
+<span class="text-primary-container font-medium">Khoa học xanh</span>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for form inputs
+        document.querySelectorAll('input, textarea').forEach(el => {
+            el.addEventListener('focus', () => {
+                el.parentElement.querySelector('label')?.classList.add('text-primary');
+            });
+            el.addEventListener('blur', () => {
+                el.parentElement.querySelector('label')?.classList.remove('text-primary');
+            });
+        });
+
+        // Simple scroll effect for nav
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 20) {
+                nav.classList.add('h-16', 'shadow-md');
+                nav.classList.remove('h-20', 'shadow-sm');
+            } else {
+                nav.classList.add('h-20', 'shadow-sm');
+                nav.classList.remove('h-16', 'shadow-md');
+            }
+        });
+    </script>
+</body></html>
