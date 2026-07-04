@@ -1,4 +1,5 @@
 import type { CollectionConfig } from "payload";
+import { mediaUploadField } from "./fields/media-upload-field";
 
 /**
  * Collection partners: đối tác. Map với type `Partner` (src/data/partners.ts).
@@ -15,13 +16,11 @@ export const Partners: CollectionConfig = {
   },
   fields: [
     { name: "name", type: "text", required: true, label: "Tên đối tác" },
-    {
+    mediaUploadField({
       name: "logo",
-      type: "upload",
-      relationTo: "media",
       required: true,
       label: "Logo",
-    },
+    }),
     { name: "url", type: "text", label: "Đường dẫn website" },
   ],
 };

@@ -1,4 +1,5 @@
 import type { CollectionConfig } from "payload";
+import { mediaUploadField } from "./fields/media-upload-field";
 
 /**
  * Collection services: dịch vụ. Map 1-1 với type `Service` (src/types/service.ts).
@@ -32,12 +33,10 @@ export const Services: CollectionConfig = {
       label: "Icon (tên lucide)",
       admin: { description: "Tên icon lucide-react để render" },
     },
-    {
+    mediaUploadField({
       name: "image",
-      type: "upload",
-      relationTo: "media",
       required: true,
       label: "Ảnh minh họa",
-    },
+    }),
   ],
 };

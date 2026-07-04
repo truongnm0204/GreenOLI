@@ -1,4 +1,5 @@
 import type { CollectionConfig } from "payload";
+import { mediaUploadField } from "./fields/media-upload-field";
 
 /**
  * Collection products: sản phẩm. Map 1-1 với type `Product` (src/types/product.ts).
@@ -44,20 +45,16 @@ export const Products: CollectionConfig = {
       required: true,
       label: "Mô tả chi tiết",
     },
-    {
+    mediaUploadField({
       name: "heroImage",
-      type: "upload",
-      relationTo: "media",
       required: true,
       label: "Ảnh đại diện",
-    },
-    {
+    }),
+    mediaUploadField({
       name: "galleryImages",
-      type: "upload",
-      relationTo: "media",
       hasMany: true,
       label: "Bộ sưu tập ảnh",
-    },
+    }),
     {
       name: "specs",
       type: "array",

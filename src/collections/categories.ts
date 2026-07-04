@@ -1,4 +1,5 @@
 import type { CollectionConfig } from "payload";
+import { mediaUploadField } from "./fields/media-upload-field";
 
 /**
  * Collection categories: nhóm sản phẩm. Map 1-1 với type `Category` (src/types/category.ts).
@@ -32,13 +33,11 @@ export const Categories: CollectionConfig = {
       required: true,
       label: "Mô tả chi tiết",
     },
-    {
+    mediaUploadField({
       name: "heroImage",
-      type: "upload",
-      relationTo: "media",
       required: true,
       label: "Ảnh đại diện",
-    },
+    }),
     {
       name: "iconKey",
       type: "text",

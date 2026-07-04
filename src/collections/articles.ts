@@ -1,5 +1,6 @@
 import type { CollectionConfig } from "payload";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
+import { mediaUploadField } from "./fields/media-upload-field";
 
 /**
  * Collection articles: bài viết/tin tức. Map với type `Article` (src/types/article.ts).
@@ -33,13 +34,11 @@ export const Articles: CollectionConfig = {
       label: "Nội dung",
       editor: lexicalEditor(),
     },
-    {
+    mediaUploadField({
       name: "coverImage",
-      type: "upload",
-      relationTo: "media",
       required: true,
       label: "Ảnh bìa",
-    },
+    }),
     {
       name: "publishedAt",
       type: "date",

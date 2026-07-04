@@ -1,4 +1,5 @@
 import type { CollectionConfig } from "payload";
+import { mediaUploadField } from "./fields/media-upload-field";
 
 /**
  * Collection gallery: thư viện ảnh hoạt động. Map với type `GalleryItem` (src/data/gallery.ts).
@@ -14,13 +15,11 @@ export const Gallery: CollectionConfig = {
     defaultColumns: ["caption", "image"],
   },
   fields: [
-    {
+    mediaUploadField({
       name: "image",
-      type: "upload",
-      relationTo: "media",
       required: true,
       label: "Ảnh",
-    },
+    }),
     { name: "caption", type: "text", label: "Chú thích" },
   ],
 };
