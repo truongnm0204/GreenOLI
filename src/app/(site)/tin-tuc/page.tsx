@@ -17,7 +17,8 @@ export const metadata: Metadata = buildMetadata({
 });
 
 export default async function NewsListPage() {
-  const [featured, ...rest] = await getAllArticles();
+  const articles = await getAllArticles();
+  const [featured, ...rest] = articles;
   const sidebar = rest.slice(0, 3);
   const grid = rest.slice(3);
 
@@ -29,25 +30,38 @@ export default async function NewsListPage() {
         breadcrumb={[{ label: "Tin tức" }]}
       />
 
-      <section className="container-page py-12 md:py-16">
-        <div className="grid gap-6 lg:grid-cols-12">
-          <div className="lg:col-span-8">
-            <NewsCard article={featured} variant="featured" />
+      {featured ? (
+        <section className="container-page py-12 md:py-16">
+          <div className="grid gap-6 lg:grid-cols-12">
+            <div className="lg:col-span-8">
+              <NewsCard article={featured} variant="featured" />
+            </div>
+            <aside className="lg:col-span-4 space-y-2" aria-label="Bài viết gần đây">
+              <h2 className="font-bold text-xl text-text-primary mb-3">
+                Mới nhất
+              </h2>
+              {sidebar.map((article) => (
+                <NewsCard
+                  key={article.slug}
+                  article={article}
+                  variant="compact"
+                />
+              ))}
+            </aside>
           </div>
-          <aside className="lg:col-span-4 space-y-2" aria-label="Bài viết gần đây">
-            <h2 className="font-bold text-xl text-text-primary mb-3">
-              Mới nhất
+        </section>
+      ) : (
+        <section className="container-page py-12 md:py-16">
+          <div className="rounded-card border border-border-soft bg-surface-container-lowest p-8 text-center shadow-ambient">
+            <h2 className="font-bold text-2xl text-text-primary">
+              Chưa có bài viết nào
             </h2>
-            {sidebar.map((article) => (
-              <NewsCard
-                key={article.slug}
-                article={article}
-                variant="compact"
-              />
-            ))}
-          </aside>
-        </div>
-      </section>
+            <p className="mt-3 text-text-muted">
+              Nội dung tin tức đang được cập nhật. Vui lòng quay lại sau.
+            </p>
+          </div>
+        </section>
+      )}
 
       {grid.length > 0 ? (
         <section className="bg-surface-light py-14 md:py-16">
@@ -57,9 +71,9 @@ export default async function NewsListPage() {
             </h2>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {grid.map((article, index) => (
-                <div 
-                  key={article.slug} 
-                  className="animate-fade-up" 
+                <div
+                  key={article.slug}
+                  className="animate-fade-up"
                   style={{ animationDelay: `${index * 150}ms` }}
                 >
                   <NewsCard article={article} />
