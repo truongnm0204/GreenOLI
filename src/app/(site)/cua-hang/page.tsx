@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { CategoryCard } from "@/components/shop/category-card";
 import { ProductGrid } from "@/components/shop/product-grid";
 import { ShopHeroSection } from "@/components/shop/shop-hero";
+import { MotionWrapper } from "@/components/ui/motion-wrapper";
 import { getAllCategories } from "@/data/categories";
 import { getAllProducts } from "@/data/products";
 import { buildMetadata } from "@/lib/seo";
@@ -35,33 +36,39 @@ export default async function ShopPage() {
         breadcrumb={[{ label: "Cửa hàng" }]}
       />
 
-      <section className="container-page py-14 md:py-16">
-        <div className="max-w-2xl mb-10">
-          <p className="text-primary-dark font-semibold text-sm uppercase tracking-wider mb-3">
+      <section className="container-page py-16 md:py-24 relative overflow-hidden">
+        <div className="bg-blob bg-blob-primary w-[300px] h-[300px] top-1/4 -right-20 opacity-20" />
+        <MotionWrapper delay={0.1} direction="up" className="max-w-2xl mb-12 relative z-10">
+          <p className="text-primary-dark font-bold text-sm uppercase tracking-widest mb-4">
             Danh mục sản phẩm
           </p>
-          <h2 className="font-bold text-2xl md:text-3xl text-text-primary">
+          <h2 className="font-bold text-3xl md:text-4xl text-text-primary">
             Chọn danh mục phù hợp với nhu cầu của bạn
           </h2>
-        </div>
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {categories.map((cat) => (
-            <CategoryCard key={cat.slug} category={cat} />
+        </MotionWrapper>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 relative z-10">
+          {categories.map((cat, idx) => (
+            <MotionWrapper key={cat.slug} delay={0.2 + idx * 0.1} direction="up">
+              <CategoryCard category={cat} />
+            </MotionWrapper>
           ))}
         </div>
       </section>
 
-      <section className="bg-surface-light py-14 md:py-16">
-        <div className="container-page">
-          <div className="max-w-2xl mb-10">
-            <p className="text-primary-dark font-semibold text-sm uppercase tracking-wider mb-3">
+      <section className="bg-surface-light py-16 md:py-24 relative overflow-hidden">
+        <div className="bg-blob bg-blob-secondary w-[400px] h-[400px] top-0 -left-32 opacity-10" />
+        <div className="container-page relative z-10">
+          <MotionWrapper delay={0.1} direction="up" className="max-w-2xl mb-12">
+            <p className="text-primary-dark font-bold text-sm uppercase tracking-widest mb-4">
               Sản phẩm nổi bật
             </p>
-            <h2 className="font-bold text-2xl md:text-3xl text-text-primary">
+            <h2 className="font-bold text-3xl md:text-4xl text-text-primary">
               Được tin dùng bởi 500+ khách hàng doanh nghiệp
             </h2>
-          </div>
-          <ProductGrid products={featured} categoryLabels={categoryLabels} />
+          </MotionWrapper>
+          <MotionWrapper delay={0.3} direction="up">
+            <ProductGrid products={featured} categoryLabels={categoryLabels} />
+          </MotionWrapper>
         </div>
       </section>
 
@@ -80,3 +87,4 @@ export default async function ShopPage() {
     </>
   );
 }
+

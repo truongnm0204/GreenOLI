@@ -1,6 +1,10 @@
-import { Target, Lightbulb, Sprout, ShieldCheck } from "lucide-react";
+"use client";
+
+import { Target, Lightbulb, ShieldCheck } from "lucide-react";
 import { Card } from "@/components/ui/card";
-import { Reveal } from "@/components/motion/reveal";
+import { MotionWrapper } from "@/components/ui/motion-wrapper";
+import { AnimatedText } from "@/components/motion/animated-text";
+import { motion } from "framer-motion";
 
 const PILLARS = [
   {
@@ -21,30 +25,72 @@ const PILLARS = [
 ];
 
 export function VisionMissionSection() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 40, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 15,
+      },
+    },
+  };
+
   return (
-    <section className="container-page py-16 md:py-20">
-      <Reveal as="div" className="max-w-3xl mb-12 md:mb-16">
-        <p className="text-primary-dark font-semibold text-sm uppercase tracking-wider mb-3">
-          Định hướng chiến lược
-        </p>
-        <h2 className="font-bold text-3xl md:text-4xl lg:text-5xl text-text-primary leading-tight">
-          Khoa học vì sức khỏe cộng đồng
-          <br className="hidden md:block" /> và môi trường bền vững
-        </h2>
-      </Reveal>
-      <div className="grid gap-6 md:grid-cols-3">
-        {PILLARS.map(({ icon: Icon, title, body }, idx) => (
-          <Reveal key={title} as="div" delay={idx * 80}>
-            <Card className="space-y-4 h-full">
-              <span className="grid size-14 place-items-center rounded-full bg-primary/10 text-primary-dark">
-                <Icon className="size-7" aria-hidden />
-              </span>
-              <h3 className="font-semibold text-xl text-text-primary">{title}</h3>
-              <p className="text-text-muted leading-relaxed">{body}</p>
-            </Card>
-          </Reveal>
-        ))}
+    <section className="relative bg-primary-dark overflow-hidden py-16 md:py-24 pt-32">
+      {/* Advanced Grid Pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:40px_40px]" />
+      {/* Spotlight effect placeholder (static centered glow) */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-primary/20 blur-[120px] rounded-full pointer-events-none" />
+      
+      <div className="container-page relative z-10">
+        <MotionWrapper delay={0.1} direction="up" className="max-w-3xl mb-12 md:mb-16">
+          <p className="text-primary-light font-bold text-sm uppercase tracking-widest mb-4">
+            Định hướng chiến lược
+          </p>
+          <h2 className="font-bold text-3xl md:text-4xl lg:text-5xl text-white leading-tight">
+            <AnimatedText text="Khoa học vì sức khỏe cộng đồng" delay={0.1} />
+            <span className="hidden md:block h-2" />
+            <AnimatedText text="và môi trường bền vững" delay={0.3} className="text-white/90" />
+          </h2>
+        </MotionWrapper>
+        
+        <motion.div 
+          className="grid gap-6 md:grid-cols-3"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          {PILLARS.map(({ icon: Icon, title, body }) => (
+            <motion.div key={title} variants={itemVariants} className="h-full">
+              <Card className="space-y-5 h-full hover-card-effect border-none bg-surface/95 backdrop-blur-sm shadow-xl p-8 transition-all hover:-translate-y-2">
+                <span className="grid size-16 place-items-center rounded-2xl bg-primary/15 text-primary-dark shadow-inner">
+                  <Icon className="size-8" aria-hidden />
+                </span>
+                <h3 className="font-bold text-2xl text-text-primary">{title}</h3>
+                <p className="text-text-muted leading-relaxed text-lg">{body}</p>
+              </Card>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
 }
+
+

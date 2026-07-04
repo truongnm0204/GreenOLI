@@ -301,3 +301,36 @@ body {
 .clip-reveal {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
+
+/* ---------------------------------------------------------------------------
+ * Background Blob Utilities (Glassmorphism & Depth)
+ * ------------------------------------------------------------------------- */
+.bg-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 0;
+  opacity: 0.4;
+  pointer-events: none;
+}
+.bg-blob-primary {
+  background: var(--color-primary);
+}
+.bg-blob-secondary {
+  background: var(--color-secondary);
+}
+
+/* ---------------------------------------------------------------------------
+ * Interactive Hover Utilities
+ * ------------------------------------------------------------------------- */
+.hover-card-effect {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.hover-card-effect:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: var(--shadow-ambient-lg);
+}
+
+.tinted-shadow-primary {
+  box-shadow: 0 10px 40px -10px rgba(128, 188, 0, 0.3);
+}

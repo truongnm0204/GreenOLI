@@ -1,16 +1,18 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { CategoryCard } from "@/components/shop/category-card";
-import { Reveal } from "@/components/motion/reveal";
+import { MotionWrapper } from "@/components/ui/motion-wrapper";
 import { getAllCategories } from "@/data/categories";
 
 export async function CategoryShowcase() {
   const categories = await getAllCategories();
   return (
-    <section className="bg-surface-container-low py-16 md:py-20">
-      <div className="container-page">
-        <Reveal
-          as="div"
+    <section className="relative bg-surface-container-low py-16 md:py-20 overflow-hidden">
+      <div className="bg-blob bg-blob-secondary w-[400px] h-[400px] top-20 -right-20 opacity-30" />
+      
+      <div className="container-page relative z-10">
+        <MotionWrapper
+          delay={0.1} direction="up"
           className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 md:mb-12"
         >
           <div className="max-w-2xl">
@@ -28,16 +30,17 @@ export async function CategoryShowcase() {
             Xem tất cả danh mục
             <ArrowRight className="size-5" aria-hidden />
           </Link>
-        </Reveal>
+        </MotionWrapper>
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {categories.map((cat, idx) => (
-            <Reveal key={cat.slug} as="div" delay={Math.min(idx * 60, 600)}>
+            <MotionWrapper key={cat.slug} delay={0.2 + Math.min(idx * 0.1, 0.6)} direction="up">
               <CategoryCard category={cat} />
-            </Reveal>
+            </MotionWrapper>
           ))}
         </div>
       </div>
     </section>
   );
 }
+

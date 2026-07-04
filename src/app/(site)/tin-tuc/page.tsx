@@ -2,6 +2,8 @@ import Script from "next/script";
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/layout/page-header";
 import { NewsCard } from "@/components/news/news-card";
+import { MotionWrapper } from "@/components/ui/motion-wrapper";
+import { AnimatedText } from "@/components/motion/animated-text";
 import { getAllArticles } from "@/data/articles";
 import { buildMetadata } from "@/lib/seo";
 import { breadcrumbSchema } from "@/lib/json-ld";
@@ -31,32 +33,37 @@ export default async function NewsListPage() {
       />
 
       {featured ? (
-        <section className="container-page py-12 md:py-16">
-          <div className="grid gap-6 lg:grid-cols-12">
-            <div className="lg:col-span-8">
+        <section className="container-page py-16 md:py-24 relative">
+          <div className="bg-blob bg-blob-primary w-[300px] h-[300px] top-0 -left-20 opacity-10" />
+          <div className="grid gap-8 lg:grid-cols-12 relative z-10">
+            <MotionWrapper delay={0.1} direction="left" className="lg:col-span-8">
               <NewsCard article={featured} variant="featured" />
-            </div>
-            <aside className="lg:col-span-4 space-y-2" aria-label="Bài viết gần đây">
-              <h2 className="font-bold text-xl text-text-primary mb-3">
+            </MotionWrapper>
+            <MotionWrapper delay={0.3} direction="up" as="aside" className="lg:col-span-4 space-y-4" aria-label="Bài viết gần đây">
+              <h2 className="font-bold text-2xl text-text-primary mb-4 flex items-center gap-2">
+                <span className="w-2 h-6 rounded-full bg-primary inline-block"></span>
                 Mới nhất
               </h2>
-              {sidebar.map((article) => (
-                <NewsCard
-                  key={article.slug}
-                  article={article}
-                  variant="compact"
-                />
-              ))}
-            </aside>
+              <div className="space-y-4">
+                {sidebar.map((article, idx) => (
+                  <MotionWrapper key={article.slug} delay={0.4 + idx * 0.15} direction="up">
+                    <NewsCard
+                      article={article}
+                      variant="compact"
+                    />
+                  </MotionWrapper>
+                ))}
+              </div>
+            </MotionWrapper>
           </div>
         </section>
       ) : (
-        <section className="container-page py-12 md:py-16">
-          <div className="rounded-card border border-border-soft bg-surface-container-lowest p-8 text-center shadow-ambient">
+        <section className="container-page py-16 md:py-24">
+          <div className="rounded-[2rem] border border-border-soft bg-surface-container-lowest p-12 text-center shadow-ambient">
             <h2 className="font-bold text-2xl text-text-primary">
               Chưa có bài viết nào
             </h2>
-            <p className="mt-3 text-text-muted">
+            <p className="mt-4 text-text-muted text-lg">
               Nội dung tin tức đang được cập nhật. Vui lòng quay lại sau.
             </p>
           </div>
@@ -64,20 +71,23 @@ export default async function NewsListPage() {
       )}
 
       {grid.length > 0 ? (
-        <section className="bg-surface-light py-14 md:py-16">
-          <div className="container-page">
-            <h2 className="font-bold text-2xl md:text-3xl text-text-primary mb-8">
-              Tất cả bài viết
-            </h2>
+        <section className="bg-surface-light py-16 md:py-24 relative overflow-hidden">
+          <div className="bg-blob bg-blob-secondary w-[500px] h-[500px] bottom-0 -right-40 opacity-10" />
+          <div className="container-page relative z-10">
+            <MotionWrapper delay={0.1} direction="up" className="mb-10">
+              <h2 className="font-bold text-3xl md:text-4xl text-text-primary">
+                <AnimatedText text="Tất cả bài viết" />
+              </h2>
+            </MotionWrapper>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {grid.map((article, index) => (
-                <div
+                <MotionWrapper
                   key={article.slug}
-                  className="animate-fade-up"
-                  style={{ animationDelay: `${index * 150}ms` }}
+                  delay={0.2 + index * 0.1}
+                  direction="up"
                 >
                   <NewsCard article={article} />
-                </div>
+                </MotionWrapper>
               ))}
             </div>
           </div>
@@ -99,3 +109,4 @@ export default async function NewsListPage() {
     </>
   );
 }
+
