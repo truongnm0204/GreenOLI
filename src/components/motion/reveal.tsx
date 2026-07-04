@@ -32,13 +32,12 @@ const VARIANT_CLASS: Record<RevealVariant, string> = {
   "blur-in": "motion-reveal-blur-in",
 };
 
-const prefersReducedMotion = () =>
-  typeof window !== "undefined" &&
-  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
 /**
  * Reveal on scroll — client wrapper nhỏ, dùng IntersectionObserver.
- * Nội dung vẫn SSR bình thường; JS chỉ đổi data attribute để bật CSS transition.
+ * Nội dung vẫn SSR bình thường; JS đổi data-reveal-state để bật CSS transition.
+ *
+ * Dùng useRef + useEffect — pattern đáng tin cậy nhất với SSR, React 19 và
+ * Strict Mode (double-invoke). Observer luôn được cleanup đúng khi unmount.
  */
 export function Reveal<T extends keyof React.JSX.IntrinsicElements = "div">({
   as,
@@ -48,50 +47,60 @@ export function Reveal<T extends keyof React.JSX.IntrinsicElements = "div">({
   delay = 0,
   duration = 640,
   once = true,
-  rootMargin = "0px 0px -12% 0px",
-  threshold = 0.12,
+  rootMargin = "0px 0px -8% 0px",
+  threshold = 0.1,
   style,
   ...props
 }: RevealProps<T>) {
+  const elementRef = React.useRef<HTMLElement | null>(null);
   const [visible, setVisible] = React.useState(false);
-  const observerRef = React.useRef<IntersectionObserver | null>(null);
 
-  const ref = React.useCallback(
-    (node: HTMLElement | null) => {
-      if (observerRef.current) {
-        observerRef.current.disconnect();
-        observerRef.current = null;
-      }
+  React.useEffect(() => {
+    const node = elementRef.current;
+    if (!node) return;
 
-      if (!node) return;
+    // Reduced motion → hiển thị ngay, không cần observer
+    if (
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      setVisible(true);
+      return;
+    }
 
-      if (prefersReducedMotion() || !("IntersectionObserver" in window)) {
-        setVisible(true);
-        return;
-      }
+    // Fallback nếu trình duyệt không hỗ trợ IntersectionObserver
+    if (!("IntersectionObserver" in window)) {
+      setVisible(true);
+      return;
+    }
 
-      observerRef.current = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            setVisible(true);
-            if (once) observerRef.current?.disconnect();
-          } else if (!once) {
-            setVisible(false);
-          }
-        },
-        { rootMargin, threshold },
-      );
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          if (once) observer.disconnect();
+        } else if (!once) {
+          setVisible(false);
+        }
+      },
+      { rootMargin, threshold },
+    );
 
-      observerRef.current.observe(node);
-    },
-    [once, rootMargin, threshold],
-  );
+    observer.observe(node);
+
+    return () => {
+      observer.disconnect();
+    };
+    // Props này không thay đổi sau mount nên safe để bỏ qua eslint rule
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const Component = (as ?? "div") as React.ElementType;
 
   return (
     <Component
-      ref={ref}
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      ref={elementRef as any}
       className={cn("motion-reveal", VARIANT_CLASS[variant], className)}
       data-reveal-state={visible ? "visible" : "hidden"}
       style={

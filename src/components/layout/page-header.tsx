@@ -26,7 +26,7 @@ export function PageHeader({
     >
       <div className="container-page">
         {breadcrumb && breadcrumb.length > 0 ? (
-          <Breadcrumb items={breadcrumb} className="mb-6" />
+          <Breadcrumb items={breadcrumb} className="mb-6 animate-fade-in" />
         ) : null}
         <div
           className={cn(
@@ -34,11 +34,17 @@ export function PageHeader({
             align === "center" && "mx-auto text-center",
           )}
         >
-          <h1 className="font-bold tracking-tight text-text-primary text-3xl md:text-4xl lg:text-5xl">
+          <h1
+            className="font-bold tracking-tight text-text-primary text-3xl md:text-4xl lg:text-5xl animate-fade-up"
+            style={{ animationDelay: "40ms" }}
+          >
             {title}
           </h1>
           {description ? (
-            <p className="mt-4 text-base md:text-lg text-text-muted leading-relaxed">
+            <p
+              className="mt-4 text-base md:text-lg text-text-muted leading-relaxed animate-fade-up"
+              style={{ animationDelay: "120ms" }}
+            >
               {description}
             </p>
           ) : null}

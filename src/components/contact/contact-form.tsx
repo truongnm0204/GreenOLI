@@ -110,7 +110,7 @@ export function ContactForm() {
       {submitted ? (
         <p
           role="status"
-          className="flex items-start gap-2 rounded-input bg-primary/10 p-3 text-sm text-primary-dark"
+          className="flex items-start gap-2 rounded-input bg-primary/10 p-3 text-sm text-primary-dark animate-fade-up"
         >
           <CheckCircle2 className="size-5 flex-none mt-0.5" aria-hidden />
           Cảm ơn bạn đã liên hệ. Đội ngũ Green Oli sẽ phản hồi trong vòng 24 giờ.

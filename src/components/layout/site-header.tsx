@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import {
   ChevronDown,
@@ -99,17 +100,19 @@ export function SiteHeader({ categories }: { categories: NavCategory[] }) {
       </div>
 
       {/* Main nav */}
-      <div className="container-page flex h-[68px] items-center justify-between">
+      <div className="container-page flex py-3 min-h-[80px] items-center justify-between">
         <Link
           href="/"
-          className="flex items-center gap-2 font-bold text-xl text-text-primary"
+          className="flex items-center"
         >
-          <span className="grid size-9 place-items-center rounded-full bg-primary text-on-primary">
-            <span aria-hidden>G</span>
-          </span>
-          <span>
-            Green <span className="text-primary-dark">Oli</span>
-          </span>
+          <Image 
+            src="/logo.svg" 
+            alt="Green Oli Logo" 
+            width={240} 
+            height={84} 
+            className="w-40 lg:w-48 h-auto object-contain"
+            priority
+          />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1" aria-label="Chính">
@@ -139,7 +142,7 @@ export function SiteHeader({ categories }: { categories: NavCategory[] }) {
                     <ChevronDown className="size-4" aria-hidden />
                   </Link>
                   {productsOpen ? (
-                    <div className="absolute left-1/2 top-full -translate-x-1/2 pt-2">
+                    <div className="absolute left-1/2 top-full -translate-x-1/2 pt-2 animate-fade-up" style={{ animationDuration: "180ms" }}>
                       <ul
                         className="grid w-[640px] grid-cols-2 gap-1 rounded-card bg-surface-container-lowest p-3 shadow-ambient-lg border border-border-soft"
                       >
@@ -202,7 +205,7 @@ export function SiteHeader({ categories }: { categories: NavCategory[] }) {
 
       {/* Mobile drawer */}
       {mobileOpen ? (
-        <div id="mobile-nav" className="lg:hidden border-t border-border-soft">
+        <div id="mobile-nav" className="lg:hidden border-t border-border-soft animate-fade-up" style={{ animationDuration: "200ms" }}>
           <nav className="container-page flex flex-col py-3 gap-1" aria-label="Mobile">
             {NAV_ITEMS.map((item) => {
               const isActive =

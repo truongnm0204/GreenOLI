@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   Facebook,
   Mail,
@@ -16,13 +17,14 @@ export function SiteFooter({ categories }: { categories: NavCategory[] }) {
       <div className="container-page py-16 grid gap-12 md:gap-8 md:grid-cols-2 lg:grid-cols-4">
         {/* About */}
         <div className="lg:max-w-sm">
-          <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-            <span className="grid size-9 place-items-center rounded-full bg-primary text-on-primary">
-              G
-            </span>
-            <span>
-              Green <span className="text-primary-dark">Oli</span>
-            </span>
+          <Link href="/" className="flex items-center">
+            <Image 
+              src="/logo.svg" 
+              alt="Green Oli Logo" 
+              width={320} 
+              height={112} 
+              className="w-56 lg:w-72 h-auto object-contain"
+            />
           </Link>
           <p className="mt-4 text-sm text-text-muted leading-relaxed">
             {SITE_CONFIG.description}

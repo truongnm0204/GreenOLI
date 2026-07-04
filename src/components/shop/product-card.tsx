@@ -4,6 +4,8 @@ import { ArrowRight } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Chip } from "@/components/ui/chip";
 import type { Product } from "@/types/product";
+import { cn } from "@/lib/cn";
+
 
 type Props = {
   product: Product;
@@ -14,7 +16,7 @@ type Props = {
 
 export function ProductCard({ product, categoryLabel, className }: Props) {
   return (
-    <Card padding="none" className={className}>
+    <Card padding="none" className={cn("group overflow-hidden", className)}>
       <Link
         href={`/san-pham/${product.slug}`}
         className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-card"
