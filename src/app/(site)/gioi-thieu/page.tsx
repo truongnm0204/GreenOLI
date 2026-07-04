@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Script from "next/script";
 import { Award, Leaf, Users, ShieldCheck, Sparkles, Target } from "lucide-react";
-import { PageHeader } from "@/components/layout/page-header";
+import { AboutHeroSection } from "@/components/about/about-hero";
 import { Card } from "@/components/ui/card";
 import { ContactCta } from "@/components/home/contact-cta";
 import { buildMetadata } from "@/lib/seo";
@@ -64,8 +64,12 @@ const VALUES = [
 export default function AboutPage() {
   return (
     <>
-      <PageHeader
-        title="Câu chuyện Oli Xanh"
+      <AboutHeroSection
+        title={
+          <>
+            Câu chuyện <span className="text-primary-dark">Oli Xanh</span>
+          </>
+        }
         description="10+ năm đồng hành cùng nông dân, doanh nghiệp và cộng đồng vì một Việt Nam xanh, an toàn và bền vững."
         breadcrumb={[{ label: "Giới thiệu" }]}
       />
@@ -92,15 +96,10 @@ export default function AboutPage() {
               Từ một cửa hàng nhỏ đến mạng lưới phân phối toàn quốc
             </h2>
             <p className="text-text-muted leading-relaxed">
-              Năm 2014, Oli Xanh khởi đầu chỉ với một cửa hàng nhỏ tại Quận 7, TP. Hồ Chí
-              Minh – nơi các kỹ sư trẻ ấp ủ giấc mơ mang đến cho nông dân Việt những sản phẩm
-              hóa chất chất lượng quốc tế với giá phù hợp.
+              Công ty TNHH Hóa Chất và Thiết Bị Oli Xanh tự hào là nhà phân phối độc quyền khu vực phía Bắc các sản phẩm kiểm soát côn trùng, mối, chuột từ các tập đoàn đa quốc gia hàng đầu như Bayer, Syngenta, Ensystex, Sumitomo, BASF (Mythic, Seclira).
             </p>
             <p className="text-text-muted leading-relaxed">
-              Mười năm sau, chúng tôi đã có mặt tại 15 tỉnh thành, hợp tác cùng các tập đoàn
-              hàng đầu thế giới và phục vụ hơn 500 khách hàng doanh nghiệp. Nhưng điều khiến
-              chúng tôi tự hào nhất không phải là quy mô, mà là sự tin tưởng mà nông dân và
-              khách hàng dành cho thương hiệu Oli Xanh.
+              Chúng tôi chuyên cung cấp tất cả các giải pháp mang tính an toàn tuyệt đối đối với con người, vật nuôi và môi trường. Mục tiêu hướng đến của Oli Xanh luôn là tiêu chuẩn ESG – cam kết phát triển bền vững, mang lại giá trị dài lâu cho khách hàng và cộng đồng.
             </p>
             <ul className="grid grid-cols-2 gap-4 pt-4 border-t border-border-soft">
               <li>

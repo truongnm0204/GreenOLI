@@ -1,20 +1,20 @@
 export const SITE_CONFIG = {
   name: "Oli Xanh",
-  tagline: "Giải pháp hóa chất nông nghiệp & kiểm soát côn trùng chuyên nghiệp",
+  tagline: "CÔNG TY TNHH HÓA CHẤT VÀ THIẾT BỊ OLI XANH",
   description:
-    "Oli Xanh cung cấp hóa chất nông nghiệp, phân bón, thuốc bảo vệ thực vật và dịch vụ kiểm soát côn trùng chuyên nghiệp. 10+ năm kinh nghiệm, đại lý độc quyền các thương hiệu quốc tế.",
-  url: "https://greenoli.vn",
+    "Công ty TNHH Hóa Chất và Thiết Bị Oli Xanh chuyên phân phối độc quyền khu vực phía Bắc sản phẩm kiểm soát côn trùng, mối, chuột từ các tập đoàn đa quốc gia. Giải pháp an toàn cho sức khỏe và môi trường, hướng đến tiêu chuẩn ESG.",
+  url: "https://greenoli.vn", // Giữ nguyên domain hiện tại hoặc cập nhật nếu có
   ogImage: "/opengraph-image",
   locale: "vi_VN",
-  hotline: "1900 1234",
-  email: "info@greenoli.vn",
-  address: "123 Nguyễn Văn Linh, Quận 7, TP. Hồ Chí Minh, Việt Nam",
-  workingHours: "T2 – T7: 8:00 – 17:30",
+  hotline: "0976 187 957 - 0866 795 576", // Added spaces for readability
+  email: "", // Không cung cấp
+  address: "Số 84, phố Phú Viên, phường Bồ Đề, tp Hà Nội",
+  workingHours: "T2 - T7: 8h-12h và 13h30-17h",
   social: {
-    facebook: "https://facebook.com/greenoli",
-    zalo: "https://zalo.me/greenoli",
-    youtube: "https://youtube.com/@greenoli",
-    tiktok: "https://tiktok.com/@greenoli",
+    facebook: "", // Không cung cấp
+    zalo: "https://zalo.me/0976187957", // Sử dụng số hotline chính
+    youtube: "",
+    tiktok: "",
   },
   mapEmbedUrl:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.4!2d106.7!3d10.732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0!2sGreen%20Oli!5e0!3m2!1svi!2s!4v1719000000000",

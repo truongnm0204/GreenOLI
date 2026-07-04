@@ -15,21 +15,26 @@ export function HeroSection() {
             <Sparkles className="size-3.5" aria-hidden />
             10+ năm dẫn đầu thị trường
           </Chip>
-          <h1
-            className="font-bold tracking-tight text-text-primary text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.1] animate-fade-up"
-            style={{ animationDelay: "80ms" }}
-          >
-            Giải pháp <br className="sm:hidden" />
-            <span className="text-primary-dark">hóa chất xanh</span>{" "}
-            <br />
-            cho nông nghiệp <br className="sm:hidden" />& sức khỏe cộng đồng
+          <h1 className="font-bold tracking-tight text-text-primary text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.1]">
+            <span className="block overflow-hidden pb-1">
+              <span className="block animate-reveal-up" style={{ animationDelay: "100ms" }}>Giải pháp</span>
+            </span>
+            <span className="block overflow-hidden pb-1">
+              <span className="block animate-reveal-up text-primary-dark" style={{ animationDelay: "200ms" }}>hóa chất xanh</span>
+            </span>
+            <span className="block overflow-hidden pb-1 mt-2">
+              <span className="block animate-reveal-up" style={{ animationDelay: "300ms" }}>cho nông nghiệp</span>
+            </span>
+            <span className="block overflow-hidden pb-1">
+              <span className="block animate-reveal-up" style={{ animationDelay: "400ms" }}>& sức khỏe cộng đồng</span>
+            </span>
           </h1>
           <p
             className="text-lg text-text-muted leading-relaxed max-w-xl animate-fade-up"
             style={{ animationDelay: "160ms" }}
           >
-            Oli Xanh chuyên phân phối các sản phẩm kiểm soát côn trùng,
-            mối mọt và chuột từ các tập đoàn đa quốc gia. Chúng tôi chuyên cung cấp
+            Công ty TNHH Hóa Chất và Thiết Bị Oli Xanh chuyên phân phối độc quyền khu vực phía Bắc các sản phẩm kiểm soát côn trùng,
+            mối, chuột từ các tập đoàn đa quốc gia như Bayer, Syngenta, Ensystex, Sumitomo, BASF (Mythic, Seclira). Chúng tôi chuyên cung cấp
             tất cả các giải pháp mang tính an toàn đối với con người, vật nuôi và môi trường. Mục tiêu hướng đến là tiêu chuẩn ESG.
           </p>
           <div

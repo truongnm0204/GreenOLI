@@ -56,8 +56,14 @@ export default async function NewsListPage() {
               Tất cả bài viết
             </h2>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {grid.map((article) => (
-                <NewsCard key={article.slug} article={article} />
+              {grid.map((article, index) => (
+                <div 
+                  key={article.slug} 
+                  className="animate-fade-up" 
+                  style={{ animationDelay: `${index * 150}ms` }}
+                >
+                  <NewsCard article={article} />
+                </div>
               ))}
             </div>
           </div>

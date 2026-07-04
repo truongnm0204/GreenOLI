@@ -52,36 +52,39 @@ export function NewsCard({ article, variant = "default", className }: Props) {
       <Link
         href={`/tin-tuc/${article.slug}`}
         className={cn(
-          "group block rounded-card overflow-hidden bg-surface-container-lowest shadow-ambient",
-          "border border-border-soft/60 hover:shadow-ambient-lg transition-shadow",
+          "group block rounded-3xl overflow-hidden relative shadow-ambient-lg h-[500px]",
           className,
         )}
       >
-        <div className="relative aspect-[16/10] overflow-hidden">
-          <Image
-            src={article.coverImage}
-            alt={article.title}
-            fill
-            sizes="(max-width: 1024px) 100vw, 60vw"
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
-            priority
-          />
-        </div>
-        <div className="p-6 md:p-8 space-y-3">
-          <Chip variant="secondary">{article.category}</Chip>
-          <h3 className="font-bold text-2xl md:text-3xl text-text-primary line-clamp-2 group-hover:text-primary-dark transition-colors">
+        <Image
+          src={article.coverImage}
+          alt={article.title}
+          fill
+          sizes="(max-width: 1024px) 100vw, 60vw"
+          className="object-cover transition-transform duration-1000 group-hover:scale-110"
+          priority
+        />
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none" />
+        
+        {/* Content Box */}
+        <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 z-10 flex flex-col justify-end space-y-4">
+          <div>
+            <Chip variant="primary" className="bg-primary/90 text-on-primary border-none shadow-md">{article.category}</Chip>
+          </div>
+          <h3 className="font-bold text-3xl md:text-4xl text-white line-clamp-3 group-hover:text-primary-light transition-colors drop-shadow-md">
             {article.title}
           </h3>
-          <p className="text-text-muted leading-relaxed line-clamp-3">
+          <p className="text-white/80 leading-relaxed line-clamp-2 max-w-3xl drop-shadow">
             {article.excerpt}
           </p>
-          <div className="flex items-center gap-4 text-xs text-text-muted">
+          <div className="flex items-center gap-4 text-sm text-white/70 font-medium">
             <span className="flex items-center gap-1.5">
-              <Calendar className="size-3.5" aria-hidden />
+              <Calendar className="size-4" aria-hidden />
               {formatDate(article.publishedAt)}
             </span>
             <span className="flex items-center gap-1.5">
-              <Clock className="size-3.5" aria-hidden />
+              <Clock className="size-4" aria-hidden />
               {article.readingMinutes} phút đọc
             </span>
           </div>

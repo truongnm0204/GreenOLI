@@ -2,7 +2,7 @@ import Script from "next/script";
 import type { Metadata } from "next";
 import { CategoryCard } from "@/components/shop/category-card";
 import { ProductGrid } from "@/components/shop/product-grid";
-import { PageHeader } from "@/components/layout/page-header";
+import { ShopHeroSection } from "@/components/shop/shop-hero";
 import { getAllCategories } from "@/data/categories";
 import { getAllProducts } from "@/data/products";
 import { buildMetadata } from "@/lib/seo";
@@ -29,7 +29,7 @@ export default async function ShopPage() {
   );
   return (
     <>
-      <PageHeader
+      <ShopHeroSection
         title="Cửa Hàng Oli Xanh"
         description="Toàn bộ sản phẩm chính hãng từ các thương hiệu hàng đầu thế giới, được phân loại theo 8 danh mục chuyên biệt."
         breadcrumb={[{ label: "Cửa hàng" }]}

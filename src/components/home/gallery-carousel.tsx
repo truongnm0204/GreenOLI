@@ -7,10 +7,10 @@ export async function GalleryCarousel() {
   const gallery = await getGallery();
   return (
     <section className="container-page py-16 md:py-20">
-      <Reveal as="div" className="max-w-3xl mb-10">
-        <p className="text-primary-dark font-semibold text-sm uppercase tracking-wider mb-3">
-          Khoảnh khắc Green Oli
-        </p>
+      <Reveal as="div" className="text-center mb-10">
+        <h2 className="font-bold text-3xl md:text-4xl text-text-primary">
+          Khoảnh khắc Oli Xanh
+        </h2>
         <h2 className="font-bold text-3xl md:text-4xl text-text-primary leading-tight">
           Hành trình kiến tạo môi trường an toàn
         </h2>

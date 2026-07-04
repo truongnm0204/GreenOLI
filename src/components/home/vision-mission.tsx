@@ -1,10 +1,10 @@
-import { Compass, Target, Eye } from "lucide-react";
+import { Target, Lightbulb, Sprout, ShieldCheck } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Reveal } from "@/components/motion/reveal";
 
 const PILLARS = [
   {
-    icon: Eye,
+    icon: Lightbulb,
     title: "Tầm nhìn",
     body: "Trở thành đơn vị dẫn đầu Việt Nam trong cung cấp giải pháp hóa chất nông nghiệp và kiểm soát côn trùng theo chuẩn quốc tế vào năm 2030.",
   },
@@ -14,9 +14,9 @@ const PILLARS = [
     body: "Cung cấp các sản phẩm và dịch vụ chất lượng cao, an toàn cho con người và môi trường, đồng hành cùng nông dân và cộng đồng vì một Việt Nam xanh.",
   },
   {
-    icon: Compass,
+    icon: ShieldCheck,
     title: "Giá trị cốt lõi",
-    body: "Chính trực · Khoa học · Bền vững · Tận tâm. Mỗi sản phẩm trên kệ Green Oli đều được lựa chọn nghiêm ngặt theo bốn nguyên tắc này.",
+    body: "Chính trực · Khoa học · Bền vững · Tận tâm. Mỗi sản phẩm trên kệ Oli Xanh đều được lựa chọn nghiêm ngặt theo bốn nguyên tắc này.",
   },
 ];
 

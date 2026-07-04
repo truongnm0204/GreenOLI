@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { Mail, MapPin, Phone, Clock, Facebook, Youtube, MessageCircle } from "lucide-react";
-import { PageHeader } from "@/components/layout/page-header";
+import { ContactHeroSection } from "@/components/contact/contact-hero";
 import { Card } from "@/components/ui/card";
 import { ContactForm } from "@/components/contact/contact-form";
 import { SITE_CONFIG } from "@/data/site-config";
@@ -41,7 +41,7 @@ const SOCIAL = [
 export default function ContactPage() {
   return (
     <>
-      <PageHeader
+      <ContactHeroSection
         title="Liên hệ với Oli Xanh"
         description="Để lại thông tin – đội ngũ kỹ sư của chúng tôi sẽ phản hồi trong vòng 24 giờ."
         breadcrumb={[{ label: "Liên hệ" }]}

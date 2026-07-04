@@ -11,7 +11,7 @@ export async function EcosystemSection() {
     <section className="container-page py-16 md:py-20">
       <Reveal as="div" className="max-w-3xl mx-auto text-center mb-12">
         <p className="text-primary-dark font-semibold text-sm uppercase tracking-wider mb-3">
-          Hệ sinh thái Green Oli
+          Hệ sinh thái Oli Xanh
         </p>
         <h2 className="font-bold text-3xl md:text-4xl lg:text-5xl text-text-primary leading-tight">
           Dịch vụ kiểm soát côn trùng & vệ sinh chuyên nghiệp

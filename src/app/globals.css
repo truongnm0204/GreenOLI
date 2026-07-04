@@ -148,6 +148,16 @@
   100% { box-shadow: 0 0 0 18px rgba(128, 188, 0, 0); }
 }
 
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes float-reverse {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(20px); }
+}
+
 /* ---------------------------------------------------------------------------
  * Custom Animation Utilities
  * Bypass Tailwind v4 JIT to ensure animations work correctly.
@@ -160,6 +170,8 @@
 .animate-scale-in { animation: scale-in 0.55s ease-out both; }
 .animate-blur-in { animation: blur-in 0.7s ease-out both; }
 .animate-pulse-ring { animation: pulse-ring 2.5s ease-out infinite; }
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-float-reverse { animation: float-reverse 7s ease-in-out infinite; }
 
 
 /* ---------------------------------------------------------------------------
@@ -268,4 +280,24 @@ body {
   animation-play-state: paused;
 }
 
+/* Custom Cursor & Advanced Micro-interactions */
+.hide-default-cursor {
+  cursor: none !important;
+}
 
+.hide-default-cursor * {
+  cursor: none !important;
+}
+
+@keyframes reveal-up {
+  0% { transform: translateY(100%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.animate-reveal-up {
+  animation: reveal-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.clip-reveal {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}

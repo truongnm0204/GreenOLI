@@ -12,7 +12,8 @@
     "payload:generate:importmap": "payload generate:importmap",
     "payload:migrate:create": "payload migrate:create",
     "payload:migrate": "payload migrate",
-    "seed": "payload run scripts/seed.ts"
+    "seed": "payload run scripts/seed.ts",
+    "import:products": "payload run scripts/import-products-and-categories-from-excel.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.4.0",
@@ -30,6 +31,7 @@
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-hook-form": "^7.80.0",
+    "xlsx": "^0.18.5",
     "zod": "^4.4.3"
   },
   "devDependencies": {

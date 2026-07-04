@@ -5,6 +5,8 @@ import "@/app/globals.css";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { FloatingSocialPanel } from "@/components/layout/floating-social-panel";
+import { CustomCursor } from "@/components/layout/custom-cursor";
+import { ScrollProgress } from "@/components/layout/scroll-progress";
 import { SITE_CONFIG } from "@/data/site-config";
 import { getAllCategories } from "@/data/categories";
 import { organizationSchema, websiteSchema } from "@/lib/json-ld";
@@ -30,9 +32,9 @@ export const metadata: Metadata = {
     "hóa chất nông nghiệp",
     "phân bón",
     "thuốc bảo vệ thực vật",
-    "diệt côn trùng",
-    "diệt mối",
-    "diệt muỗi",
+    "kiểm soát côn trùng",
+    "kiểm soát mối",
+    "kiểm soát muỗi",
     "Sumipro",
     "Sumithrin",
     "Pesguard",
@@ -103,6 +105,8 @@ export default async function RootLayout({
             __html: JSON.stringify(websiteSchema()),
           }}
         />
+        <CustomCursor />
+        <ScrollProgress />
       </body>
     </html>
   );

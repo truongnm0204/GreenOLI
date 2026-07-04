@@ -107,7 +107,7 @@ export function SiteHeader({ categories }: { categories: NavCategory[] }) {
         >
           <Image 
             src="/logo.svg" 
-            alt="Green Oli Logo" 
+            alt="Oli Xanh Logo" 
             width={240} 
             height={84} 
             className="w-40 lg:w-48 h-auto object-contain"

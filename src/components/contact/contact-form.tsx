@@ -113,7 +113,17 @@ export function ContactForm() {
           className="flex items-start gap-2 rounded-input bg-primary/10 p-3 text-sm text-primary-dark animate-fade-up"
         >
           <CheckCircle2 className="size-5 flex-none mt-0.5" aria-hidden />
-          Cảm ơn bạn đã liên hệ. Đội ngũ Green Oli sẽ phản hồi trong vòng 24 giờ.
+          Cảm ơn bạn đã liên hệ. Đội ngũ Oli Xanh sẽ phản hồi trong vòng 24 giờ.
+        </p>
+      ) : null}
+
+      {errorMsg ? (
+        <p
+          role="alert"
+          className="flex items-start gap-2 rounded-input bg-red-50 p-3 text-sm text-red-600 animate-slide-in-right"
+        >
+          <AlertCircle className="size-5 flex-none mt-0.5" aria-hidden />
+          {errorMsg}
         </p>
       ) : null}
     </form>

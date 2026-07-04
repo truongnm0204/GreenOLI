@@ -22,7 +22,7 @@ export function ContactCta() {
               Sẵn sàng đồng hành cùng giải pháp xanh của bạn?
             </h2>
             <p className="text-white/90 text-base md:text-lg leading-relaxed max-w-xl">
-              Đội ngũ kỹ sư của Green Oli luôn sẵn sàng tư vấn miễn phí giải pháp phù hợp
+              Đội ngũ kỹ sư của Oli Xanh luôn sẵn sàng tư vấn miễn phí giải pháp phù hợp
               cho cây trồng, công trình và doanh nghiệp của bạn.
             </p>
           </div>

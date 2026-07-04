@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Green Oli – Giải pháp hóa chất nông nghiệp & kiểm soát côn trùng";
+export const alt = "Oli Xanh – Giải pháp hóa chất nông nghiệp & kiểm soát côn trùng";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -40,7 +40,7 @@ export default function OpengraphImage() {
             G
           </div>
           <div style={{ fontSize: 36, fontWeight: 700, letterSpacing: -1 }}>
-            Green Oli
+            Oli Xanh
           </div>
         </div>
 

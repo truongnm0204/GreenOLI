@@ -6,6 +6,7 @@ import { PageHeader } from "@/components/layout/page-header";
 import { ProductGallery } from "@/components/shop/product-gallery";
 import { ProductSpecs } from "@/components/shop/product-specs";
 import { ProductCard } from "@/components/shop/product-card";
+import { FloatingCTA } from "@/components/shop/floating-cta";
 import { Button } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
 import { Card } from "@/components/ui/card";
@@ -66,9 +67,11 @@ export default async function ProductPage({
       />
 
       <section className="container-page py-12 md:py-16">
-        <div className="grid gap-10 lg:grid-cols-12">
+        <div className="grid gap-10 lg:grid-cols-12 relative">
           <div className="lg:col-span-6">
-            <ProductGallery images={images} alt={product.name} />
+            <div className="sticky top-24 z-10">
+              <ProductGallery images={images} alt={product.name} />
+            </div>
           </div>
           <div className="lg:col-span-6 space-y-5">
             {category ? (
@@ -179,6 +182,7 @@ export default async function ProductPage({
           ),
         }}
       />
+      <FloatingCTA productName={product.name} />
     </>
   );
 }
