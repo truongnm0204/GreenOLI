@@ -3,32 +3,14 @@
 import * as React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import { CheckCircle2, Send } from "lucide-react";
+import { CheckCircle2, Send, AlertCircle } from "lucide-react";
 import { Input, Textarea } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-
-const ContactSchema = z.object({
-  fullName: z
-    .string()
-    .min(2, "Vui lòng nhập họ và tên đầy đủ")
-    .max(100, "Tên quá dài"),
-  email: z.string().email("Email không hợp lệ"),
-  phone: z
-    .string()
-    .min(9, "Số điện thoại không hợp lệ")
-    .regex(/^[+0-9\s().-]+$/, "Chỉ chấp nhận số và ký tự +()-."),
-  subject: z.string().min(3, "Vui lòng nhập chủ đề").max(120),
-  message: z
-    .string()
-    .min(10, "Nội dung quá ngắn (tối thiểu 10 ký tự)")
-    .max(2000, "Nội dung quá dài"),
-});
-
-type ContactValues = z.infer<typeof ContactSchema>;
+import { ContactSchema, type ContactValues } from "@/lib/contact-schema";
 
 export function ContactForm() {
   const [submitted, setSubmitted] = React.useState(false);
+  const [errorMsg, setErrorMsg] = React.useState<string | null>(null);
   const {
     register,
     handleSubmit,
@@ -46,12 +28,24 @@ export function ContactForm() {
   });
 
   const onSubmit = async (data: ContactValues) => {
-    // Backend chưa kết nối ở phase UI — log + simulate.
-    console.log("[contact-form] submitted", data);
-    await new Promise((r) => setTimeout(r, 600));
-    setSubmitted(true);
-    reset();
-    setTimeout(() => setSubmitted(false), 5000);
+    setErrorMsg(null);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const json = await res.json();
+      if (!res.ok || !json.ok) {
+        setErrorMsg(json.error ?? "Gửi không thành công. Vui lòng thử lại.");
+        return;
+      }
+      setSubmitted(true);
+      reset();
+      setTimeout(() => setSubmitted(false), 5000);
+    } catch {
+      setErrorMsg("Không kết nối được máy chủ. Vui lòng thử lại sau.");
+    }
   };
 
   return (
@@ -61,6 +55,15 @@ export function ContactForm() {
       aria-label="Form liên hệ"
       noValidate
     >
+      {/* Honeypot chống bot: ẩn với người dùng thật, bot điền sẽ bị bỏ qua. */}
+      <input
+        type="text"
+        {...register("company")}
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="absolute left-[-9999px] h-0 w-0 opacity-0"
+      />
       <div className="grid gap-4 sm:grid-cols-2">
         <Input
           label="Họ và tên"

@@ -1,11 +1,16 @@
 import { Phone, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Reveal } from "@/components/motion/reveal";
 import { SITE_CONFIG } from "@/data/site-config";
 
 export function ContactCta() {
   return (
     <section className="container-page py-16 md:py-20">
-      <div className="relative overflow-hidden rounded-card bg-gradient-to-br from-primary-dark via-primary to-primary-fixed p-10 md:p-16 text-white shadow-ambient-lg">
+      <Reveal
+        as="div"
+        variant="scale-in"
+        className="relative overflow-hidden rounded-card bg-gradient-to-br from-primary-dark via-primary to-primary-fixed p-10 md:p-16 text-white shadow-ambient-lg"
+      >
         <div className="absolute inset-0 molecular-pattern opacity-20" aria-hidden />
         <div className="relative grid gap-8 md:grid-cols-12 items-center">
           <div className="md:col-span-7 space-y-4">
@@ -41,7 +46,7 @@ export function ContactCta() {
             </Button>
           </div>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

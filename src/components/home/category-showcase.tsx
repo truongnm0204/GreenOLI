@@ -1,13 +1,18 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { CategoryCard } from "@/components/shop/category-card";
-import { CATEGORIES } from "@/data/categories";
+import { Reveal } from "@/components/motion/reveal";
+import { getAllCategories } from "@/data/categories";
 
-export function CategoryShowcase() {
+export async function CategoryShowcase() {
+  const categories = await getAllCategories();
   return (
     <section className="bg-surface-container-low py-16 md:py-20">
       <div className="container-page">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 md:mb-12">
+        <Reveal
+          as="div"
+          className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 md:mb-12"
+        >
           <div className="max-w-2xl">
             <p className="text-primary-dark font-semibold text-sm uppercase tracking-wider mb-3">
               Danh mục sản phẩm
@@ -23,11 +28,13 @@ export function CategoryShowcase() {
             Xem tất cả danh mục
             <ArrowRight className="size-5" aria-hidden />
           </Link>
-        </div>
+        </Reveal>
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {CATEGORIES.map((cat) => (
-            <CategoryCard key={cat.slug} category={cat} />
+          {categories.map((cat, idx) => (
+            <Reveal key={cat.slug} as="div" delay={Math.min(idx * 60, 600)}>
+              <CategoryCard category={cat} />
+            </Reveal>
           ))}
         </div>
       </div>

@@ -1,9 +1,11 @@
 import Image from "next/image";
-import { PARTNERS } from "@/data/partners";
+import { Reveal } from "@/components/motion/reveal";
+import { getAllPartners } from "@/data/partners";
 
-export function PartnersMarquee() {
+export async function PartnersMarquee() {
+  const partners = await getAllPartners();
   // Duplicate list once so the CSS marquee can loop seamlessly via -50% translate.
-  const items = [...PARTNERS, ...PARTNERS];
+  const items = [...partners, ...partners];
 
   return (
     <section
@@ -11,16 +13,16 @@ export function PartnersMarquee() {
       aria-label="Đối tác chiến lược"
     >
       <div className="container-page">
-        <div className="text-center mb-10">
+        <Reveal as="div" className="text-center mb-10">
           <p className="text-primary-dark font-semibold text-sm uppercase tracking-wider mb-3">
             Đối tác chiến lược
           </p>
           <h2 className="font-bold text-2xl md:text-3xl text-text-primary">
             Hợp tác cùng các thương hiệu hàng đầu thế giới
           </h2>
-        </div>
+        </Reveal>
       </div>
-      <div className="relative" aria-hidden>
+      <div className="relative marquee-mask marquee-pause" aria-hidden>
         <div className="flex w-max gap-12 md:gap-16 animate-marquee will-change-transform">
           {items.map((p, idx) => (
             <div
@@ -33,7 +35,7 @@ export function PartnersMarquee() {
                 alt={p.name}
                 width={180}
                 height={80}
-                className="object-contain"
+                className="h-auto w-auto max-h-full max-w-full object-contain"
               />
             </div>
           ))}

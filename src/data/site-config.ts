@@ -1,8 +1,8 @@
 export const SITE_CONFIG = {
-  name: "Green Oli",
+  name: "Oli Xanh",
   tagline: "Giải pháp hóa chất nông nghiệp & kiểm soát côn trùng chuyên nghiệp",
   description:
-    "Green Oli cung cấp hóa chất nông nghiệp, phân bón, thuốc bảo vệ thực vật và dịch vụ kiểm soát côn trùng chuyên nghiệp. 10+ năm kinh nghiệm, đại lý độc quyền các thương hiệu quốc tế.",
+    "Oli Xanh cung cấp hóa chất nông nghiệp, phân bón, thuốc bảo vệ thực vật và dịch vụ kiểm soát côn trùng chuyên nghiệp. 10+ năm kinh nghiệm, đại lý độc quyền các thương hiệu quốc tế.",
   url: "https://greenoli.vn",
   ogImage: "/opengraph-image",
   locale: "vi_VN",

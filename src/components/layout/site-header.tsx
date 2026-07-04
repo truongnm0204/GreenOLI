@@ -14,12 +14,19 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { NAV_ITEMS, SITE_CONFIG } from "@/data/site-config";
-import { CATEGORIES } from "@/data/categories";
 import { cn } from "@/lib/cn";
 
 const HEADER_HEIGHT_VAR = { ["--header-h" as never]: "76px" } as React.CSSProperties;
 
-export function SiteHeader() {
+/** Danh mục tối giản truyền từ layout (server) xuống — header là client component. */
+export type NavCategory = {
+  slug: string;
+  name: string;
+  shortName?: string;
+  tagline: string;
+};
+
+export function SiteHeader({ categories }: { categories: NavCategory[] }) {
   const pathname = usePathname();
   const [scrolled, setScrolled] = React.useState(false);
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -136,7 +143,7 @@ export function SiteHeader() {
                       <ul
                         className="grid w-[640px] grid-cols-2 gap-1 rounded-card bg-surface-container-lowest p-3 shadow-ambient-lg border border-border-soft"
                       >
-                        {CATEGORIES.map((cat) => (
+                        {categories.map((cat) => (
                           <li key={cat.slug}>
                             <Link
                               href={`/cua-hang/${cat.slug}`}
@@ -222,7 +229,7 @@ export function SiteHeader() {
               <p className="px-4 py-1 text-xs uppercase tracking-wider text-text-muted">
                 Danh mục
               </p>
-              {CATEGORIES.map((c) => (
+              {categories.map((c) => (
                 <Link
                   key={c.slug}
                   href={`/cua-hang/${c.slug}`}

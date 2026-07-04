@@ -1,0 +1,23 @@
+# Postgres cho DEV LOCAL only. Production deploy Vercel dùng Neon (không dùng file này).
+# Chạy: docker compose -f docker-compose.dev.yml up -d
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: greenoli-postgres-dev
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: greenoli
+      POSTGRES_PASSWORD: greenoli_dev
+      POSTGRES_DB: greenoli
+    ports:
+      - "5432:5432"
+    volumes:
+      - greenoli_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U greenoli"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  greenoli_pgdata:

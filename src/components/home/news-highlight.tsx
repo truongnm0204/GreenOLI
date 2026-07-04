@@ -1,14 +1,19 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { NewsCard } from "@/components/news/news-card";
-import { ARTICLES } from "@/data/articles";
+import { Reveal } from "@/components/motion/reveal";
+import { getAllArticles } from "@/data/articles";
 
-export function NewsHighlight() {
-  const items = ARTICLES.slice(0, 3);
+export async function NewsHighlight() {
+  const all = await getAllArticles();
+  const items = all.slice(0, 3);
   return (
     <section className="bg-surface-light py-16 md:py-20">
       <div className="container-page">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 md:mb-12">
+        <Reveal
+          as="div"
+          className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 md:mb-12"
+        >
           <div className="max-w-2xl">
             <p className="text-primary-dark font-semibold text-sm uppercase tracking-wider mb-3">
               Tin tức & Kiến thức
@@ -24,11 +29,13 @@ export function NewsHighlight() {
             Tất cả bài viết
             <ArrowRight className="size-5" aria-hidden />
           </Link>
-        </div>
+        </Reveal>
 
         <div className="grid gap-6 md:grid-cols-3">
-          {items.map((article) => (
-            <NewsCard key={article.slug} article={article} />
+          {items.map((article, idx) => (
+            <Reveal key={article.slug} as="div" delay={idx * 80}>
+              <NewsCard article={article} />
+            </Reveal>
           ))}
         </div>
       </div>

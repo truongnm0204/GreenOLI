@@ -1,56 +1,51 @@
 import type { Service } from "@/types/service";
+import { getPayloadClient } from "@/lib/payload-client";
+import { mediaUrl } from "@/lib/map-helpers";
 
 /**
- * 5 ecosystem services — featured on the homepage "Hệ Sinh Thái" section.
- * Pulled from the Stitch reference HTML (Cửa Hàng page banner row).
+ * Data layer services: query Payload Local API, map về type `Service` cũ
+ * (image: media object → .url string).
  */
-export const SERVICES: Service[] = [
-  {
-    slug: "diet-moi-tan-goc",
-    name: "Diệt Mối Tận Gốc",
-    tagline: "Bảo vệ công trình bền vững",
-    description:
-      "Hệ thống bả mối Xterm và phun phòng chống mối cho công trình mới, công trình hiện hữu, kho hàng và đồ gỗ nội thất.",
-    iconKey: "Hammer",
-    image: "https://picsum.photos/seed/dietmoi/960/720",
-  },
-  {
-    slug: "diet-chuot",
-    name: "Diệt Chuột",
-    tagline: "Kiểm soát loài gặm nhấm",
-    description:
-      "Giải pháp đặt bả, đặt bẫy và niêm phong điểm xâm nhập theo chuẩn IPM, an toàn cho người và thú nuôi.",
-    iconKey: "Mouse",
-    image: "https://picsum.photos/seed/dietchuot/960/720",
-  },
-  {
-    slug: "diet-muoi",
-    name: "Diệt Muỗi",
-    tagline: "Phun ULV – tồn lưu chuyên nghiệp",
-    description:
-      "Phun không gian, phun tồn lưu và xử lý nguồn nước tù đọng, áp dụng cho khu dân cư, trường học, bệnh viện và resort.",
-    iconKey: "Sparkles",
-    image: "https://picsum.photos/seed/dietmuoi/960/720",
-  },
-  {
-    slug: "ve-sinh-cong-nghiep",
-    name: "Vệ Sinh Công Nghiệp",
-    tagline: "Sạch sâu cho nhà máy & cao ốc",
-    description:
-      "Tổng vệ sinh sau xây dựng, lau kính nhà cao tầng, giặt ghế sofa thảm và bảo dưỡng định kỳ tòa nhà.",
-    iconKey: "SprayCan",
-    image: "https://picsum.photos/seed/vesinh/960/720",
-  },
-  {
-    slug: "diet-gian-con-trung",
-    name: "Diệt Gián & Côn Trùng",
-    tagline: "Kiểm soát côn trùng tổng thể",
-    description:
-      "Đặt gel, phun tồn lưu và xử lý ổ cho gián, kiến, ruồi, bọ chét trong nhà hàng, khách sạn và hộ gia đình.",
-    iconKey: "Bug",
-    image: "https://picsum.photos/seed/dietgian/960/720",
-  },
-];
 
-export const getServiceBySlug = (slug: string) =>
-  SERVICES.find((s) => s.slug === slug);
+type ServiceDoc = {
+  slug: string;
+  name: string;
+  tagline: string;
+  description: string;
+  iconKey: string;
+  image: unknown;
+};
+
+const toService = (doc: ServiceDoc): Service => ({
+  slug: doc.slug,
+  name: doc.name,
+  tagline: doc.tagline,
+  description: doc.description,
+  iconKey: doc.iconKey,
+  image: mediaUrl(doc.image),
+});
+
+export const getAllServices = async (): Promise<Service[]> => {
+  const payload = await getPayloadClient();
+  const { docs } = await payload.find({
+    collection: "services",
+    limit: 100,
+    depth: 1,
+    sort: "createdAt",
+  });
+  return (docs as ServiceDoc[]).map(toService);
+};
+
+export const getServiceBySlug = async (
+  slug: string,
+): Promise<Service | undefined> => {
+  const payload = await getPayloadClient();
+  const { docs } = await payload.find({
+    collection: "services",
+    where: { slug: { equals: slug } },
+    limit: 1,
+    depth: 1,
+  });
+  const doc = docs[0] as ServiceDoc | undefined;
+  return doc ? toService(doc) : undefined;
+};

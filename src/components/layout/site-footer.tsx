@@ -8,9 +8,9 @@ import {
   Send,
 } from "lucide-react";
 import { SITE_CONFIG, NAV_ITEMS } from "@/data/site-config";
-import { CATEGORIES } from "@/data/categories";
+import type { NavCategory } from "@/components/layout/site-header";
 
-export function SiteFooter() {
+export function SiteFooter({ categories }: { categories: NavCategory[] }) {
   return (
     <footer className="bg-surface-container-lowest border-t border-border-soft">
       <div className="container-page py-16 grid gap-12 md:gap-8 md:grid-cols-2 lg:grid-cols-4">
@@ -79,7 +79,7 @@ export function SiteFooter() {
         <nav aria-label="Danh mục sản phẩm">
           <h3 className="mb-4 font-semibold text-text-primary">Sản phẩm</h3>
           <ul className="space-y-2.5 text-sm text-text-muted">
-            {CATEGORIES.slice(0, 6).map((c) => (
+            {categories.slice(0, 6).map((c) => (
               <li key={c.slug}>
                 <Link
                   href={`/cua-hang/${c.slug}`}

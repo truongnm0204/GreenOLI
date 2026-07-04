@@ -3,16 +3,16 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Chip } from "@/components/ui/chip";
-import { getCategoryBySlug } from "@/data/categories";
 import type { Product } from "@/types/product";
 
 type Props = {
   product: Product;
+  /** Nhãn danh mục hiển thị (chip). Truyền từ nơi gọi đã có category để tránh query lồng. */
+  categoryLabel?: string;
   className?: string;
 };
 
-export function ProductCard({ product, className }: Props) {
-  const category = getCategoryBySlug(product.category);
+export function ProductCard({ product, categoryLabel, className }: Props) {
   return (
     <Card padding="none" className={className}>
       <Link
@@ -29,8 +29,8 @@ export function ProductCard({ product, className }: Props) {
           />
         </div>
         <div className="p-5 space-y-3">
-          {category ? (
-            <Chip variant="primary">{category.shortName ?? category.name}</Chip>
+          {categoryLabel ? (
+            <Chip variant="primary">{categoryLabel}</Chip>
           ) : null}
           <h3 className="font-semibold text-text-primary text-lg line-clamp-2 min-h-[3.5rem]">
             {product.name}

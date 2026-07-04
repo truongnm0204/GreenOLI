@@ -1,6 +1,6 @@
 import Link from "next/link";
 import * as Icons from "lucide-react";
-import { CATEGORIES } from "@/data/categories";
+import { getAllCategories } from "@/data/categories";
 import { cn } from "@/lib/cn";
 
 type Props = {
@@ -8,7 +8,8 @@ type Props = {
   className?: string;
 };
 
-export function CategorySidebar({ activeSlug, className }: Props) {
+export async function CategorySidebar({ activeSlug, className }: Props) {
+  const categories = await getAllCategories();
   return (
     <aside
       className={cn(
@@ -21,7 +22,7 @@ export function CategorySidebar({ activeSlug, className }: Props) {
         Danh mục sản phẩm
       </h3>
       <ul className="space-y-1">
-        {CATEGORIES.map((cat) => {
+        {categories.map((cat) => {
           const Icon =
             (Icons as unknown as Record<
               string,

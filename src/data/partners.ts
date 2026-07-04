@@ -1,15 +1,32 @@
+import { getPayloadClient } from "@/lib/payload-client";
+import { mediaUrl } from "@/lib/map-helpers";
+
 export type Partner = {
   name: string;
   logo: string;
+  url?: string;
 };
 
-export const PARTNERS: Partner[] = [
-  { name: "Sumitomo Chemical", logo: "https://picsum.photos/seed/sumitomo/240/120" },
-  { name: "Bayer CropScience", logo: "https://picsum.photos/seed/bayer/240/120" },
-  { name: "Syngenta", logo: "https://picsum.photos/seed/syngenta/240/120" },
-  { name: "BASF", logo: "https://picsum.photos/seed/basf/240/120" },
-  { name: "Dow AgroSciences", logo: "https://picsum.photos/seed/dow/240/120" },
-  { name: "FMC", logo: "https://picsum.photos/seed/fmc/240/120" },
-  { name: "Corteva", logo: "https://picsum.photos/seed/corteva/240/120" },
-  { name: "Nufarm", logo: "https://picsum.photos/seed/nufarm/240/120" },
-];
+type PartnerDoc = {
+  name: string;
+  logo: unknown;
+  url?: string | null;
+};
+
+const toPartner = (doc: PartnerDoc): Partner => ({
+  name: doc.name,
+  logo: mediaUrl(doc.logo),
+  url: doc.url ?? undefined,
+});
+
+/** Data layer partners: query Payload, map logo (media) → url string. */
+export const getAllPartners = async (): Promise<Partner[]> => {
+  const payload = await getPayloadClient();
+  const { docs } = await payload.find({
+    collection: "partners",
+    limit: 100,
+    depth: 1,
+    sort: "createdAt",
+  });
+  return (docs as PartnerDoc[]).map(toPartner);
+};

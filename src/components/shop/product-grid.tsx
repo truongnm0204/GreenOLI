@@ -4,10 +4,19 @@ import { cn } from "@/lib/cn";
 
 type Props = {
   products: Product[];
+  /** Nhãn danh mục chung cho mọi card (khi cả lưới cùng 1 danh mục). */
+  categoryLabel?: string;
+  /** Map slug danh mục → nhãn hiển thị (khi lưới trộn nhiều danh mục). */
+  categoryLabels?: Record<string, string>;
   className?: string;
 };
 
-export function ProductGrid({ products, className }: Props) {
+export function ProductGrid({
+  products,
+  categoryLabel,
+  categoryLabels,
+  className,
+}: Props) {
   if (products.length === 0) {
     return (
       <div className="rounded-card border border-dashed border-border-soft p-10 text-center text-text-muted">
@@ -24,7 +33,11 @@ export function ProductGrid({ products, className }: Props) {
       )}
     >
       {products.map((p) => (
-        <ProductCard key={p.slug} product={p} />
+        <ProductCard
+          key={p.slug}
+          product={p}
+          categoryLabel={categoryLabel ?? categoryLabels?.[p.category]}
+        />
       ))}
     </div>
   );
