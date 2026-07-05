@@ -39,22 +39,24 @@ export default async function NewsListPage() {
             <MotionWrapper delay={0.1} direction="left" className="lg:col-span-8">
               <NewsCard article={featured} variant="featured" />
             </MotionWrapper>
-            <MotionWrapper delay={0.3} direction="up" as="aside" className="lg:col-span-4 space-y-4" aria-label="Bài viết gần đây">
-              <h2 className="font-bold text-2xl text-text-primary mb-4 flex items-center gap-2">
-                <span className="w-2 h-6 rounded-full bg-primary inline-block"></span>
-                Mới nhất
-              </h2>
-              <div className="space-y-4">
-                {sidebar.map((article, idx) => (
-                  <MotionWrapper key={article.slug} delay={0.4 + idx * 0.15} direction="up">
-                    <NewsCard
-                      article={article}
-                      variant="compact"
-                    />
-                  </MotionWrapper>
-                ))}
-              </div>
-            </MotionWrapper>
+            <aside className="lg:col-span-4" aria-label="Bài viết gần đây">
+              <MotionWrapper delay={0.3} direction="up" className="space-y-4">
+                <h2 className="font-bold text-2xl text-text-primary mb-4 flex items-center gap-2">
+                  <span className="w-2 h-6 rounded-full bg-primary inline-block"></span>
+                  Mới nhất
+                </h2>
+                <div className="space-y-4">
+                  {sidebar.map((article, idx) => (
+                    <MotionWrapper key={article.slug} delay={0.4 + idx * 0.15} direction="up">
+                      <NewsCard
+                        article={article}
+                        variant="compact"
+                      />
+                    </MotionWrapper>
+                  ))}
+                </div>
+              </MotionWrapper>
+            </aside>
           </div>
         </section>
       ) : (

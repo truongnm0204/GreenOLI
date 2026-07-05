@@ -4,7 +4,7 @@ import { Target, Lightbulb, ShieldCheck } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { MotionWrapper } from "@/components/ui/motion-wrapper";
 import { AnimatedText } from "@/components/motion/animated-text";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 
 const PILLARS = [
   {
@@ -36,7 +36,7 @@ export function VisionMissionSection() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 40, scale: 0.95 },
     visible: {
       opacity: 1,

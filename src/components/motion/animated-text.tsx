@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 
 interface AnimatedTextProps {
   text: string | React.ReactNode;
@@ -40,7 +40,7 @@ export function AnimatedText({ text, className, delay = 0, once = true }: Animat
     }),
   };
 
-  const child = {
+  const child: Variants = {
     visible: {
       opacity: 1,
       y: 0,

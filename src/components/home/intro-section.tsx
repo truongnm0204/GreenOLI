@@ -4,7 +4,7 @@ import Image from "next/image";
 import { CheckCircle2 } from "lucide-react";
 import { MotionWrapper } from "@/components/ui/motion-wrapper";
 import { AnimatedText } from "@/components/motion/animated-text";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 
 const HIGHLIGHTS = [
   "Hơn 10 năm phân phối hóa chất nông nghiệp tại Việt Nam",
@@ -24,7 +24,7 @@ export function IntroSection() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, x: -20 },
     visible: {
       opacity: 1,

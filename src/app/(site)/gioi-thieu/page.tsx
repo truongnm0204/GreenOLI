@@ -120,10 +120,12 @@ export default function AboutPage() {
                 { value: "50+", label: "Kỹ sư & cố vấn" },
                 { value: "10+", label: "Năm kinh nghiệm" }
               ].map((stat, idx) => (
-                <MotionWrapper as="li" key={stat.label} delay={0.7 + idx * 0.1} direction="up">
-                  <p className="text-4xl font-extrabold text-primary-dark tracking-tight">{stat.value}</p>
-                  <p className="text-sm text-text-muted mt-1 font-medium">{stat.label}</p>
-                </MotionWrapper>
+                <li key={stat.label}>
+                  <MotionWrapper delay={0.7 + idx * 0.1} direction="up">
+                    <p className="text-4xl font-extrabold text-primary-dark tracking-tight">{stat.value}</p>
+                    <p className="text-sm text-text-muted mt-1 font-medium">{stat.label}</p>
+                  </MotionWrapper>
+                </li>
               ))}
             </ul>
           </div>

@@ -75,7 +75,7 @@ export default function ContactPage() {
                   {INFO.map((item, idx) => {
                     const Icon = item.icon;
                     const content = (
-                      <MotionWrapper as="span" key={item.label} delay={0.4 + idx * 0.1} direction="up" className="flex items-start gap-4">
+                      <MotionWrapper delay={0.4 + idx * 0.1} direction="up" className="flex items-start gap-4">
                         <span className="grid size-11 place-items-center rounded-xl bg-primary/10 text-primary-dark flex-none">
                           <Icon className="size-5" aria-hidden />
                         </span>
@@ -96,9 +96,9 @@ export default function ContactPage() {
                             href={item.href}
                             className="block hover:text-primary-dark transition-colors group"
                           >
-                            <span className="group-hover:translate-x-1 transition-transform inline-block w-full">
+                            <div className="group-hover:translate-x-1 transition-transform w-full">
                               {content}
-                            </span>
+                            </div>
                           </a>
                         ) : (
                           content
