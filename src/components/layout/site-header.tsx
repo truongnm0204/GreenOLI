@@ -10,8 +10,6 @@ import {
   Menu,
   Phone,
   X,
-  Facebook,
-  Youtube,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { NAV_ITEMS, SITE_CONFIG } from "@/data/site-config";
@@ -72,28 +70,6 @@ export function SiteHeader({ categories }: { categories: NavCategory[] }) {
             >
               <Mail className="size-3.5" aria-hidden />
               {SITE_CONFIG.email}
-            </a>
-          </div>
-          <div className="flex items-center gap-3">
-            <span>{SITE_CONFIG.workingHours}</span>
-            <span className="h-3 w-px bg-border-soft" aria-hidden />
-            <a
-              href={SITE_CONFIG.social.facebook}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-primary-dark"
-              aria-label="Facebook"
-            >
-              <Facebook className="size-3.5" />
-            </a>
-            <a
-              href={SITE_CONFIG.social.youtube}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-primary-dark"
-              aria-label="YouTube"
-            >
-              <Youtube className="size-3.5" />
             </a>
           </div>
         </div>
