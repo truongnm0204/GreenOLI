@@ -1,6 +1,6 @@
 "use client";
 
-import { Facebook, MessageCircle, Phone, Youtube, ArrowUp } from "lucide-react";
+import { MessageCircle, Phone, ArrowUp } from "lucide-react";
 import * as React from "react";
 import { SITE_CONFIG } from "@/data/site-config";
 import { cn } from "@/lib/cn";
@@ -27,20 +27,7 @@ const ITEMS: Item[] = [
     className: "bg-secondary text-on-secondary hover:bg-secondary-strong",
     external: true,
   },
-  {
-    label: "Facebook",
-    href: SITE_CONFIG.social.facebook,
-    icon: <Facebook className="size-5" />,
-    className: "bg-[#1877f2] text-white hover:opacity-90",
-    external: true,
-  },
-  {
-    label: "YouTube",
-    href: SITE_CONFIG.social.youtube,
-    icon: <Youtube className="size-5" />,
-    className: "bg-[#ff0000] text-white hover:opacity-90",
-    external: true,
-  },
+
 ];
 
 export function FloatingSocialPanel() {
