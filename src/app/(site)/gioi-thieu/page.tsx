@@ -17,29 +17,6 @@ export const metadata: Metadata = buildMetadata({
   path: "/gioi-thieu",
 });
 
-const TEAM = [
-  {
-    name: "Ông Nguyễn Hữu Long",
-    role: "Tổng Giám Đốc",
-    avatar: "https://picsum.photos/seed/team-long/480/480",
-  },
-  {
-    name: "Bà Trần Mỹ Lan",
-    role: "Giám đốc Kỹ thuật",
-    avatar: "https://picsum.photos/seed/team-lan/480/480",
-  },
-  {
-    name: "Ông Lê Quang Vinh",
-    role: "Trưởng phòng Kiểm soát côn trùng",
-    avatar: "https://picsum.photos/seed/team-vinh/480/480",
-  },
-  {
-    name: "TS. Phạm Thanh Hà",
-    role: "Cố vấn Khoa học",
-    avatar: "https://picsum.photos/seed/team-ha/480/480",
-  },
-];
-
 const VALUES = [
   {
     icon: ShieldCheck,
@@ -194,41 +171,6 @@ export default function AboutPage() {
               </Card>
             </MotionWrapper>
           ))}
-        </div>
-      </section>
-
-      <section className="bg-surface-light py-16 md:py-24">
-        <div className="container-page">
-          <MotionWrapper delay={0.1} direction="up" className="max-w-3xl mb-12">
-            <p className="text-primary-dark font-bold text-sm uppercase tracking-widest mb-4">
-              Đội ngũ lãnh đạo
-            </p>
-            <h2 className="font-bold text-3xl md:text-4xl lg:text-5xl text-text-primary leading-tight">
-              <AnimatedText text="Những người đứng sau Oli Xanh" />
-            </h2>
-          </MotionWrapper>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {TEAM.map((member, idx) => (
-              <MotionWrapper key={member.name} delay={0.2 + idx * 0.15} direction="up">
-                <Card padding="none" className="overflow-hidden rounded-2xl hover-card-effect group shadow-ambient">
-                  <div className="relative aspect-square">
-                    <Image
-                      src={member.avatar}
-                      alt={`Chân dung ${member.name}`}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 25vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </div>
-                  <div className="p-6 relative bg-white">
-                    <p className="font-bold text-lg text-text-primary group-hover:text-primary-dark transition-colors">{member.name}</p>
-                    <p className="text-sm text-text-muted mt-1 font-medium">{member.role}</p>
-                  </div>
-                </Card>
-              </MotionWrapper>
-            ))}
-          </div>
         </div>
       </section>
 
