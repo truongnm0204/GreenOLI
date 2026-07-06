@@ -3,7 +3,7 @@ import config from '@payload-config';
 import fs from 'fs';
 import path from 'path';
 
-const CATEGORY_MAP = {
+const CATEGORY_MAP: Record<string, string> = {
   'thuoc-diet-muoi-ruoi-con-trung-bay': 'cat_muoi',
   'thuoc-diet-gian': 'cat_gian',
   'thuoc-diet-kien': 'cat_kien',

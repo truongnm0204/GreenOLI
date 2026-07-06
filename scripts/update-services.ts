@@ -3,7 +3,7 @@ import config from '@payload-config';
 import fs from 'fs';
 import path from 'path';
 
-const SERVICE_MAP = {
+const SERVICE_MAP: Record<string, string> = {
   'diet-gian-con-trung': 'srv_gian',
   've-sinh-cong-nghiep': 'srv_vesinh'
   // Missing due to quota:
