@@ -4,12 +4,28 @@ import Image from "next/image";
 import { ArrowRight, ShieldCheck, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { MotionWrapper } from "@/components/ui/motion-wrapper";
+import * as React from "react";
 import { AnimatedBackground } from "@/components/ui/animated-background";
 import { AnimatedText } from "@/components/motion/animated-text";
 
+const HERO_IMAGES = [
+  "/hero_product_1.png",
+  "/hero_product_2.png",
+  "/hero_product_3.png",
+];
+
 export function HeroSection() {
+  const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % HERO_IMAGES.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative overflow-hidden bg-surface-lowest">
       {/* Dynamic Animated Background */}
@@ -92,15 +108,26 @@ export function HeroSection() {
               transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
               className="relative w-full aspect-square md:aspect-[4/3] rounded-[2rem] overflow-hidden tinted-shadow-primary hover-card-effect group"
             >
-              <Image
-                src="https://picsum.photos/seed/hero-greenoli/1280/1024"
-                alt="Đội ngũ kỹ thuật Oli Xanh"
-                fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentImageIndex}
+                  initial={{ opacity: 0, scale: 1.05 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.8, ease: "easeInOut" }}
+                  className="absolute inset-0"
+                >
+                  <Image
+                    src={HERO_IMAGES[currentImageIndex]}
+                    alt="Đội ngũ kỹ thuật Oli Xanh"
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </motion.div>
+              </AnimatePresence>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none z-10" />
             </motion.div>
           </MotionWrapper>
           

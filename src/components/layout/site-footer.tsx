@@ -14,8 +14,7 @@ import type { NavCategory } from "@/components/layout/site-header";
 export function SiteFooter({ categories }: { categories: NavCategory[] }) {
   return (
     <footer className="bg-primary-dark text-white border-t border-border-soft/20 relative overflow-hidden">
-      {/* Background pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:40px_40px]" aria-hidden />
+
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 blur-[100px] rounded-full pointer-events-none" aria-hidden />
 
       <div className="container-page py-16 grid gap-12 md:gap-8 md:grid-cols-2 lg:grid-cols-4 relative z-10">

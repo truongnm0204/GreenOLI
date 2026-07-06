@@ -16,7 +16,7 @@ export function ContactCta() {
         <div className="absolute inset-0 opacity-40 mix-blend-overlay">
           <AnimatedBackground />
         </div>
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff1a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff1a_1px,transparent_1px)] bg-[size:24px_24px]" aria-hidden />
+
         
         <div className="relative grid gap-10 md:grid-cols-12 items-center z-10">
           <div className="md:col-span-7 space-y-5">

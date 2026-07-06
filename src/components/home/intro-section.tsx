@@ -49,7 +49,7 @@ export function IntroSection() {
             className="relative aspect-[4/5] rounded-[2rem] overflow-hidden tinted-shadow-primary hover-card-effect group"
           >
             <Image
-              src="https://picsum.photos/seed/intro-greenoli/960/1200"
+              src="/intro_greenoli.png"
               alt="Văn phòng Oli Xanh tại TP. Hồ Chí Minh"
               fill
               sizes="(max-width: 1024px) 100vw, 40vw"

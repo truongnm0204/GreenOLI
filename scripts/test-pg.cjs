@@ -1,0 +1,1 @@
+const { Client } = require('pg'); const client = new Client({ connectionString: 'postgresql://neondb_owner:npg_9bsiqALTVEv7@ep-muddy-voice-aozzma9b-pooler.c-2.ap-southeast-1.aws.neon.tech/neondb?sslmode=require' }); client.connect().then(() => client.query('SELECT slug, name FROM categories')).then(res => { console.log(res.rows); client.end(); }).catch(console.error);

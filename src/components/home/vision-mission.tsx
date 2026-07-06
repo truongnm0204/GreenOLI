@@ -52,8 +52,7 @@ export function VisionMissionSection() {
 
   return (
     <section className="relative bg-primary-dark overflow-hidden py-16 md:py-24 pt-32">
-      {/* Advanced Grid Pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:40px_40px]" />
+
       {/* Spotlight effect placeholder (static centered glow) */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-primary/20 blur-[120px] rounded-full pointer-events-none" />
       
