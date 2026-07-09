@@ -13,6 +13,7 @@ type ProductDoc = {
   slug: string;
   name: string;
   category: unknown;
+  brand?: unknown;
   shortDescription: string;
   longDescription: string;
   heroImage: unknown;
@@ -30,6 +31,7 @@ const toProduct = (doc: ProductDoc): Product => ({
   slug: doc.slug,
   name: doc.name,
   category: relSlug(doc.category as { slug?: string }),
+  brand: doc.brand ? relSlug(doc.brand as { slug?: string }) : undefined,
   shortDescription: doc.shortDescription,
   longDescription: doc.longDescription,
   heroImage: mediaUrl(doc.heroImage),
@@ -75,6 +77,20 @@ export const getProductsByCategory = async (
   const { docs } = await payload.find({
     collection: "products",
     where: { "category.slug": { equals: categorySlug } },
+    limit: 200,
+    depth: 1,
+    sort: "createdAt",
+  });
+  return (docs as ProductDoc[]).map(toProduct);
+};
+
+export const getProductsByBrand = async (
+  brandSlug: string,
+): Promise<Product[]> => {
+  const payload = await getPayloadClient();
+  const { docs } = await payload.find({
+    collection: "products",
+    where: { "brand.slug": { equals: brandSlug } },
     limit: 200,
     depth: 1,
     sort: "createdAt",

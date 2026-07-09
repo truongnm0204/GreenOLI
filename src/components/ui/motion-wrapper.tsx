@@ -17,7 +17,7 @@ export function MotionWrapper({
   children,
   delay = 0,
   direction = "up",
-  duration = 0.5,
+  duration = 0.3,
   className,
   viewportAmount = 0.2,
   ...props

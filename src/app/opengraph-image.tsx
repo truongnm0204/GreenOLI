@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Oli Xanh – Giải pháp hóa chất nông nghiệp & kiểm soát côn trùng";
+export const alt = "Oli Xanh – Giải pháp hóa chất y tế & kiểm soát côn trùng";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -53,7 +53,7 @@ export default function OpengraphImage() {
               letterSpacing: -2,
             }}
           >
-            Giải pháp hóa chất xanh cho nông nghiệp & sức khỏe cộng đồng
+            Giải pháp hóa chất xanh cho y tế & sức khỏe cộng đồng
           </div>
           <div style={{ fontSize: 24, opacity: 0.9 }}>
             10+ năm dẫn đầu thị trường · 500+ khách hàng tin tưởng

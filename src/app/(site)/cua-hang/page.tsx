@@ -4,7 +4,9 @@ import { CategoryCard } from "@/components/shop/category-card";
 import { ProductGrid } from "@/components/shop/product-grid";
 import { ShopHeroSection } from "@/components/shop/shop-hero";
 import { MotionWrapper } from "@/components/ui/motion-wrapper";
+import { ShopTabs } from "@/components/shop/shop-tabs";
 import { getAllCategories } from "@/data/categories";
+import { getAllBrands } from "@/data/brands";
 import { getAllProducts } from "@/data/products";
 import { buildMetadata } from "@/lib/seo";
 import { breadcrumbSchema } from "@/lib/json-ld";
@@ -14,14 +16,14 @@ export const revalidate = 300;
 
 export const metadata: Metadata = buildMetadata({
   title: "Cửa Hàng – Toàn bộ sản phẩm Oli Xanh",
-  description:
-    "Khám phá 8 danh mục sản phẩm chính của Oli Xanh: phân bón lá, phân bón gốc, thuốc trừ bệnh, trừ cỏ, trừ sâu, chế phẩm sinh học, hóa chất nguyên liệu và hóa chất diệt côn trùng.",
+  description: "Khám phá 8 danh mục sản phẩm chính của Oli Xanh: phân bón lá, phân bón gốc, thuốc trừ bệnh, trừ cỏ, trừ sâu, chế phẩm sinh học, hóa chất nguyên liệu và hóa chất kiểm soát côn trùng.",
   path: "/cua-hang",
 });
 
 export default async function ShopPage() {
-  const [categories, allProducts] = await Promise.all([
+  const [categories, brands, allProducts] = await Promise.all([
     getAllCategories(),
+    getAllBrands(),
     getAllProducts(),
   ]);
   const featured = allProducts.slice(0, 6);
@@ -40,18 +42,14 @@ export default async function ShopPage() {
         <div className="bg-blob bg-blob-primary w-[300px] h-[300px] top-1/4 -right-20 opacity-20" />
         <MotionWrapper delay={0.1} direction="up" className="max-w-2xl mb-12 relative z-10">
           <p className="text-primary-dark font-bold text-sm uppercase tracking-widest mb-4">
-            Danh mục sản phẩm
+            Danh mục & Hãng sản xuất
           </p>
           <h2 className="font-bold text-3xl md:text-4xl text-text-primary">
             Chọn danh mục phù hợp với nhu cầu của bạn
           </h2>
         </MotionWrapper>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 relative z-10">
-          {categories.map((cat, idx) => (
-            <MotionWrapper key={cat.slug} delay={0.2 + idx * 0.1} direction="up">
-              <CategoryCard category={cat} />
-            </MotionWrapper>
-          ))}
+        <div className="relative z-10">
+          <ShopTabs categories={categories} brands={brands} />
         </div>
       </section>
 

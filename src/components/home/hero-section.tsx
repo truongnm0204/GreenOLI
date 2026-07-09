@@ -45,16 +45,13 @@ export function HeroSection() {
           
           <h1 className="font-bold tracking-tight text-text-primary text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1]">
             <span className="block overflow-hidden pb-1">
-              <AnimatedText text="Giải pháp" delay={0.1} />
+              <AnimatedText text="GIẢI PHÁP" delay={0.1} />
             </span>
             <span className="block overflow-hidden pb-1">
-              <AnimatedText text="hóa chất xanh" delay={0.3} className="text-primary-dark" />
+              <AnimatedText text="KIỂM SOÁT CÔN TRÙNG XANH" delay={0.2} className="text-primary-dark" />
             </span>
             <span className="block overflow-hidden pb-1 mt-2 text-3xl sm:text-4xl md:text-5xl">
-              <AnimatedText text="cho nông nghiệp" delay={0.5} />
-            </span>
-            <span className="block overflow-hidden pb-1 text-3xl sm:text-4xl md:text-5xl">
-              <AnimatedText text="& sức khỏe cộng đồng" delay={0.7} />
+              <AnimatedText text="CHO SỨC KHỎE CỘNG ĐỒNG" delay={0.3} />
             </span>
           </h1>
           

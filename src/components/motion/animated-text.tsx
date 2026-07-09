@@ -20,9 +20,8 @@ export function AnimatedText({ text, className, delay = 0, once = true }: Animat
     return (
       <motion.div
         initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once }}
-        transition={{ duration: 0.6, delay, ease: [0.25, 0.25, 0, 1] }}
+        transition={{ duration: 0.3, delay, ease: [0.25, 0.25, 0, 1] }}
         className={className}
       >
         {text}
@@ -36,7 +35,7 @@ export function AnimatedText({ text, className, delay = 0, once = true }: Animat
     hidden: { opacity: 0 },
     visible: (i = 1) => ({
       opacity: 1,
-      transition: { staggerChildren: 0.08, delayChildren: delay * i },
+      transition: { staggerChildren: 0.03, delayChildren: delay * i },
     }),
   };
 
@@ -46,8 +45,8 @@ export function AnimatedText({ text, className, delay = 0, once = true }: Animat
       y: 0,
       transition: {
         type: "spring",
-        damping: 12,
-        stiffness: 100,
+        damping: 15,
+        stiffness: 200,
       },
     },
     hidden: {

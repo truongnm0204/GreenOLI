@@ -12,6 +12,7 @@ export type Product = {
   slug: string;
   name: string;
   category: string; // category slug
+  brand?: string; // brand slug
   shortDescription: string;
   longDescription: string;
   heroImage: string;

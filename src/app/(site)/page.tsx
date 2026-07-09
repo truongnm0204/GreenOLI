@@ -13,9 +13,9 @@ import { buildMetadata } from "@/lib/seo";
 import { breadcrumbSchema } from "@/lib/json-ld";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Oli Xanh – Giải pháp hóa chất nông nghiệp & kiểm soát côn trùng",
+  title: "Oli Xanh – Giải pháp hóa chất y tế & kiểm soát côn trùng",
   description:
-    "Phân phối hóa chất nông nghiệp, phân bón, thuốc bảo vệ thực vật và dịch vụ kiểm soát côn trùng chuyên nghiệp. Đại lý chính hãng Sumitomo, Bayer, Syngenta, BASF.",
+    "Phân phối hóa chất y tế, phân bón, thuốc bảo vệ thực vật và dịch vụ kiểm soát côn trùng chuyên nghiệp. Đại lý chính hãng Sumitomo, Bayer, Syngenta, BASF.",
   path: "/",
 });
 

@@ -7,6 +7,7 @@ import { Services } from "./services";
 import { Partners } from "./partners";
 import { Gallery } from "./gallery";
 import { Leads } from "./leads";
+import { Brands } from "./brands";
 
 /**
  * Danh sách toàn bộ collections nạp vào Payload.
@@ -22,4 +23,5 @@ export const collections = [
   Partners,
   Gallery,
   Leads,
+  Brands,
 ];

@@ -76,6 +76,7 @@ export interface Config {
     partners: Partner;
     gallery: Gallery;
     leads: Lead;
+    brands: Brand;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -92,6 +93,7 @@ export interface Config {
     partners: PartnersSelect<false> | PartnersSelect<true>;
     gallery: GallerySelect<false> | GallerySelect<true>;
     leads: LeadsSelect<false> | LeadsSelect<true>;
+    brands: BrandsSelect<false> | BrandsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -205,6 +207,7 @@ export interface Product {
   slug: string;
   name: string;
   category: number | Category;
+  brand?: (number | null) | Brand;
   shortDescription: string;
   longDescription: string;
   heroImage: number | Media;
@@ -232,6 +235,20 @@ export interface Product {
         id?: string | null;
       }[]
     | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "brands".
+ */
+export interface Brand {
+  id: number;
+  slug: string;
+  name: string;
+  tagline?: string | null;
+  description?: string | null;
+  logo?: (number | null) | Media;
   updatedAt: string;
   createdAt: string;
 }
@@ -388,6 +405,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'leads';
         value: number | Lead;
+      } | null)
+    | ({
+        relationTo: 'brands';
+        value: number | Brand;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -496,6 +517,7 @@ export interface ProductsSelect<T extends boolean = true> {
   slug?: T;
   name?: T;
   category?: T;
+  brand?: T;
   shortDescription?: T;
   longDescription?: T;
   heroImage?: T;
@@ -595,6 +617,19 @@ export interface LeadsSelect<T extends boolean = true> {
   subject?: T;
   message?: T;
   status?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "brands_select".
+ */
+export interface BrandsSelect<T extends boolean = true> {
+  slug?: T;
+  name?: T;
+  tagline?: T;
+  description?: T;
+  logo?: T;
   updatedAt?: T;
   createdAt?: T;
 }

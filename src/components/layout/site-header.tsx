@@ -25,7 +25,13 @@ export type NavCategory = {
   tagline: string;
 };
 
-export function SiteHeader({ categories }: { categories: NavCategory[] }) {
+export type NavBrand = {
+  slug: string;
+  name: string;
+  tagline?: string;
+};
+
+export function SiteHeader({ categories, brands }: { categories: NavCategory[], brands?: NavBrand[] }) {
   const pathname = usePathname();
   const [scrolled, setScrolled] = React.useState(false);
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -119,25 +125,49 @@ export function SiteHeader({ categories }: { categories: NavCategory[] }) {
                   </Link>
                   {productsOpen ? (
                     <div className="absolute left-1/2 top-full -translate-x-1/2 pt-2 animate-fade-up" style={{ animationDuration: "180ms" }}>
-                      <ul
-                        className="grid w-[640px] grid-cols-2 gap-1 rounded-card bg-surface-container-lowest p-3 shadow-ambient-lg border border-border-soft"
+                      <div
+                        className="flex w-[800px] gap-6 rounded-card bg-surface-container-lowest p-5 shadow-ambient-lg border border-border-soft"
                       >
-                        {categories.map((cat) => (
-                          <li key={cat.slug}>
-                            <Link
-                              href={`/cua-hang/${cat.slug}`}
-                              className="flex flex-col gap-0.5 rounded-button px-3 py-2 transition-colors hover:bg-surface-light"
-                            >
-                              <span className="text-sm font-semibold text-text-primary">
-                                {cat.name}
-                              </span>
-                              <span className="text-xs text-text-muted line-clamp-1">
-                                {cat.tagline}
-                              </span>
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
+                        <div className="flex-1">
+                          <p className="text-xs uppercase tracking-widest font-semibold text-primary-dark mb-3 px-3">Theo mục đích sử dụng</p>
+                          <ul className="grid grid-cols-2 gap-1">
+                            {categories.map((cat) => (
+                              <li key={cat.slug}>
+                                <Link
+                                  href={`/cua-hang/${cat.slug}`}
+                                  className="flex flex-col gap-0.5 rounded-button px-3 py-2 transition-colors hover:bg-surface-light"
+                                >
+                                  <span className="text-sm font-semibold text-text-primary">
+                                    {cat.name}
+                                  </span>
+                                  <span className="text-xs text-text-muted line-clamp-1">
+                                    {cat.tagline}
+                                  </span>
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        {brands && brands.length > 0 && (
+                          <div className="w-[300px] border-l border-border-soft pl-6">
+                            <p className="text-xs uppercase tracking-widest font-semibold text-primary-dark mb-3 px-3">Theo hãng sản xuất</p>
+                            <ul className="flex flex-col gap-1">
+                              {brands.map((b) => (
+                                <li key={b.slug}>
+                                  <Link
+                                    href={`/cua-hang/hang/${b.slug}`}
+                                    className="flex flex-col gap-0.5 rounded-button px-3 py-2 transition-colors hover:bg-surface-light"
+                                  >
+                                    <span className="text-sm font-semibold text-text-primary">
+                                      {b.name}
+                                    </span>
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                      </div>
                     </div>
                   ) : null}
                 </div>
@@ -203,22 +233,43 @@ export function SiteHeader({ categories }: { categories: NavCategory[] }) {
                 </Link>
               );
             })}
-            {/* Mobile categories */}
-            <div className="mt-2 border-t border-border-soft pt-2">
-              <p className="px-4 py-1 text-xs uppercase tracking-wider text-text-muted">
-                Danh mục
+            {/* Mobile categories & brands */}
+            <div className="mt-2 border-t border-border-soft pt-4">
+              <p className="px-4 py-1 text-xs uppercase tracking-wider font-semibold text-primary-dark">
+                Theo mục đích sử dụng
               </p>
-              {categories.map((c) => (
-                <Link
-                  key={c.slug}
-                  href={`/cua-hang/${c.slug}`}
-                  className="block rounded-button px-4 py-2 text-sm text-text-primary hover:bg-surface-container-low"
-                >
-                  {c.name}
-                </Link>
-              ))}
+              <div className="mt-1 mb-4 flex flex-col">
+                {categories.map((c) => (
+                  <Link
+                    key={c.slug}
+                    href={`/cua-hang/${c.slug}`}
+                    className="block rounded-button px-4 py-2-5 text-sm text-text-primary hover:bg-surface-container-low"
+                  >
+                    {c.name}
+                  </Link>
+                ))}
+              </div>
+
+              {brands && brands.length > 0 && (
+                <>
+                  <p className="px-4 py-1 text-xs uppercase tracking-wider font-semibold text-primary-dark mt-2 border-t border-border-soft/50 pt-4">
+                    Theo hãng sản xuất
+                  </p>
+                  <div className="mt-1 flex flex-col">
+                    {brands.map((b) => (
+                      <Link
+                        key={b.slug}
+                        href={`/cua-hang/hang/${b.slug}`}
+                        className="block rounded-button px-4 py-2-5 text-sm text-text-primary hover:bg-surface-container-low"
+                      >
+                        {b.name}
+                      </Link>
+                    ))}
+                  </div>
+                </>
+              )}
             </div>
-            <Button href="/lien-he" className="mt-3">
+            <Button href="/lien-he" className="mt-4">
               Liên hệ ngay
             </Button>
           </nav>

@@ -5,10 +5,10 @@ import "@/app/globals.css";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { FloatingSocialPanel } from "@/components/layout/floating-social-panel";
-import { CustomCursor } from "@/components/layout/custom-cursor";
 import { ScrollProgress } from "@/components/layout/scroll-progress";
 import { SITE_CONFIG } from "@/data/site-config";
 import { getAllCategories } from "@/data/categories";
+import { getAllBrands } from "@/data/brands";
 import { organizationSchema, websiteSchema } from "@/lib/json-ld";
 
 const beVietnamPro = Be_Vietnam_Pro({
@@ -71,19 +71,26 @@ export const viewport: Viewport = {
 export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  // Fetch categories 1 lần ở server, truyền xuống header (client) + footer.
-  const categories = await getAllCategories();
+  const [categories, brands] = await Promise.all([
+    getAllCategories(),
+    getAllBrands(),
+  ]);
   const navCategories = categories.map((c) => ({
     slug: c.slug,
     name: c.name,
     shortName: c.shortName,
     tagline: c.tagline,
   }));
+  const navBrands = brands.map((b) => ({
+    slug: b.slug,
+    name: b.name,
+    tagline: b.tagline,
+  }));
 
   return (
     <html lang="vi" className={beVietnamPro.variable}>
       <body className="min-h-screen bg-surface text-text-primary antialiased">
-        <SiteHeader categories={navCategories} />
+        <SiteHeader categories={navCategories} brands={navBrands} />
         <main id="main-content" className="pt-[var(--header-h,76px)]">
           {children}
         </main>
@@ -105,7 +112,6 @@ export default async function RootLayout({
             __html: JSON.stringify(websiteSchema()),
           }}
         />
-        <CustomCursor />
         <ScrollProgress />
       </body>
     </html>

@@ -34,6 +34,12 @@ export const Products: CollectionConfig = {
       label: "Danh mục",
     },
     {
+      name: "brand",
+      type: "relationship",
+      relationTo: "brands",
+      label: "Hãng sản xuất",
+    },
+    {
       name: "shortDescription",
       type: "textarea",
       required: true,
