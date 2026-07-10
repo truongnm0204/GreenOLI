@@ -51,7 +51,7 @@ export function ProductGallery({ images, alt }: Props) {
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   priority={idx === 0}
-                  className="object-cover"
+                  className="object-contain bg-white"
                 />
               </div>
             ))}
@@ -101,7 +101,7 @@ export function ProductGallery({ images, alt }: Props) {
                   alt={`Thumbnail ${idx + 1}`}
                   fill
                   sizes="80px"
-                  className="object-cover"
+                  className="object-contain bg-white"
                 />
               </button>
             ))}
