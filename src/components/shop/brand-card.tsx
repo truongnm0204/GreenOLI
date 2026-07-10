@@ -10,7 +10,19 @@ type Props = {
   className?: string;
 };
 
+const getLocalLogo = (name: string) => {
+  const normalized = name.toLowerCase();
+  if (normalized.includes("envu")) return "/Logo_Envu_R_Gradient_RGB-with space.png";
+  if (normalized.includes("basf")) return "/logoBASF.png";
+  if (normalized.includes("sumitomo")) return "/logoSumimoto.png";
+  if (normalized.includes("syngenta")) return "/logoSyngenta.png";
+  if (normalized.includes("ensystex")) return "/logoEnsystex.png";
+  return null;
+};
+
 export function BrandCard({ brand, className }: Props) {
+  const logoSrc = getLocalLogo(brand.name) || brand.logo;
+
   return (
     <Card padding="none" className={cn("group overflow-hidden bg-white", className)}>
       <Link
@@ -18,14 +30,14 @@ export function BrandCard({ brand, className }: Props) {
         className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-card h-full flex flex-col"
       >
         <div className="relative aspect-[16/10] overflow-hidden bg-surface-container-lowest p-6 flex items-center justify-center border-b border-border-soft/50">
-          {brand.logo ? (
+          {logoSrc ? (
             <div className="relative w-full h-full">
               <Image
-                src={brand.logo}
+                src={logoSrc}
                 alt={brand.name}
                 fill
                 sizes="(max-width: 768px) 50vw, 25vw"
-                className="object-contain transition-transform duration-500 group-hover:scale-105"
+                className="object-contain transition-transform duration-500 group-hover:scale-105 mix-blend-multiply"
               />
             </div>
           ) : (
