@@ -52,15 +52,15 @@ export function CategoryCard({ category, variant = "default", className }: Props
         href={`/cua-hang/${category.slug}`}
         className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-card"
       >
-        <div className="relative aspect-[16/10] overflow-hidden">
+        <div className="relative aspect-[16/10] overflow-hidden bg-surface-container-lowest">
           <Image
             src={category.heroImage}
             alt={category.name}
             fill
             sizes="(max-width: 768px) 50vw, 25vw"
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-contain transition-transform duration-500 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-text-primary/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-text-primary/10 to-transparent pointer-events-none" />
           <span className="absolute top-3 left-3 grid size-10 place-items-center rounded-full bg-surface-container-lowest text-primary-dark shadow-ambient">
             <Icon className="size-5" aria-hidden />
           </span>
