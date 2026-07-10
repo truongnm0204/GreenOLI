@@ -28,7 +28,7 @@ export default function HomePage() {
       <CategoryShowcase />
       <EcosystemSection />
       <PartnersMarquee />
-      <GalleryCarousel />
+      {/* <GalleryCarousel /> */}
       <NewsHighlight />
       <ContactCta />
       <Script

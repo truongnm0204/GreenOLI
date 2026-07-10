@@ -43,14 +43,14 @@ export function HeroSection() {
             </Chip>
           </MotionWrapper>
           
-          <h1 className="font-bold tracking-tight text-text-primary text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1]">
-            <span className="block overflow-hidden pb-1">
+          <h1 className="font-bold tracking-tight text-text-primary text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.4]">
+            <span className="block pb-1">
               <AnimatedText text="GIẢI PHÁP" delay={0.1} />
             </span>
-            <span className="block overflow-hidden pb-1">
+            <span className="block pb-1">
               <AnimatedText text="KIỂM SOÁT CÔN TRÙNG XANH" delay={0.2} className="text-primary-dark" />
             </span>
-            <span className="block overflow-hidden pb-1 mt-2 text-3xl sm:text-4xl md:text-5xl">
+            <span className="block pb-1 mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-[1.4]">
               <AnimatedText text="CHO SỨC KHỎE CỘNG ĐỒNG" delay={0.3} />
             </span>
           </h1>

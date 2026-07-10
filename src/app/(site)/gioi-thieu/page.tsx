@@ -13,7 +13,7 @@ import { breadcrumbSchema } from "@/lib/json-ld";
 export const metadata: Metadata = buildMetadata({
   title: "Giới Thiệu – Câu chuyện và đội ngũ Oli Xanh",
   description:
-    "Hơn 10 năm phân phối hóa chất nông nghiệp tại Việt Nam. Tìm hiểu sứ mệnh, giá trị cốt lõi và đội ngũ kỹ sư của Oli Xanh.",
+    "Hơn 10 năm phân phối hóa chất y tế tại Việt Nam. Tìm hiểu sứ mệnh, giá trị cốt lõi và đội ngũ kỹ sư của Oli Xanh.",
   path: "/gioi-thieu",
 });
 
@@ -31,7 +31,7 @@ const VALUES = [
   {
     icon: Leaf,
     title: "Bền vững",
-    body: "Ưu tiên lựa chọn các hoạt chất thân thiện môi trường, hỗ trợ chuyển đổi sang nông nghiệp xanh.",
+    body: "Ưu tiên lựa chọn các hoạt chất thân thiện môi trường, hỗ trợ nâng cao tiêu chuẩn y tế dự phòng và kiểm soát dịch bệnh.",
   },
   {
     icon: Users,
@@ -49,7 +49,7 @@ export default function AboutPage() {
             Câu chuyện <span className="text-primary-dark">Oli Xanh</span>
           </>
         }
-        description="10+ năm đồng hành cùng nông dân, doanh nghiệp và cộng đồng vì một Việt Nam xanh, an toàn và bền vững."
+        description="10+ năm đồng hành cùng các cơ sở y tế, doanh nghiệp và cộng đồng vì một Việt Nam xanh, an toàn và bền vững."
         breadcrumb={[{ label: "Giới thiệu" }]}
       />
 
@@ -58,7 +58,7 @@ export default function AboutPage() {
           <MotionWrapper delay={0.1} direction="left" className="lg:col-span-6">
             <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] shadow-ambient-lg hover-card-effect group">
               <Image
-                src="https://picsum.photos/seed/about-greenoli/1200/900"
+                src="/images/about/team.png"
                 alt="Văn phòng Oli Xanh và đội ngũ làm việc"
                 fill
                 priority
@@ -94,7 +94,7 @@ export default function AboutPage() {
               {[
                 { value: "15", label: "Tỉnh thành phân phối" },
                 { value: "500+", label: "Khách hàng doanh nghiệp" },
-                { value: "50+", label: "Kỹ sư & cố vấn" },
+                { value: "50+", label: "Chuyên gia y tế & cố vấn" },
                 { value: "10+", label: "Năm kinh nghiệm" }
               ].map((stat, idx) => (
                 <li key={stat.label}>
@@ -129,7 +129,7 @@ export default function AboutPage() {
                 <h3 className="font-bold text-2xl">Sứ mệnh</h3>
                 <p className="text-text-muted text-lg leading-relaxed font-medium">
                   Cung cấp các sản phẩm và dịch vụ chất lượng cao, an toàn cho con người
-                  và môi trường, đồng hành cùng nông dân và cộng đồng vì một Việt Nam xanh.
+                  và môi trường, đồng hành cùng các đối tác y tế, doanh nghiệp và cộng đồng vì một Việt Nam xanh.
                 </p>
               </Card>
             </MotionWrapper>

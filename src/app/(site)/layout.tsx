@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   authors: [{ name: SITE_CONFIG.name, url: SITE_CONFIG.url }],
   keywords: [
     "Oli Xanh",
-    "hóa chất nông nghiệp",
+    "hóa chất y tế",
     "phân bón",
     "thuốc bảo vệ thực vật",
     "kiểm soát côn trùng",

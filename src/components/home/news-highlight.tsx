@@ -23,7 +23,7 @@ export async function NewsHighlight() {
               Tin tức & Kiến thức
             </p>
             <h2 className="font-bold text-3xl md:text-4xl lg:text-5xl text-text-primary leading-tight">
-              <AnimatedText text="Cập nhật xu hướng nông nghiệp và kiểm soát côn trùng" />
+              <AnimatedText text="Cập nhật xu hướng y tế và kiểm soát côn trùng" />
             </h2>
           </div>
           <Link

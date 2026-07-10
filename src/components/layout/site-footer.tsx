@@ -90,7 +90,7 @@ export function SiteFooter({ categories }: { categories: NavCategory[] }) {
                   href={`/cua-hang/${c.slug}`}
                   className="hover:text-primary-light hover:translate-x-1 transition-all inline-block"
                 >
-                  {c.shortName ?? c.name}
+                  {(c.shortName ?? c.name).replace(/Diệt/g, "Kiểm soát")}
                 </Link>
               </li>
             ))}

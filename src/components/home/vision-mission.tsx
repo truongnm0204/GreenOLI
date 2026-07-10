@@ -10,7 +10,7 @@ const PILLARS = [
   {
     icon: Lightbulb,
     title: "Tầm nhìn",
-    body: "Trở thành đơn vị dẫn đầu Việt Nam trong cung cấp giải pháp hóa chất nông nghiệp và kiểm soát côn trùng theo chuẩn quốc tế vào năm 2030.",
+    body: "Trở thành đơn vị dẫn đầu Việt Nam trong cung cấp giải pháp hóa chất y tế và kiểm soát côn trùng theo chuẩn quốc tế vào năm 2030.",
   },
   {
     icon: Target,

@@ -7,7 +7,7 @@ import { AnimatedText } from "@/components/motion/animated-text";
 import { motion, type Variants } from "framer-motion";
 
 const HIGHLIGHTS = [
-  "Hơn 10 năm phân phối hóa chất nông nghiệp tại Việt Nam",
+  "Hơn 10 năm phân phối hóa chất y tế tại Việt Nam",
   "Đại lý chính thức của Sumitomo, Bayer, Syngenta, BASF",
   "Đội ngũ 50+ kỹ sư nông nghiệp và y tế dự phòng",
   "Cam kết 100% sản phẩm chính hãng, có CO/CQ và MSDS",
@@ -67,7 +67,7 @@ export function IntroSection() {
           </MotionWrapper>
           
           <h2 className="font-bold text-3xl md:text-4xl lg:text-5xl text-text-primary leading-tight">
-            <AnimatedText text="Đối tác hóa chất nông nghiệp đáng tin cậy của 500+ doanh nghiệp Việt" delay={0.3} />
+            <AnimatedText text="Đối tác hóa chất y tế đáng tin cậy của 500+ doanh nghiệp Việt" delay={0.3} />
           </h2>
           
           <MotionWrapper delay={0.5} direction="up">

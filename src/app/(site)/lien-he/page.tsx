@@ -13,7 +13,7 @@ import { breadcrumbSchema, localBusinessSchema } from "@/lib/json-ld";
 export const metadata: Metadata = buildMetadata({
   title: "Liên Hệ – Tư vấn miễn phí 24/7",
   description:
-    "Liên hệ Oli Xanh để nhận tư vấn miễn phí về sản phẩm hóa chất nông nghiệp, phân bón và dịch vụ kiểm soát côn trùng. Hotline 24/7.",
+    "Liên hệ Oli Xanh để nhận tư vấn miễn phí về sản phẩm hóa chất y tế, phân bón và dịch vụ kiểm soát côn trùng. Hotline 24/7.",
   path: "/lien-he",
 });
 

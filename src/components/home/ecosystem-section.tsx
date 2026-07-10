@@ -6,6 +6,14 @@ import { MotionWrapper } from "@/components/ui/motion-wrapper";
 import { AnimatedText } from "@/components/motion/animated-text";
 import { getAllServices } from "@/data/services";
 
+const IMAGE_MAP: Record<string, string> = {
+  "diet-moi-tan-goc": "/images/services/termite.png",
+  "diet-chuot": "/images/services/rat.png",
+  "diet-muoi": "/images/services/mosquito.png",
+  "diet-gian-con-trung": "/images/services/bug.png",
+  "ve-sinh-cong-nghiep": "/images/services/cleaning.png",
+};
+
 export async function EcosystemSection() {
   const services = await getAllServices();
   return (
@@ -27,11 +35,12 @@ export async function EcosystemSection() {
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-5 relative z-10">
         {services.map((service, idx) => {
+          const iconName = service.iconKey === "Mouse" ? "Rat" : service.iconKey;
           const Icon =
             (Icons as unknown as Record<
               string,
               React.ComponentType<{ className?: string; "aria-hidden"?: boolean }>
-            >)[service.iconKey] ?? Icons.Sparkles;
+            >)[iconName] ?? Icons.Sparkles;
           const isHero = idx === 0;
           return (
             <MotionWrapper
@@ -47,7 +56,7 @@ export async function EcosystemSection() {
                 }`}
               >
                 <Image
-                  src={service.image}
+                  src={IMAGE_MAP[service.slug] || service.image}
                   alt={service.name}
                   fill
                   sizes={isHero ? "(max-width: 1024px) 100vw, 40vw" : "(max-width: 1024px) 50vw, 20vw"}
@@ -59,7 +68,7 @@ export async function EcosystemSection() {
                     <Icon className="size-6" aria-hidden />
                   </span>
                   <h3 className={`font-bold ${isHero ? "text-3xl" : "text-xl"}`}>
-                    {service.name}
+                    {service.name.replace(/Diệt/g, "Kiểm soát")}
                   </h3>
                   {isHero ? (
                     <p className="mt-3 text-base text-white/90 line-clamp-3 max-w-md">
