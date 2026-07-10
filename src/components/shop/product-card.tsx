@@ -26,7 +26,7 @@ export function ProductCard({ product, categoryLabel, className }: Props) {
             alt={product.name}
             fill
             sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw"
-            className="object-cover transition-transform duration-700 group-hover:scale-110"
+            className="object-contain transition-transform duration-700 group-hover:scale-110 bg-white"
           />
           {/* Slide-up View Overlay */}
           <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
