@@ -128,8 +128,7 @@ export default function AboutPage() {
                 </span>
                 <h3 className="font-bold text-2xl">Sứ mệnh</h3>
                 <p className="text-text-muted text-lg leading-relaxed font-medium">
-                  Cung cấp các sản phẩm và dịch vụ chất lượng cao, an toàn cho con người
-                  và môi trường, đồng hành cùng các đối tác y tế, doanh nghiệp và cộng đồng vì một Việt Nam xanh.
+                  Cung cấp các sản phẩm chất lượng cao, an toàn cho con người và môi trường vì một mục tiêu VN xanh
                 </p>
               </Card>
             </MotionWrapper>
@@ -138,10 +137,9 @@ export default function AboutPage() {
                 <span className="grid size-14 place-items-center rounded-2xl bg-secondary/10 text-secondary-strong shadow-inner">
                   <Award className="size-7" aria-hidden />
                 </span>
-                <h3 className="font-bold text-2xl">Tầm nhìn 2030</h3>
+                <h3 className="font-bold text-2xl">Tầm nhìn</h3>
                 <p className="text-text-muted text-lg leading-relaxed font-medium">
-                  Trở thành đơn vị dẫn đầu Việt Nam trong cung cấp giải pháp hóa chất
-                  nông nghiệp và kiểm soát côn trùng theo chuẩn quốc tế vào năm 2030.
+                  Trở thành đơn vị dẫn đầu Việt Nam trong cung cấp giải pháp kiểm soát côn trùng và động vật gây hại theo chuẩn quốc tế
                 </p>
               </Card>
             </MotionWrapper>

@@ -27,12 +27,12 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-surface-lowest">
+    <section id="giai-phap" className="relative overflow-hidden bg-surface-lowest">
       {/* Dynamic Animated Background */}
       <AnimatedBackground />
 
       <div className="container-page relative z-10 py-20 md:py-28 lg:py-32 grid items-center gap-10 lg:grid-cols-12">
-        <div className="lg:col-span-6 space-y-6">
+        <div className="lg:col-span-7 space-y-6">
           <MotionWrapper delay={0.1} direction="up">
             <Chip
               variant="primary"
@@ -50,13 +50,13 @@ export function HeroSection() {
             <span className="block pb-1">
               <AnimatedText text="KIỂM SOÁT CÔN TRÙNG XANH" delay={0.2} className="text-primary-dark" />
             </span>
-            <span className="block pb-1 mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-[1.4]">
+            <span className="block pb-1 mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-[42px] xl:text-5xl leading-[1.4] whitespace-nowrap">
               <AnimatedText text="CHO SỨC KHỎE CỘNG ĐỒNG" delay={0.3} />
             </span>
           </h1>
           
           <MotionWrapper delay={0.9} direction="up">
-            <p className="text-lg md:text-xl text-text-muted leading-relaxed max-w-xl font-medium">
+            <p className="text-lg md:text-xl text-text-muted leading-relaxed max-w-2xl font-medium">
               Phân phối độc quyền các sản phẩm kiểm soát côn trùng, mối, chuột an toàn và bền vững theo tiêu chuẩn ESG toàn cầu.
             </p>
           </MotionWrapper>
@@ -97,7 +97,7 @@ export function HeroSection() {
           </ul>
         </div>
 
-        <div className="lg:col-span-6 relative mt-10 lg:mt-0">
+        <div className="lg:col-span-5 relative mt-10 lg:mt-0">
           <MotionWrapper delay={0.6} direction="left" className="relative">
             <motion.div
               initial={{ scale: 0.8, opacity: 0, filter: "blur(10px)" }}

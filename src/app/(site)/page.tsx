@@ -1,10 +1,10 @@
 import Script from "next/script";
 import type { Metadata } from "next";
 import { HeroSection } from "@/components/home/hero-section";
+import { HighlightBanner } from "@/components/home/highlight-banner";
 import { IntroSection } from "@/components/home/intro-section";
 import { VisionMissionSection } from "@/components/home/vision-mission";
 import { CategoryShowcase } from "@/components/home/category-showcase";
-import { EcosystemSection } from "@/components/home/ecosystem-section";
 import { PartnersMarquee } from "@/components/home/partners-marquee";
 import { GalleryCarousel } from "@/components/home/gallery-carousel";
 import { NewsHighlight } from "@/components/home/news-highlight";
@@ -22,11 +22,11 @@ export const metadata: Metadata = buildMetadata({
 export default function HomePage() {
   return (
     <>
+      <HighlightBanner />
       <HeroSection />
       <IntroSection />
       <VisionMissionSection />
       <CategoryShowcase />
-      <EcosystemSection />
       <PartnersMarquee />
       {/* <GalleryCarousel /> */}
       <NewsHighlight />
