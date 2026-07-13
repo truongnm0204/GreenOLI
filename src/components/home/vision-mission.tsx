@@ -3,6 +3,7 @@
 import { Target, Lightbulb, ShieldCheck } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { MotionWrapper } from "@/components/ui/motion-wrapper";
+import { SectionHeader } from "@/components/ui/section-header";
 import { AnimatedText } from "@/components/motion/animated-text";
 import { motion, type Variants } from "framer-motion";
 
@@ -57,16 +58,19 @@ export function VisionMissionSection() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-primary/20 blur-[120px] rounded-full pointer-events-none" />
       
       <div className="container-page relative z-10">
-        <MotionWrapper delay={0.1} direction="up" className="max-w-3xl mb-12 md:mb-16">
-          <p className="text-primary-light font-bold text-sm uppercase tracking-widest mb-4">
-            Định hướng chiến lược
-          </p>
-          <h2 className="font-bold text-3xl md:text-4xl lg:text-5xl text-white leading-tight">
-            <AnimatedText text="Khoa học vì sức khỏe cộng đồng" delay={0.1} />
-            <span className="hidden md:block h-2" />
-            <AnimatedText text="và môi trường bền vững" delay={0.3} className="text-white/90" />
-          </h2>
-        </MotionWrapper>
+        <SectionHeader 
+          eyebrow="Định hướng chiến lược"
+          title={
+            <>
+              <AnimatedText text="Khoa học vì sức khỏe cộng đồng" delay={0.1} />
+              <span className="hidden md:block h-2" />
+              <AnimatedText text="và môi trường bền vững" delay={0.3} className="text-white/90" />
+            </>
+          }
+          theme="dark"
+          align="left"
+          className="max-w-3xl mb-12 md:mb-16"
+        />
         
         <motion.div 
           className="grid gap-6 md:grid-cols-3"

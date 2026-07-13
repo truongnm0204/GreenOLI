@@ -36,16 +36,16 @@ export function HighlightBanner() {
           
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-primary-dark uppercase leading-tight mb-8 drop-shadow-sm">
             OLI XANH CHÍNH THỨC <br className="hidden md:block" />
-            <span className="text-primary">MỞ RỘNG MẠNG LƯỚI ĐỐI TÁC TOÀN CẦU</span>
+            <span className="text-primary">MỞ RỘNG MẠNG LƯỚI ĐỐI TÁC TOÀN VIỆT NAM</span>
           </h1>
 
           <div className="mb-10">
             <Image 
               src="/logo.svg" 
               alt="Oli Xanh Logo" 
-              width={200} 
-              height={60} 
-              className="w-auto h-12 md:h-16 drop-shadow-lg"
+              width={250} 
+              height={80} 
+              className="w-auto h-16 md:h-20 drop-shadow-lg"
             />
           </div>
 

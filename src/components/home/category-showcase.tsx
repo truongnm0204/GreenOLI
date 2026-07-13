@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { CategoryCard } from "@/components/shop/category-card";
 import { MotionWrapper } from "@/components/ui/motion-wrapper";
+import { SectionHeader } from "@/components/ui/section-header";
 import { getAllCategories } from "@/data/categories";
 
 export async function CategoryShowcase() {
@@ -16,12 +17,12 @@ export async function CategoryShowcase() {
           className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 md:mb-12"
         >
           <div className="max-w-2xl">
-            <p className="text-primary-dark font-semibold text-sm uppercase tracking-wider mb-3">
-              Danh mục sản phẩm
-            </p>
-            <h2 className="font-bold text-3xl md:text-4xl text-text-primary leading-tight">
-              8 danh mục chuyên biệt cho nông nghiệp & y tế
-            </h2>
+            <SectionHeader 
+              eyebrow="Danh mục sản phẩm" 
+              title="8 danh mục chuyên biệt cho nông nghiệp & y tế"
+              align="left"
+              className="mb-0 md:mb-0" // override default margin
+            />
           </div>
           <Link
             href="/cua-hang"

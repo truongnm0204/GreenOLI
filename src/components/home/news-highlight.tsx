@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { NewsCard } from "@/components/news/news-card";
 import { MotionWrapper } from "@/components/ui/motion-wrapper";
-import { AnimatedText } from "@/components/motion/animated-text";
+import { SectionHeader } from "@/components/ui/section-header";
 import { getAllArticles } from "@/data/articles";
 
 export async function NewsHighlight() {
@@ -19,12 +19,12 @@ export async function NewsHighlight() {
           className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12"
         >
           <div className="max-w-2xl">
-            <p className="text-primary-dark font-bold text-sm uppercase tracking-widest mb-3">
-              Tin tức & Kiến thức
-            </p>
-            <h2 className="font-bold text-3xl md:text-4xl lg:text-5xl text-text-primary leading-tight">
-              <AnimatedText text="Cập nhật xu hướng y tế và kiểm soát côn trùng" />
-            </h2>
+            <SectionHeader 
+              eyebrow="Tin tức & Kiến thức"
+              title="Cập nhật xu hướng y tế và kiểm soát côn trùng"
+              align="left"
+              className="mb-0 md:mb-0"
+            />
           </div>
           <Link
             href="/tin-tuc"

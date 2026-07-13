@@ -1,0 +1,107 @@
+- generic [active] [ref=f3e1]:
+  - generic [ref=f3e2]:
+    - button "Close Menu" [ref=f3e4] [cursor=pointer]:
+      - generic "Collapse" [ref=f3e6]:
+        - img [ref=f3e7]
+    - generic [ref=f3e10]:
+      - banner [ref=f3e11]:
+        - generic [ref=f3e14]:
+          - generic "Dashboard" [ref=f3e18]:
+            - img [ref=f3e19]
+          - link "Account" [ref=f3e22] [cursor=pointer]:
+            - /url: /admin/account
+            - img "yas" [ref=f3e23]
+      - generic [ref=f3e34]:
+        - heading "Collections" [level=2] [ref=f3e35]
+        - list [ref=f3e36]:
+          - listitem [ref=f3e37]:
+            - generic [ref=f3e38] [cursor=pointer]:
+              - heading "Users" [level=3] [ref=f3e39]
+              - link "Create new Users" [ref=f3e41]:
+                - /url: /admin/collections/users/create
+                - generic:
+                  - generic:
+                    - img
+              - link "Show all Users" [ref=f3e42]:
+                - /url: /admin/collections/users
+          - listitem [ref=f3e43]:
+            - generic [ref=f3e44] [cursor=pointer]:
+              - heading "Media" [level=3] [ref=f3e45]
+              - link "Create new Media" [ref=f3e47]:
+                - /url: /admin/collections/media/create
+                - generic:
+                  - generic:
+                    - img
+              - link "Show all Media" [ref=f3e48]:
+                - /url: /admin/collections/media
+          - listitem [ref=f3e49]:
+            - generic [ref=f3e50] [cursor=pointer]:
+              - heading "Categories" [level=3] [ref=f3e51]
+              - link "Create new Categories" [ref=f3e53]:
+                - /url: /admin/collections/categories/create
+                - generic:
+                  - generic:
+                    - img
+              - link "Show all Categories" [ref=f3e54]:
+                - /url: /admin/collections/categories
+          - listitem [ref=f3e55]:
+            - generic [ref=f3e56] [cursor=pointer]:
+              - heading "Products" [level=3] [ref=f3e57]
+              - link "Create new Products" [ref=f3e59]:
+                - /url: /admin/collections/products/create
+                - generic:
+                  - generic:
+                    - img
+              - link "Show all Products" [ref=f3e60]:
+                - /url: /admin/collections/products
+          - listitem [ref=f3e61]:
+            - generic [ref=f3e62] [cursor=pointer]:
+              - heading "Articles" [level=3] [ref=f3e63]
+              - link "Create new Articles" [ref=f3e65]:
+                - /url: /admin/collections/articles/create
+                - generic:
+                  - generic:
+                    - img
+              - link "Show all Articles" [ref=f3e66]:
+                - /url: /admin/collections/articles
+          - listitem [ref=f3e67]:
+            - generic [ref=f3e68] [cursor=pointer]:
+              - heading "Services" [level=3] [ref=f3e69]
+              - link "Create new Services" [ref=f3e71]:
+                - /url: /admin/collections/services/create
+                - generic:
+                  - generic:
+                    - img
+              - link "Show all Services" [ref=f3e72]:
+                - /url: /admin/collections/services
+          - listitem [ref=f3e73]:
+            - generic [ref=f3e74] [cursor=pointer]:
+              - heading "Partners" [level=3] [ref=f3e75]
+              - link "Create new Partners" [ref=f3e77]:
+                - /url: /admin/collections/partners/create
+                - generic:
+                  - generic:
+                    - img
+              - link "Show all Partners" [ref=f3e78]:
+                - /url: /admin/collections/partners
+          - listitem [ref=f3e79]:
+            - generic [ref=f3e80] [cursor=pointer]:
+              - heading "Galleries" [level=3] [ref=f3e81]
+              - link "Create new Galleries" [ref=f3e83]:
+                - /url: /admin/collections/gallery/create
+                - generic:
+                  - generic:
+                    - img
+              - link "Show all Galleries" [ref=f3e84]:
+                - /url: /admin/collections/gallery
+          - listitem [ref=f3e85]:
+            - generic [ref=f3e86] [cursor=pointer]:
+              - heading "Leads" [level=3] [ref=f3e87]
+              - link "Create new Leads" [ref=f3e89]:
+                - /url: /admin/collections/leads/create
+                - generic:
+                  - generic:
+                    - img
+              - link "Show all Leads" [ref=f3e90]:
+                - /url: /admin/collections/leads
+  - region "Notifications alt+T"

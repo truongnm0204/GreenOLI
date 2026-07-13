@@ -1,0 +1,562 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - 'link "Hotline: 0976 187 957 - 0866 795 576" [ref=e6]':
+          - /url: tel:0976187957-0866795576
+          - img [ref=e7]
+          - text: "Hotline:"
+          - generic [ref=e9]: 0976 187 957 - 0866 795 576
+        - link [ref=e10]:
+          - /url: "mailto:"
+          - img [ref=e11]
+      - generic [ref=e14]:
+        - generic [ref=e15]: "T2 - T7: 8h-12h và 13h30-17h"
+        - link "Facebook" [ref=e17]:
+          - /url: ""
+          - img [ref=e18]
+        - link "YouTube" [ref=e20]:
+          - /url: ""
+          - img [ref=e21]
+    - generic [ref=e24]:
+      - link "Oli Xanh Logo" [ref=e25]:
+        - /url: /
+        - img "Oli Xanh Logo" [ref=e26]
+      - navigation "Chính" [ref=e27]:
+        - link "Trang chủ" [ref=e28]:
+          - /url: /
+        - link "Giới thiệu" [ref=e29]:
+          - /url: /gioi-thieu
+        - link "Sản phẩm" [ref=e31]:
+          - /url: /cua-hang
+          - text: Sản phẩm
+          - img [ref=e32]
+        - link "Tin tức" [ref=e34]:
+          - /url: /tin-tuc
+        - link "Liên hệ" [ref=e35]:
+          - /url: /lien-he
+      - link "Liên hệ ngay" [ref=e37]:
+        - /url: /lien-he
+  - main [ref=e38]:
+    - generic [ref=e39]:
+      - generic [ref=e40]:
+        - generic [ref=e41]:
+          - generic [ref=e42]:
+            - generic [ref=e44]:
+              - img [ref=e45]
+              - generic [ref=e47]: 10+ năm dẫn đầu thị trường
+            - heading "Giải pháp hóa chất xanh cho nông nghiệp & sức khỏe cộng đồng" [level=1] [ref=e48]:
+              - generic [ref=e50]:
+                - generic [ref=e51]: Giải
+                - generic [ref=e52]: pháp
+              - generic [ref=e54]:
+                - generic [ref=e55]: hóa
+                - generic [ref=e56]: chất
+                - generic [ref=e57]: xanh
+              - generic [ref=e59]:
+                - generic [ref=e60]: cho
+                - generic [ref=e61]: nông
+                - generic [ref=e62]: nghiệp
+              - generic [ref=e64]:
+                - generic [ref=e65]: "&"
+                - generic [ref=e66]: sức
+                - generic [ref=e67]: khỏe
+                - generic [ref=e68]: cộng
+                - generic [ref=e69]: đồng
+            - paragraph [ref=e71]: Phân phối độc quyền các sản phẩm kiểm soát côn trùng, mối, chuột an toàn và bền vững theo tiêu chuẩn ESG toàn cầu.
+            - generic [ref=e73]:
+              - link "Khám phá sản phẩm" [ref=e75]:
+                - /url: /cua-hang
+                - text: Khám phá sản phẩm
+                - img [ref=e76]
+              - link "Tư vấn miễn phí" [ref=e79]:
+                - /url: /lien-he
+            - list [ref=e80]:
+              - listitem [ref=e81]:
+                - generic [ref=e82]:
+                  - paragraph [ref=e83]: 10+
+                  - paragraph [ref=e84]: Năm kinh nghiệm
+              - listitem [ref=e85]:
+                - generic [ref=e86]:
+                  - paragraph [ref=e87]: 500+
+                  - paragraph [ref=e88]: Khách hàng tin tưởng
+              - listitem [ref=e89]:
+                - generic [ref=e90]:
+                  - paragraph [ref=e91]: 100%
+                  - paragraph [ref=e92]: Sản phẩm chính hãng
+          - generic [ref=e93]:
+            - img "Đội ngũ kỹ thuật Oli Xanh" [ref=e96]
+            - generic [ref=e98]:
+              - img [ref=e100]
+              - generic [ref=e103]:
+                - paragraph [ref=e104]: Chứng nhận an toàn
+                - paragraph [ref=e105]: ISO 9001 · WHO · Bộ Y Tế
+        - generic:
+          - img
+      - generic [ref=e107]:
+        - img "Văn phòng Oli Xanh tại TP. Hồ Chí Minh" [ref=e110]
+        - generic [ref=e112]:
+          - paragraph [ref=e114]: Về Oli Xanh
+          - heading "Đối tác hóa chất nông nghiệp đáng tin cậy của 500+ doanh nghiệp Việt" [level=2] [ref=e115]:
+            - generic [ref=e116]:
+              - generic [ref=e117]: Đối
+              - generic [ref=e118]: tác
+              - generic [ref=e119]: hóa
+              - generic [ref=e120]: chất
+              - generic [ref=e121]: nông
+              - generic [ref=e122]: nghiệp
+              - generic [ref=e123]: đáng
+              - generic [ref=e124]: tin
+              - generic [ref=e125]: cậy
+              - generic [ref=e126]: của
+              - generic [ref=e127]: 500+
+              - generic [ref=e128]: doanh
+              - generic [ref=e129]: nghiệp
+              - generic [ref=e130]: Việt
+          - paragraph [ref=e132]: Thành lập từ năm 2014, Oli Xanh đã đồng hành cùng hàng trăm hợp tác xã, trang trại và đơn vị kiểm soát côn trùng trên cả nước. Chúng tôi tin rằng nông nghiệp bền vững và sức khỏe cộng đồng phải đi cùng nhau.
+          - list [ref=e133]:
+            - listitem [ref=e134]:
+              - img [ref=e136]
+              - generic [ref=e139]: Hơn 10 năm phân phối hóa chất nông nghiệp tại Việt Nam
+            - listitem [ref=e140]:
+              - img [ref=e142]
+              - generic [ref=e145]: Đại lý chính thức của Sumitomo, Bayer, Syngenta, BASF
+            - listitem [ref=e146]:
+              - img [ref=e148]
+              - generic [ref=e151]: Đội ngũ 50+ kỹ sư nông nghiệp và y tế dự phòng
+            - listitem [ref=e152]:
+              - img [ref=e154]
+              - generic [ref=e157]: Cam kết 100% sản phẩm chính hãng, có CO/CQ và MSDS
+      - generic [ref=e160]:
+        - generic [ref=e161]:
+          - paragraph [ref=e162]: Định hướng chiến lược
+          - heading "Khoa học vì sức khỏe cộng đồng và môi trường bền vững" [level=2] [ref=e163]:
+            - generic [ref=e164]:
+              - generic [ref=e165]: Khoa
+              - generic [ref=e166]: học
+              - generic [ref=e167]: vì
+              - generic [ref=e168]: sức
+              - generic [ref=e169]: khỏe
+              - generic [ref=e170]: cộng
+              - generic [ref=e171]: đồng
+            - generic [ref=e173]:
+              - generic [ref=e174]: và
+              - generic [ref=e175]: môi
+              - generic [ref=e176]: trường
+              - generic [ref=e177]: bền
+              - generic [ref=e178]: vững
+        - generic [ref=e179]:
+          - generic [ref=e181]:
+            - img [ref=e183]
+            - heading "Tầm nhìn" [level=3] [ref=e185]
+            - paragraph [ref=e186]: Trở thành đơn vị dẫn đầu Việt Nam trong cung cấp giải pháp hóa chất nông nghiệp và kiểm soát côn trùng theo chuẩn quốc tế vào năm 2030.
+          - generic [ref=e188]:
+            - img [ref=e190]
+            - heading "Sứ mệnh" [level=3] [ref=e194]
+            - paragraph [ref=e195]: Cung cấp các sản phẩm và dịch vụ chất lượng cao, an toàn cho con người và môi trường, đồng hành cùng nông dân và cộng đồng vì một Việt Nam xanh.
+          - generic [ref=e197]:
+            - img [ref=e199]
+            - heading "Giá trị cốt lõi" [level=3] [ref=e202]
+            - paragraph [ref=e203]: Chính trực · Khoa học · Bền vững · Tận tâm. Mỗi sản phẩm trên kệ Oli Xanh đều được lựa chọn nghiêm ngặt theo bốn nguyên tắc này.
+      - generic [ref=e205]:
+        - generic [ref=e206]:
+          - generic [ref=e207]:
+            - paragraph [ref=e208]: Danh mục sản phẩm
+            - heading "8 danh mục chuyên biệt cho nông nghiệp & y tế" [level=2] [ref=e209]
+          - link "Xem tất cả danh mục" [ref=e210]:
+            - /url: /cua-hang
+            - text: Xem tất cả danh mục
+            - img [ref=e211]
+        - generic [ref=e213]:
+          - link "Dụng Cụ Xử Lý Côn Trùng Dụng Cụ Xử Lý Côn Trùng Dụng cụ hỗ trợ phun/rải chế phẩm tại khe hở, khu vực khó tiếp cận và điểm trú ẩn của côn trùng. Khám phá" [ref=e216]:
+            - /url: /cua-hang/dung-cu-xu-ly-con-trung
+            - generic [ref=e217]:
+              - img "Dụng Cụ Xử Lý Côn Trùng" [ref=e218]
+              - img [ref=e221]
+            - generic [ref=e223]:
+              - heading "Dụng Cụ Xử Lý Côn Trùng" [level=3] [ref=e224]
+              - paragraph [ref=e225]: Dụng cụ hỗ trợ phun/rải chế phẩm tại khe hở, khu vực khó tiếp cận và điểm trú ẩn của côn trùng.
+              - generic [ref=e226]:
+                - text: Khám phá
+                - img [ref=e227]
+          - link "Xua Đuổi Rắn & Bò Sát Xua Đuổi Rắn & Bò Sát Sản phẩm dạng dung dịch hoặc hạt, hỗ trợ tạo vùng xua đuổi rắn và thằn lằn cho sân vườn, khuôn viên và công trình. Khám phá" [ref=e231]:
+            - /url: /cua-hang/xua-duoi-ran-va-bo-sat
+            - generic [ref=e232]:
+              - img "Xua Đuổi Rắn & Bò Sát" [ref=e233]
+              - img [ref=e236]
+            - generic [ref=e238]:
+              - heading "Xua Đuổi Rắn & Bò Sát" [level=3] [ref=e239]
+              - paragraph [ref=e240]: Sản phẩm dạng dung dịch hoặc hạt, hỗ trợ tạo vùng xua đuổi rắn và thằn lằn cho sân vườn, khuôn viên và công trình.
+              - generic [ref=e241]:
+                - text: Khám phá
+                - img [ref=e242]
+          - link "Kiểm Soát Côn Trùng Chuyên Dụng Kiểm Soát Côn Trùng Chuyên Dụng Sản phẩm hỗ trợ kiểm soát côn trùng khó xử lý, côn trùng kháng thuốc và khu vực có nhiều khe kẽ. Khám phá" [ref=e246]:
+            - /url: /cua-hang/kiem-soat-con-trung-chuyen-dung
+            - generic [ref=e247]:
+              - img "Kiểm Soát Côn Trùng Chuyên Dụng" [ref=e248]
+              - img [ref=e251]
+            - generic [ref=e254]:
+              - heading "Kiểm Soát Côn Trùng Chuyên Dụng" [level=3] [ref=e255]
+              - paragraph [ref=e256]: Sản phẩm hỗ trợ kiểm soát côn trùng khó xử lý, côn trùng kháng thuốc và khu vực có nhiều khe kẽ.
+              - generic [ref=e257]:
+                - text: Khám phá
+                - img [ref=e258]
+          - link "Thuốc Diệt Chuột Thuốc Diệt Chuột Các sản phẩm bả diệt chuột dạng bột, viên hoặc block, phù hợp sử dụng tại nhà ở, kho bãi, trang trại và khuôn viên. Khám phá" [ref=e262]:
+            - /url: /cua-hang/thuoc-diet-chuot
+            - generic [ref=e263]:
+              - img "Thuốc Diệt Chuột" [ref=e264]
+              - img [ref=e267]
+            - generic [ref=e269]:
+              - heading "Thuốc Diệt Chuột" [level=3] [ref=e270]
+              - paragraph [ref=e271]: Các sản phẩm bả diệt chuột dạng bột, viên hoặc block, phù hợp sử dụng tại nhà ở, kho bãi, trang trại và khuôn viên.
+              - generic [ref=e272]:
+                - text: Khám phá
+                - img [ref=e273]
+          - link "Thuốc Diệt Mối Thuốc Diệt Mối Sản phẩm xử lý, phòng ngừa và kiểm soát mối cho công trình xây dựng, nhà ở, biệt thự, kho hàng và khu vực cần bảo vệ. Khám phá" [ref=e277]:
+            - /url: /cua-hang/thuoc-diet-moi
+            - generic [ref=e278]:
+              - img "Thuốc Diệt Mối" [ref=e279]
+              - img [ref=e282]
+            - generic [ref=e291]:
+              - heading "Thuốc Diệt Mối" [level=3] [ref=e292]
+              - paragraph [ref=e293]: Sản phẩm xử lý, phòng ngừa và kiểm soát mối cho công trình xây dựng, nhà ở, biệt thự, kho hàng và khu vực cần bảo vệ.
+              - generic [ref=e294]:
+                - text: Khám phá
+                - img [ref=e295]
+          - link "Thuốc Diệt Kiến Thuốc Diệt Kiến Các sản phẩm bả diệt kiến dạng gel, phù hợp xử lý đường đi và khu vực kiến hoạt động. Khám phá" [ref=e299]:
+            - /url: /cua-hang/thuoc-diet-kien
+            - generic [ref=e300]:
+              - img "Thuốc Diệt Kiến" [ref=e301]
+              - img [ref=e304]
+            - generic [ref=e308]:
+              - heading "Thuốc Diệt Kiến" [level=3] [ref=e309]
+              - paragraph [ref=e310]: Các sản phẩm bả diệt kiến dạng gel, phù hợp xử lý đường đi và khu vực kiến hoạt động.
+              - generic [ref=e311]:
+                - text: Khám phá
+                - img [ref=e312]
+          - link "Thuốc Diệt Gián Thuốc Diệt Gián Danh mục bả gel và chế phẩm kiểm soát gián cho nhà ở, khách sạn, nhà hàng, trường học và khu vực dịch vụ. Khám phá" [ref=e316]:
+            - /url: /cua-hang/thuoc-diet-gian
+            - generic [ref=e317]:
+              - img "Thuốc Diệt Gián" [ref=e318]
+              - img [ref=e321]
+            - generic [ref=e323]:
+              - heading "Thuốc Diệt Gián" [level=3] [ref=e324]
+              - paragraph [ref=e325]: Danh mục bả gel và chế phẩm kiểm soát gián cho nhà ở, khách sạn, nhà hàng, trường học và khu vực dịch vụ.
+              - generic [ref=e326]:
+                - text: Khám phá
+                - img [ref=e327]
+          - link "Thuốc Diệt Muỗi, Ruồi & Côn Trùng Bay Thuốc Diệt Muỗi, Ruồi & Côn Trùng Bay Các chế phẩm phun không gian, phun tồn lưu và xử lý côn trùng bay cho nhà ở, cơ sở dịch vụ và khu vực cộng đồng. Khám phá" [ref=e331]:
+            - /url: /cua-hang/thuoc-diet-muoi-ruoi-con-trung-bay
+            - generic [ref=e332]:
+              - img "Thuốc Diệt Muỗi, Ruồi & Côn Trùng Bay" [ref=e333]
+              - img [ref=e336]
+            - generic [ref=e345]:
+              - heading "Thuốc Diệt Muỗi, Ruồi & Côn Trùng Bay" [level=3] [ref=e346]
+              - paragraph [ref=e347]: Các chế phẩm phun không gian, phun tồn lưu và xử lý côn trùng bay cho nhà ở, cơ sở dịch vụ và khu vực cộng đồng.
+              - generic [ref=e348]:
+                - text: Khám phá
+                - img [ref=e349]
+      - generic [ref=e351]:
+        - generic [ref=e352]:
+          - paragraph [ref=e353]: Hệ sinh thái Oli Xanh
+          - heading "Dịch vụ kiểm soát côn trùng & vệ sinh chuyên nghiệp" [level=2] [ref=e354]:
+            - generic [ref=e355]:
+              - generic [ref=e356]: Dịch
+              - generic [ref=e357]: vụ
+              - generic [ref=e358]: kiểm
+              - generic [ref=e359]: soát
+              - generic [ref=e360]: côn
+              - generic [ref=e361]: trùng
+              - generic [ref=e362]: "&"
+              - generic [ref=e363]: vệ
+              - generic [ref=e364]: sinh
+              - generic [ref=e365]: chuyên
+              - generic [ref=e366]: nghiệp
+          - paragraph [ref=e367]: 5 nhóm dịch vụ then chốt giúp khách hàng kiến tạo môi trường sống và làm việc an toàn, sạch sẽ và bền vững.
+        - generic [ref=e368]:
+          - link "Diệt Mối Tận Gốc Diệt Mối Tận Gốc Hệ thống bả mối Xterm và phun phòng chống mối cho công trình mới, công trình hiện hữu, kho hàng và đồ gỗ nội thất. Tìm hiểu thêm" [ref=e370]:
+            - /url: /lien-he
+            - img "Diệt Mối Tận Gốc" [ref=e371]
+            - generic [ref=e373]:
+              - img [ref=e375]
+              - heading "Diệt Mối Tận Gốc" [level=3] [ref=e379]
+              - paragraph [ref=e380]: Hệ thống bả mối Xterm và phun phòng chống mối cho công trình mới, công trình hiện hữu, kho hàng và đồ gỗ nội thất.
+              - generic [ref=e381]:
+                - text: Tìm hiểu thêm
+                - img [ref=e382]
+          - link "Diệt Chuột Diệt Chuột Tìm hiểu thêm" [ref=e386]:
+            - /url: /lien-he
+            - img "Diệt Chuột" [ref=e387]
+            - generic [ref=e389]:
+              - img [ref=e391]
+              - heading "Diệt Chuột" [level=3] [ref=e393]
+              - generic [ref=e394]:
+                - text: Tìm hiểu thêm
+                - img [ref=e395]
+          - link "Diệt Muỗi Diệt Muỗi Tìm hiểu thêm" [ref=e399]:
+            - /url: /lien-he
+            - img "Diệt Muỗi" [ref=e400]
+            - generic [ref=e402]:
+              - img [ref=e404]
+              - heading "Diệt Muỗi" [level=3] [ref=e406]
+              - generic [ref=e407]:
+                - text: Tìm hiểu thêm
+                - img [ref=e408]
+          - link "Vệ Sinh Công Nghiệp Vệ Sinh Công Nghiệp Tìm hiểu thêm" [ref=e412]:
+            - /url: /lien-he
+            - img "Vệ Sinh Công Nghiệp" [ref=e413]
+            - generic [ref=e415]:
+              - img [ref=e417]
+              - heading "Vệ Sinh Công Nghiệp" [level=3] [ref=e422]
+              - generic [ref=e423]:
+                - text: Tìm hiểu thêm
+                - img [ref=e424]
+          - link "Diệt Gián & Côn Trùng Diệt Gián & Côn Trùng Tìm hiểu thêm" [ref=e428]:
+            - /url: /lien-he
+            - img "Diệt Gián & Côn Trùng" [ref=e429]
+            - generic [ref=e431]:
+              - img [ref=e433]
+              - heading "Diệt Gián & Côn Trùng" [level=3] [ref=e442]
+              - generic [ref=e443]:
+                - text: Tìm hiểu thêm
+                - img [ref=e444]
+      - region "Đối tác chiến lược" [ref=e447]:
+        - generic [ref=e449]:
+          - paragraph [ref=e450]: Đối tác chiến lược
+          - heading "Hợp tác cùng các thương hiệu hàng đầu thế giới" [level=2] [ref=e451]:
+            - generic [ref=e452]:
+              - generic [ref=e453]: Hợp
+              - generic [ref=e454]: tác
+              - generic [ref=e455]: cùng
+              - generic [ref=e456]: các
+              - generic [ref=e457]: thương
+              - generic [ref=e458]: hiệu
+              - generic [ref=e459]: hàng
+              - generic [ref=e460]: đầu
+              - generic [ref=e461]: thế
+              - generic [ref=e462]: giới
+      - generic [ref=e481]:
+        - generic [ref=e482]:
+          - paragraph [ref=e483]: Khoảnh khắc Oli Xanh
+          - heading "Hành trình kiến tạo môi trường an toàn" [level=2] [ref=e484]:
+            - generic [ref=e485]:
+              - generic [ref=e486]: Hành
+              - generic [ref=e487]: trình
+              - generic [ref=e488]: kiến
+              - generic [ref=e489]: tạo
+              - generic [ref=e490]: môi
+              - generic [ref=e491]: trường
+              - generic [ref=e492]: an
+              - generic [ref=e493]: toàn
+        - generic [ref=e495]:
+          - generic [ref=e497]:
+            - figure "Phun ULV phòng dịch sốt xuất huyết" [ref=e499]:
+              - img "Đội ngũ kỹ thuật Green Oli phun ULV tại khu dân cư" [ref=e501]
+              - generic [ref=e502]: Phun ULV phòng dịch sốt xuất huyết
+            - figure "Dây chuyền đóng gói tại nhà máy Bình Dương" [ref=e504]:
+              - img "Nhà máy đóng gói hóa chất tiêu chuẩn ISO" [ref=e506]
+              - generic [ref=e507]: Dây chuyền đóng gói tại nhà máy Bình Dương
+            - figure "Phòng QC đạt chuẩn GLP" [ref=e509]:
+              - img "Phòng thí nghiệm kiểm nghiệm chất lượng" [ref=e511]
+              - generic [ref=e512]: Phòng QC đạt chuẩn GLP
+            - figure "Tập huấn kỹ thuật miền Bắc 2026" [ref=e514]:
+              - img "Tập huấn kỹ thuật cho đội ngũ phân phối miền Bắc" [ref=e516]
+              - generic [ref=e517]: Tập huấn kỹ thuật miền Bắc 2026
+            - figure "Lắp đặt trạm bả Xterm – resort Phú Quốc" [ref=e519]:
+              - img "Lắp đặt trạm bả Xterm cho biệt thự nghỉ dưỡng" [ref=e521]
+              - generic [ref=e522]: Lắp đặt trạm bả Xterm – resort Phú Quốc
+            - figure "Hợp tác cùng HTX miền Tây" [ref=e524]:
+              - img "Hợp tác canh tác xanh cùng nông dân Đồng bằng sông Cửu Long" [ref=e526]
+              - generic [ref=e527]: Hợp tác cùng HTX miền Tây
+          - button "Trước" [ref=e528]:
+            - img [ref=e529]
+          - button "Sau" [ref=e531]:
+            - img [ref=e532]
+          - tablist "Slides" [ref=e534]:
+            - tab "Đi tới slide 1" [selected] [ref=e535]
+            - tab "Đi tới slide 2" [ref=e536]
+            - tab "Đi tới slide 3" [ref=e537]
+            - tab "Đi tới slide 4" [ref=e538]
+            - tab "Đi tới slide 5" [ref=e539]
+            - tab "Đi tới slide 6" [ref=e540]
+      - generic [ref=e542]:
+        - generic [ref=e543]:
+          - generic [ref=e544]:
+            - paragraph [ref=e545]: Tin tức & Kiến thức
+            - heading "Cập nhật xu hướng nông nghiệp và kiểm soát côn trùng" [level=2] [ref=e546]:
+              - generic [ref=e547]:
+                - generic [ref=e548]: Cập
+                - generic [ref=e549]: nhật
+                - generic [ref=e550]: xu
+                - generic [ref=e551]: hướng
+                - generic [ref=e552]: nông
+                - generic [ref=e553]: nghiệp
+                - generic [ref=e554]: và
+                - generic [ref=e555]: kiểm
+                - generic [ref=e556]: soát
+                - generic [ref=e557]: côn
+                - generic [ref=e558]: trùng
+          - link "Tất cả bài viết" [ref=e559]:
+            - /url: /tin-tuc
+            - text: Tất cả bài viết
+            - img [ref=e560]
+        - generic [ref=e562]:
+          - link "5 cách phòng chống muỗi hiệu quả trong mùa mưa Sức khỏe cộng đồng 5 cách phòng chống muỗi hiệu quả trong mùa mưa Mùa mưa tới kéo theo bùng phát muỗi truyền sốt xuất huyết. Cùng Green Oli điểm qua 5 biện pháp phòng chống được khuyến nghị bởi Bộ Y Tế. 10/06/2026 5 phút" [ref=e564]:
+            - /url: /tin-tuc/cach-phong-chong-muoi-mua-mua
+            - img "5 cách phòng chống muỗi hiệu quả trong mùa mưa" [ref=e566]
+            - generic [ref=e567]:
+              - generic [ref=e568]: Sức khỏe cộng đồng
+              - heading "5 cách phòng chống muỗi hiệu quả trong mùa mưa" [level=3] [ref=e569]
+              - paragraph [ref=e570]: Mùa mưa tới kéo theo bùng phát muỗi truyền sốt xuất huyết. Cùng Green Oli điểm qua 5 biện pháp phòng chống được khuyến nghị bởi Bộ Y Tế.
+              - generic [ref=e571]:
+                - generic [ref=e572]:
+                  - img [ref=e573]
+                  - text: 10/06/2026
+                - generic [ref=e575]:
+                  - img [ref=e576]
+                  - text: 5 phút
+          - link "Hướng dẫn sử dụng phân bón lá đúng cách cho rau ăn lá Nông nghiệp Hướng dẫn sử dụng phân bón lá đúng cách cho rau ăn lá Phân bón lá hấp thu nhanh nhưng nếu dùng sai liều và sai thời điểm sẽ gây cháy lá, ngộ độc cây. Bài viết này tổng hợp 7 nguyên tắc cốt lõi. 05/06/2026 7 phút" [ref=e580]:
+            - /url: /tin-tuc/huong-dan-su-dung-phan-bon-la-dung-cach
+            - img "Hướng dẫn sử dụng phân bón lá đúng cách cho rau ăn lá" [ref=e582]
+            - generic [ref=e583]:
+              - generic [ref=e584]: Nông nghiệp
+              - heading "Hướng dẫn sử dụng phân bón lá đúng cách cho rau ăn lá" [level=3] [ref=e585]
+              - paragraph [ref=e586]: Phân bón lá hấp thu nhanh nhưng nếu dùng sai liều và sai thời điểm sẽ gây cháy lá, ngộ độc cây. Bài viết này tổng hợp 7 nguyên tắc cốt lõi.
+              - generic [ref=e587]:
+                - generic [ref=e588]:
+                  - img [ref=e589]
+                  - text: 05/06/2026
+                - generic [ref=e591]:
+                  - img [ref=e592]
+                  - text: 7 phút
+          - 'link "Kiểm soát mối cho công trình mới: nên làm trước hay sau xây dựng? Kiểm soát côn trùng Kiểm soát mối cho công trình mới: nên làm trước hay sau xây dựng? Phòng mối tiền xây dựng tiết kiệm chi phí 60% so với xử lý sau. Cùng Green Oli phân tích 3 phương án phổ biến. 28/05/2026 8 phút" [ref=e596]':
+            - /url: /tin-tuc/kiem-soat-moi-cho-cong-trinh-moi
+            - 'img "Kiểm soát mối cho công trình mới: nên làm trước hay sau xây dựng?" [ref=e598]'
+            - generic [ref=e599]:
+              - generic [ref=e600]: Kiểm soát côn trùng
+              - 'heading "Kiểm soát mối cho công trình mới: nên làm trước hay sau xây dựng?" [level=3] [ref=e601]'
+              - paragraph [ref=e602]: Phòng mối tiền xây dựng tiết kiệm chi phí 60% so với xử lý sau. Cùng Green Oli phân tích 3 phương án phổ biến.
+              - generic [ref=e603]:
+                - generic [ref=e604]:
+                  - img [ref=e605]
+                  - text: 28/05/2026
+                - generic [ref=e607]:
+                  - img [ref=e608]
+                  - text: 8 phút
+      - generic [ref=e615]:
+        - generic [ref=e616]:
+          - generic [ref=e617]:
+            - img [ref=e618]
+            - text: Tư vấn miễn phí 24/7
+          - heading "Sẵn sàng đồng hành cùng giải pháp xanh của bạn?" [level=2] [ref=e620]:
+            - generic [ref=e621]:
+              - generic [ref=e622]: Sẵn
+              - generic [ref=e623]: sàng
+              - generic [ref=e624]: đồng
+              - generic [ref=e625]: hành
+              - generic [ref=e626]: cùng
+              - generic [ref=e627]: giải
+              - generic [ref=e628]: pháp
+              - generic [ref=e629]: xanh
+              - generic [ref=e630]: của
+              - generic [ref=e631]: bạn?
+          - paragraph [ref=e633]: Đội ngũ kỹ sư của Oli Xanh luôn sẵn sàng tư vấn miễn phí giải pháp phù hợp cho cây trồng, công trình và doanh nghiệp của bạn.
+        - generic [ref=e634]:
+          - link "0976 187 957 - 0866 795 576" [ref=e636]:
+            - /url: tel:0976187957-0866795576
+            - img [ref=e637]
+            - text: 0976 187 957 - 0866 795 576
+          - link "Để lại thông tin" [ref=e640]:
+            - /url: /lien-he
+  - contentinfo [ref=e641]:
+    - generic [ref=e643]:
+      - generic [ref=e644]:
+        - link "Trang chủ" [ref=e645]:
+          - /url: /
+          - img "Oli Xanh Logo" [ref=e646]
+        - paragraph [ref=e647]: Công ty TNHH Hóa Chất và Thiết Bị Oli Xanh chuyên phân phối độc quyền khu vực phía Bắc sản phẩm kiểm soát côn trùng, mối, chuột từ các tập đoàn đa quốc gia. Giải pháp an toàn cho sức khỏe và môi trường, hướng đến tiêu chuẩn ESG.
+        - generic [ref=e648]:
+          - link "Facebook" [ref=e649]:
+            - /url: ""
+            - img [ref=e650]
+          - link "YouTube" [ref=e652]:
+            - /url: ""
+            - img [ref=e653]
+          - link "Zalo" [ref=e656]:
+            - /url: https://zalo.me/0976187957
+            - img [ref=e657]
+      - navigation "Liên kết nhanh" [ref=e660]:
+        - heading "Liên kết nhanh" [level=3] [ref=e661]
+        - list [ref=e662]:
+          - listitem [ref=e663]:
+            - link "Trang chủ" [ref=e664]:
+              - /url: /
+          - listitem [ref=e665]:
+            - link "Giới thiệu" [ref=e666]:
+              - /url: /gioi-thieu
+          - listitem [ref=e667]:
+            - link "Sản phẩm" [ref=e668]:
+              - /url: /cua-hang
+          - listitem [ref=e669]:
+            - link "Tin tức" [ref=e670]:
+              - /url: /tin-tuc
+          - listitem [ref=e671]:
+            - link "Liên hệ" [ref=e672]:
+              - /url: /lien-he
+      - navigation "Danh mục sản phẩm" [ref=e673]:
+        - heading "Sản phẩm" [level=3] [ref=e674]
+        - list [ref=e675]:
+          - listitem [ref=e676]:
+            - link "Dụng Cụ" [ref=e677]:
+              - /url: /cua-hang/dung-cu-xu-ly-con-trung
+          - listitem [ref=e678]:
+            - link "Xua Rắn & Bò Sát" [ref=e679]:
+              - /url: /cua-hang/xua-duoi-ran-va-bo-sat
+          - listitem [ref=e680]:
+            - link "Chuyên Dụng" [ref=e681]:
+              - /url: /cua-hang/kiem-soat-con-trung-chuyen-dung
+          - listitem [ref=e682]:
+            - link "Diệt Chuột" [ref=e683]:
+              - /url: /cua-hang/thuoc-diet-chuot
+          - listitem [ref=e684]:
+            - link "Diệt Mối" [ref=e685]:
+              - /url: /cua-hang/thuoc-diet-moi
+          - listitem [ref=e686]:
+            - link "Diệt Kiến" [ref=e687]:
+              - /url: /cua-hang/thuoc-diet-kien
+          - listitem [ref=e688]:
+            - link "Xem tất cả →" [ref=e689]:
+              - /url: /cua-hang
+      - generic [ref=e690]:
+        - heading "Liên hệ" [level=3] [ref=e691]
+        - list [ref=e692]:
+          - listitem [ref=e693]:
+            - img [ref=e694]
+            - generic [ref=e697]: Số 84, phố Phú Viên, phường Bồ Đề, tp Hà Nội
+          - listitem [ref=e698]:
+            - link "0976 187 957 - 0866 795 576" [ref=e699]:
+              - /url: tel:0976187957-0866795576
+              - img [ref=e700]
+              - text: 0976 187 957 - 0866 795 576
+          - listitem [ref=e702]:
+            - link [ref=e703]:
+              - /url: "mailto:"
+              - img [ref=e704]
+          - listitem [ref=e707]: "T2 - T7: 8h-12h và 13h30-17h"
+    - generic [ref=e709]:
+      - paragraph [ref=e710]: © 2026 Oli Xanh. Mọi quyền được bảo lưu.
+      - paragraph [ref=e711]: Thiết kế theo bộ nhận diện Molecular Precision.
+  - generic [ref=e712]:
+    - link "Gọi hotline" [ref=e713]:
+      - /url: tel:0976187957-0866795576
+      - img [ref=e714]
+    - link "Zalo" [ref=e716]:
+      - /url: https://zalo.me/0976187957
+      - img [ref=e717]
+    - link "Facebook" [ref=e719]:
+      - /url: ""
+      - img [ref=e720]
+    - link "YouTube" [ref=e722]:
+      - /url: ""
+      - img [ref=e723]
+  - alert [ref=e726]

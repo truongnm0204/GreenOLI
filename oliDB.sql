@@ -2,12 +2,12 @@
 -- PostgreSQL database dump
 --
 
-\restrict kHrZUA7K122loB2QaYpfqEN1X36ZNih7Z7yC6wEIDnvHfgxk7kWXQB9rWylOeDY
+\restrict LR0IcvSaLuLEedBcs2nY35SQuebHRe0V7gAcb0C1EQWEbGZkH1Epvm3a3HRuQEv
 
 -- Dumped from database version 18.3
 -- Dumped by pg_dump version 18.3
 
--- Started on 2026-07-04 16:07:11
+-- Started on 2026-07-06 13:46:11
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -1004,14 +1004,14 @@ COPY public.articles_tags (_order, _parent_id, id, value) FROM stdin;
 --
 
 COPY public.categories (id, slug, name, short_name, tagline, description, long_description, hero_image_id, icon_key, updated_at, created_at) FROM stdin;
-8	thuoc-diet-muoi-ruoi-con-trung-bay	Thuốc Diệt Muỗi, Ruồi & Côn Trùng Bay	Diệt Muỗi & Ruồi	Kiểm soát muỗi, ruồi và côn trùng bay trong gia dụng và y tế.	Các chế phẩm phun không gian, phun tồn lưu và xử lý côn trùng bay cho nhà ở, cơ sở dịch vụ và khu vực cộng đồng.	Danh mục gồm các sản phẩm hỗ trợ kiểm soát muỗi, ruồi và một số côn trùng bay/bò thường gặp. Sản phẩm có nhiều dạng như EW, EC, CS, SEC và dung dịch chuyên dụng; cần lựa chọn theo đối tượng, khu vực xử lý và hướng dẫn trên nhãn.	9	Bug	2026-07-04 13:26:33.857+07	2026-07-03 16:03:24.357+07
-7	thuoc-diet-gian	Thuốc Diệt Gián	Diệt Gián	Giải pháp xử lý gián bằng bả gel, bột và sản phẩm chuyên dụng.	Danh mục bả gel và chế phẩm kiểm soát gián cho nhà ở, khách sạn, nhà hàng, trường học và khu vực dịch vụ.	Green Oli cung cấp các nguyên liệu hóa chất cơ bản đạt chuẩn công nghiệp/dược phẩm, có chứng nhận xuất xứ, MSDS đầy đủ và tư vấn kỹ thuật theo từng ứng dụng cụ thể.	8	FlaskConical	2026-07-04 15:03:44.92+07	2026-07-03 16:03:22.496+07
-6	thuoc-diet-kien	Thuốc Diệt Kiến	Diệt Kiến	Kiểm soát kiến bằng bả chuyên dụng, hỗ trợ xử lý tận tổ.	Các sản phẩm bả diệt kiến dạng gel, phù hợp xử lý đường đi và khu vực kiến hoạt động.	Danh mục ưu tiên các loại bả có tác động chậm để kiến thợ mang mồi về tổ, hỗ trợ giảm mật độ và xử lý ổ kiến. Nên đặt bả ở vị trí khô ráo, ngoài tầm với của trẻ em và vật nuôi.	7	Microscope	2026-07-04 15:04:47.531+07	2026-07-03 16:03:20.51+07
-5	thuoc-diet-moi	Thuốc Diệt Mối	Diệt Mối	Phòng trừ mối cho nhà ở, công trình, kho bãi và khu vực có nguy cơ.	Sản phẩm xử lý, phòng ngừa và kiểm soát mối cho công trình xây dựng, nhà ở, biệt thự, kho hàng và khu vực cần bảo vệ.	Danh mục gồm thuốc xử lý mối, bả diệt mối và hệ thống trạm bả. Với công trình hoặc ổ mối phức tạp, nên triển khai theo quy trình kỹ thuật và kiểm tra định kỳ bởi đơn vị chuyên môn.	6	Bug	2026-07-04 15:05:37.037+07	2026-07-03 16:03:18.546+07
-4	thuoc-diet-chuot	Thuốc Diệt Chuột	Diệt Chuột	Giải pháp kiểm soát chuột bằng bả chuyên dụng.	Các sản phẩm bả diệt chuột dạng bột, viên hoặc block, phù hợp sử dụng tại nhà ở, kho bãi, trang trại và khuôn viên.\n	Danh mục gồm các chế phẩm kiểm soát chuột bằng bả chuyên dụng. Khi sử dụng nên bố trí trong hộp bả hoặc vị trí an toàn, tránh để trẻ em và vật nuôi tiếp cận; thu gom bả thừa và xác chuột sau xử lý.	5	Mouse	2026-07-04 15:06:31.009+07	2026-07-03 16:03:16.537+07
-3	kiem-soat-con-trung-chuyen-dung	Kiểm Soát Côn Trùng Chuyên Dụng	Chuyên Dụng	Giải pháp chuyên sâu cho rệp, bọ chét, bọ ve và khu vực khó xử lý.	Sản phẩm hỗ trợ kiểm soát côn trùng khó xử lý, côn trùng kháng thuốc và khu vực có nhiều khe kẽ.\n	Danh mục gồm sản phẩm kiểm soát vòng đời côn trùng, rệp giường, bọ chét, bọ ve, gián và các trường hợp cần giải pháp chuyên sâu. Một số sản phẩm cần kỹ thuật thi công phù hợp để đạt hiệu quả và đảm bảo an toàn.\n	4	ShieldCheck	2026-07-04 15:07:08.302+07	2026-07-03 16:03:15.235+07
-2	xua-duoi-ran-va-bo-sat	Xua Đuổi Rắn & Bò Sát	Xua Rắn & Bò Sát	Tạo hàng rào xua đuổi rắn, thằn lằn và một số loài bò sát.	Sản phẩm dạng dung dịch hoặc hạt, hỗ trợ tạo vùng xua đuổi rắn và thằn lằn cho sân vườn, khuôn viên và công trình.\n	Danh mục gồm sản phẩm xua đuổi rắn và thằn lằn dựa trên mùi của tinh dầu thực vật. Sản phẩm phù hợp sử dụng quanh khu vực cần bảo vệ; cần rải hoặc phun theo đúng hướng dẫn và duy trì vùng bảo vệ khi cần.\n	3	ShieldAlert	2026-07-04 15:07:42.586+07	2026-07-03 16:03:13.942+07
-1	dung-cu-xu-ly-con-trung	Dụng Cụ Xử Lý Côn Trùng	Dụng Cụ	Thiết bị hỗ trợ thi công và xử lý côn trùng chuyên nghiệp.	Dụng cụ hỗ trợ phun/rải chế phẩm tại khe hở, khu vực khó tiếp cận và điểm trú ẩn của côn trùng.\n	Danh mục gồm thiết bị hỗ trợ thi công chuyên dụng. Lựa chọn đúng vòi phun, vật tư và cách vệ sinh thiết bị giúp việc xử lý đạt độ chính xác cao hơn và hạn chế hao phí sản phẩm.	2	Wrench	2026-07-04 15:08:22.767+07	2026-07-03 16:03:11.488+07
+8	thuoc-diet-muoi-ruoi-con-trung-bay	Thuốc Diệt Muỗi, Ruồi & Côn Trùng Bay	Diệt Muỗi & Ruồi	Kiểm soát muỗi, ruồi và côn trùng bay trong gia dụng và y tế.	Các chế phẩm phun không gian, phun tồn lưu và xử lý côn trùng bay cho nhà ở, cơ sở dịch vụ và khu vực cộng đồng.	Danh mục gồm các sản phẩm hỗ trợ kiểm soát muỗi, ruồi và một số côn trùng bay/bò thường gặp. Sản phẩm có nhiều dạng như EW, EC, CS, SEC và dung dịch chuyên dụng; cần lựa chọn theo đối tượng, khu vực xử lý và hướng dẫn trên nhãn.	137	Bug	2026-07-06 13:27:54.265+07	2026-07-03 16:03:24.357+07
+7	thuoc-diet-gian	Thuốc Diệt Gián	Diệt Gián	Giải pháp xử lý gián bằng bả gel, bột và sản phẩm chuyên dụng.	Danh mục bả gel và chế phẩm kiểm soát gián cho nhà ở, khách sạn, nhà hàng, trường học và khu vực dịch vụ.	Green Oli cung cấp các nguyên liệu hóa chất cơ bản đạt chuẩn công nghiệp/dược phẩm, có chứng nhận xuất xứ, MSDS đầy đủ và tư vấn kỹ thuật theo từng ứng dụng cụ thể.	138	FlaskConical	2026-07-06 13:27:57.151+07	2026-07-03 16:03:22.496+07
+6	thuoc-diet-kien	Thuốc Diệt Kiến	Diệt Kiến	Kiểm soát kiến bằng bả chuyên dụng, hỗ trợ xử lý tận tổ.	Các sản phẩm bả diệt kiến dạng gel, phù hợp xử lý đường đi và khu vực kiến hoạt động.	Danh mục ưu tiên các loại bả có tác động chậm để kiến thợ mang mồi về tổ, hỗ trợ giảm mật độ và xử lý ổ kiến. Nên đặt bả ở vị trí khô ráo, ngoài tầm với của trẻ em và vật nuôi.	139	Microscope	2026-07-06 13:27:59.75+07	2026-07-03 16:03:20.51+07
+5	thuoc-diet-moi	Thuốc Diệt Mối	Diệt Mối	Phòng trừ mối cho nhà ở, công trình, kho bãi và khu vực có nguy cơ.	Sản phẩm xử lý, phòng ngừa và kiểm soát mối cho công trình xây dựng, nhà ở, biệt thự, kho hàng và khu vực cần bảo vệ.	Danh mục gồm thuốc xử lý mối, bả diệt mối và hệ thống trạm bả. Với công trình hoặc ổ mối phức tạp, nên triển khai theo quy trình kỹ thuật và kiểm tra định kỳ bởi đơn vị chuyên môn.	140	Bug	2026-07-06 13:28:01.603+07	2026-07-03 16:03:18.546+07
+4	thuoc-diet-chuot	Thuốc Diệt Chuột	Diệt Chuột	Giải pháp kiểm soát chuột bằng bả chuyên dụng.	Các sản phẩm bả diệt chuột dạng bột, viên hoặc block, phù hợp sử dụng tại nhà ở, kho bãi, trang trại và khuôn viên.\n	Danh mục gồm các chế phẩm kiểm soát chuột bằng bả chuyên dụng. Khi sử dụng nên bố trí trong hộp bả hoặc vị trí an toàn, tránh để trẻ em và vật nuôi tiếp cận; thu gom bả thừa và xác chuột sau xử lý.	141	Mouse	2026-07-06 13:28:03.134+07	2026-07-03 16:03:16.537+07
+3	kiem-soat-con-trung-chuyen-dung	Kiểm Soát Côn Trùng Chuyên Dụng	Chuyên Dụng	Giải pháp chuyên sâu cho rệp, bọ chét, bọ ve và khu vực khó xử lý.	Sản phẩm hỗ trợ kiểm soát côn trùng khó xử lý, côn trùng kháng thuốc và khu vực có nhiều khe kẽ.\n	Danh mục gồm sản phẩm kiểm soát vòng đời côn trùng, rệp giường, bọ chét, bọ ve, gián và các trường hợp cần giải pháp chuyên sâu. Một số sản phẩm cần kỹ thuật thi công phù hợp để đạt hiệu quả và đảm bảo an toàn.\n	142	ShieldCheck	2026-07-06 13:28:04.576+07	2026-07-03 16:03:15.235+07
+2	xua-duoi-ran-va-bo-sat	Xua Đuổi Rắn & Bò Sát	Xua Rắn & Bò Sát	Tạo hàng rào xua đuổi rắn, thằn lằn và một số loài bò sát.	Sản phẩm dạng dung dịch hoặc hạt, hỗ trợ tạo vùng xua đuổi rắn và thằn lằn cho sân vườn, khuôn viên và công trình.\n	Danh mục gồm sản phẩm xua đuổi rắn và thằn lằn dựa trên mùi của tinh dầu thực vật. Sản phẩm phù hợp sử dụng quanh khu vực cần bảo vệ; cần rải hoặc phun theo đúng hướng dẫn và duy trì vùng bảo vệ khi cần.\n	143	ShieldAlert	2026-07-06 13:28:06.521+07	2026-07-03 16:03:13.942+07
+1	dung-cu-xu-ly-con-trung	Dụng Cụ Xử Lý Côn Trùng	Dụng Cụ	Thiết bị hỗ trợ thi công và xử lý côn trùng chuyên nghiệp.	Dụng cụ hỗ trợ phun/rải chế phẩm tại khe hở, khu vực khó tiếp cận và điểm trú ẩn của côn trùng.\n	Danh mục gồm thiết bị hỗ trợ thi công chuyên dụng. Lựa chọn đúng vòi phun, vật tư và cách vệ sinh thiết bị giúp việc xử lý đạt độ chính xác cao hơn và hạn chế hao phí sản phẩm.	144	Wrench	2026-07-06 13:28:07.841+07	2026-07-03 16:03:11.488+07
 \.
 
 
@@ -1050,7 +1050,6 @@ COPY public.leads (id, full_name, email, phone, subject, message, status, update
 --
 
 COPY public.media (id, alt, updated_at, created_at, url, thumbnail_u_r_l, filename, mime_type, filesize, width, height, focal_x, focal_y) FROM stdin;
-2	Phân Bón Lá	2026-07-03 16:03:09.115+07	2026-07-03 16:03:09.114+07	https://res.cloudinary.com/gaklspua/image/upload/v1/greenoli/---picsum-photos-seed-phanbonla-1280-640?_a=BAMAPqRk0	\N	---picsum-photos-seed-phanbonla-1280-640.jpg	image/jpeg	186531	1280	640	50	50
 3	Phân Bón Gốc	2026-07-03 16:03:12.89+07	2026-07-03 16:03:12.89+07	https://res.cloudinary.com/gaklspua/image/upload/v1/greenoli/--picsum-photos-seed-phanbongoc-1280-640?_a=BAMAPqRk0	\N	--picsum-photos-seed-phanbongoc-1280-640.jpg	image/jpeg	27669	1280	640	50	50
 4	Thuốc Trừ Bệnh	2026-07-03 16:03:14.316+07	2026-07-03 16:03:14.315+07	https://res.cloudinary.com/gaklspua/image/upload/v1/greenoli/ps---picsum-photos-seed-trubenh-1280-640?_a=BAMAPqRk0	\N	ps---picsum-photos-seed-trubenh-1280-640.jpg	image/jpeg	9799	1280	640	50	50
 5	Thuốc Trừ Cỏ	2026-07-03 16:03:15.62+07	2026-07-03 16:03:15.62+07	https://res.cloudinary.com/gaklspua/image/upload/v1/greenoli/ttps---picsum-photos-seed-truco-1280-640?_a=BAMAPqRk0	\N	ttps---picsum-photos-seed-truco-1280-640.jpg	image/jpeg	199089	1280	640	50	50
@@ -1106,6 +1105,7 @@ COPY public.media (id, alt, updated_at, created_at, url, thumbnail_u_r_l, filena
 55	Đội ngũ kỹ thuật Green Oli phun ULV tại khu dân cư	2026-07-03 16:04:30.808+07	2026-07-03 16:04:30.808+07	https://res.cloudinary.com/gaklspua/image/upload/v1/greenoli/---picsum-photos-seed-gallery-1-1200-800?_a=BAMAPqRk0	\N	---picsum-photos-seed-gallery-1-1200-800.jpg	image/jpeg	68719	1200	800	50	50
 56	Nhà máy đóng gói hóa chất tiêu chuẩn ISO	2026-07-03 16:04:32.027+07	2026-07-03 16:04:32.027+07	https://res.cloudinary.com/gaklspua/image/upload/v1/greenoli/---picsum-photos-seed-gallery-2-1200-800?_a=BAMAPqRk0	\N	---picsum-photos-seed-gallery-2-1200-800.jpg	image/jpeg	68346	1200	800	50	50
 57	Phòng thí nghiệm kiểm nghiệm chất lượng	2026-07-03 16:04:33.36+07	2026-07-03 16:04:33.36+07	https://res.cloudinary.com/gaklspua/image/upload/v1/greenoli/---picsum-photos-seed-gallery-3-1200-800?_a=BAMAPqRk0	\N	---picsum-photos-seed-gallery-3-1200-800.jpg	image/jpeg	83506	1200	800	50	50
+138	Thuốc Diệt Gián	2026-07-06 13:27:54.28+07	2026-07-06 13:27:54.28+07	https://res.cloudinary.com/gaklspua/image/upload/v1/greenoli/cat_gian?_a=BAMAPqRk0	\N	cat_gian.png	image/png	562825	1024	1024	50	50
 58	Tập huấn kỹ thuật cho đội ngũ phân phối miền Bắc	2026-07-03 16:04:34.777+07	2026-07-03 16:04:34.777+07	https://res.cloudinary.com/gaklspua/image/upload/v1/greenoli/---picsum-photos-seed-gallery-4-1200-800?_a=BAMAPqRk0	\N	---picsum-photos-seed-gallery-4-1200-800.jpg	image/jpeg	131515	1200	800	50	50
 59	Lắp đặt trạm bả Xterm cho biệt thự nghỉ dưỡng	2026-07-03 16:04:36.328+07	2026-07-03 16:04:36.328+07	https://res.cloudinary.com/gaklspua/image/upload/v1/greenoli/---picsum-photos-seed-gallery-5-1200-800?_a=BAMAPqRk0	\N	---picsum-photos-seed-gallery-5-1200-800.jpg	image/jpeg	154188	1200	800	50	50
 60	Hợp tác canh tác xanh cùng nông dân Đồng bằng sông Cửu Long	2026-07-03 16:04:41.562+07	2026-07-03 16:04:41.562+07	https://res.cloudinary.com/gaklspua/image/upload/v1/greenoli/---picsum-photos-seed-gallery-6-1200-800?_a=BAMAPqRk0	\N	---picsum-photos-seed-gallery-6-1200-800.jpg	image/jpeg	59848	1200	800	50	50
@@ -1180,6 +1180,20 @@ COPY public.media (id, alt, updated_at, created_at, url, thumbnail_u_r_l, filena
 130	SecliraGel	2026-07-04 15:01:27.488+07	2026-07-04 15:01:27.488+07	https://res.cloudinary.com/gaklspua/image/upload/v1/greenoli/SecliraGel?_a=BAMAAARk0	\N	SecliraGel.png	image/png	390454	1683	1339	50	50
 131	Tenopa 1L	2026-07-04 15:01:29.681+07	2026-07-04 15:01:29.681+07	https://res.cloudinary.com/gaklspua/image/upload/v1/greenoli/Tenopa1L?_a=BAMAAARk0	\N	Tenopa1L.png	image/png	448327	725	1424	50	50
 132	Mythic100ml 	2026-07-04 15:01:32.843+07	2026-07-04 15:01:32.843+07	https://res.cloudinary.com/gaklspua/image/upload/v1/greenoli/Mythic100ml?_a=BAMAAARk0	\N	Mythic100ml.png	image/png	894276	1500	2000	50	50
+2	Phân Bón Lá	2026-07-06 11:39:54.494+07	2026-07-03 16:03:09.114+07	https://res.cloudinary.com/gaklspua/image/upload/v1/greenoli/STMED-Permethrin-50EC?_a=BAMAAARk0	\N	STMED-Permethrin-50EC.jpg	image/jpeg	3829	225	225	50	50
+133	STMED Permethrin 50EC	2026-07-06 11:41:01.471+07	2026-07-06 11:41:01.471+07	https://res.cloudinary.com/gaklspua/image/upload/v1/greenoli/STMED-Permethrin-50EC-1?_a=BAMAAARk0	\N	STMED-Permethrin-50EC-1.jpg	image/jpeg	3829	225	225	50	50
+134	racumin diệt chuột	2026-07-06 12:08:07.02+07	2026-07-06 12:08:07.02+07	https://res.cloudinary.com/gaklspua/image/upload/v1/greenoli/racumin?_a=BAMAAARk0	\N	racumin.jpg	image/jpeg	13780	447	447	50	50
+135	Nyguard 1lít	2026-07-06 12:25:23.184+07	2026-07-06 12:25:23.184+07	https://res.cloudinary.com/gaklspua/image/upload/v1/greenoli/Nyguard?_a=BAMAAARk0	\N	Nyguard.jpg	image/jpeg	33986	568	566	50	50
+136	fludora	2026-07-06 12:35:22.639+07	2026-07-06 12:35:22.639+07	https://res.cloudinary.com/gaklspua/image/upload/v1/greenoli/fludora?_a=BAMAAARk0	\N	fludora.jpg	image/jpeg	25350	554	554	50	50
+137	Thuốc Diệt Muỗi, Ruồi & Côn Trùng Bay	2026-07-06 13:27:45.741+07	2026-07-06 13:27:45.74+07	https://res.cloudinary.com/gaklspua/image/upload/v1/greenoli/cat_muoi?_a=BAMAPqRk0	\N	cat_muoi.png	image/png	710261	1024	1024	50	50
+139	Thuốc Diệt Kiến	2026-07-06 13:27:57.163+07	2026-07-06 13:27:57.163+07	https://res.cloudinary.com/gaklspua/image/upload/v1/greenoli/cat_kien?_a=BAMAPqRk0	\N	cat_kien.png	image/png	1052930	1024	1024	50	50
+140	Thuốc Diệt Mối	2026-07-06 13:27:59.761+07	2026-07-06 13:27:59.761+07	https://res.cloudinary.com/gaklspua/image/upload/v1/greenoli/cat_moi?_a=BAMAPqRk0	\N	cat_moi.png	image/png	1071392	1024	1024	50	50
+141	Thuốc Diệt Chuột	2026-07-06 13:28:01.612+07	2026-07-06 13:28:01.612+07	https://res.cloudinary.com/gaklspua/image/upload/v1/greenoli/cat_chuot?_a=BAMAPqRk0	\N	cat_chuot.png	image/png	686067	1024	1024	50	50
+142	Kiểm Soát Côn Trùng Chuyên Dụng	2026-07-06 13:28:03.144+07	2026-07-06 13:28:03.144+07	https://res.cloudinary.com/gaklspua/image/upload/v1/greenoli/cat_chuyen_dung?_a=BAMAPqRk0	\N	cat_chuyen_dung.png	image/png	779732	1024	1024	50	50
+143	Xua Đuổi Rắn & Bò Sát	2026-07-06 13:28:04.585+07	2026-07-06 13:28:04.585+07	https://res.cloudinary.com/gaklspua/image/upload/v1/greenoli/cat_ran?_a=BAMAPqRk0	\N	cat_ran.png	image/png	1222209	1024	1024	50	50
+144	Dụng Cụ Xử Lý Côn Trùng	2026-07-06 13:28:06.53+07	2026-07-06 13:28:06.53+07	https://res.cloudinary.com/gaklspua/image/upload/v1/greenoli/cat_dung_cu?_a=BAMAPqRk0	\N	cat_dung_cu.png	image/png	705681	1024	1024	50	50
+145	Diệt Gián & Côn Trùng	2026-07-06 13:41:48.474+07	2026-07-06 13:41:48.473+07	https://res.cloudinary.com/gaklspua/image/upload/v1/greenoli/srv_gian?_a=BAMAPqRk0	\N	srv_gian.png	image/png	748453	1024	1024	50	50
+146	Vệ Sinh Công Nghiệp	2026-07-06 13:41:57.658+07	2026-07-06 13:41:57.658+07	https://res.cloudinary.com/gaklspua/image/upload/v1/greenoli/srv_vesinh?_a=BAMAPqRk0	\N	srv_vesinh.png	image/png	899320	1024	1024	50	50
 \.
 
 
@@ -1240,7 +1254,7 @@ COPY public.payload_locked_documents_rels (id, "order", parent_id, path, users_i
 COPY public.payload_migrations (id, name, batch, updated_at, created_at) FROM stdin;
 1	20260703_035613_initial	1	2026-07-03 11:38:00.361+07	2026-07-03 11:38:00.361+07
 3	20260703_080826_phase02_collections	2	2026-07-03 15:11:09.324+07	2026-07-03 15:11:09.324+07
-2	dev	-1	2026-07-04 15:38:07.781+07	2026-07-03 11:49:27.35+07
+2	dev	-1	2026-07-06 13:41:48.297+07	2026-07-03 11:49:27.35+07
 \.
 
 
@@ -1259,8 +1273,8 @@ COPY public.payload_preferences (id, key, value, updated_at, created_at) FROM st
 8	collection-articles	{"limit": 10, "editViewType": "default"}	2026-07-04 12:47:27.625+07	2026-07-03 20:29:10.661+07
 3	collection-products	{"sort": "-slug", "limit": 10, "editViewType": "default"}	2026-07-04 12:48:14.344+07	2026-07-03 20:23:27.282+07
 6	collection-leads	{"limit": 10, "editViewType": "default"}	2026-07-04 12:48:55.493+07	2026-07-03 20:23:51.896+07
-2	collection-media	{"limit": 10, "editViewType": "default"}	2026-07-04 13:03:08.954+07	2026-07-03 20:23:09.322+07
 7	collection-categories	{"limit": 10, "editViewType": "default"}	2026-07-04 15:02:48.48+07	2026-07-03 20:29:05.391+07
+2	collection-media	{"limit": 25, "editViewType": "default"}	2026-07-06 12:31:32.906+07	2026-07-03 20:23:09.322+07
 \.
 
 
@@ -1279,8 +1293,8 @@ COPY public.payload_preferences_rels (id, "order", parent_id, path, users_id) FR
 16	\N	8	user	1
 17	\N	3	user	1
 18	\N	6	user	1
-19	\N	2	user	1
 21	\N	7	user	1
+22	\N	2	user	1
 \.
 
 
@@ -1291,53 +1305,44 @@ COPY public.payload_preferences_rels (id, "order", parent_id, path, users_id) FR
 --
 
 COPY public.products (id, slug, name, category_id, short_description, long_description, hero_image_id, composition, usage, warning, packaging, updated_at, created_at) FROM stdin;
-1	sumipro-ew	Sumipro EW	8	Hóa chất diệt côn trùng gốc Pyrethroid dạng nhũ dầu trong nước, hiệu lực mạnh và lưu dẫn dài.	Sumipro EW là chế phẩm hóa chất diệt côn trùng tiên tiến, sử dụng công nghệ nhũ tương trong nước (Emulsion in Water) để bảo đảm hiệu quả tối đa, an toàn cho người sử dụng và thân thiện với môi trường. Sản phẩm đặc trị muỗi, ruồi, gián, kiến và các loại côn trùng gây hại trong khu dân cư, bệnh viện, kho hàng và cơ sở chế biến thực phẩm.	10	Permethrin 10% w/w, Sumithrin 1% w/w, dung môi dầu nhẹ và phụ gia an toàn theo tiêu chuẩn WHO.	Pha 50ml/8L nước phun đều lên các bề mặt côn trùng thường trú đậu (tường, gầm tủ, kẽ cửa). Liều cao hơn (80ml/8L) áp dụng cho khu vực có mật độ côn trùng cao.	Đeo khẩu trang, kính bảo hộ và găng tay khi pha và phun. Không cho người, vật nuôi vào khu vực vừa phun trong 2 giờ. Bảo quản nơi khô ráo, tránh xa thực phẩm và trẻ em.	Chai 1L, can 5L, can 20L (HDPE chống tia UV)	2026-07-03 16:03:30.976+07	2026-07-03 16:03:30.974+07
-2	sumithrin-10sec	Sumithrin 10SEC	8	Hoạt chất Sumithrin 10% dạng SEC, dùng phun ULV và phun tồn lưu chuyên nghiệp.	Sumithrin 10SEC là sản phẩm chuyên dụng cho dịch vụ kiểm soát côn trùng, hiệu lực nhanh trên muỗi truyền sốt xuất huyết, ruồi nhà và gián Đức. Công thức SEC bám tốt trên bề mặt xốp.	15	Sumithrin (d-Phenothrin) 10% w/w + chất nhũ hóa.	Pha 30–50ml/L nước cho phun ULV không gian; 100ml/8L cho phun tồn lưu. Phun lúc sáng sớm hoặc chiều mát.	Tránh phun trực tiếp lên người, thực phẩm và bể cá. Đậy kín thùng nước và thực phẩm trước khi phun.	Chai 1L, can 5L	2026-07-03 16:03:36.181+07	2026-07-03 16:03:36.181+07
-3	pesguard-fg-161	Pesguard FG 161	8	Hỗn hợp permethrin và d-tetramethrin dạng FG, đặc trị gián và kiến.	Pesguard FG 161 phối hợp 2 hoạt chất Pyrethroid mang lại hiệu quả knock-down nhanh và lưu dẫn lâu, được khuyến nghị bởi WHO cho chương trình kiểm soát côn trùng đô thị.	19	Permethrin 13% + d-Tetramethrin 3.3% trong nền nước.	Pha loãng theo hướng dẫn nhà sản xuất (thường 1:50–1:100), phun tồn lưu lên bề mặt côn trùng đậu.	Đeo PPE đầy đủ. Không phun gần nguồn nước sinh hoạt.	Chai 1L (PE)	2026-07-03 16:03:40.07+07	2026-07-03 16:03:40.07+07
-4	map-permethrin-50ec	Map Permethrin 50EC	8	Permethrin 50% EC nồng độ cao cho dịch vụ phun tồn lưu chuyên nghiệp.	Map Permethrin 50EC là dung dịch nhũ dầu nồng độ Permethrin 50%, lý tưởng cho ứng dụng phun tồn lưu trên bề mặt khô (tường, sàn, vách kho) trong các chương trình kiểm soát véc-tơ truyền bệnh.	22	Permethrin 50% w/v trong dầu khoáng tinh chế.	Pha 25ml/8L nước phun tồn lưu định kỳ 3 tháng. Diện tích 1L pha sử dụng cho ~200m².	Sản phẩm dễ cháy. Tránh xa nguồn lửa, không phun trên bề mặt nóng.	Can HDPE 5L, 20L	2026-07-03 16:03:44.117+07	2026-07-03 16:03:44.117+07
-5	sumipro-solution	Sumipro Solution	8	Dung dịch sẵn sàng dùng cho hộ gia đình, không cần pha loãng.	Sumipro Solution là phiên bản pha sẵn của dòng Sumipro, đóng chai xịt tay tiện lợi cho hộ gia đình, văn phòng và quán cà phê. An toàn cho trẻ em và thú cưng sau khi phun 30 phút.	25	Hoạt chất pha loãng sẵn trong nước cất + phụ gia thơm nhẹ.	Lắc đều, xịt trực tiếp lên côn trùng hoặc bề mặt côn trùng đậu.	Không xịt vào mắt, thực phẩm, bể cá.	Bình xịt PET 500ml, 1L	2026-07-03 16:03:48.234+07	2026-07-03 16:03:48.234+07
-6	sumithrin-extra	Sumithrin Extra	8	Phiên bản tăng cường của Sumithrin với chất hiệp đồng PBO.	Sumithrin Extra bổ sung Piperonyl Butoxide (PBO) – chất hiệp đồng giúp ngăn cản chuyển hóa của côn trùng, qua đó tăng hiệu lực của hoạt chất Sumithrin lên gấp 2–3 lần.	28	Sumithrin 10% + Piperonyl Butoxide 10% trong dầu khoáng.	Pha 30ml/8L nước cho phun tồn lưu hoặc 5ml/L cho ULV không gian.	Sản phẩm dạng EC, dễ cháy. Bảo quản nơi thoáng mát.	Can HDPE 5L	2026-07-03 16:03:51.87+07	2026-07-03 16:03:51.87+07
-7	xterm-system	Hệ Thống Xterm	8	Trạm bả chống mối ngầm Xterm – hệ thống bảo vệ công trình toàn diện.	Xterm là hệ thống trạm bả mối thế hệ mới sử dụng hoạt chất Hexaflumuron, có khả năng tiêu diệt cả tổ mối thay vì chỉ những con riêng lẻ. Lý tưởng cho công trình mới, biệt thự, kho hàng và di tích lịch sử.	31	Bả gỗ tẩm Hexaflumuron 0.5% trong vỏ trạm HDPE.	Lắp đặt trạm bả cách công trình 2–3m, kiểm tra định kỳ 1–3 tháng/lần.	Chỉ kỹ thuật viên đã được đào tạo mới được lắp đặt và bảo trì.	Bộ trạm 10–30 trạm/công trình	2026-07-03 16:03:59.198+07	2026-07-03 16:03:59.197+07
 8	aqua-resigen-10-4ew-1-lit	Aqua Resigen 10.4EW - 1 lít	8	Chế phẩm hỗ trợ kiểm soát muỗi, ruồi, gián và kiến; phù hợp xử lý côn trùng bay.	Aqua Resigen 10.4EW là chế phẩm diệt côn trùng dùng cho muỗi, ruồi, gián và kiến. Sản phẩm phù hợp cho xử lý không gian, có mùi nhẹ/không mùi theo thông tin mô tả và khả năng tồn lưu trên bề mặt.	2	Permethrin và S-bioallethrin.	Pha loãng và phun không gian hoặc phun tồn lưu theo đúng liều lượng trên nhãn; xử lý nơi muỗi, ruồi và côn trùng xuất hiện.	Đọc kỹ nhãn và sử dụng đúng hướng dẫn. Mang bảo hộ phù hợp; để xa trẻ em, thực phẩm, nguồn nước và vật nuôi. Không dùng cho mục đích khác.	Chai 1 lít.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
 9	cislin-2-5ec-1-lit	Cislin 2.5EC - 1 lít	5	Chế phẩm xử lý mối, mọt với hoạt chất Deltamethrin 2,5%.	Cislin 2.5EC là chế phẩm dùng để phòng trừ và xử lý mối, mọt. Theo thông tin sản phẩm, thuốc có hiệu lực tồn lưu và phù hợp cho các nhu cầu xử lý mối/mọt tại công trình, nhà ở và khu vực cần bảo vệ.	2	Deltamethrin 2,5% (25 g/L).	Pha và xử lý tại khu vực có mối/mọt theo đúng định mức, quy trình kỹ thuật và hướng dẫn trên nhãn.	Thi công theo hướng dẫn kỹ thuật và quy định an toàn; khuyến nghị do đơn vị chuyên môn thực hiện. Không để sản phẩm tiếp xúc thực phẩm, trẻ em và vật nuôi.	Chai 1 lít.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
-10	fludora-co-max-insecticide-1-lit	Fludora Co-Max Insecticide - 1 lít	8	Giải pháp đặc trị muỗi kháng pyrethroid với cơ chế kép.	Fludora Co-Max Insecticide kết hợp Flupyradifurone và Transfluthrin, tạo cơ chế tác động kép. Sản phẩm được mô tả hỗ trợ xử lý muỗi kháng, đặc biệt là muỗi kháng pyrethroid, đồng thời góp phần hạn chế sự phát triển tính kháng.	2	Transfluthrin 4,87% w/w và Flupyradifurone 2,44% w/w.	Sử dụng theo đúng hướng dẫn kỹ thuật, liều lượng và khu vực áp dụng ghi trên nhãn sản phẩm.	Đọc kỹ nhãn và sử dụng đúng hướng dẫn. Mang bảo hộ phù hợp; để xa trẻ em, thực phẩm, nguồn nước và vật nuôi. Không dùng cho mục đích khác.	Chai 1 lít.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
-11	suspend-flexx-insecticide-500ml	Suspend Flexx Insecticide - 500ml	8	Thuốc phun tồn lưu đa bề mặt với công nghệ Partix.	Suspend Flexx Insecticide sử dụng hoạt chất Deltamethrin và công nghệ Partix, hỗ trợ xử lý côn trùng trên nhiều bề mặt vật liệu. Theo mô tả, sản phẩm phun tồn lưu, không mùi và ít gây kích ứng khi sử dụng đúng hướng dẫn.	2	Deltamethrin 2,45%.	Pha và phun tồn lưu trên bề mặt theo đúng hướng dẫn trên nhãn; tập trung vào khu vực côn trùng thường di chuyển hoặc trú ẩn.	Đọc kỹ nhãn và sử dụng đúng hướng dẫn. Mang bảo hộ phù hợp; để xa trẻ em, thực phẩm, nguồn nước và vật nuôi. Không dùng cho mục đích khác.	Chai 500 ml.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
-12	racumin-0-75-tp-goi	Racumin 0.75 TP Bayer - gói	4	Thuốc diệt chuột dạng bột chứa Coumatetralyl.	Racumin 0.75 TP là sản phẩm diệt chuột dạng bột. Có thể dùng tại đường đi của chuột hoặc trộn với thức ăn theo hướng dẫn; phù hợp cho khu vực nhà ở, trại chăn nuôi, khuôn viên và ngoài vườn khi được sử dụng đúng cách.	2	Coumatetralyl 7,5 g/kg.	Đặt hoặc trộn mồi theo đúng hướng dẫn trên nhãn, ưu tiên đặt trong hộp bả hoặc vị trí chuột thường xuất hiện.	Đặt bả ngoài tầm với của trẻ em và vật nuôi. Không để bả tiếp xúc thực phẩm; thu gom bao bì, bả thừa và xác côn trùng/chuột theo hướng dẫn.	Gói lẻ.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
-13	racumin-0-75-tp-kg	Racumin 0.75 TP Bayer - 1 kg	4	Racumin dạng bột quy cách 1 kg, dùng kiểm soát chuột theo hướng dẫn.	Racumin 0.75 TP là sản phẩm diệt chuột dạng bột chứa Coumatetralyl. Phiên bản quy cách 1 kg phù hợp nhu cầu xử lý diện tích lớn hơn, sử dụng tại đường đi hoặc trong mồi theo hướng dẫn ghi trên nhãn.	2	Coumatetralyl 7,5 g/kg.	Đặt hoặc trộn mồi theo đúng hướng dẫn trên nhãn, ưu tiên đặt trong hộp bả hoặc vị trí chuột thường xuất hiện.	Đặt bả ngoài tầm với của trẻ em và vật nuôi. Không để bả tiếp xúc thực phẩm; thu gom bao bì, bả thừa và xác côn trùng/chuột theo hướng dẫn.	Túi/hộp 1 kg.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
-14	gel-diet-gian-blattanex	Gel Diệt Gián Blattanex	7	Bả gel chứa Imidacloprid, hỗ trợ xử lý gián Đức và gián Mỹ.	Blattanex là bả diệt gián dạng gel với hoạt chất Imidacloprid. Sản phẩm được phát triển cho việc kiểm soát các loài gián phổ biến, trong đó có gián Đức và gián Mỹ, phù hợp đặt tại vị trí gián kiếm ăn, trú ẩn và đường đi.	2	Imidacloprid 2,15%.	Chấm/đặt bả tại khe kẽ, góc tủ, đường đi và nơi gián hoạt động theo hướng dẫn trên nhãn; kiểm tra và bổ sung khi cần.	Đặt bả ngoài tầm với của trẻ em và vật nuôi. Không để bả tiếp xúc thực phẩm; thu gom bao bì, bả thừa và xác côn trùng/chuột theo hướng dẫn.	Tuýp bả gel.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
-15	maxforce-quantum-0-03	Maxforce Quantum 0.03%	6	Gel diệt kiến dạng tuýp 12g với hoạt chất Imidacloprid.	Maxforce Quantum là gel diệt kiến dạng tuýp 12g, sử dụng hoạt chất Imidacloprid 0,03%. Đầu tuýp nhỏ hỗ trợ đặt bả ở góc hẹp; sản phẩm hướng tới xử lý kiến thông qua mồi bả đặt đúng vị trí.	2	Imidacloprid 0,03% w/w.	Chấm bả tại đường đi, vị trí kiến kiếm ăn và khu vực kín, khô ráo theo hướng dẫn trên nhãn.	Đặt bả ngoài tầm với của trẻ em và vật nuôi. Không để bả tiếp xúc thực phẩm; thu gom bao bì, bả thừa và xác côn trùng/chuột theo hướng dẫn.	Tuýp 12 g.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
-16	pesguard-fg161-1-lit	Pesguard FG161 - 1 lít	8	Chế phẩm kiểm soát muỗi, ruồi, kiến và gián trong gia dụng, y tế.	Pesguard FG161 là chế phẩm dùng để kiểm soát muỗi, ruồi, kiến và gián trong môi trường gia dụng và y tế. Sản phẩm chứa d-tetramethrin và Cyphenothrin; thông tin mô tả nêu hoạt chất Cyphenothrin được WHO khuyên dùng.	2	d-Tetramethrin 4,43% w/w và Cyphenothrin 13,30% w/w.	Pha và phun theo liều lượng, phương pháp và khu vực áp dụng ghi trên nhãn sản phẩm.	Đọc kỹ nhãn và sử dụng đúng hướng dẫn. Mang bảo hộ phù hợp; để xa trẻ em, thực phẩm, nguồn nước và vật nuôi. Không dùng cho mục đích khác.	Chai 1 lít.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
-17	sumipro-ew-1-lit	Sumipro EW - 1 lít	8	Chế phẩm diệt muỗi, ruồi dùng phun không gian hoặc phun mù nóng.	Sumipro EW là chế phẩm kiểm soát muỗi và ruồi trong gia dụng, y tế. Sản phẩm được mô tả dùng cho phun không gian hoặc phun mù nóng, hỗ trợ phòng ngừa các bệnh do muỗi, ruồi truyền khi áp dụng đúng hướng dẫn.	2	Metofluthrin 0,1%; d,d,t-Cyphenothrin 6%; Piperonyl butoxide 10%.	Pha và phun không gian hoặc phun mù nóng theo đúng hướng dẫn kỹ thuật và liều lượng ghi trên nhãn.	Đọc kỹ nhãn và sử dụng đúng hướng dẫn. Mang bảo hộ phù hợp; để xa trẻ em, thực phẩm, nguồn nước và vật nuôi. Không dùng cho mục đích khác.	Chai 1 lít.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
-18	sumithrin-10sec-1-lit	Sumithrin 10SEC - 1 lít	8	Chế phẩm diệt muỗi và côn trùng, có khả năng tồn lưu trên bề mặt.	Sumithrin 10SEC là chế phẩm hỗ trợ kiểm soát muỗi và một số côn trùng. Theo thông tin mô tả, sản phẩm không màu, có mùi nhẹ khi pha nước, có khả năng tồn lưu và hạn chế để lại vết ố trên bề mặt khi sử dụng đúng hướng dẫn.	2	D-phenothrin 10% và chất phụ gia vừa đủ.	Pha và phun theo hướng dẫn trên nhãn; lựa chọn phương pháp xử lý phù hợp với khu vực và đối tượng cần kiểm soát.	Đọc kỹ nhãn và sử dụng đúng hướng dẫn. Mang bảo hộ phù hợp; để xa trẻ em, thực phẩm, nguồn nước và vật nuôi. Không dùng cho mục đích khác.	Chai 1 lít.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
-19	nyguard-140ml	NyGuard - 140ml	3	Giải pháp kiểm soát vòng đời côn trùng với hoạt chất Pyriproxyfen.	NyGuard được mô tả là giải pháp kiểm soát dịch hại bằng cách ngăn ấu trùng phát triển thành trưởng thành. Sản phẩm có thể hỗ trợ kiểm soát gián, muỗi, bọ chét và có thể phối hợp với sản phẩm xử lý côn trùng trưởng thành theo hướng dẫn kỹ thuật.	2	Pyriproxyfen.	Pha theo hướng dẫn trên nhãn; có thể phối hợp với sản phẩm xử lý côn trùng trưởng thành khi được tư vấn bởi kỹ thuật viên.	Đọc kỹ nhãn và sử dụng đúng hướng dẫn. Mang bảo hộ phù hợp; để xa trẻ em, thực phẩm, nguồn nước và vật nuôi. Không dùng cho mục đích khác.	Chai 140 ml; theo mô tả có thể pha 520 lít nước.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
-20	wazary-10sc-1-lit	Wazary 10SC - 1 lít	5	Thuốc phòng trừ mối cho công trình với hoạt chất Fenvalerate.	Wazary 10SC là sản phẩm phòng trừ mối cho công trình xây dựng của Sumitomo. Hoạt chất Fenvalerate được mô tả có tác động mạnh với côn trùng; sản phẩm phù hợp triển khai theo quy trình xử lý mối cho công trình.	2	Fenvalerate 10% w/w (100 g/L).	Pha và xử lý khu vực cần phòng trừ mối theo đúng định mức, quy trình kỹ thuật và hướng dẫn trên nhãn.	Thi công theo hướng dẫn kỹ thuật và quy định an toàn; khuyến nghị do đơn vị chuyên môn thực hiện. Không để sản phẩm tiếp xúc thực phẩm, trẻ em và vật nuôi.	Chai 1 lít.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
-21	he-thong-xterm	Hệ Thống Xterm	5	Hệ thống trạm bả mối ngầm, hỗ trợ bảo vệ công trình toàn diện.	Hệ thống Xterm là giải pháp trạm bả mối thế hệ mới, sử dụng bả gỗ tẩm Hexaflumuron. Hệ thống phù hợp triển khai bảo vệ công trình, biệt thự, kho hàng và khu vực có nguy cơ mối; cần được kiểm tra, bảo trì theo lịch kỹ thuật.	2	Bả gỗ tẩm Hexaflumuron 0,5% trong vỏ trạm HDPE.	Lắp đặt trạm bả cách công trình khoảng 2-3 m; kiểm tra định kỳ 1-3 tháng/lần theo kế hoạch kỹ thuật.	Chỉ kỹ thuật viên đã được đào tạo mới được lắp đặt và bảo trì. Đặt trạm tại vị trí an toàn, tránh ảnh hưởng đến công trình và khu vực sinh hoạt.	Bộ trạm 10-30 trạm/công trình.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
-22	icon-10cs-goi-62-5ml	Icon 10CS - gói 62,5ml	8	Thuốc diệt côn trùng hỗ trợ kiểm soát muỗi, ruồi, gián và côn trùng khác.	Icon 10CS quy cách gói 62,5 ml là chế phẩm dùng để kiểm soát muỗi, ruồi, gián và côn trùng. Theo mô tả, sản phẩm có mùi nhẹ và được giới thiệu có mức độ an toàn, chất lượng được WHO và FAO ghi nhận.	2	Lambda-cyhalothrin 10% (100 g/L).	Pha và phun theo liều lượng, phương pháp áp dụng và hướng dẫn trên nhãn sản phẩm.	Đọc kỹ nhãn và sử dụng đúng hướng dẫn. Mang bảo hộ phù hợp; để xa trẻ em, thực phẩm, nguồn nước và vật nuôi. Không dùng cho mục đích khác.	Gói 62,5 ml.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
-23	icon-2-5ew-250ml	Icon 2.5EW - 250ml	8	Thuốc diệt côn trùng hỗ trợ xử lý muỗi, kiến, gián, ruồi, bọ chét và ve.	Icon 2.5EW là chế phẩm kiểm soát côn trùng có thể sử dụng trên nhiều bề mặt như tường, vách và các bề mặt tiếp xúc. Theo mô tả, sản phẩm hỗ trợ xử lý muỗi, kiến, gián, ruồi, bọ chét, bọ ve và nhện, đồng thời hạn chế ảnh hưởng màu bề mặt khi sử dụng đúng hướng dẫn.	2	Lambda-cyhalothrin (dạng 2,5EW).	Pha và phun tồn lưu lên bề mặt theo hướng dẫn trên nhãn; không phun trực tiếp lên thực phẩm, người hoặc vật nuôi.	Đọc kỹ nhãn và sử dụng đúng hướng dẫn. Mang bảo hộ phù hợp; để xa trẻ em, thực phẩm, nguồn nước và vật nuôi. Không dùng cho mục đích khác.	Chai 250 ml.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
+10	fludora-co-max-insecticide-1-lit	Fludora Co-Max Insecticide - 1 lít	8	Giải pháp đặc trị muỗi kháng pyrethroid với cơ chế kép.	Fludora Co-Max Insecticide kết hợp Flupyradifurone và Transfluthrin, tạo cơ chế tác động kép. Sản phẩm được mô tả hỗ trợ xử lý muỗi kháng, đặc biệt là muỗi kháng pyrethroid, đồng thời góp phần hạn chế sự phát triển tính kháng.	136	Transfluthrin 4,87% w/w và Flupyradifurone 2,44% w/w.	Sử dụng theo đúng hướng dẫn kỹ thuật, liều lượng và khu vực áp dụng ghi trên nhãn sản phẩm.	Đọc kỹ nhãn và sử dụng đúng hướng dẫn. Mang bảo hộ phù hợp; để xa trẻ em, thực phẩm, nguồn nước và vật nuôi. Không dùng cho mục đích khác.	Chai 1 lít.	2026-07-06 12:35:35.043+07	2026-07-04 15:27:49.426+07
+18	sumithrin-10sec-1-lit	Sumithrin 10SEC - 1 lít	8	Chế phẩm diệt muỗi và côn trùng, có khả năng tồn lưu trên bề mặt.	Sumithrin 10SEC là chế phẩm hỗ trợ kiểm soát muỗi và một số côn trùng. Theo thông tin mô tả, sản phẩm không màu, có mùi nhẹ khi pha nước, có khả năng tồn lưu và hạn chế để lại vết ố trên bề mặt khi sử dụng đúng hướng dẫn.	78	D-phenothrin 10% và chất phụ gia vừa đủ.	Pha và phun theo hướng dẫn trên nhãn; lựa chọn phương pháp xử lý phù hợp với khu vực và đối tượng cần kiểm soát.	Đọc kỹ nhãn và sử dụng đúng hướng dẫn. Mang bảo hộ phù hợp; để xa trẻ em, thực phẩm, nguồn nước và vật nuôi. Không dùng cho mục đích khác.	Chai 1 lít.	2026-07-06 11:33:46.745+07	2026-07-04 15:27:49.426+07
+17	sumipro-ew-1-lit	Sumipro EW - 1 lít	8	Chế phẩm diệt muỗi, ruồi dùng phun không gian hoặc phun mù nóng.	Sumipro EW là chế phẩm kiểm soát muỗi và ruồi trong gia dụng, y tế. Sản phẩm được mô tả dùng cho phun không gian hoặc phun mù nóng, hỗ trợ phòng ngừa các bệnh do muỗi, ruồi truyền khi áp dụng đúng hướng dẫn.	79	Metofluthrin 0,1%; d,d,t-Cyphenothrin 6%; Piperonyl butoxide 10%.	Pha và phun không gian hoặc phun mù nóng theo đúng hướng dẫn kỹ thuật và liều lượng ghi trên nhãn.	Đọc kỹ nhãn và sử dụng đúng hướng dẫn. Mang bảo hộ phù hợp; để xa trẻ em, thực phẩm, nguồn nước và vật nuôi. Không dùng cho mục đích khác.	Chai 1 lít.	2026-07-06 11:36:17.537+07	2026-07-04 15:27:49.426+07
+13	racumin-0-75-tp-kg	Racumin 0.75 TP Bayer - 1 kg	4	Racumin dạng bột quy cách 1 kg, dùng kiểm soát chuột theo hướng dẫn.	Racumin 0.75 TP là sản phẩm diệt chuột dạng bột chứa Coumatetralyl. Phiên bản quy cách 1 kg phù hợp nhu cầu xử lý diện tích lớn hơn, sử dụng tại đường đi hoặc trong mồi theo hướng dẫn ghi trên nhãn.	134	Coumatetralyl 7,5 g/kg.	Đặt hoặc trộn mồi theo đúng hướng dẫn trên nhãn, ưu tiên đặt trong hộp bả hoặc vị trí chuột thường xuất hiện.	Đặt bả ngoài tầm với của trẻ em và vật nuôi. Không để bả tiếp xúc thực phẩm; thu gom bao bì, bả thừa và xác côn trùng/chuột theo hướng dẫn.	Túi/hộp 1 kg.	2026-07-06 12:08:21.882+07	2026-07-04 15:27:49.426+07
+16	pesguard-fg161-1-lit	Pesguard FG161 - 1 lít	8	Chế phẩm kiểm soát muỗi, ruồi, kiến và gián trong gia dụng, y tế.	Pesguard FG161 là chế phẩm dùng để kiểm soát muỗi, ruồi, kiến và gián trong môi trường gia dụng và y tế. Sản phẩm chứa d-tetramethrin và Cyphenothrin; thông tin mô tả nêu hoạt chất Cyphenothrin được WHO khuyên dùng.	65	d-Tetramethrin 4,43% w/w và Cyphenothrin 13,30% w/w.	Pha và phun theo liều lượng, phương pháp và khu vực áp dụng ghi trên nhãn sản phẩm.	Đọc kỹ nhãn và sử dụng đúng hướng dẫn. Mang bảo hộ phù hợp; để xa trẻ em, thực phẩm, nguồn nước và vật nuôi. Không dùng cho mục đích khác.	Chai 1 lít.	2026-07-06 12:09:58.812+07	2026-07-04 15:27:49.426+07
+19	nyguard-140ml	NyGuard - 140ml	3	Giải pháp kiểm soát vòng đời côn trùng với hoạt chất Pyriproxyfen.	NyGuard được mô tả là giải pháp kiểm soát dịch hại bằng cách ngăn ấu trùng phát triển thành trưởng thành. Sản phẩm có thể hỗ trợ kiểm soát gián, muỗi, bọ chét và có thể phối hợp với sản phẩm xử lý côn trùng trưởng thành theo hướng dẫn kỹ thuật.	135	Pyriproxyfen.	Pha theo hướng dẫn trên nhãn; có thể phối hợp với sản phẩm xử lý côn trùng trưởng thành khi được tư vấn bởi kỹ thuật viên.	Đọc kỹ nhãn và sử dụng đúng hướng dẫn. Mang bảo hộ phù hợp; để xa trẻ em, thực phẩm, nguồn nước và vật nuôi. Không dùng cho mục đích khác.	Chai 140 ml; theo mô tả có thể pha 520 lít nước.	2026-07-06 12:25:34.218+07	2026-07-04 15:27:49.426+07
+15	maxforce-quantum-0-03	Maxforce Quantum 0.03%	6	Gel diệt kiến dạng tuýp 12g với hoạt chất Imidacloprid.	Maxforce Quantum là gel diệt kiến dạng tuýp 12g, sử dụng hoạt chất Imidacloprid 0,03%. Đầu tuýp nhỏ hỗ trợ đặt bả ở góc hẹp; sản phẩm hướng tới xử lý kiến thông qua mồi bả đặt đúng vị trí.	126	Imidacloprid 0,03% w/w.	Chấm bả tại đường đi, vị trí kiến kiếm ăn và khu vực kín, khô ráo theo hướng dẫn trên nhãn.	Đặt bả ngoài tầm với của trẻ em và vật nuôi. Không để bả tiếp xúc thực phẩm; thu gom bao bì, bả thừa và xác côn trùng/chuột theo hướng dẫn.	Tuýp 12 g.	2026-07-06 12:26:59.737+07	2026-07-04 15:27:49.426+07
+14	gel-diet-gian-blattanex	Gel Diệt Gián Blattanex	7	Bả gel chứa Imidacloprid, hỗ trợ xử lý gián Đức và gián Mỹ.	Blattanex là bả diệt gián dạng gel với hoạt chất Imidacloprid. Sản phẩm được phát triển cho việc kiểm soát các loài gián phổ biến, trong đó có gián Đức và gián Mỹ, phù hợp đặt tại vị trí gián kiếm ăn, trú ẩn và đường đi.	118	Imidacloprid 2,15%.	Chấm/đặt bả tại khe kẽ, góc tủ, đường đi và nơi gián hoạt động theo hướng dẫn trên nhãn; kiểm tra và bổ sung khi cần.	Đặt bả ngoài tầm với của trẻ em và vật nuôi. Không để bả tiếp xúc thực phẩm; thu gom bao bì, bả thừa và xác côn trùng/chuột theo hướng dẫn.	Tuýp bả gel.	2026-07-06 12:34:10.584+07	2026-07-04 15:27:49.426+07
 24	icon-10cs-1-lit	Icon 10CS - 1 lít	8	Chế phẩm kiểm soát muỗi, ruồi, gián dạng 10CS.	Icon 10CS là chế phẩm hỗ trợ kiểm soát muỗi, ruồi và gián. Theo mô tả, sản phẩm có mùi nhẹ hơn một số sản phẩm cùng loại; được giới thiệu phù hợp cho nhu cầu xử lý côn trùng khi sử dụng đúng hướng dẫn.	2	Lambda-cyhalothrin (dạng 10CS).	Pha và phun theo hướng dẫn trên nhãn; lựa chọn khu vực xử lý phù hợp với đối tượng côn trùng.	Đọc kỹ nhãn và sử dụng đúng hướng dẫn. Mang bảo hộ phù hợp; để xa trẻ em, thực phẩm, nguồn nước và vật nuôi. Không dùng cho mục đích khác.	Chai 1 lít.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
-25	icon-2-5cs-1-lit	Icon 2.5CS - 1 lít	8	Thuốc phun kiểm soát côn trùng bay và bò trong nhà.	Icon 2.5CS là thuốc phun hỗ trợ kiểm soát phần lớn các loài côn trùng bay và bò xuất hiện trong nhà. Theo mô tả, sản phẩm không mùi và ít gây kích ứng da khi sử dụng đúng hướng dẫn.	2	Lambda-cyhalothrin (dạng 2,5CS).	Pha và phun lên khu vực côn trùng hoạt động hoặc trú ẩn theo đúng hướng dẫn trên nhãn.	Đọc kỹ nhãn và sử dụng đúng hướng dẫn. Mang bảo hộ phù hợp; để xa trẻ em, thực phẩm, nguồn nước và vật nuôi. Không dùng cho mục đích khác.	Chai 1 lít.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
-26	imperator-50ec-1-lit	Imperator 50EC - 1 lít	8	Giải pháp kiểm soát muỗi và côn trùng với Permethrin 50%.	Imperator 50EC là sản phẩm chứa Permethrin 50%, được Syngenta phát triển từ dòng sản phẩm tiền thân của Zeneca. Sản phẩm được mô tả phù hợp nhu cầu kiểm soát muỗi và côn trùng khi sử dụng đúng hướng dẫn.	2	Permethrin 50% (500 g/L).	Pha và phun theo đúng liều lượng, phương pháp xử lý và hướng dẫn trên nhãn.	Đọc kỹ nhãn và sử dụng đúng hướng dẫn. Mang bảo hộ phù hợp; để xa trẻ em, thực phẩm, nguồn nước và vật nuôi. Không dùng cho mục đích khác.	Thùng 12 chai x 1 lít; bán lẻ chai 1 lít.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
-27	imperator-50ec-100ml	Imperator 50EC - 100ml	8	Imperator 50EC quy cách 100ml, chứa Permethrin 50%.	Imperator 50EC quy cách 100 ml là sản phẩm chứa Permethrin 50%, được mô tả như giải pháp kiểm soát muỗi và côn trùng. Phiên bản dung tích nhỏ phù hợp nhu cầu sử dụng theo quy mô xử lý.	2	Permethrin 50% (500 g/L).	Pha và phun theo đúng liều lượng, phương pháp xử lý và hướng dẫn trên nhãn.	Đọc kỹ nhãn và sử dụng đúng hướng dẫn. Mang bảo hộ phù hợp; để xa trẻ em, thực phẩm, nguồn nước và vật nuôi. Không dùng cho mục đích khác.	Thùng 100 chai x 100 ml; bán lẻ chai 100 ml.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
-28	optigard-ab-100	Optigard AB 100	6	Bả diệt kiến chứa Thiamethoxam, có cơ chế lan truyền trong đàn.	Optigard AB 100 là bả diệt kiến với hoạt chất Thiamethoxam. Theo thông tin mô tả, bả có tác động chậm để kiến thợ có thể mang mồi về tổ và truyền trong đàn; mật độ kiến có thể giảm sau vài ngày nếu đặt bả đúng vị trí.	2	Thiamethoxam.	Đặt bả tại đường đi, điểm kiến kiếm ăn và khu vực kiến hoạt động; không để bả bị nước hoặc bụi bẩn làm giảm hấp dẫn.	Đặt bả ngoài tầm với của trẻ em và vật nuôi. Không để bả tiếp xúc thực phẩm; thu gom bao bì, bả thừa và xác côn trùng/chuột theo hướng dẫn.	Tuýp bả gel.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
-29	optigard-cockroach	Bả Diệt Gián Optigard Cockroach	7	Bả gel cô đặc cho gián Mỹ, gián Đức và gián Phương Đông.	Optigard Cockroach là sản phẩm bả gel cô đặc đóng gói dạng bơm tiêm. Sản phẩm được mô tả là giải pháp xử lý các loài gián phổ biến trong nhà như gián Mỹ, gián Đức và gián Phương Đông.	2	Emamectin benzoate.	Chấm/đặt bả tại khe kẽ, góc tủ, khu vực gián kiếm ăn và nơi trú ẩn theo hướng dẫn trên nhãn.	Đặt bả ngoài tầm với của trẻ em và vật nuôi. Không để bả tiếp xúc thực phẩm; thu gom bao bì, bả thừa và xác côn trùng/chuột theo hướng dẫn.	Tuýp/bơm tiêm bả gel.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
+28	optigard-ab-100	Optigard AB 100	6	Bả diệt kiến chứa Thiamethoxam, có cơ chế lan truyền trong đàn.	Optigard AB 100 là bả diệt kiến với hoạt chất Thiamethoxam. Theo thông tin mô tả, bả có tác động chậm để kiến thợ có thể mang mồi về tổ và truyền trong đàn; mật độ kiến có thể giảm sau vài ngày nếu đặt bả đúng vị trí.	81	Thiamethoxam.	Đặt bả tại đường đi, điểm kiến kiếm ăn và khu vực kiến hoạt động; không để bả bị nước hoặc bụi bẩn làm giảm hấp dẫn.	Đặt bả ngoài tầm với của trẻ em và vật nuôi. Không để bả tiếp xúc thực phẩm; thu gom bao bì, bả thừa và xác côn trùng/chuột theo hướng dẫn.	Tuýp bả gel.	2026-07-06 12:23:48.751+07	2026-07-04 15:27:49.426+07
+27	imperator-50ec-100ml	Imperator 50EC - 100ml	8	Imperator 50EC quy cách 100ml, chứa Permethrin 50%.	Imperator 50EC quy cách 100 ml là sản phẩm chứa Permethrin 50%, được mô tả như giải pháp kiểm soát muỗi và côn trùng. Phiên bản dung tích nhỏ phù hợp nhu cầu sử dụng theo quy mô xử lý.	93	Permethrin 50% (500 g/L).	Pha và phun theo đúng liều lượng, phương pháp xử lý và hướng dẫn trên nhãn.	Đọc kỹ nhãn và sử dụng đúng hướng dẫn. Mang bảo hộ phù hợp; để xa trẻ em, thực phẩm, nguồn nước và vật nuôi. Không dùng cho mục đích khác.	Thùng 100 chai x 100 ml; bán lẻ chai 100 ml.	2026-07-06 12:29:46.985+07	2026-07-04 15:27:49.426+07
+26	imperator-50ec-1-lit	Imperator 50EC - 1 lít	8	Giải pháp kiểm soát muỗi và côn trùng với Permethrin 50%.	Imperator 50EC là sản phẩm chứa Permethrin 50%, được Syngenta phát triển từ dòng sản phẩm tiền thân của Zeneca. Sản phẩm được mô tả phù hợp nhu cầu kiểm soát muỗi và côn trùng khi sử dụng đúng hướng dẫn.	93	Permethrin 50% (500 g/L).	Pha và phun theo đúng liều lượng, phương pháp xử lý và hướng dẫn trên nhãn.	Đọc kỹ nhãn và sử dụng đúng hướng dẫn. Mang bảo hộ phù hợp; để xa trẻ em, thực phẩm, nguồn nước và vật nuôi. Không dùng cho mục đích khác.	Thùng 12 chai x 1 lít; bán lẻ chai 1 lít.	2026-07-06 12:30:49.664+07	2026-07-04 15:27:49.426+07
+23	icon-2-5ew-250ml	Icon 2.5EW - 250ml	8	Thuốc diệt côn trùng hỗ trợ xử lý muỗi, kiến, gián, ruồi, bọ chét và ve.	Icon 2.5EW là chế phẩm kiểm soát côn trùng có thể sử dụng trên nhiều bề mặt như tường, vách và các bề mặt tiếp xúc. Theo mô tả, sản phẩm hỗ trợ xử lý muỗi, kiến, gián, ruồi, bọ chét, bọ ve và nhện, đồng thời hạn chế ảnh hưởng màu bề mặt khi sử dụng đúng hướng dẫn.	103	Lambda-cyhalothrin (dạng 2,5EW).	Pha và phun tồn lưu lên bề mặt theo hướng dẫn trên nhãn; không phun trực tiếp lên thực phẩm, người hoặc vật nuôi.	Đọc kỹ nhãn và sử dụng đúng hướng dẫn. Mang bảo hộ phù hợp; để xa trẻ em, thực phẩm, nguồn nước và vật nuôi. Không dùng cho mục đích khác.	Chai 250 ml.	2026-07-06 12:32:10.18+07	2026-07-04 15:27:49.426+07
+25	icon-2-5cs-1-lit	Icon 2.5CS - 1 lít	8	Thuốc phun kiểm soát côn trùng bay và bò trong nhà.	Icon 2.5CS là thuốc phun hỗ trợ kiểm soát phần lớn các loài côn trùng bay và bò xuất hiện trong nhà. Theo mô tả, sản phẩm không mùi và ít gây kích ứng da khi sử dụng đúng hướng dẫn.	97	Lambda-cyhalothrin (dạng 2,5CS).	Pha và phun lên khu vực côn trùng hoạt động hoặc trú ẩn theo đúng hướng dẫn trên nhãn.	Đọc kỹ nhãn và sử dụng đúng hướng dẫn. Mang bảo hộ phù hợp; để xa trẻ em, thực phẩm, nguồn nước và vật nuôi. Không dùng cho mục đích khác.	Chai 1 lít.	2026-07-06 12:32:42.794+07	2026-07-04 15:27:49.426+07
+22	icon-10cs-goi-62-5ml	Icon 10CS - gói 62,5ml	8	Thuốc diệt côn trùng hỗ trợ kiểm soát muỗi, ruồi, gián và côn trùng khác.	Icon 10CS quy cách gói 62,5 ml là chế phẩm dùng để kiểm soát muỗi, ruồi, gián và côn trùng. Theo mô tả, sản phẩm có mùi nhẹ và được giới thiệu có mức độ an toàn, chất lượng được WHO và FAO ghi nhận.	104	Lambda-cyhalothrin 10% (100 g/L).	Pha và phun theo liều lượng, phương pháp áp dụng và hướng dẫn trên nhãn sản phẩm.	Đọc kỹ nhãn và sử dụng đúng hướng dẫn. Mang bảo hộ phù hợp; để xa trẻ em, thực phẩm, nguồn nước và vật nuôi. Không dùng cho mục đích khác.	Gói 62,5 ml.	2026-07-06 12:33:13.933+07	2026-07-04 15:27:49.426+07
 30	advion-cockroach	Bả Diệt Gián Advion Cockroach	7	Bả gel diệt gián với hoạt chất Indoxacarb, hỗ trợ hiệu ứng lan truyền.	Advion Cockroach là bả diệt gián dạng gel. Theo mô tả, sản phẩm có mồi hấp dẫn gián ăn và hỗ trợ hiệu ứng lan truyền tại nơi gián trú ẩn; phù hợp đặt tại khu vực gián hoạt động trong nhà.	2	Indoxacarb.	Chấm/đặt bả gel tại nơi gián kiếm ăn, đường đi và khe kẽ theo đúng hướng dẫn trên nhãn.	Đặt bả ngoài tầm với của trẻ em và vật nuôi. Không để bả tiếp xúc thực phẩm; thu gom bao bì, bả thừa và xác côn trùng/chuột theo hướng dẫn.	Tuýp bả gel.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
 31	arilon-insecticide-200g	Arilon Insecticide - 200g	7	Chế phẩm diệt côn trùng chứa Indoxacarb 20% w/w.	Arilon Insecticide là chế phẩm kiểm soát côn trùng chứa Indoxacarb 20% w/w. Theo mô tả, sản phẩm phù hợp cho môi trường sinh hoạt và sản xuất, với mục tiêu kiểm soát một số côn trùng gây hại khi sử dụng theo hướng dẫn.	2	Indoxacarb 20% w/w.	Sử dụng theo đúng hướng dẫn trên nhãn, phương pháp và khu vực áp dụng do nhà sản xuất khuyến nghị.	Đọc kỹ nhãn và sử dụng đúng hướng dẫn. Mang bảo hộ phù hợp; để xa trẻ em, thực phẩm, nguồn nước và vật nuôi. Không dùng cho mục đích khác.	Hộp 200 g.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
-32	klerat-goi-50g	Bả Chuột Klerat - gói 50g	4	Bả chuột dạng viên nén chứa Brodifacoum 0,005%.	Klerat 0.005% Wax Block Bait là bả trừ chuột đơn liều dạng viên nén. Theo mô tả, hoạt chất Brodifacoum có cơ chế chống đông máu; sản phẩm có mùi vị hấp dẫn với chuột và phù hợp đặt tại khu vực chuột hoạt động.	2	Brodifacoum 0,005%.	Đặt bả tại đường đi hoặc điểm chuột xuất hiện theo hướng dẫn; ưu tiên dùng hộp bả ở vị trí an toàn.	Đặt bả ngoài tầm với của trẻ em và vật nuôi. Không để bả tiếp xúc thực phẩm; thu gom bao bì, bả thừa và xác côn trùng/chuột theo hướng dẫn.	Gói 50 g.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
-33	klerat-1kg	Bả Chuột Klerat - 1 kg	4	Bả chuột dạng viên nén quy cách 1 kg, chứa Brodifacoum.	Klerat 0.005% Wax Block Bait là bả trừ chuột đơn liều dạng viên nén. Phiên bản quy cách 1 kg phù hợp cho nhu cầu xử lý khu vực rộng hơn, sử dụng theo hướng dẫn để đảm bảo an toàn.	2	Brodifacoum 0,005%.	Đặt bả tại đường đi hoặc điểm chuột xuất hiện theo hướng dẫn; ưu tiên dùng hộp bả ở vị trí an toàn.	Đặt bả ngoài tầm với của trẻ em và vật nuôi. Không để bả tiếp xúc thực phẩm; thu gom bao bì, bả thừa và xác côn trùng/chuột theo hướng dẫn.	Túi 1 kg.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
 34	bithor-dual-action-1-lit	Bithor Dual Action Insecticide - 1 lít	3	Chế phẩm hai hoạt chất hỗ trợ xử lý muỗi, gián, kiến, rệp giường và bọ chét.	Bithor Dual Action chứa Bifenthrin và Imidacloprid, được mô tả dùng cho các loài côn trùng trong nhà như muỗi, gián, kiến, rệp giường và bọ chét. Theo thông tin sản phẩm, chế phẩm có thể cho hiệu quả tồn lưu kéo dài khi sử dụng đúng hướng dẫn.	2	Bifenthrin 4,5% và Imidacloprid 5,5%.	Pha và phun tồn lưu theo hướng dẫn trên nhãn; xử lý khe kẽ, chân tường và nơi côn trùng hoạt động.	Đọc kỹ nhãn và sử dụng đúng hướng dẫn. Mang bảo hộ phù hợp; để xa trẻ em, thực phẩm, nguồn nước và vật nuôi. Không dùng cho mục đích khác.	Chai 1 lít.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
-35	permethor-shield-1-lit	Permethor Shield Liquid Insecticide - 1 lít	8	Chế phẩm Permethrin 50% hỗ trợ kiểm soát muỗi, gián, kiến và ruồi.	Permethor Shield là chế phẩm chứa Permethrin 50%, được mô tả dùng để kiểm soát muỗi, gián, kiến và ruồi trong nhà. Sản phẩm thuộc dòng EC, có mùi nhẹ và cần pha theo tỷ lệ nhà sản xuất quy định.	2	Permethrin 50% w/v (500 g/L).	Pha theo tỷ lệ ghi trên nhãn và phun tại khu vực côn trùng hoạt động; không tự ý tăng nồng độ.	Đọc kỹ nhãn và sử dụng đúng hướng dẫn. Mang bảo hộ phù hợp; để xa trẻ em, thực phẩm, nguồn nước và vật nuôi. Không dùng cho mục đích khác.	Chai 1 lít.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
-36	maxxthor-100-1-lit	Maxxthor 100 - 1 lít	3	Chế phẩm Bifenthrin 100 g/L hỗ trợ kiểm soát nhiều loại côn trùng.	Maxxthor 100 là chế phẩm kiểm soát côn trùng của Ensystex, được mô tả có khả năng xử lý ruồi, muỗi, kiến, gián, rệp và bọ chét trong gia dụng/y tế. Sản phẩm không mùi và có hiệu lực tồn lưu khi áp dụng đúng hướng dẫn.	2	Bifenthrin 100 g/L.	Pha và phun theo đúng hướng dẫn trên nhãn; xử lý khu vực côn trùng hoạt động, trú ẩn và đường di chuyển.	Đọc kỹ nhãn và sử dụng đúng hướng dẫn. Mang bảo hộ phù hợp; để xa trẻ em, thực phẩm, nguồn nước và vật nuôi. Không dùng cho mục đích khác.	Chai 1 lít.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
-37	ecothor-xua-duoi-ran	Ecothor Xua Đuổi Rắn	2	Dung dịch xua đuổi rắn và thằn lằn từ tinh dầu thực vật.	Ecothor là dung dịch xua đuổi rắn chuyên dụng, được mô tả có tác dụng hỗ trợ xua đuổi rắn và thằn lằn. Sản phẩm sử dụng chiết xuất tinh dầu thực vật và phù hợp tạo vùng xua đuổi quanh khu vực cần bảo vệ.	2	Tinh dầu thực vật thiên nhiên.	Phun quanh chu vi khu vực cần bảo vệ theo hướng dẫn trên nhãn; duy trì lại vùng xử lý khi điều kiện thời tiết hoặc môi trường làm giảm tác dụng.	Dùng theo hướng dẫn trên nhãn; không để sản phẩm tiếp xúc thực phẩm, trẻ em và vật nuôi. Bảo quản nơi khô ráo, tránh ánh nắng.	Chai dung dịch.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
-38	requiem-1rb	Bả Diệt Mối Requiem 1RB	5	Bả diệt mối chứa Chlorfluazuron, hỗ trợ dẫn dụ và xử lý đàn mối.	Requiem 1RB là bả diệt mối và phòng chống mối cho công trình. Theo mô tả, sản phẩm có khả năng dẫn dụ mối ăn bả và hỗ trợ cơ chế lây truyền trong đàn, phù hợp triển khai trong quy trình kiểm soát mối chuyên nghiệp.	2	Chlorfluazuron.	Đặt bả trong quy trình xử lý mối theo hướng dẫn kỹ thuật; kiểm tra, thay bả và theo dõi hoạt động mối theo kế hoạch.	Thi công theo hướng dẫn kỹ thuật và quy định an toàn; khuyến nghị do đơn vị chuyên môn thực hiện. Không để sản phẩm tiếp xúc thực phẩm, trẻ em và vật nuôi.	Bán theo kg.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
-39	fumithor-delta-40g	Fumithor Delta Insecticide Smoke Generator - 40g	3	Thiết bị tạo khói hỗ trợ xử lý côn trùng tại khe hở và khu vực khó tiếp cận.	Fumithor Delta sử dụng khói với hạt nhỏ để đi vào vết nứt, khe hở và những nơi côn trùng ẩn náu. Theo mô tả, hoạt chất Deltamethrin có thể bám trên bề mặt để hỗ trợ xử lý khu vực khó tiếp cận bằng phun thông thường.	2	Deltamethrin.	Kích hoạt theo hướng dẫn của nhà sản xuất, đóng kín khu vực xử lý trong thời gian yêu cầu và thông khí kỹ trước khi sử dụng lại.	Chỉ sử dụng tại khu vực có thể cô lập. Rời khỏi khu vực khi kích hoạt, ngắt nguồn lửa/điện theo hướng dẫn và thông khí kỹ trước khi quay lại.	Lon 40 g.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
+29	optigard-cockroach	Bả Diệt Gián Optigard Cockroach	7	Bả gel cô đặc cho gián Mỹ, gián Đức và gián Phương Đông.	Optigard Cockroach là sản phẩm bả gel cô đặc đóng gói dạng bơm tiêm. Sản phẩm được mô tả là giải pháp xử lý các loài gián phổ biến trong nhà như gián Mỹ, gián Đức và gián Phương Đông.	81	Emamectin benzoate.	Chấm/đặt bả tại khe kẽ, góc tủ, khu vực gián kiếm ăn và nơi trú ẩn theo hướng dẫn trên nhãn.	Đặt bả ngoài tầm với của trẻ em và vật nuôi. Không để bả tiếp xúc thực phẩm; thu gom bao bì, bả thừa và xác côn trùng/chuột theo hướng dẫn.	Tuýp/bơm tiêm bả gel.	2026-07-06 12:23:09.894+07	2026-07-04 15:27:49.426+07
+36	maxxthor-100-1-lit	Maxxthor 100 - 1 lít	3	Chế phẩm Bifenthrin 100 g/L hỗ trợ kiểm soát nhiều loại côn trùng.	Maxxthor 100 là chế phẩm kiểm soát côn trùng của Ensystex, được mô tả có khả năng xử lý ruồi, muỗi, kiến, gián, rệp và bọ chét trong gia dụng/y tế. Sản phẩm không mùi và có hiệu lực tồn lưu khi áp dụng đúng hướng dẫn.	110	Bifenthrin 100 g/L.	Pha và phun theo đúng hướng dẫn trên nhãn; xử lý khu vực côn trùng hoạt động, trú ẩn và đường di chuyển.	Đọc kỹ nhãn và sử dụng đúng hướng dẫn. Mang bảo hộ phù hợp; để xa trẻ em, thực phẩm, nguồn nước và vật nuôi. Không dùng cho mục đích khác.	Chai 1 lít.	2026-07-06 12:26:34.916+07	2026-07-04 15:27:49.426+07
+32	klerat-goi-50g	Bả Chuột Klerat - gói 50g	4	Bả chuột dạng viên nén chứa Brodifacoum 0,005%.	Klerat 0.005% Wax Block Bait là bả trừ chuột đơn liều dạng viên nén. Theo mô tả, hoạt chất Brodifacoum có cơ chế chống đông máu; sản phẩm có mùi vị hấp dẫn với chuột và phù hợp đặt tại khu vực chuột hoạt động.	87	Brodifacoum 0,005%.	Đặt bả tại đường đi hoặc điểm chuột xuất hiện theo hướng dẫn; ưu tiên dùng hộp bả ở vị trí an toàn.	Đặt bả ngoài tầm với của trẻ em và vật nuôi. Không để bả tiếp xúc thực phẩm; thu gom bao bì, bả thừa và xác côn trùng/chuột theo hướng dẫn.	Gói 50 g.	2026-07-06 12:28:29.065+07	2026-07-04 15:27:49.426+07
+33	klerat-1kg	Bả Chuột Klerat - 1 kg	4	Bả chuột dạng viên nén quy cách 1 kg, chứa Brodifacoum.	Klerat 0.005% Wax Block Bait là bả trừ chuột đơn liều dạng viên nén. Phiên bản quy cách 1 kg phù hợp cho nhu cầu xử lý khu vực rộng hơn, sử dụng theo hướng dẫn để đảm bảo an toàn.	86	Brodifacoum 0,005%.	Đặt bả tại đường đi hoặc điểm chuột xuất hiện theo hướng dẫn; ưu tiên dùng hộp bả ở vị trí an toàn.	Đặt bả ngoài tầm với của trẻ em và vật nuôi. Không để bả tiếp xúc thực phẩm; thu gom bao bì, bả thừa và xác côn trùng/chuột theo hướng dẫn.	Túi 1 kg.	2026-07-06 12:28:54.385+07	2026-07-04 15:27:49.426+07
+37	ecothor-xua-duoi-ran	Ecothor Xua Đuổi Rắn	2	Dung dịch xua đuổi rắn và thằn lằn từ tinh dầu thực vật.	Ecothor là dung dịch xua đuổi rắn chuyên dụng, được mô tả có tác dụng hỗ trợ xua đuổi rắn và thằn lằn. Sản phẩm sử dụng chiết xuất tinh dầu thực vật và phù hợp tạo vùng xua đuổi quanh khu vực cần bảo vệ.	115	Tinh dầu thực vật thiên nhiên.	Phun quanh chu vi khu vực cần bảo vệ theo hướng dẫn trên nhãn; duy trì lại vùng xử lý khi điều kiện thời tiết hoặc môi trường làm giảm tác dụng.	Dùng theo hướng dẫn trên nhãn; không để sản phẩm tiếp xúc thực phẩm, trẻ em và vật nuôi. Bảo quản nơi khô ráo, tránh ánh nắng.	Chai dung dịch.	2026-07-06 12:36:43.948+07	2026-07-04 15:27:49.426+07
 40	diathor-flowable	Diathor Flowable	3	Bột xử lý gián và rệp giường với Amorphous Silicon Dioxide.	Diathor Flowable là giải pháp dạng bột cho gián và rệp giường, sử dụng silica vô định hình. Theo mô tả, sản phẩm tác động bằng cách làm tổn hại lớp bảo vệ bên ngoài và khiến côn trùng mất nước; lớp bột có thể tồn lưu khi không bị xáo trộn.	2	100% Amorphous Silicon Dioxide.	Dùng dụng cụ phù hợp để phủ lớp bột mỏng tại khe hở, vị trí gián/rệp trú ẩn; tránh rải dày hoặc nơi ẩm ướt.	Đọc kỹ nhãn và sử dụng đúng hướng dẫn. Mang bảo hộ phù hợp; để xa trẻ em, thực phẩm, nguồn nước và vật nuôi. Không dùng cho mục đích khác.	Hộp bột.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
 41	dung-cu-phun-diathor	Dụng Cụ Phun Diathor Flowable	1	Thiết bị bóp bóng cao su hỗ trợ phun bột Diathor vào khe hở.	Dụng cụ phun Diathor Flowable sử dụng cơ chế bóp bóng cao su để tạo áp suất và đẩy bột từ bình chứa qua vòi. Bộ sản phẩm có các ống vòi với đường kính khác nhau, hỗ trợ đưa bột vào khe hở và vị trí khó tiếp cận.	2	Không áp dụng.	Lắp đúng vòi phù hợp, cho lượng bột vừa đủ và bóp bóng để phun lớp mỏng vào vị trí cần xử lý; làm sạch đầu vòi sau khi dùng.	Sử dụng đúng loại bột/thiết bị, đeo khẩu trang và kính bảo hộ khi thao tác. Làm sạch thiết bị sau khi dùng và bảo quản nơi khô ráo.	Bộ dụng cụ/hộp.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
-42	zenithor-gel-cockroach-bait	Bả Diệt Gián Zenithor Gel Cockroach Bait	7	Bả gel diệt gián chứa Indoxacarb của Ensystex.	Zenithor Gel Cockroach Bait là sản phẩm bả gel chứa Indoxacarb, hướng tới kiểm soát gián ngay trong môi trường sống và nơi chúng trú ẩn. Nên đặt bả tại vị trí gián kiếm ăn, di chuyển hoặc ẩn náu theo hướng dẫn.	2	Indoxacarb.	Chấm/đặt bả gel tại khu vực gián kiếm ăn, trú ẩn và đường đi; kiểm tra, thay mới theo hướng dẫn khi cần.	Đặt bả ngoài tầm với của trẻ em và vật nuôi. Không để bả tiếp xúc thực phẩm; thu gom bao bì, bả thừa và xác côn trùng/chuột theo hướng dẫn.	Tuýp bả gel.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
-43	mythic-240cs-1-lit	Mythic 240CS - 1 lít	5	Chế phẩm trừ mối chứa Chlorfenapyr 240 g/L cho công trình.	Mythic 240CS là chế phẩm trừ mối của BASF dùng cho nhà ở và công trình xây dựng. Theo mô tả, sản phẩm hỗ trợ xử lý và phòng ngừa mối tấn công khi thi công đúng quy trình kỹ thuật.	2	Chlorfenapyr 240 g/L.	Pha và xử lý theo quy trình phòng trừ mối, định mức và hướng dẫn kỹ thuật trên nhãn sản phẩm.	Thi công theo hướng dẫn kỹ thuật và quy định an toàn; khuyến nghị do đơn vị chuyên môn thực hiện. Không để sản phẩm tiếp xúc thực phẩm, trẻ em và vật nuôi.	Chai 1 lít.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
-44	stmed-permethrin-50ec-1-lit	STMED Permethrin 50EC - 1 lít	8	Chế phẩm trừ muỗi và côn trùng chứa Permethrin 50%.	STMED Permethrin 50EC là chế phẩm trừ muỗi và côn trùng do Agropharm (Anh Quốc) sản xuất theo thông tin mô tả. Sản phẩm được giới thiệu dùng trong công tác phòng ngừa các bệnh do muỗi truyền, sử dụng theo đúng hướng dẫn và quy định an toàn.	2	Permethrin 50% và chất nhũ dầu.	Pha và phun theo hướng dẫn trên nhãn, phù hợp với mục tiêu kiểm soát muỗi/côn trùng tại khu vực xử lý.	Đọc kỹ nhãn và sử dụng đúng hướng dẫn. Mang bảo hộ phù hợp; để xa trẻ em, thực phẩm, nguồn nước và vật nuôi. Không dùng cho mục đích khác.	Chai 1 lít.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
 45	cypado-25ec-1-lit	Cypado 25EC - 1 lít	8	Chế phẩm dạng EC hỗ trợ kiểm soát muỗi, ruồi, gián và kiến.	Cypado 25EC là chế phẩm dạng nhũ dầu do Ea Chem (Việt Nam) sản xuất theo công nghệ Nhật Bản, theo thông tin mô tả. Sản phẩm hỗ trợ phòng trừ muỗi, ruồi, gián, kiến và các côn trùng gây hại khác trong nhà.	2	Cypermethrin 10% w/w.	Pha và phun theo đúng tỷ lệ trên nhãn; xử lý khu vực côn trùng xuất hiện và tuân thủ hướng dẫn an toàn.	Đọc kỹ nhãn và sử dụng đúng hướng dẫn. Mang bảo hộ phù hợp; để xa trẻ em, thực phẩm, nguồn nước và vật nuôi. Không dùng cho mục đích khác.	Chai 1 lít.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
-46	ecothor-nature-cide-granular-9kg	Ecothor Nature-Cide Granular - thùng 9kg	2	Sản phẩm dạng hạt từ tinh dầu tuyết tùng và quế, hỗ trợ xua đuổi rắn và thằn lằn.	EcoThor Nature-Cide Granular là dòng sản phẩm dạng hạt chuyên dụng xua đuổi rắn và thằn lằn. Theo mô tả, sản phẩm dùng tinh dầu tuyết tùng và tinh dầu quế để tạo hàng rào mùi xua đuổi quanh khu vực sinh sống, sân vườn, biệt thự hoặc khu nghỉ dưỡng.	2	Cedarwood oil 2,92% w/w và Cinnamon oil 1,47% w/w.	Rải đều hạt quanh chu vi hoặc khu vực cần bảo vệ theo hướng dẫn trên nhãn; bổ sung lại khi điều kiện môi trường làm suy giảm lớp hạt.	Dùng theo hướng dẫn trên nhãn; không để sản phẩm tiếp xúc thực phẩm, trẻ em và vật nuôi. Bảo quản nơi khô ráo, tránh ánh nắng.	Thùng 9 kg.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
-47	seclira-gel	Seclira Gel	7	Bả gel diệt gián chứa Dinotefuran 0,5% w/v.	Seclira là bả gel kiểm soát gián Đức và gián Mỹ cho nhà ở, căn hộ, khách sạn, trường học, bệnh viện, siêu thị và cơ sở sản xuất. Theo mô tả, sản phẩm có cơ chế lan truyền và có thể hỗ trợ xử lý gián non lẫn gián trưởng thành.	2	Dinotefuran 0,5% w/v.	Chấm/đặt bả tại vị trí gián kiếm ăn, đường đi, khe kẽ và khu vực trú ẩn theo hướng dẫn trên nhãn.	Đặt bả ngoài tầm với của trẻ em và vật nuôi. Không để bả tiếp xúc thực phẩm; thu gom bao bì, bả thừa và xác côn trùng/chuột theo hướng dẫn.	Tuýp bả gel.	2026-07-04 15:27:49.426+07	2026-07-04 15:27:49.426+07
+44	stmed-permethrin-50ec-1-lit	STMED Permethrin 50EC - 1 lít	8	Chế phẩm trừ muỗi và côn trùng chứa Permethrin 50%.	STMED Permethrin 50EC là chế phẩm trừ muỗi và côn trùng do Agropharm (Anh Quốc) sản xuất theo thông tin mô tả. Sản phẩm được giới thiệu dùng trong công tác phòng ngừa các bệnh do muỗi truyền, sử dụng theo đúng hướng dẫn và quy định an toàn.	2	Permethrin 50% và chất nhũ dầu.	Pha và phun theo hướng dẫn trên nhãn, phù hợp với mục tiêu kiểm soát muỗi/côn trùng tại khu vực xử lý.	Đọc kỹ nhãn và sử dụng đúng hướng dẫn. Mang bảo hộ phù hợp; để xa trẻ em, thực phẩm, nguồn nước và vật nuôi. Không dùng cho mục đích khác.	Chai 1 lít.	2026-07-06 11:41:07.798+07	2026-07-04 15:27:49.426+07
+38	requiem-1rb	Bả Diệt Mối Requiem 1RB	5	Bả diệt mối chứa Chlorfluazuron, hỗ trợ dẫn dụ và xử lý đàn mối.	Requiem 1RB là bả diệt mối và phòng chống mối cho công trình. Theo mô tả, sản phẩm có khả năng dẫn dụ mối ăn bả và hỗ trợ cơ chế lây truyền trong đàn, phù hợp triển khai trong quy trình kiểm soát mối chuyên nghiệp.	116	Chlorfluazuron.	Đặt bả trong quy trình xử lý mối theo hướng dẫn kỹ thuật; kiểm tra, thay bả và theo dõi hoạt động mối theo kế hoạch.	Thi công theo hướng dẫn kỹ thuật và quy định an toàn; khuyến nghị do đơn vị chuyên môn thực hiện. Không để sản phẩm tiếp xúc thực phẩm, trẻ em và vật nuôi.	Bán theo kg.	2026-07-06 12:06:26.076+07	2026-07-04 15:27:49.426+07
+43	mythic-240cs-1-lit	Mythic 240CS - 1 lít	5	Chế phẩm trừ mối chứa Chlorfenapyr 240 g/L cho công trình.	Mythic 240CS là chế phẩm trừ mối của BASF dùng cho nhà ở và công trình xây dựng. Theo mô tả, sản phẩm hỗ trợ xử lý và phòng ngừa mối tấn công khi thi công đúng quy trình kỹ thuật.	129	Chlorfenapyr 240 g/L.	Pha và xử lý theo quy trình phòng trừ mối, định mức và hướng dẫn kỹ thuật trên nhãn sản phẩm.	Thi công theo hướng dẫn kỹ thuật và quy định an toàn; khuyến nghị do đơn vị chuyên môn thực hiện. Không để sản phẩm tiếp xúc thực phẩm, trẻ em và vật nuôi.	Chai 1 lít.	2026-07-06 12:26:06.076+07	2026-07-04 15:27:49.426+07
+39	fumithor-delta-40g	Fumithor Delta Insecticide Smoke Generator - 40g	3	Thiết bị tạo khói hỗ trợ xử lý côn trùng tại khe hở và khu vực khó tiếp cận.	Fumithor Delta sử dụng khói với hạt nhỏ để đi vào vết nứt, khe hở và những nơi côn trùng ẩn náu. Theo mô tả, hoạt chất Deltamethrin có thể bám trên bề mặt để hỗ trợ xử lý khu vực khó tiếp cận bằng phun thông thường.	111	Deltamethrin.	Kích hoạt theo hướng dẫn của nhà sản xuất, đóng kín khu vực xử lý trong thời gian yêu cầu và thông khí kỹ trước khi sử dụng lại.	Chỉ sử dụng tại khu vực có thể cô lập. Rời khỏi khu vực khi kích hoạt, ngắt nguồn lửa/điện theo hướng dẫn và thông khí kỹ trước khi quay lại.	Lon 40 g.	2026-07-06 12:34:34.982+07	2026-07-04 15:27:49.426+07
+46	ecothor-nature-cide-granular-9kg	Ecothor Nature-Cide Granular - thùng 9kg	2	Sản phẩm dạng hạt từ tinh dầu tuyết tùng và quế, hỗ trợ xua đuổi rắn và thằn lằn.	EcoThor Nature-Cide Granular là dòng sản phẩm dạng hạt chuyên dụng xua đuổi rắn và thằn lằn. Theo mô tả, sản phẩm dùng tinh dầu tuyết tùng và tinh dầu quế để tạo hàng rào mùi xua đuổi quanh khu vực sinh sống, sân vườn, biệt thự hoặc khu nghỉ dưỡng.	115	Cedarwood oil 2,92% w/w và Cinnamon oil 1,47% w/w.	Rải đều hạt quanh chu vi hoặc khu vực cần bảo vệ theo hướng dẫn trên nhãn; bổ sung lại khi điều kiện môi trường làm suy giảm lớp hạt.	Dùng theo hướng dẫn trên nhãn; không để sản phẩm tiếp xúc thực phẩm, trẻ em và vật nuôi. Bảo quản nơi khô ráo, tránh ánh nắng.	Thùng 9 kg.	2026-07-06 12:37:11.856+07	2026-07-04 15:27:49.426+07
+42	zenithor-gel-cockroach-bait	Bả Diệt Gián Zenithor Gel Cockroach Bait	7	Bả gel diệt gián chứa Indoxacarb của Ensystex.	Zenithor Gel Cockroach Bait là sản phẩm bả gel chứa Indoxacarb, hướng tới kiểm soát gián ngay trong môi trường sống và nơi chúng trú ẩn. Nên đặt bả tại vị trí gián kiếm ăn, di chuyển hoặc ẩn náu theo hướng dẫn.	109	Indoxacarb.	Chấm/đặt bả gel tại khu vực gián kiếm ăn, trú ẩn và đường đi; kiểm tra, thay mới theo hướng dẫn khi cần.	Đặt bả ngoài tầm với của trẻ em và vật nuôi. Không để bả tiếp xúc thực phẩm; thu gom bao bì, bả thừa và xác côn trùng/chuột theo hướng dẫn.	Tuýp bả gel.	2026-07-06 11:27:23.825+07	2026-07-04 15:27:49.426+07
+20	wazary-10sc-1-lit	Wazary 10SC - 1 lít	5	Thuốc phòng trừ mối cho công trình với hoạt chất Fenvalerate.	Wazary 10SC là sản phẩm phòng trừ mối cho công trình xây dựng của Sumitomo. Hoạt chất Fenvalerate được mô tả có tác động mạnh với côn trùng; sản phẩm phù hợp triển khai theo quy trình xử lý mối cho công trình.	73	Fenvalerate 10% w/w (100 g/L).	Pha và xử lý khu vực cần phòng trừ mối theo đúng định mức, quy trình kỹ thuật và hướng dẫn trên nhãn.	Thi công theo hướng dẫn kỹ thuật và quy định an toàn; khuyến nghị do đơn vị chuyên môn thực hiện. Không để sản phẩm tiếp xúc thực phẩm, trẻ em và vật nuôi.	Chai 1 lít.	2026-07-06 11:28:31.883+07	2026-07-04 15:27:49.426+07
+11	suspend-flexx-insecticide-500ml	Suspend Flexx Insecticide - 500ml	8	Thuốc phun tồn lưu đa bề mặt với công nghệ Partix.	Suspend Flexx Insecticide sử dụng hoạt chất Deltamethrin và công nghệ Partix, hỗ trợ xử lý côn trùng trên nhiều bề mặt vật liệu. Theo mô tả, sản phẩm phun tồn lưu, không mùi và ít gây kích ứng khi sử dụng đúng hướng dẫn.	108	Deltamethrin 2,45%.	Pha và phun tồn lưu trên bề mặt theo đúng hướng dẫn trên nhãn; tập trung vào khu vực côn trùng thường di chuyển hoặc trú ẩn.	Đọc kỹ nhãn và sử dụng đúng hướng dẫn. Mang bảo hộ phù hợp; để xa trẻ em, thực phẩm, nguồn nước và vật nuôi. Không dùng cho mục đích khác.	Chai 500 ml.	2026-07-06 11:32:04.595+07	2026-07-04 15:27:49.426+07
+47	seclira-gel	Seclira Gel	7	Bả gel diệt gián chứa Dinotefuran 0,5% w/v.	Seclira là bả gel kiểm soát gián Đức và gián Mỹ cho nhà ở, căn hộ, khách sạn, trường học, bệnh viện, siêu thị và cơ sở sản xuất. Theo mô tả, sản phẩm có cơ chế lan truyền và có thể hỗ trợ xử lý gián non lẫn gián trưởng thành.	130	Dinotefuran 0,5% w/v.	Chấm/đặt bả tại vị trí gián kiếm ăn, đường đi, khe kẽ và khu vực trú ẩn theo hướng dẫn trên nhãn.	Đặt bả ngoài tầm với của trẻ em và vật nuôi. Không để bả tiếp xúc thực phẩm; thu gom bao bì, bả thừa và xác côn trùng/chuột theo hướng dẫn.	Tuýp bả gel.	2026-07-06 12:05:49.499+07	2026-07-04 15:27:49.426+07
+35	permethor-shield-1-lit	Permethor Shield Liquid Insecticide - 1 lít	8	Chế phẩm Permethrin 50% hỗ trợ kiểm soát muỗi, gián, kiến và ruồi.	Permethor Shield là chế phẩm chứa Permethrin 50%, được mô tả dùng để kiểm soát muỗi, gián, kiến và ruồi trong nhà. Sản phẩm thuộc dòng EC, có mùi nhẹ và cần pha theo tỷ lệ nhà sản xuất quy định.	108	Permethrin 50% w/v (500 g/L).	Pha theo tỷ lệ ghi trên nhãn và phun tại khu vực côn trùng hoạt động; không tự ý tăng nồng độ.	Đọc kỹ nhãn và sử dụng đúng hướng dẫn. Mang bảo hộ phù hợp; để xa trẻ em, thực phẩm, nguồn nước và vật nuôi. Không dùng cho mục đích khác.	Chai 1 lít.	2026-07-06 12:21:52.177+07	2026-07-04 15:27:49.426+07
 \.
 
 
@@ -1348,25 +1353,9 @@ COPY public.products (id, slug, name, category_id, short_description, long_descr
 --
 
 COPY public.products_certifications (_order, _parent_id, id, value) FROM stdin;
-1	1	6a477ae2a0b2bd58a0cfd844	Đăng ký lưu hành Bộ Y Tế Việt Nam
-2	1	6a477ae2a0b2bd58a0cfd845	Chứng nhận ISO 9001:2015
-3	1	6a477ae2a0b2bd58a0cfd846	Tuân thủ WHO Pesticide Evaluation Scheme
-1	2	6a477ae8a0b2bd58a0cfd84f	Đăng ký Bộ Y Tế Việt Nam
-2	2	6a477ae8a0b2bd58a0cfd850	WHOPES recommended
-1	3	6a477aeca0b2bd58a0cfd857	WHO BCPC accepted
-2	3	6a477aeca0b2bd58a0cfd858	Đăng ký Bộ Y Tế VN
-1	4	6a477af0a0b2bd58a0cfd85f	Đăng ký Bộ Y Tế VN
-2	4	6a477af0a0b2bd58a0cfd860	ISO 9001:2015
-1	5	6a477af4a0b2bd58a0cfd867	Đăng ký Bộ Y Tế VN
-1	6	6a477af7a0b2bd58a0cfd86d	WHO PES
-2	6	6a477af7a0b2bd58a0cfd86e	Đăng ký Bộ Y Tế VN
-1	7	6a477affa0b2bd58a0cfd875	EPA US Registered
-2	7	6a477affa0b2bd58a0cfd876	WHO Approved
-1	16	9864fc765f5a48a9ae010985	WHO khuyến nghị hoạt chất Cyphenothrin (theo mô tả sản phẩm)
-1	21	8de095a9ce2544809b3e0720	EPA US Registered
-2	21	b7227e5f20c443eca9e3dcb0	WHO Approved
-1	22	38cef716db91495b93a3ee0c	WHO và FAO ghi nhận theo mô tả sản phẩm
 1	24	4da11f0984be4aae9042edd8	WHO và FAO ghi nhận theo mô tả sản phẩm
+1	16	9864fc765f5a48a9ae010985	WHO khuyến nghị hoạt chất Cyphenothrin (theo mô tả sản phẩm)
+1	22	38cef716db91495b93a3ee0c	WHO và FAO ghi nhận theo mô tả sản phẩm
 \.
 
 
@@ -1377,24 +1366,80 @@ COPY public.products_certifications (_order, _parent_id, id, value) FROM stdin;
 --
 
 COPY public.products_rels (id, "order", parent_id, path, media_id) FROM stdin;
-1	1	1	galleryImages	11
-2	2	1	galleryImages	12
-3	3	1	galleryImages	13
-4	4	1	galleryImages	14
-5	1	2	galleryImages	16
-6	2	2	galleryImages	17
-7	3	2	galleryImages	18
-8	1	3	galleryImages	20
-9	2	3	galleryImages	21
-10	1	4	galleryImages	23
-11	2	4	galleryImages	24
-12	1	5	galleryImages	26
-13	2	5	galleryImages	27
-14	1	6	galleryImages	29
-15	2	6	galleryImages	30
-16	1	7	galleryImages	32
-17	2	7	galleryImages	33
-18	3	7	galleryImages	34
+19	1	42	galleryImages	109
+20	1	20	galleryImages	73
+21	2	20	galleryImages	72
+22	3	20	galleryImages	71
+23	4	20	galleryImages	68
+24	1	18	galleryImages	78
+25	1	17	galleryImages	79
+26	2	17	galleryImages	77
+27	3	17	galleryImages	76
+28	4	17	galleryImages	74
+29	5	17	galleryImages	69
+30	6	17	galleryImages	66
+31	1	44	galleryImages	133
+32	1	47	galleryImages	130
+33	1	38	galleryImages	116
+34	1	13	galleryImages	134
+35	1	16	galleryImages	65
+36	2	16	galleryImages	64
+37	3	16	galleryImages	63
+38	1	35	galleryImages	108
+39	2	35	galleryImages	62
+40	1	29	galleryImages	83
+41	2	29	galleryImages	82
+42	3	29	galleryImages	81
+43	1	28	galleryImages	83
+44	2	28	galleryImages	82
+45	3	28	galleryImages	81
+46	1	19	galleryImages	135
+47	1	43	galleryImages	132
+48	2	43	galleryImages	129
+49	1	36	galleryImages	110
+50	1	15	galleryImages	126
+51	1	32	galleryImages	87
+52	2	32	galleryImages	86
+53	3	32	galleryImages	85
+54	4	32	galleryImages	84
+55	1	33	galleryImages	87
+56	2	33	galleryImages	86
+57	3	33	galleryImages	85
+58	4	33	galleryImages	84
+59	1	27	galleryImages	93
+60	2	27	galleryImages	92
+61	3	27	galleryImages	91
+62	4	27	galleryImages	90
+63	5	27	galleryImages	89
+64	6	27	galleryImages	88
+65	1	26	galleryImages	93
+66	2	26	galleryImages	92
+67	3	26	galleryImages	91
+68	4	26	galleryImages	90
+69	5	26	galleryImages	89
+70	6	26	galleryImages	88
+71	1	23	galleryImages	103
+72	2	23	galleryImages	102
+73	3	23	galleryImages	101
+74	4	23	galleryImages	98
+75	5	23	galleryImages	96
+76	1	25	galleryImages	97
+77	2	25	galleryImages	95
+78	1	22	galleryImages	104
+79	2	22	galleryImages	100
+80	3	22	galleryImages	99
+81	4	22	galleryImages	94
+82	1	14	galleryImages	118
+83	1	39	galleryImages	111
+84	1	10	galleryImages	136
+85	1	37	galleryImages	115
+86	2	37	galleryImages	114
+87	3	37	galleryImages	113
+88	4	37	galleryImages	112
+89	1	46	galleryImages	115
+90	2	46	galleryImages	114
+91	3	46	galleryImages	113
+92	4	46	galleryImages	112
 \.
 
 
@@ -1405,30 +1450,27 @@ COPY public.products_rels (id, "order", parent_id, path, media_id) FROM stdin;
 --
 
 COPY public.products_specs (_order, _parent_id, id, label, value) FROM stdin;
-1	1	6a477ae2a0b2bd58a0cfd83f	Hoạt chất	Permethrin 10% + Sumithrin 1%
-2	1	6a477ae2a0b2bd58a0cfd840	Dạng pha chế	EW – Nhũ dầu trong nước
-3	1	6a477ae2a0b2bd58a0cfd841	Quy cách	Chai 1L, can 5L, can 20L
-4	1	6a477ae2a0b2bd58a0cfd842	Hạn sử dụng	36 tháng
-5	1	6a477ae2a0b2bd58a0cfd843	Đăng ký	VN-1234-2024 (Bộ Y Tế)
-1	2	6a477ae8a0b2bd58a0cfd84b	Hoạt chất	Sumithrin (d-Phenothrin) 10%
-2	2	6a477ae8a0b2bd58a0cfd84c	Dạng pha chế	SEC – Suspo-emulsion concentrate
-3	2	6a477ae8a0b2bd58a0cfd84d	Quy cách	Chai 1L, can 5L
-4	2	6a477ae8a0b2bd58a0cfd84e	Hạn sử dụng	24 tháng
-1	3	6a477aeca0b2bd58a0cfd854	Hoạt chất	Permethrin 13% + d-Tetramethrin 3.3%
-2	3	6a477aeca0b2bd58a0cfd855	Dạng pha chế	FG – Flowable concentrate
-3	3	6a477aeca0b2bd58a0cfd856	Quy cách	Chai 1L
-1	4	6a477af0a0b2bd58a0cfd85c	Hoạt chất	Permethrin 50%
-2	4	6a477af0a0b2bd58a0cfd85d	Dạng pha chế	EC – Emulsifiable concentrate
-3	4	6a477af0a0b2bd58a0cfd85e	Quy cách	Can 5L, 20L
-1	5	6a477af4a0b2bd58a0cfd864	Hoạt chất	Permethrin 0.25% + Sumithrin 0.05%
-2	5	6a477af4a0b2bd58a0cfd865	Dạng pha chế	AL – Aqueous solution (RTU)
-3	5	6a477af4a0b2bd58a0cfd866	Quy cách	Bình xịt 500ml, 1L
-1	6	6a477af7a0b2bd58a0cfd86a	Hoạt chất	Sumithrin 10% + PBO 10%
-2	6	6a477af7a0b2bd58a0cfd86b	Dạng pha chế	EC
-3	6	6a477af7a0b2bd58a0cfd86c	Quy cách	Can 5L
-1	7	6a477affa0b2bd58a0cfd872	Hoạt chất bả	Hexaflumuron 0.5%
-2	7	6a477affa0b2bd58a0cfd873	Dạng	Trạm bả ngầm + bả gỗ
-3	7	6a477affa0b2bd58a0cfd874	Vòng đời trạm	5 năm
+1	29	61f91508492d405da22d3c30	Hoạt chất	Emamectin benzoate
+2	29	9055214aab504e2da8a77574	Dạng	Bả gel/bơm tiêm
+3	29	5202a2431cab4a48a98b7dc8	Đối tượng xử lý	Gián Mỹ, gián Đức, gián Phương Đông
+4	29	a0d591e385ed45bbba6b76e9	Hãng sản xuất	Syngenta
+1	36	c9f70482a9114ff7a354f072	Hoạt chất	Bifenthrin 100 g/L
+2	36	d7653162a6cb4d2e822c0b10	Dạng	Dung dịch insecticide
+3	36	fa4960cd61894f14a4ee57d4	Đối tượng xử lý	Ruồi, muỗi, kiến, gián, rệp, bọ chét
+4	36	a979b95c53ba4a48ae3a9695	Hãng sản xuất	Ensystex
+1	33	ffb19779e89d44ce9dc9d864	Hoạt chất	Brodifacoum 0,005%
+2	33	0f12ce7571914525b9721894	Dạng	Bả viên nén/Wax Block Bait
+3	33	2012feb681d94effaa337517	Đối tượng xử lý	Chuột
+4	33	ea78aef796b54207bdc46f16	Hãng sản xuất	Syngenta
+1	23	5e51128459ef41cd99564b7f	Hoạt chất	Lambda-cyhalothrin
+2	23	511d2b7bfd9d4de8be434a84	Dạng	2,5EW
+3	23	01f31f04dfde4b8881de53da	Đối tượng xử lý	Muỗi, kiến, gián, ruồi, bọ chét, bọ ve, nhện
+4	23	b671364f696743949924e6ec	Hãng sản xuất	Syngenta
+1	39	7bd3d9cbdb4d4cf79840c6aa	Hoạt chất	Deltamethrin
+2	39	cfcccd64f64e49a38ae6d6c5	Dạng	Smoke generator/lon tạo khói
+3	39	8a628f5ad1f34401ae19a7f7	Cỡ hạt	Theo mô tả: 1 micron
+4	39	6ea36782bb104a75858ce732	Hãng sản xuất	Ensystex
+1	46	d0dab789fe2e4833900c2b16	Hoạt chất	Cedarwood oil 2,92% w/w; Cinnamon oil 1,47% w/w
 1	8	4804992216d24302aa0c35a9	Hoạt chất	Permethrin và S-bioallethrin
 2	8	be2d9ebbcb554961b7c25df3	Dạng	Dung dịch 10.4EW
 3	8	c822c1454a8f432994eda546	Đối tượng xử lý	Muỗi, ruồi, gián, kiến
@@ -1437,86 +1479,13 @@ COPY public.products_specs (_order, _parent_id, id, label, value) FROM stdin;
 2	9	0f1966113c764253b40d1101	Dạng	Dung dịch EC
 3	9	390495dac51643f8aaadd3be	Đối tượng xử lý	Mối, mọt
 4	9	dd1795a2c47543c0aac072a5	Hãng sản xuất	Bayer/Envu
-1	10	29a93c1d0345493b8a966256	Hoạt chất	Transfluthrin 4,87% w/w; Flupyradifurone 2,44% w/w
-2	10	c9c677d289134f10a49cf7ad	Dạng	Dung dịch insecticide
-3	10	78639dce1b394c03b904de8c	Đối tượng xử lý	Muỗi, đặc biệt muỗi kháng pyrethroid
-4	10	d1911426808649289709bac5	Hãng sản xuất	Envu
-1	11	4aa18ea9af7845809610b006	Hoạt chất	Deltamethrin 2,45%
-2	11	8d50df9b1e82431493b6b1e0	Dạng	Dung dịch phun tồn lưu
-3	11	889497fec75949d7ab9c92a2	Đặc điểm	Công nghệ Partix
-4	11	d348aaf9f22e496d954ede6b	Hãng sản xuất	Envu
-1	12	5a22401cb10844feb4a6ff39	Hoạt chất	Coumatetralyl 7,5 g/kg
-2	12	a320ff72060449f8b517f9a3	Dạng	Bột
-3	12	5fa149128f58447b8320ce9f	Đối tượng xử lý	Chuột
-4	12	2476d82aca4d4881829f7f03	Hãng sản xuất	Envu
-1	13	4bd266e58d63471582ec284f	Hoạt chất	Coumatetralyl 7,5 g/kg
-2	13	848fa74e6f9c4b1db2dfe6bd	Dạng	Bột
-3	13	a304b7e3fdb64b16808ca3e3	Đối tượng xử lý	Chuột
-4	13	e112a8f65ac24d33a99551a7	Hãng sản xuất	Envu
-1	14	3fabf94bb321444ab5952aab	Hoạt chất	Imidacloprid 2,15%
-2	14	72772e37b478439fab1d3d23	Dạng	Bả gel
-3	14	f8996e3720a14f8b804c7735	Đối tượng xử lý	Gián Đức, gián Mỹ
-4	14	b68add6c908b4295891078f9	Hãng sản xuất	Envu
-1	15	c960fbc6a4f2420b84c609e2	Hoạt chất	Imidacloprid 0,03% w/w
-2	15	a1a7cdad8a024b69a8462ec0	Dạng	Bả gel
-3	15	de6ddc35faf84a1197284990	Đối tượng xử lý	Kiến
-4	15	1809a8be5a2e4e80b1044e83	Hãng sản xuất	Envu
-1	16	b158c7040cb54354874ef686	Hoạt chất	d-Tetramethrin 4,43% w/w; Cyphenothrin 13,30% w/w
-2	16	aadfca8ec850424196bdab7e	Dạng	Dung dịch insecticide
-3	16	3f9f1f86d2444fd98883d1bc	Đối tượng xử lý	Muỗi, ruồi, kiến, gián
-4	16	685c276e42fd4318be023699	Hãng sản xuất	Sumitomo
-1	17	7981f7ce361e41d38bc0b04e	Hoạt chất	Metofluthrin 0,1%; d,d,t-Cyphenothrin 6%; Piperonyl butoxide 10%
-2	17	21f24ef3b9d94a06afcfa541	Dạng	EW
-3	17	ba1e997b539e4eb7be058c49	Phương pháp	Phun không gian hoặc phun mù nóng
-4	17	485c5d34c263443d8568d152	Hãng sản xuất	Sumitomo
-1	18	3b35be49de5b45719252f051	Hoạt chất	D-phenothrin 10%
-2	18	e2cfe36b35ea4bbd93bc062b	Dạng	SEC
-3	18	0c889f61e23b47638fd777de	Đối tượng xử lý	Muỗi và côn trùng
-4	18	371fcfd10650495a8c63981b	Hãng sản xuất	Sumitomo
-1	19	b2c096036f264e9287076bea	Hoạt chất	Pyriproxyfen
-2	19	94c3f7ce9aa54321bc696f21	Dạng	Dung dịch
-3	19	2afb00f97c84428abb03fbdc	Đối tượng xử lý	Gián, muỗi, bọ chét; kiểm soát ấu trùng
-4	19	61b3665346974f1cbbdecaa8	Quy cách	140 ml; pha 520 lít nước theo mô tả
-1	20	689550ddac7a4f908de21f1c	Hoạt chất	Fenvalerate 10% w/w (100 g/L)
-2	20	ddce589a338f40679447819f	Dạng	SC
-3	20	4eb6383caff54977b71bfd43	Đối tượng xử lý	Mối
-4	20	2325689f44ab4adf87367347	Hãng sản xuất	Sumitomo
-1	21	b2a648e57f754956b43b4251	Hoạt chất bả	Hexaflumuron 0,5%
-2	21	c613916a34ff40a5bf5d9ec0	Dạng	Trạm bả ngầm + bả gỗ
-3	21	96db0535d27749a6b3ac6d65	Vòng đời trạm	5 năm
-4	21	93b3f5ce456f43c1a2782953	Hãng sản xuất	Sumitomo
-1	22	99724dac8168462695e5c03b	Hoạt chất	Lambda-cyhalothrin 10% (100 g/L)
-2	22	3a63f26f5ce14b4ea9c5b450	Dạng	CS
-3	22	8560b9c657964a2da894daa2	Đối tượng xử lý	Muỗi, ruồi, gián
-4	22	05695bd69a9f45189180206f	Hãng sản xuất	Syngenta
-1	23	5e51128459ef41cd99564b7f	Hoạt chất	Lambda-cyhalothrin
-2	23	511d2b7bfd9d4de8be434a84	Dạng	2,5EW
-3	23	01f31f04dfde4b8881de53da	Đối tượng xử lý	Muỗi, kiến, gián, ruồi, bọ chét, bọ ve, nhện
-4	23	b671364f696743949924e6ec	Hãng sản xuất	Syngenta
+2	46	b58b371193714e3f9d934e64	Dạng	Hạt/Granular
+3	46	d60b5a7aa22f4ae58aa59054	Đối tượng	Rắn, thằn lằn
+4	46	31b240e3d3424696895614b1	Quy cách	Thùng 9 kg
 1	24	edc656ffa42b47579c5205d7	Hoạt chất	Lambda-cyhalothrin
 2	24	c16df8c0b846455fa8d314e5	Dạng	10CS
 3	24	d241e6dbd5d3404184a66b00	Đối tượng xử lý	Muỗi, ruồi, gián
 4	24	13ce6096d8024a74a04ca2bd	Hãng sản xuất	Syngenta
-1	25	c2198b8810f84708bf381d27	Hoạt chất	Lambda-cyhalothrin
-2	25	79eb6bc5c98d4d97b5dddc37	Dạng	2,5CS
-3	25	82396bee18574e0c96f4fee0	Đối tượng xử lý	Côn trùng bay và bò trong nhà
-4	25	67186f9cb9da4be38928c2db	Hãng sản xuất	Syngenta
-1	26	318570f68520463b9c154de7	Hoạt chất	Permethrin 50% (500 g/L)
-2	26	678ffe53af8548f3b44ab7f9	Dạng	50EC
-3	26	a4476d1b607949e3a5622b45	Đối tượng xử lý	Muỗi và côn trùng
-4	26	7e8f89214f65430889494149	Hãng sản xuất	Syngenta
-1	27	ba890e12e9184a399be6c3c3	Hoạt chất	Permethrin 50% (500 g/L)
-2	27	f62ade1d3e6743b7969cbf66	Dạng	50EC
-3	27	ba64989493fb4f819c847275	Đối tượng xử lý	Muỗi và côn trùng
-4	27	55acdc4e24a14bf39b966ea2	Hãng sản xuất	Syngenta
-1	28	72fe6fb7cb874ef7b966760a	Hoạt chất	Thiamethoxam
-2	28	edc9644306ac4fb38bbf38f2	Dạng	Bả gel
-3	28	de19213b9f5e4c2391df64c2	Đối tượng xử lý	Kiến
-4	28	b7c29cf4bb1d42f7b22b9276	Cơ chế	Bả có tác động chậm, hỗ trợ lan truyền trong đàn
-1	29	61f91508492d405da22d3c30	Hoạt chất	Emamectin benzoate
-2	29	9055214aab504e2da8a77574	Dạng	Bả gel/bơm tiêm
-3	29	5202a2431cab4a48a98b7dc8	Đối tượng xử lý	Gián Mỹ, gián Đức, gián Phương Đông
-4	29	a0d591e385ed45bbba6b76e9	Hãng sản xuất	Syngenta
 1	30	b995f548d0724a49bcc1493f	Hoạt chất	Indoxacarb
 2	30	8c8e42bc55804f48a9a492da	Dạng	Bả gel
 3	30	f9cf8cabab104c9fbe971cab	Đối tượng xử lý	Gián
@@ -1525,38 +1494,18 @@ COPY public.products_specs (_order, _parent_id, id, label, value) FROM stdin;
 2	31	7e881b7e24a84704b5ac21a3	Dạng	Chế phẩm insecticide
 3	31	f001ea01ad7e4c4d9e42034d	Đối tượng xử lý	Côn trùng gây hại
 4	31	7f86628a86f441779147ec3c	Hãng sản xuất	Syngenta
-1	32	4c7e1abd05b345dba143672a	Hoạt chất	Brodifacoum 0,005%
-2	32	1ca96088c9d0498b90bdaad8	Dạng	Bả viên nén/Wax Block Bait
-3	32	68ad64c7ffa54b38a109da31	Đối tượng xử lý	Chuột
-4	32	28dc588e31c1436b93e69744	Hãng sản xuất	Syngenta
-1	33	ffb19779e89d44ce9dc9d864	Hoạt chất	Brodifacoum 0,005%
-2	33	0f12ce7571914525b9721894	Dạng	Bả viên nén/Wax Block Bait
-3	33	2012feb681d94effaa337517	Đối tượng xử lý	Chuột
-4	33	ea78aef796b54207bdc46f16	Hãng sản xuất	Syngenta
 1	34	f91d052edeba4a94b54ff304	Hoạt chất	Bifenthrin 4,5%; Imidacloprid 5,5%
 2	34	49da08edf2ee4fd9acaf1ed2	Dạng	Dung dịch insecticide
 3	34	cb4d12808cf3475fb0c5a362	Đối tượng xử lý	Muỗi, gián, kiến, rệp giường, bọ chét, bọ ve
 4	34	d873a6a0df3c4fb1a792fb33	Tồn lưu	Theo mô tả: đến 6 tháng
-1	35	9eeb3b47856242029a42a9a2	Hoạt chất	Permethrin 50% w/v (500 g/L)
-2	35	a1c55b0c88a34cb49289aeca	Dạng	EC
-3	35	896204d1d1ac464783996b02	Đối tượng xử lý	Muỗi, gián, kiến, ruồi
-4	35	ea4a42f7e9f444e9b319896e	Xuất xứ	Hoa Kỳ theo mô tả
-1	36	c9f70482a9114ff7a354f072	Hoạt chất	Bifenthrin 100 g/L
-2	36	d7653162a6cb4d2e822c0b10	Dạng	Dung dịch insecticide
-3	36	fa4960cd61894f14a4ee57d4	Đối tượng xử lý	Ruồi, muỗi, kiến, gián, rệp, bọ chét
-4	36	a979b95c53ba4a48ae3a9695	Hãng sản xuất	Ensystex
-1	37	03c5a18ef7c84640867f97c2	Hoạt chất	Tinh dầu thực vật thiên nhiên
-2	37	632c5305be3b43ce91a1108b	Dạng	Dung dịch
-3	37	b104993d94cd4598b038f5f2	Đối tượng	Rắn, thằn lằn
-4	37	54541a5b458d40b090f9c5ee	Hãng sản xuất	Ensystex
-1	38	4498ca231e064e5386323447	Hoạt chất	Chlorfluazuron
-2	38	590c148c78614e9f9c8f3d01	Dạng	Bả diệt mối
-3	38	cb84c7e1e02f42bab21d9bcc	Đối tượng xử lý	Mối
-4	38	9ce5be44bdc04791a344472f	Hãng sản xuất	Ensystex
-1	39	7bd3d9cbdb4d4cf79840c6aa	Hoạt chất	Deltamethrin
-2	39	cfcccd64f64e49a38ae6d6c5	Dạng	Smoke generator/lon tạo khói
-3	39	8a628f5ad1f34401ae19a7f7	Cỡ hạt	Theo mô tả: 1 micron
-4	39	6ea36782bb104a75858ce732	Hãng sản xuất	Ensystex
+1	28	72fe6fb7cb874ef7b966760a	Hoạt chất	Thiamethoxam
+2	28	edc9644306ac4fb38bbf38f2	Dạng	Bả gel
+3	28	de19213b9f5e4c2391df64c2	Đối tượng xử lý	Kiến
+4	28	b7c29cf4bb1d42f7b22b9276	Cơ chế	Bả có tác động chậm, hỗ trợ lan truyền trong đàn
+1	15	c960fbc6a4f2420b84c609e2	Hoạt chất	Imidacloprid 0,03% w/w
+2	15	a1a7cdad8a024b69a8462ec0	Dạng	Bả gel
+3	15	de6ddc35faf84a1197284990	Đối tượng xử lý	Kiến
+4	15	1809a8be5a2e4e80b1044e83	Hãng sản xuất	Envu
 1	40	60eb19ffc2ee41089044dca2	Hoạt chất	100% Amorphous Silicon Dioxide
 2	40	8eef7a2168104b8cb34c71f1	Dạng	Bột siêu mịn
 3	40	6ae6fa1967a14dd18c4450ff	Đối tượng xử lý	Gián, rệp giường
@@ -1565,30 +1514,94 @@ COPY public.products_specs (_order, _parent_id, id, label, value) FROM stdin;
 2	41	5a39c3b03d8942a48f0fbf9e	Vòi phun	Các cỡ 2,0 mm; 2,45 mm; 3,0 mm theo mô tả
 3	41	1901a4cc783e49269bedc4be	Ứng dụng	Phun bột Diathor vào khe hở
 4	41	85932509135c435383b5fda5	Hãng sản xuất	Ensystex
-1	42	7303f0f4533b4fd3ae2abff0	Hoạt chất	Indoxacarb
-2	42	88c59403ea9f4cd1bde59d57	Dạng	Bả gel
-3	42	31205f365dce4ef497b75e95	Đối tượng xử lý	Gián
-4	42	48dfbe7b1f484548af4a781f	Hãng sản xuất	Ensystex
+1	27	ba890e12e9184a399be6c3c3	Hoạt chất	Permethrin 50% (500 g/L)
+2	27	f62ade1d3e6743b7969cbf66	Dạng	50EC
+3	27	ba64989493fb4f819c847275	Đối tượng xử lý	Muỗi và côn trùng
+4	27	55acdc4e24a14bf39b966ea2	Hãng sản xuất	Syngenta
+1	25	c2198b8810f84708bf381d27	Hoạt chất	Lambda-cyhalothrin
+2	25	79eb6bc5c98d4d97b5dddc37	Dạng	2,5CS
+3	25	82396bee18574e0c96f4fee0	Đối tượng xử lý	Côn trùng bay và bò trong nhà
+4	25	67186f9cb9da4be38928c2db	Hãng sản xuất	Syngenta
+1	22	99724dac8168462695e5c03b	Hoạt chất	Lambda-cyhalothrin 10% (100 g/L)
+2	22	3a63f26f5ce14b4ea9c5b450	Dạng	CS
+3	22	8560b9c657964a2da894daa2	Đối tượng xử lý	Muỗi, ruồi, gián
+4	22	05695bd69a9f45189180206f	Hãng sản xuất	Syngenta
+1	10	29a93c1d0345493b8a966256	Hoạt chất	Transfluthrin 4,87% w/w; Flupyradifurone 2,44% w/w
+2	10	c9c677d289134f10a49cf7ad	Dạng	Dung dịch insecticide
+3	10	78639dce1b394c03b904de8c	Đối tượng xử lý	Muỗi, đặc biệt muỗi kháng pyrethroid
+4	10	d1911426808649289709bac5	Hãng sản xuất	Envu
+1	19	b2c096036f264e9287076bea	Hoạt chất	Pyriproxyfen
+2	19	94c3f7ce9aa54321bc696f21	Dạng	Dung dịch
+3	19	2afb00f97c84428abb03fbdc	Đối tượng xử lý	Gián, muỗi, bọ chét; kiểm soát ấu trùng
+4	19	61b3665346974f1cbbdecaa8	Quy cách	140 ml; pha 520 lít nước theo mô tả
 1	43	3a8e2193086447b2a52e0780	Hoạt chất	Chlorfenapyr 240 g/L
-2	43	9452f05a6950414c88bc672e	Dạng	240CS
-3	43	b6496388c9764b97a37be6d3	Đối tượng xử lý	Mối
-4	43	c5672684eb3f4526884c151f	Hãng sản xuất	BASF
-1	44	af2f3903be0148bda66e63c4	Hoạt chất	Permethrin 50%
-2	44	e796e0fafbf449129bb47a47	Dạng	50EC
-3	44	90b1d45224824e56beaac1f8	Đối tượng xử lý	Muỗi và côn trùng
-4	44	b8e2f3b05b8f4a6c8083c655	Hãng sản xuất	Agropharm/Pelga
 1	45	44fba72feaa1420dac08f66e	Hoạt chất	Cypermethrin 10% w/w
 2	45	1b6d1161f494466a92fcebb1	Dạng	25EC
 3	45	b4ca23d641f54a0f91e65fca	Đối tượng xử lý	Muỗi, ruồi, gián, kiến
 4	45	98fc4808706242be9939edda	Hãng sản xuất	Ea Chem (Việt Nam)
-1	46	d0dab789fe2e4833900c2b16	Hoạt chất	Cedarwood oil 2,92% w/w; Cinnamon oil 1,47% w/w
-2	46	b58b371193714e3f9d934e64	Dạng	Hạt/Granular
-3	46	d60b5a7aa22f4ae58aa59054	Đối tượng	Rắn, thằn lằn
-4	46	31b240e3d3424696895614b1	Quy cách	Thùng 9 kg
+2	43	9452f05a6950414c88bc672e	Dạng	240CS
+3	43	b6496388c9764b97a37be6d3	Đối tượng xử lý	Mối
+4	43	c5672684eb3f4526884c151f	Hãng sản xuất	BASF
+1	32	4c7e1abd05b345dba143672a	Hoạt chất	Brodifacoum 0,005%
+2	32	1ca96088c9d0498b90bdaad8	Dạng	Bả viên nén/Wax Block Bait
+3	32	68ad64c7ffa54b38a109da31	Đối tượng xử lý	Chuột
+4	32	28dc588e31c1436b93e69744	Hãng sản xuất	Syngenta
+1	26	318570f68520463b9c154de7	Hoạt chất	Permethrin 50% (500 g/L)
+1	42	7303f0f4533b4fd3ae2abff0	Hoạt chất	Indoxacarb
+2	42	88c59403ea9f4cd1bde59d57	Dạng	Bả gel
+3	42	31205f365dce4ef497b75e95	Đối tượng xử lý	Gián
+4	42	48dfbe7b1f484548af4a781f	Hãng sản xuất	Ensystex
+2	26	678ffe53af8548f3b44ab7f9	Dạng	50EC
+3	26	a4476d1b607949e3a5622b45	Đối tượng xử lý	Muỗi và côn trùng
+4	26	7e8f89214f65430889494149	Hãng sản xuất	Syngenta
+1	14	3fabf94bb321444ab5952aab	Hoạt chất	Imidacloprid 2,15%
+1	20	689550ddac7a4f908de21f1c	Hoạt chất	Fenvalerate 10% w/w (100 g/L)
+2	20	ddce589a338f40679447819f	Dạng	SC
+3	20	4eb6383caff54977b71bfd43	Đối tượng xử lý	Mối
+4	20	2325689f44ab4adf87367347	Hãng sản xuất	Sumitomo
+1	11	4aa18ea9af7845809610b006	Hoạt chất	Deltamethrin 2,45%
+2	11	8d50df9b1e82431493b6b1e0	Dạng	Dung dịch phun tồn lưu
+3	11	889497fec75949d7ab9c92a2	Đặc điểm	Công nghệ Partix
+4	11	d348aaf9f22e496d954ede6b	Hãng sản xuất	Envu
+2	14	72772e37b478439fab1d3d23	Dạng	Bả gel
+3	14	f8996e3720a14f8b804c7735	Đối tượng xử lý	Gián Đức, gián Mỹ
+4	14	b68add6c908b4295891078f9	Hãng sản xuất	Envu
+1	37	03c5a18ef7c84640867f97c2	Hoạt chất	Tinh dầu thực vật thiên nhiên
+1	18	3b35be49de5b45719252f051	Hoạt chất	D-phenothrin 10%
+2	18	e2cfe36b35ea4bbd93bc062b	Dạng	SEC
+3	18	0c889f61e23b47638fd777de	Đối tượng xử lý	Muỗi và côn trùng
+4	18	371fcfd10650495a8c63981b	Hãng sản xuất	Sumitomo
+2	37	632c5305be3b43ce91a1108b	Dạng	Dung dịch
+3	37	b104993d94cd4598b038f5f2	Đối tượng	Rắn, thằn lằn
+4	37	54541a5b458d40b090f9c5ee	Hãng sản xuất	Ensystex
+1	17	7981f7ce361e41d38bc0b04e	Hoạt chất	Metofluthrin 0,1%; d,d,t-Cyphenothrin 6%; Piperonyl butoxide 10%
+2	17	21f24ef3b9d94a06afcfa541	Dạng	EW
+3	17	ba1e997b539e4eb7be058c49	Phương pháp	Phun không gian hoặc phun mù nóng
+4	17	485c5d34c263443d8568d152	Hãng sản xuất	Sumitomo
+1	44	af2f3903be0148bda66e63c4	Hoạt chất	Permethrin 50%
+2	44	e796e0fafbf449129bb47a47	Dạng	50EC
+3	44	90b1d45224824e56beaac1f8	Đối tượng xử lý	Muỗi và côn trùng
+4	44	b8e2f3b05b8f4a6c8083c655	Hãng sản xuất	Agropharm/Pelga
 1	47	147707dd633d4dc4be2da1ba	Hoạt chất	Dinotefuran 0,5% w/v
 2	47	e1671395ff8a47fcacee8b22	Dạng	Bả gel
 3	47	03d16a581cb649c98bc2ad7d	Đối tượng xử lý	Gián Đức, gián Mỹ
 4	47	b99d2a0bb4bb4655a496363d	Hãng sản xuất	BASF
+1	38	4498ca231e064e5386323447	Hoạt chất	Chlorfluazuron
+2	38	590c148c78614e9f9c8f3d01	Dạng	Bả diệt mối
+3	38	cb84c7e1e02f42bab21d9bcc	Đối tượng xử lý	Mối
+4	38	9ce5be44bdc04791a344472f	Hãng sản xuất	Ensystex
+1	13	4bd266e58d63471582ec284f	Hoạt chất	Coumatetralyl 7,5 g/kg
+2	13	848fa74e6f9c4b1db2dfe6bd	Dạng	Bột
+3	13	a304b7e3fdb64b16808ca3e3	Đối tượng xử lý	Chuột
+4	13	e112a8f65ac24d33a99551a7	Hãng sản xuất	Envu
+1	16	b158c7040cb54354874ef686	Hoạt chất	d-Tetramethrin 4,43% w/w; Cyphenothrin 13,30% w/w
+2	16	aadfca8ec850424196bdab7e	Dạng	Dung dịch insecticide
+3	16	3f9f1f86d2444fd98883d1bc	Đối tượng xử lý	Muỗi, ruồi, kiến, gián
+4	16	685c276e42fd4318be023699	Hãng sản xuất	Sumitomo
+1	35	9eeb3b47856242029a42a9a2	Hoạt chất	Permethrin 50% w/v (500 g/L)
+2	35	a1c55b0c88a34cb49289aeca	Dạng	EC
+3	35	896204d1d1ac464783996b02	Đối tượng xử lý	Muỗi, gián, kiến, ruồi
+4	35	ea4a42f7e9f444e9b319896e	Xuất xứ	Hoa Kỳ theo mô tả
 \.
 
 
@@ -1599,27 +1612,27 @@ COPY public.products_specs (_order, _parent_id, id, label, value) FROM stdin;
 --
 
 COPY public.products_tags (_order, _parent_id, id, value) FROM stdin;
-1	1	6a477ae2a0b2bd58a0cfd847	Diệt muỗi
-2	1	6a477ae2a0b2bd58a0cfd848	Diệt côn trùng
-3	1	6a477ae2a0b2bd58a0cfd849	Pyrethroid
-4	1	6a477ae2a0b2bd58a0cfd84a	EW
-1	2	6a477ae8a0b2bd58a0cfd851	ULV
-2	2	6a477ae8a0b2bd58a0cfd852	Phun tồn lưu
-3	2	6a477ae8a0b2bd58a0cfd853	Diệt muỗi
-1	3	6a477aeca0b2bd58a0cfd859	Gián
-2	3	6a477aeca0b2bd58a0cfd85a	Kiến
-3	3	6a477aeca0b2bd58a0cfd85b	Pyrethroid
-1	4	6a477af0a0b2bd58a0cfd861	Permethrin
-2	4	6a477af0a0b2bd58a0cfd862	EC
-3	4	6a477af0a0b2bd58a0cfd863	Dịch vụ chuyên nghiệp
-1	5	6a477af4a0b2bd58a0cfd868	Hộ gia đình
-2	5	6a477af4a0b2bd58a0cfd869	Ready-to-use
-1	6	6a477af7a0b2bd58a0cfd86f	PBO
-2	6	6a477af7a0b2bd58a0cfd870	Hiệp đồng
-3	6	6a477af7a0b2bd58a0cfd871	ULV
-1	7	6a477affa0b2bd58a0cfd877	Mối
-2	7	6a477affa0b2bd58a0cfd878	Trạm bả
-3	7	6a477affa0b2bd58a0cfd879	Hexaflumuron
+1	35	2fbd59d4569947a7902cb0d1	Muỗi
+2	35	5923b53d91bc45dd8a7062fc	Gián
+3	35	4e83b4de53294ff398f89066	Kiến
+4	35	c262b08e0ae8437fa0928971	Ruồi
+5	35	ccd7c2115670428bbb3353ee	Permethrin
+6	35	0490cc591648452596bfda7d	50%
+7	35	2f53b1ad4d7a4f46bf609f9f	Ensystex
+1	19	e5c0e0483c964fe7b917fe27	Pyriproxyfen
+2	19	f54e678aff4c4acf841482f4	Kiểm soát vòng đời
+3	19	9025443ac5e94de8831ca24c	Gián
+1	10	874a73a0a9664a69ac12429a	Muỗi kháng
+2	10	59e10eb98de0494582ae4964	Cơ chế kép
+3	10	e87f031cf0ab448bad0fe7f1	Flupyradifurone
+4	19	f511b40756cd4ee8ad5f18d1	Muỗi
+5	19	42074b98dd9241af8907c6c9	Bọ chét
+6	19	e1fb6a7093584f8c8fc729eb	Sumitomo
+1	43	c98cae70f2ae46cab80ea699	Mối
+2	43	1a705391468a4d2da4ded6c4	Chlorfenapyr
+3	43	0276d306658f43c89a9db185	240CS
+4	43	8ffeff624ef14a5faa769c2d	BASF
+5	43	fbc2883b255b4e8481fdeb6f	Công trình
 1	8	7f282bc6153d44ebb0bc90a8	Muỗi
 2	8	f878453f83a34ae0bb30384e	Ruồi
 3	8	8d774c87dabe49a399cb9772	Gián
@@ -1633,119 +1646,35 @@ COPY public.products_tags (_order, _parent_id, id, value) FROM stdin;
 4	9	de4fe1aa00704ca8a66c99dc	Xử lý công trình
 5	9	41989b05b6a5403ba70c5027	Bayer
 6	9	80f239000b3c46e8b853914c	Envu
-1	10	874a73a0a9664a69ac12429a	Muỗi kháng
-2	10	59e10eb98de0494582ae4964	Cơ chế kép
-3	10	e87f031cf0ab448bad0fe7f1	Flupyradifurone
-4	10	adef4b2136e34422a7991fa4	Transfluthrin
-5	10	ef1f6e94de41461aa352ff68	Envu
-1	11	4893ba00c51540e08939305f	Deltamethrin
-2	11	96b7474f70044bf999744921	Phun tồn lưu
-3	11	3eae1a63bc9842369904fd9b	Công nghệ Partix
-4	11	a88c99c6956a4a9eac3fb3e5	Đa bề mặt
-5	11	6b2e3a3ac6d1425b8d7781aa	Envu
-1	12	82b61cecd466496b98530936	Chuột
-2	12	2a0167976abb401db96b939f	Coumatetralyl
-3	12	62c8f70ff2b74d578f68d854	Dạng bột
-4	12	0de32b5bc3f8426d9ce749d3	Bả chuột
-5	12	4f2cd853be6c4e38a26393fd	Envu
-1	13	002cda02e5604b82a62af0b4	Chuột
-2	13	931b27e5b58d4c6f8ae4af8c	Coumatetralyl
-3	13	dec502b8637341399ac14ae4	Dạng bột
-4	13	ed0fd5b1f0094a1e9432ba57	Bả chuột
-5	13	d46261ab53dc497a810f77e8	Quy cách 1kg
-6	13	d173573e75584787899e699b	Envu
-1	14	137a6495b36c43e5ad6da7a5	Gián Đức
-2	14	2b2990bb2f9048079e0139d8	Gián Mỹ
-3	14	bec75adc6c45447996748af8	Bả gel
-4	14	7bd35b809510488798cbae61	Imidacloprid
-5	14	d483edb8fc45491aa4f69c50	Envu
-1	15	676a1da105814803a2722a26	Kiến
-2	15	b4ba535de31e47baa81b38f8	Bả gel
-3	15	fe17cea40506472c9018f441	Imidacloprid
-4	15	40fa942ca10a49d4921de0df	Tuýp 12g
-5	15	b7fef701f50f4bb59e2ccd3c	Envu
-1	16	df33e918d0da4041976f6233	Muỗi
-2	16	19fc8ca184a7478bb82472d2	Ruồi
-3	16	227c0696eb934a4e93282088	Kiến
-4	16	c09cee571d304e1cbbfdd651	Gián
-5	16	30bdbfbe86f5491988d0b427	Cyphenothrin
-6	16	3c02fa5889f34074b9fe4bab	Gia dụng
-7	16	6720c631da7d470c8f299cb7	Y tế
-8	16	6fa54170aa8d4bae8bd18a75	Sumitomo
-1	17	9087f8eef3194adc99311de4	Muỗi
-2	17	ecae4bf817944aabb9a0c778	Ruồi
-3	17	6c4906dc8f60465cbf94fbb4	Phun không gian
-4	17	3c1872574e3e4e6db4cc83be	Phun mù nóng
-5	17	fe7fa36adbce4ce59187a57f	Sumitomo
-1	18	9a68970621b04f33bc6173f3	Muỗi
-2	18	383dccc49375492ca5152c9a	Côn trùng
-3	18	f4a9c9cacae746cca7fb8a02	D-phenothrin
-4	18	f9bbdc349a87431db5f0005a	Tồn lưu
-5	18	693870a97bf1404690c2918e	Sumitomo
-1	19	e5c0e0483c964fe7b917fe27	Pyriproxyfen
-2	19	f54e678aff4c4acf841482f4	Kiểm soát vòng đời
-3	19	9025443ac5e94de8831ca24c	Gián
-4	19	f511b40756cd4ee8ad5f18d1	Muỗi
-5	19	42074b98dd9241af8907c6c9	Bọ chét
-6	19	e1fb6a7093584f8c8fc729eb	Sumitomo
-1	20	b5bca98d8f9e4917b315ffa8	Mối
-2	20	dfcb613b101c42d9862543f5	Fenvalerate
-3	20	3cd8b0ba5881471c88a0cc21	Phòng trừ mối
-4	20	5e0328aa68b84db6bb20a4e4	Công trình
-5	20	31f6c28870b8484ea90e7e3c	Sumitomo
-1	21	46e3f3561c6d41d594c3246a	Mối
-2	21	352db2a718f84255a047c2a8	Trạm bả
-3	21	9c023e9e1a4342d9b504651c	Hexaflumuron
-4	21	44180967108143c4af5f1666	Xterm
-5	21	c2aaa10232dd41289707eddb	Bảo vệ công trình
-6	21	8bedf1e419224dbaa9cf4664	Sumitomo
+1	32	f5f97e2ff48745f2a9233ae7	Chuột
+2	32	c43ecf4893364957a71a08d6	Bả viên
+3	32	3600b9aad11843a988d3abe6	Brodifacoum
+4	32	74d8048cb2af47cea385d3e6	Wax Block Bait
+5	32	ff492326a1d84643a271f227	Syngenta
+1	26	d488885aaf3743c6ae634872	Muỗi
+2	26	fa2a5bca545d425392586369	Côn trùng
+3	26	72d11062b0e54bc9b111ce3f	Permethrin
+4	26	05da51986a784ab6be689ff9	50EC
+5	26	08051e136c584f54b9cca1df	Syngenta
 1	22	a4946d38bfba4e4f93a8edf7	Muỗi
 2	22	b6132d72e2184b08a1d9878a	Ruồi
 3	22	ea454e08d0a942878e015e7c	Gián
 4	22	7638105e35f740b1a612b3de	Lambda-cyhalothrin
 5	22	cdaecd34aac446afbd85eba2	Icon
 6	22	29301b0e0211403e83ffe616	Syngenta
-1	23	6915b69ff906465cb5e71f4e	Muỗi
-2	23	6f0a8fae13e64ccf9da975f9	Kiến
-3	23	553049605a284a9d8c6dea51	Gián
-4	23	d6c00731c0e643f3afe1e51a	Ruồi
-5	23	d4bbd0f1cd3841d4b8051c15	Bọ chét
-6	23	e5cb65aabf884b7cabc9f70e	Bọ ve
-7	23	25b6c59b22b3427ba986bbbb	Lambda-cyhalothrin
-8	23	01af44f0eebd4973ad7603da	Syngenta
+4	10	adef4b2136e34422a7991fa4	Transfluthrin
+5	10	ef1f6e94de41461aa352ff68	Envu
+1	37	3dff867f5ffc454dac3cb246	Xua rắn
+2	37	8786fe4331874958992bb9ed	Xua thằn lằn
+3	37	fa5dd419433048e48aff1050	Tinh dầu thực vật
+4	37	606e4d5074d64339b567d4e5	Ensystex
 1	24	3bd300f53988497290dab637	Muỗi
 2	24	b12ac4062db6495b8378cd75	Ruồi
 3	24	4d06507f733e405d8b73d52c	Gián
 4	24	d58c7ee1b983455ca34d010e	Icon
 5	24	9a0a5b44054c42a19bf04bdd	Lambda-cyhalothrin
 6	24	98ce07b6173c428b92edb301	Syngenta
-1	25	1137b7b4a14c4c71ba98ed05	Côn trùng bay
-2	25	cb21582340e14a14a3a23be4	Côn trùng bò
-3	25	cad72f670c2e4f80baf2d36c	Icon
-4	25	7c998fee96e04dcd9fe66bd5	Lambda-cyhalothrin
-5	25	772c42d41dbe4e34ae89f0ca	Syngenta
-1	26	d488885aaf3743c6ae634872	Muỗi
-2	26	fa2a5bca545d425392586369	Côn trùng
-3	26	72d11062b0e54bc9b111ce3f	Permethrin
-4	26	05da51986a784ab6be689ff9	50EC
-5	26	08051e136c584f54b9cca1df	Syngenta
-1	27	3911bfe09c1d452cb03a218e	Muỗi
-2	27	23773fff26644440afb79105	Côn trùng
-3	27	9749f93c42e042278e78608c	Permethrin
-4	27	98e4bcc64c314381bafef704	50EC
-5	27	d17bea12ec33482c803749f3	Syngenta
-6	27	a31880868be94b6fa3cc173b	100ml
-1	28	a529d9cbe9d64175958ad7fb	Kiến
-2	28	6b951e4a6c234fd5a70d7506	Thiamethoxam
-3	28	cee9f3ab55094e6183b5cf35	Bả kiến
-4	28	7c1de66b9a274184929a15d2	Lan truyền trong đàn
-5	28	6a5c03636d9c4198b71621fb	Syngenta
-1	29	315b957afd24470c8bb14554	Gián Mỹ
-2	29	6ead47d108844edbb5e2b507	Gián Đức
-3	29	268715d320ae486aae147e6e	Gián Phương Đông
-4	29	13071d17a07945ef884ae0e7	Bả gel
-5	29	15c0945acea1477d81160e34	Emamectin benzoate
-6	29	03faabd4c2b348658f208073	Syngenta
+5	37	8703801d62da45d991a25367	Sân vườn
 1	30	c0d5a296bfbc46728e7e4843	Gián
 2	30	c8d5487cba6747e9849094b1	Bả gel
 3	30	63b3c72e31d64d4bbe29daf0	Indoxacarb
@@ -1756,17 +1685,6 @@ COPY public.products_tags (_order, _parent_id, id, value) FROM stdin;
 3	31	b70bffb6364546b98272a51f	Indoxacarb
 4	31	e428c39b6731406f8f217bfc	Syngenta
 5	31	633c511c2f2f4df69741bf07	200g
-1	32	f5f97e2ff48745f2a9233ae7	Chuột
-2	32	c43ecf4893364957a71a08d6	Bả viên
-3	32	3600b9aad11843a988d3abe6	Brodifacoum
-4	32	74d8048cb2af47cea385d3e6	Wax Block Bait
-5	32	ff492326a1d84643a271f227	Syngenta
-1	33	b26e25737441407b86a4751d	Chuột
-2	33	bd83bdfd458c46dd9c623eb9	Bả viên
-3	33	1c7ace7ab23e45d598c8ae26	Brodifacoum
-4	33	3d99d4ac18e6463ea12badb6	Wax Block Bait
-5	33	079a53fe8c94470aabdfc79f	Syngenta
-6	33	639ad765dab44ed897417e31	1kg
 1	34	d6876352e0e842e788970d8b	Rệp giường
 2	34	dc0d5f2f1a2f4033aba6cc86	Bọ chét
 3	34	6f620fe2b1324f8787b5cb56	Bọ ve
@@ -1776,36 +1694,11 @@ COPY public.products_tags (_order, _parent_id, id, value) FROM stdin;
 7	34	ee5345dca48c4c27894f79d1	Bifenthrin
 8	34	9ba210b82c754374b9473972	Imidacloprid
 9	34	6a95d9370ad74f8381b924d4	Ensystex
-1	35	2fbd59d4569947a7902cb0d1	Muỗi
-2	35	5923b53d91bc45dd8a7062fc	Gián
-3	35	4e83b4de53294ff398f89066	Kiến
-4	35	c262b08e0ae8437fa0928971	Ruồi
-5	35	ccd7c2115670428bbb3353ee	Permethrin
-6	35	0490cc591648452596bfda7d	50%
-7	35	2f53b1ad4d7a4f46bf609f9f	Ensystex
-1	36	97bbba79371b498b8afd7e2f	Ruồi
-2	36	7f5cec19bcd64e988a44f796	Muỗi
-3	36	455e55727ea04f47b0893d6e	Kiến
-4	36	8203e818f1ed4808b37e6ea6	Gián
-5	36	05873db74db240dca733e050	Rệp
-6	36	228503bc0e374e2ea5a85582	Bọ chét
-7	36	6f22f540e7af437896fa06cc	Bifenthrin
-8	36	9dfa33cada464585990e0339	Ensystex
-1	37	3dff867f5ffc454dac3cb246	Xua rắn
-2	37	8786fe4331874958992bb9ed	Xua thằn lằn
-3	37	fa5dd419433048e48aff1050	Tinh dầu thực vật
-4	37	606e4d5074d64339b567d4e5	Ensystex
-5	37	8703801d62da45d991a25367	Sân vườn
-1	38	39b4a775ed8542f0bfdeb1aa	Mối
-2	38	d080774d7e3d43fab191a420	Bả mối
-3	38	f7fd5c0685bb41cba72ac78b	Chlorfluazuron
-4	38	043076c6a45042639c5a9d12	Dẫn dụ
-5	38	8c0502a3a791422ab6d10659	Ensystex
-1	39	e8e18f83e663410eaabf9e4d	Khói diệt côn trùng
-2	39	7df24afe56e5403cb2e8d0b3	Deltamethrin
-3	39	218ff3053c9f4c059f4177f2	Khe hở
-4	39	a939f389039d4d9d9178b571	Khu vực khó tiếp cận
-5	39	c78a2c2c32094ca198994c5c	Ensystex
+1	29	315b957afd24470c8bb14554	Gián Mỹ
+2	29	6ead47d108844edbb5e2b507	Gián Đức
+3	29	268715d320ae486aae147e6e	Gián Phương Đông
+4	29	13071d17a07945ef884ae0e7	Bả gel
+5	29	15c0945acea1477d81160e34	Emamectin benzoate
 1	40	47feca04930a4468aa11e370	Gián
 2	40	2cf293f98dad477291b64d3c	Rệp giường
 3	40	8972b76584294b8f89def0c4	Silica vô định hình
@@ -1815,21 +1708,47 @@ COPY public.products_tags (_order, _parent_id, id, value) FROM stdin;
 2	41	bec33ad5db77469889c39f11	Diathor
 3	41	c104ab71bb4643dda1ce6483	Xử lý khe hở
 4	41	0a104a4046ee4009b1d00a4d	Ensystex
-1	42	7bfeb983c22c4308a51db963	Gián
-2	42	51a3c0d69da04ce6bf7065ee	Bả gel
-3	42	306c60b3a80c4596916dde4c	Indoxacarb
-4	42	cba2d63dd17d4dcdbda26195	Ensystex
-1	43	c98cae70f2ae46cab80ea699	Mối
-2	43	1a705391468a4d2da4ded6c4	Chlorfenapyr
-3	43	0276d306658f43c89a9db185	240CS
-4	43	8ffeff624ef14a5faa769c2d	BASF
-5	43	fbc2883b255b4e8481fdeb6f	Công trình
-1	44	6309a8c85c574fc8845feefc	Muỗi
-2	44	d456219805a64849802ea0a9	Côn trùng
-3	44	2cd3f712cd364483b887a2e0	Permethrin
-4	44	579e985816164dbc8646715a	50EC
-5	44	d25ba9d600924e098fc493ac	Agropharm
-6	44	3311af2e651a47edbb7051ef	Anh Quốc
+6	29	03faabd4c2b348658f208073	Syngenta
+1	36	97bbba79371b498b8afd7e2f	Ruồi
+2	36	7f5cec19bcd64e988a44f796	Muỗi
+3	36	455e55727ea04f47b0893d6e	Kiến
+4	36	8203e818f1ed4808b37e6ea6	Gián
+5	36	05873db74db240dca733e050	Rệp
+6	36	228503bc0e374e2ea5a85582	Bọ chét
+7	36	6f22f540e7af437896fa06cc	Bifenthrin
+8	36	9dfa33cada464585990e0339	Ensystex
+1	33	b26e25737441407b86a4751d	Chuột
+2	33	bd83bdfd458c46dd9c623eb9	Bả viên
+3	33	1c7ace7ab23e45d598c8ae26	Brodifacoum
+4	33	3d99d4ac18e6463ea12badb6	Wax Block Bait
+5	33	079a53fe8c94470aabdfc79f	Syngenta
+6	33	639ad765dab44ed897417e31	1kg
+1	23	6915b69ff906465cb5e71f4e	Muỗi
+2	23	6f0a8fae13e64ccf9da975f9	Kiến
+3	23	553049605a284a9d8c6dea51	Gián
+4	23	d6c00731c0e643f3afe1e51a	Ruồi
+5	23	d4bbd0f1cd3841d4b8051c15	Bọ chét
+6	23	e5cb65aabf884b7cabc9f70e	Bọ ve
+7	23	25b6c59b22b3427ba986bbbb	Lambda-cyhalothrin
+8	23	01af44f0eebd4973ad7603da	Syngenta
+1	14	137a6495b36c43e5ad6da7a5	Gián Đức
+2	14	2b2990bb2f9048079e0139d8	Gián Mỹ
+3	14	bec75adc6c45447996748af8	Bả gel
+4	14	7bd35b809510488798cbae61	Imidacloprid
+5	14	d483edb8fc45491aa4f69c50	Envu
+1	28	a529d9cbe9d64175958ad7fb	Kiến
+2	28	6b951e4a6c234fd5a70d7506	Thiamethoxam
+1	46	760f53a6255340aa9309d7ea	Xua rắn
+2	46	85c482db7be746aaaa850e61	Xua thằn lằn
+3	46	0310d46d7fc44368848c2ef3	Dạng hạt
+4	46	6ac04053eeb94f8a9d8adf32	Tinh dầu tuyết tùng
+5	46	350a6f54181141e7ad5d15e5	Tinh dầu quế
+3	28	cee9f3ab55094e6183b5cf35	Bả kiến
+4	28	7c1de66b9a274184929a15d2	Lan truyền trong đàn
+5	28	6a5c03636d9c4198b71621fb	Syngenta
+1	15	676a1da105814803a2722a26	Kiến
+2	15	b4ba535de31e47baa81b38f8	Bả gel
+3	15	fe17cea40506472c9018f441	Imidacloprid
 1	45	e699db6535754568854dbb99	Muỗi
 2	45	66354222c373430c93a9b913	Ruồi
 3	45	66b1fc0e35b246c3a572779c	Gián
@@ -1837,18 +1756,80 @@ COPY public.products_tags (_order, _parent_id, id, value) FROM stdin;
 5	45	474a50f7b115413684701255	Cypermethrin
 6	45	21a693c714264d799e8f6050	25EC
 7	45	65fa961dc144416aa5de915f	Việt Nam
-1	46	760f53a6255340aa9309d7ea	Xua rắn
-2	46	85c482db7be746aaaa850e61	Xua thằn lằn
-3	46	0310d46d7fc44368848c2ef3	Dạng hạt
-4	46	6ac04053eeb94f8a9d8adf32	Tinh dầu tuyết tùng
-5	46	350a6f54181141e7ad5d15e5	Tinh dầu quế
+4	15	40fa942ca10a49d4921de0df	Tuýp 12g
+5	15	b7fef701f50f4bb59e2ccd3c	Envu
+1	27	3911bfe09c1d452cb03a218e	Muỗi
+2	27	23773fff26644440afb79105	Côn trùng
+3	27	9749f93c42e042278e78608c	Permethrin
+4	27	98e4bcc64c314381bafef704	50EC
+5	27	d17bea12ec33482c803749f3	Syngenta
+6	27	a31880868be94b6fa3cc173b	100ml
+1	25	1137b7b4a14c4c71ba98ed05	Côn trùng bay
+2	25	cb21582340e14a14a3a23be4	Côn trùng bò
+1	42	7bfeb983c22c4308a51db963	Gián
+2	42	51a3c0d69da04ce6bf7065ee	Bả gel
+3	42	306c60b3a80c4596916dde4c	Indoxacarb
+4	42	cba2d63dd17d4dcdbda26195	Ensystex
+3	25	cad72f670c2e4f80baf2d36c	Icon
+4	25	7c998fee96e04dcd9fe66bd5	Lambda-cyhalothrin
+5	25	772c42d41dbe4e34ae89f0ca	Syngenta
+1	39	e8e18f83e663410eaabf9e4d	Khói diệt côn trùng
+2	39	7df24afe56e5403cb2e8d0b3	Deltamethrin
+1	20	b5bca98d8f9e4917b315ffa8	Mối
+2	20	dfcb613b101c42d9862543f5	Fenvalerate
+3	20	3cd8b0ba5881471c88a0cc21	Phòng trừ mối
+4	20	5e0328aa68b84db6bb20a4e4	Công trình
+5	20	31f6c28870b8484ea90e7e3c	Sumitomo
+1	11	4893ba00c51540e08939305f	Deltamethrin
+2	11	96b7474f70044bf999744921	Phun tồn lưu
+3	11	3eae1a63bc9842369904fd9b	Công nghệ Partix
+4	11	a88c99c6956a4a9eac3fb3e5	Đa bề mặt
+5	11	6b2e3a3ac6d1425b8d7781aa	Envu
+3	39	218ff3053c9f4c059f4177f2	Khe hở
+4	39	a939f389039d4d9d9178b571	Khu vực khó tiếp cận
+5	39	c78a2c2c32094ca198994c5c	Ensystex
 6	46	0e8014b4e1cc4260bd7d021b	Ensystex
+1	18	9a68970621b04f33bc6173f3	Muỗi
+2	18	383dccc49375492ca5152c9a	Côn trùng
+3	18	f4a9c9cacae746cca7fb8a02	D-phenothrin
+4	18	f9bbdc349a87431db5f0005a	Tồn lưu
+5	18	693870a97bf1404690c2918e	Sumitomo
+1	17	9087f8eef3194adc99311de4	Muỗi
+2	17	ecae4bf817944aabb9a0c778	Ruồi
+3	17	6c4906dc8f60465cbf94fbb4	Phun không gian
+4	17	3c1872574e3e4e6db4cc83be	Phun mù nóng
+5	17	fe7fa36adbce4ce59187a57f	Sumitomo
+1	44	6309a8c85c574fc8845feefc	Muỗi
+2	44	d456219805a64849802ea0a9	Côn trùng
+3	44	2cd3f712cd364483b887a2e0	Permethrin
+4	44	579e985816164dbc8646715a	50EC
+5	44	d25ba9d600924e098fc493ac	Agropharm
+6	44	3311af2e651a47edbb7051ef	Anh Quốc
 1	47	82c0eb25378f4e479e39b3ed	Gián Đức
 2	47	62f90e79af074c7d86e50024	Gián Mỹ
 3	47	425b159714e442f1b0e112d1	Bả gel
 4	47	174408f3b6254df3aeabd839	Dinotefuran
 5	47	98cd72a1b95840d593553698	BASF
 6	47	8a5d6fd87bda4bf69dfdd74e	Lan truyền
+1	38	39b4a775ed8542f0bfdeb1aa	Mối
+2	38	d080774d7e3d43fab191a420	Bả mối
+3	38	f7fd5c0685bb41cba72ac78b	Chlorfluazuron
+4	38	043076c6a45042639c5a9d12	Dẫn dụ
+5	38	8c0502a3a791422ab6d10659	Ensystex
+1	13	002cda02e5604b82a62af0b4	Chuột
+2	13	931b27e5b58d4c6f8ae4af8c	Coumatetralyl
+3	13	dec502b8637341399ac14ae4	Dạng bột
+4	13	ed0fd5b1f0094a1e9432ba57	Bả chuột
+5	13	d46261ab53dc497a810f77e8	Quy cách 1kg
+6	13	d173573e75584787899e699b	Envu
+1	16	df33e918d0da4041976f6233	Muỗi
+2	16	19fc8ca184a7478bb82472d2	Ruồi
+3	16	227c0696eb934a4e93282088	Kiến
+4	16	c09cee571d304e1cbbfdd651	Gián
+5	16	30bdbfbe86f5491988d0b427	Cyphenothrin
+6	16	3c02fa5889f34074b9fe4bab	Gia dụng
+7	16	6720c631da7d470c8f299cb7	Y tế
+8	16	6fa54170aa8d4bae8bd18a75	Sumitomo
 \.
 
 
@@ -1862,8 +1843,8 @@ COPY public.services (id, slug, name, tagline, description, icon_key, image_id, 
 1	diet-moi-tan-goc	Diệt Mối Tận Gốc	Bảo vệ công trình bền vững	Hệ thống bả mối Xterm và phun phòng chống mối cho công trình mới, công trình hiện hữu, kho hàng và đồ gỗ nội thất.	Hammer	42	2026-07-03 16:04:09.711+07	2026-07-03 16:04:09.71+07
 2	diet-chuot	Diệt Chuột	Kiểm soát loài gặm nhấm	Giải pháp đặt bả, đặt bẫy và niêm phong điểm xâm nhập theo chuẩn IPM, an toàn cho người và thú nuôi.	Mouse	43	2026-07-03 16:04:11.939+07	2026-07-03 16:04:11.939+07
 3	diet-muoi	Diệt Muỗi	Phun ULV – tồn lưu chuyên nghiệp	Phun không gian, phun tồn lưu và xử lý nguồn nước tù đọng, áp dụng cho khu dân cư, trường học, bệnh viện và resort.	Sparkles	44	2026-07-03 16:04:13.89+07	2026-07-03 16:04:13.89+07
-4	ve-sinh-cong-nghiep	Vệ Sinh Công Nghiệp	Sạch sâu cho nhà máy & cao ốc	Tổng vệ sinh sau xây dựng, lau kính nhà cao tầng, giặt ghế sofa thảm và bảo dưỡng định kỳ tòa nhà.	SprayCan	45	2026-07-03 16:04:15.813+07	2026-07-03 16:04:15.813+07
-5	diet-gian-con-trung	Diệt Gián & Côn Trùng	Kiểm soát côn trùng tổng thể	Đặt gel, phun tồn lưu và xử lý ổ cho gián, kiến, ruồi, bọ chét trong nhà hàng, khách sạn và hộ gia đình.	Bug	46	2026-07-03 16:04:17.933+07	2026-07-03 16:04:17.933+07
+5	diet-gian-con-trung	Diệt Gián & Côn Trùng	Kiểm soát côn trùng tổng thể	Đặt gel, phun tồn lưu và xử lý ổ cho gián, kiến, ruồi, bọ chét trong nhà hàng, khách sạn và hộ gia đình.	Bug	145	2026-07-06 13:41:57.644+07	2026-07-03 16:04:17.933+07
+4	ve-sinh-cong-nghiep	Vệ Sinh Công Nghiệp	Sạch sâu cho nhà máy & cao ốc	Tổng vệ sinh sau xây dựng, lau kính nhà cao tầng, giặt ghế sofa thảm và bảo dưỡng định kỳ tòa nhà.	SprayCan	146	2026-07-06 13:42:01.9+07	2026-07-03 16:04:15.813+07
 \.
 
 
@@ -1885,7 +1866,7 @@ COPY public.users (id, name, updated_at, created_at, email, reset_password_token
 --
 
 COPY public.users_sessions (_order, _parent_id, id, created_at, expires_at) FROM stdin;
-1	1	93ff3b0a-ceeb-4d54-97a4-ce98f42e4524	2026-07-04 14:52:47.363+07	2026-07-04 16:52:47.363+07
+1	1	f308f0d0-23e5-42e7-85e4-adc1554519d6	2026-07-06 11:26:44.427+07	2026-07-06 13:26:44.427+07
 \.
 
 
@@ -1931,7 +1912,7 @@ SELECT pg_catalog.setval('public.leads_id_seq', 2, true);
 -- Name: media_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.media_id_seq', 132, true);
+SELECT pg_catalog.setval('public.media_id_seq', 146, true);
 
 
 --
@@ -1958,7 +1939,7 @@ SELECT pg_catalog.setval('public.payload_kv_id_seq', 1, false);
 -- Name: payload_locked_documents_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.payload_locked_documents_id_seq', 10, true);
+SELECT pg_catalog.setval('public.payload_locked_documents_id_seq', 44, true);
 
 
 --
@@ -1967,7 +1948,7 @@ SELECT pg_catalog.setval('public.payload_locked_documents_id_seq', 10, true);
 -- Name: payload_locked_documents_rels_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.payload_locked_documents_rels_id_seq', 20, true);
+SELECT pg_catalog.setval('public.payload_locked_documents_rels_id_seq', 88, true);
 
 
 --
@@ -1994,7 +1975,7 @@ SELECT pg_catalog.setval('public.payload_preferences_id_seq', 10, true);
 -- Name: payload_preferences_rels_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.payload_preferences_rels_id_seq', 21, true);
+SELECT pg_catalog.setval('public.payload_preferences_rels_id_seq', 22, true);
 
 
 --
@@ -2012,7 +1993,7 @@ SELECT pg_catalog.setval('public.products_id_seq', 47, true);
 -- Name: products_rels_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.products_rels_id_seq', 18, true);
+SELECT pg_catalog.setval('public.products_rels_id_seq', 92, true);
 
 
 --
@@ -3016,11 +2997,11 @@ ALTER TABLE ONLY public.users_sessions
     ADD CONSTRAINT users_sessions_parent_id_fk FOREIGN KEY (_parent_id) REFERENCES public.users(id) ON DELETE CASCADE;
 
 
--- Completed on 2026-07-04 16:07:11
+-- Completed on 2026-07-06 13:46:12
 
 --
 -- PostgreSQL database dump complete
 --
 
-\unrestrict kHrZUA7K122loB2QaYpfqEN1X36ZNih7Z7yC6wEIDnvHfgxk7kWXQB9rWylOeDY
+\unrestrict LR0IcvSaLuLEedBcs2nY35SQuebHRe0V7gAcb0C1EQWEbGZkH1Epvm3a3HRuQEv
 

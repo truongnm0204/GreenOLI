@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { CheckCircle2 } from "lucide-react";
 import { MotionWrapper } from "@/components/ui/motion-wrapper";
-import { AnimatedText } from "@/components/motion/animated-text";
+import { SectionHeader } from "@/components/ui/section-header";
 import { motion, type Variants } from "framer-motion";
 
 const HIGHLIGHTS = [
@@ -60,15 +60,12 @@ export function IntroSection() {
         </MotionWrapper>
         
         <div className="lg:col-span-7 space-y-6">
-          <MotionWrapper delay={0.2} direction="up">
-            <p className="text-primary-dark font-bold text-sm uppercase tracking-widest">
-              Về Oli Xanh
-            </p>
-          </MotionWrapper>
-          
-          <h2 className="font-bold text-3xl md:text-4xl lg:text-5xl text-text-primary leading-tight">
-            <AnimatedText text="Đối tác hóa chất y tế đáng tin cậy của 500+ doanh nghiệp Việt" delay={0.3} />
-          </h2>
+          <SectionHeader 
+            eyebrow="Về Oli Xanh" 
+            title="Đối tác hóa chất y tế đáng tin cậy của 500+ doanh nghiệp Việt"
+            align="left"
+            className="mb-6 md:mb-8"
+          />
           
           <MotionWrapper delay={0.5} direction="up">
             <p className="text-text-muted text-lg leading-relaxed font-medium">
