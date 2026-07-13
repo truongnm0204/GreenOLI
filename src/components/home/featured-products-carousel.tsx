@@ -104,7 +104,7 @@ export function FeaturedProductsCarousel({ products }: FeaturedProductsCarouselP
           </button>
           
           <Button
-            href={`/cua-hang/${activeProduct?.slug}`}
+            href={`/san-pham/${activeProduct?.slug}`}
             className="bg-secondary hover:bg-secondary-strong text-white rounded-full px-8 py-6 text-base font-bold shadow-lg shadow-secondary/30 transition-all hover:-translate-y-1"
           >
             XEM THÊM
