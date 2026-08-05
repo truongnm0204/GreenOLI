@@ -19,11 +19,12 @@ export function ContactHeroSection({
   return (
     <section
       className={cn(
-        "relative overflow-hidden bg-surface-lowest",
-        "py-16 lg:py-24",
+        "relative overflow-hidden py-16 lg:py-24 border-b border-primary/20",
         className,
       )}
+      style={{ background: "linear-gradient(135deg, #e8f5c8 0%, #f0fadf 30%, #f7faf2 60%, #eaf6d5 100%)" }}
     >
+      <div className="absolute inset-0 botanical-leaf-pattern opacity-80 pointer-events-none z-0" />
       {/* Dynamic Background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute -top-1/2 -right-1/4 w-[100%] h-[150%] bg-gradient-to-bl from-primary/10 to-transparent rounded-full blur-3xl opacity-60 animate-pulse-ring" />

@@ -17,8 +17,8 @@ export function HighlightBanner() {
         priority
       />
       
-      {/* Overlay to ensure text readability */}
-      <div className="absolute inset-0 bg-white/40 backdrop-blur-[2px] z-0" />
+      {/* Overlay — giảm trắng, thêm tint xanh lá nhẹ */}
+      <div className="absolute inset-0 z-0" style={{ background: "linear-gradient(135deg, rgba(232,245,200,0.55) 0%, rgba(255,255,255,0.25) 50%, rgba(234,246,213,0.45) 100%)" }} />
       
       {/* Container */}
       <div className="relative z-10 w-full container-page px-4 py-12 flex flex-col items-center justify-center">

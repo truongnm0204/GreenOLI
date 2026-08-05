@@ -9,8 +9,9 @@ export async function NewsHighlight() {
   const all = await getAllArticles();
   const items = all.slice(0, 3);
   return (
-    <section className="bg-surface-light py-16 md:py-24 relative overflow-hidden">
+    <section className="py-16 md:py-24 relative overflow-hidden" style={{ background: "linear-gradient(180deg, #eaf6d5 0%, #f3fbe6 50%, #f7faf2 100%)" }}>
       <div className="bg-blob bg-blob-secondary w-[400px] h-[400px] -bottom-20 -right-20 opacity-20" />
+      <div className="absolute -top-20 -left-20 w-[350px] h-[350px] bg-primary/20 rounded-full blur-[80px] pointer-events-none" />
       
       <div className="container-page relative z-10">
         <MotionWrapper

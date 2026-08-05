@@ -16,7 +16,7 @@ const PILLARS = [
   {
     icon: Target,
     title: "Sứ mệnh",
-    body: "Cung cấp các sản phẩm chất lượng cao, an toàn cho con người và môi trường vì một mục tiêu VN xanh",
+    body: "Cung cấp các sản phẩm chất lượng cao, an toàn cho con người và môi trường vì một mục tiêu Việt Nam xanh",
   },
   {
     icon: ShieldCheck,

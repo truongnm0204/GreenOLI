@@ -17,8 +17,9 @@ const IMAGE_MAP: Record<string, string> = {
 export async function EcosystemSection() {
   const services = await getAllServices();
   return (
-    <section className="container-page py-16 md:py-24 relative">
-      <div className="bg-blob bg-blob-secondary w-[500px] h-[500px] top-1/3 -left-40 opacity-20" />
+    <section className="py-16 md:py-24 relative overflow-hidden" style={{ background: "linear-gradient(180deg, #f7faf2 0%, #ffffff 100%)" }}>
+      <div className="container-page relative z-10">
+      <div className="bg-blob bg-blob-secondary w-[500px] h-[500px] top-1/3 -left-40 opacity-15" />
       
       <MotionWrapper delay={0.1} direction="up" className="max-w-3xl mx-auto text-center mb-12 relative z-10">
         <p className="text-primary-dark font-bold text-sm uppercase tracking-widest mb-4">
@@ -84,6 +85,7 @@ export async function EcosystemSection() {
             </MotionWrapper>
           );
         })}
+      </div>
       </div>
     </section>
   );

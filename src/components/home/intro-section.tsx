@@ -9,7 +9,7 @@ import { motion, type Variants } from "framer-motion";
 const HIGHLIGHTS = [
   "Hơn 10 năm phân phối hóa chất y tế tại Việt Nam",
   "Đại lý chính thức của Sumitomo, Bayer, Syngenta, BASF",
-  "Đội ngũ 50+ kỹ sư nông nghiệp và y tế dự phòng",
+  "Đội ngũ 50+ kỹ sư y tế dự phòng và kiểm soát côn trùng",
   "Cam kết 100% sản phẩm chính hãng, có CO/CQ và MSDS",
 ];
 
@@ -38,7 +38,10 @@ export function IntroSection() {
   };
 
   return (
-    <section className="container-page py-16 md:py-24">
+    <section className="py-16 md:py-24 relative overflow-hidden" style={{ background: "linear-gradient(180deg, #ffffff 0%, #f3fbe6 60%, #eaf6d5 100%)" }}>
+      {/* Botanical Leaf Watermark Pattern */}
+      <div className="absolute inset-0 botanical-leaf-pattern opacity-80 pointer-events-none" />
+      <div className="container-page relative z-10">
       <div className="grid gap-12 lg:grid-cols-12 items-center">
         <MotionWrapper delay={0.1} direction="left" className="lg:col-span-5">
           <motion.div 
@@ -69,9 +72,9 @@ export function IntroSection() {
           
           <MotionWrapper delay={0.5} direction="up">
             <p className="text-text-muted text-lg leading-relaxed font-medium">
-              Thành lập từ năm 2014, Oli Xanh đã đồng hành cùng hàng trăm hợp tác xã,
-              trang trại và đơn vị kiểm soát côn trùng trên cả nước. Chúng tôi tin
-              rằng nông nghiệp bền vững và sức khỏe cộng đồng phải đi cùng nhau.
+              Thành lập từ năm 2014, Oli Xanh đã đồng hành cùng hàng trăm cơ sở y tế,
+              doanh nghiệp và đơn vị kiểm soát côn trùng trên cả nước. Chúng tôi tin
+              rằng môi trường an toàn và sức khỏe cộng đồng phải đi cùng nhau.
             </p>
           </MotionWrapper>
           
@@ -91,6 +94,7 @@ export function IntroSection() {
               </motion.li>
             ))}
           </motion.ul>
+        </div>
         </div>
       </div>
     </section>

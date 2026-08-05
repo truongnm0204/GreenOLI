@@ -55,12 +55,12 @@ export function SiteHeader({ categories, brands }: { categories: NavCategory[], 
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-surface-container-lowest/95 backdrop-blur shadow-ambient"
-          : "bg-surface-container-lowest/80 backdrop-blur-sm",
+          ? "bg-white/95 backdrop-blur shadow-ambient border-b-2 border-primary/30"
+          : "bg-white/85 backdrop-blur-sm border-b border-primary/20",
       )}
     >
       {/* Utility strip */}
-      <div className="hidden lg:block border-b border-border-soft/60">
+      <div className="hidden lg:block border-b border-primary/20 bg-primary/8">
         <div className="container-page flex h-9 items-center justify-between text-xs text-text-muted">
           <div className="flex items-center gap-5">
             <a

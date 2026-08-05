@@ -20,8 +20,8 @@
   --color-tertiary: #5c5f5a;
 
   /* Surfaces */
-  --color-surface: #faf9ff;
-  --color-surface-light: #f7faf2;
+  --color-surface: #f4f9ec;
+  --color-surface-light: #edf6df;
   --color-surface-container-lowest: #ffffff;
   --color-surface-container-low: #f1f3ff;
   --color-surface-container: #e9edfe;
@@ -219,6 +219,14 @@ body {
     transparent 0
   );
   background-size: 28px 28px;
+}
+
+/* Botanical Leaf Texture Watermark (Họa tiết chìm hình lá cây thiên nhiên) */
+.botanical-leaf-pattern {
+  background-image: 
+    radial-gradient(circle at 2px 2px, rgba(128, 188, 0, 0.12) 1.5px, transparent 0),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cpath d='M20 40 C40 10 70 20 90 40 C70 80 40 100 20 40 Z M20 40 Q55 50 90 40' fill='none' stroke='rgba(128, 188, 0, 0.08)' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-size: 36px 36px, 140px 140px;
 }
 
 /* Ambient lift used on premium cards */

@@ -9,6 +9,7 @@ import { MotionWrapper } from "@/components/ui/motion-wrapper";
 import * as React from "react";
 import { AnimatedBackground } from "@/components/ui/animated-background";
 import { AnimatedText } from "@/components/motion/animated-text";
+import { AnimatedCounter } from "@/components/ui/animated-counter";
 
 const HERO_IMAGES = [
   "/hero_product_1.png",
@@ -27,9 +28,11 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section id="giai-phap" className="relative overflow-hidden bg-surface-lowest">
+    <section id="giai-phap" className="relative overflow-hidden" style={{ background: "linear-gradient(135deg, #e8f5c8 0%, #f0fadf 30%, #f7faf2 60%, #eaf6d5 100%)" }}>
       {/* Dynamic Animated Background */}
       <AnimatedBackground />
+      {/* Botanical Leaf Watermark Pattern */}
+      <div className="absolute inset-0 botanical-leaf-pattern opacity-80 pointer-events-none z-0" />
 
       <div className="container-page relative z-10 py-20 md:py-28 lg:py-32 grid items-center gap-10 lg:grid-cols-12">
         <div className="lg:col-span-7 space-y-6">
@@ -79,14 +82,14 @@ export function HeroSection() {
 
           <ul className="grid grid-cols-3 gap-6 pt-10 border-t border-border-soft/60 mt-4">
             {[
-              { value: "10+", label: "Năm kinh nghiệm" },
-              { value: "500+", label: "Khách hàng tin tưởng" },
-              { value: "100%", label: "Sản phẩm chính hãng" },
+              { val: 10, suffix: "+", label: "Năm kinh nghiệm" },
+              { val: 500, suffix: "+", label: "Khách hàng tin tưởng" },
+              { val: 100, suffix: "%", label: "Sản phẩm chính hãng" },
             ].map((stat, idx) => (
               <li key={stat.label}>
                 <MotionWrapper delay={1.2 + (idx * 0.15)} direction="up">
                   <p className="text-3xl md:text-4xl font-extrabold text-primary-dark tracking-tight">
-                    {stat.value}
+                    <AnimatedCounter value={stat.val} suffix={stat.suffix} duration={3.5} />
                   </p>
                   <p className="text-sm md:text-base text-text-muted mt-1 font-medium">
                     {stat.label}
@@ -161,7 +164,7 @@ export function HeroSection() {
         >
           <path
             d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,119.3,192.39,101.41C237.74,88.2,280.89,71.18,321.39,56.44Z"
-            className="fill-primary-dark"
+            className="fill-white"
           ></path>
         </svg>
       </div>

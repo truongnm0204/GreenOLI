@@ -2,6 +2,7 @@ import * as React from "react";
 import Image from "next/image";
 import { Breadcrumb, type BreadcrumbItem } from "@/components/ui/breadcrumb";
 import { cn } from "@/lib/cn";
+import { Sparkles } from "lucide-react";
 
 type ShopHeroProps = {
   title: string;
@@ -19,73 +20,46 @@ export function ShopHeroSection({
   return (
     <section
       className={cn(
-        "relative overflow-hidden bg-surface-lowest",
-        "py-16 lg:py-24",
+        "relative overflow-hidden py-20 lg:py-32 min-h-[460px] flex items-center border-b border-primary/20",
         className,
       )}
     >
-      {/* Background Banner with Parallax-like floating items */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden bg-gradient-to-r from-primary/10 to-surface-lowest">
-        <div className="absolute top-0 right-0 w-full h-full opacity-30 animate-pulse-ring mix-blend-multiply">
-          <Image 
-            src="https://picsum.photos/seed/shop-pattern/1920/1080"
-            alt="Mẫu nền nông nghiệp"
-            fill
-            className="object-cover"
-          />
-        </div>
-      </div>
+      {/* 1. Nền phòng thí nghiệm & sản xuất hóa chất y tế chính */}
+      <Image
+        src="/images/medical_banner_bg.png"
+        alt="Nền hóa chất y tế và kiểm soát dịch bệnh Oli Xanh"
+        fill
+        className="object-cover"
+        priority
+      />
 
-      <div className="container-page relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-          
-          {/* Left: Text */}
-          <div className="max-w-2xl">
-            {breadcrumb && breadcrumb.length > 0 ? (
-              <Breadcrumb items={breadcrumb} className="mb-6 animate-fade-in" />
-            ) : null}
-            
-            <h1
-              className="font-bold tracking-tight text-text-primary text-4xl md:text-5xl lg:text-6xl animate-fade-up leading-tight"
-            >
-              {title}
-            </h1>
-            
-            <p
-              className="mt-6 text-lg md:text-xl text-text-muted leading-relaxed animate-fade-up"
-              style={{ animationDelay: "150ms" }}
-            >
-              {description}
-            </p>
-          </div>
+      {/* Overlay gradient dịu nhẹ bảo đảm tương phản chữ tuyệt đối */}
+      <div className="absolute inset-0 bg-gradient-to-r from-surface-light/98 via-surface-light/90 to-surface-light/50 z-0" />
+      <div className="absolute inset-0 botanical-leaf-pattern opacity-60 pointer-events-none z-0" />
 
-          {/* Right: Dynamic Product Floating Showcase */}
-          <div className="relative hidden lg:block h-[350px] w-full animate-fade-in" style={{ animationDelay: "300ms" }}>
-            
-            <div className="absolute top-[20px] left-[10%] w-[45%] h-[250px] rounded-2xl overflow-hidden shadow-ambient-lg animate-float" style={{ animationDelay: "0.5s" }}>
-              <Image 
-                src="https://picsum.photos/seed/fertilizer/600/600" 
-                alt="Phân bón nổi bật" 
-                fill 
-                className="object-cover hover:scale-110 transition-transform duration-700"
-              />
-            </div>
+      <div className="container-page relative z-10 w-full">
+        <div className="max-w-4xl space-y-6">
+          {breadcrumb && breadcrumb.length > 0 ? (
+            <Breadcrumb items={breadcrumb} className="mb-4 animate-fade-in" />
+          ) : null}
 
-            <div className="absolute bottom-[20px] right-[10%] w-[50%] h-[280px] rounded-2xl overflow-hidden shadow-ambient-xl animate-float-reverse" style={{ animationDelay: "1.5s", zIndex: 10 }}>
-              <Image 
-                src="https://picsum.photos/seed/pesticide/600/600" 
-                alt="Chế phẩm sinh học" 
-                fill 
-                className="object-cover hover:scale-110 transition-transform duration-700"
-              />
-              {/* Hot tag */}
-              <div className="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg animate-bounce">
-                HOT
-              </div>
-            </div>
-            
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary-dark text-xs font-bold shadow-sm">
+            <Sparkles className="size-3.5 text-primary" />
+            <span>Hóa chất Y tế & Chế phẩm Diệt côn trùng Chính hãng</span>
           </div>
           
+          <h1
+            className="font-extrabold tracking-tight text-text-primary text-4xl md:text-5xl lg:text-6xl animate-fade-up leading-[1.2]"
+          >
+            {title}
+          </h1>
+          
+          <p
+            className="text-lg md:text-xl text-text-muted leading-relaxed animate-fade-up font-medium max-w-3xl"
+            style={{ animationDelay: "150ms" }}
+          >
+            {description}
+          </p>
         </div>
       </div>
     </section>

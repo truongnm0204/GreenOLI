@@ -8,7 +8,8 @@ import { getAllCategories } from "@/data/categories";
 export async function CategoryShowcase() {
   const categories = await getAllCategories();
   return (
-    <section className="relative bg-surface-container-low py-16 md:py-20 overflow-hidden">
+    <section className="relative py-16 md:py-20 overflow-hidden" style={{ background: "linear-gradient(135deg, #f0fadf 0%, #eaf6d5 50%, #f7faf2 100%)" }}>
+      <div className="absolute inset-0 botanical-leaf-pattern opacity-70 pointer-events-none" />
       <div className="bg-blob bg-blob-secondary w-[400px] h-[400px] top-20 -right-20 opacity-30" />
       
       <div className="container-page relative z-10">
@@ -19,7 +20,7 @@ export async function CategoryShowcase() {
           <div className="max-w-2xl">
             <SectionHeader 
               eyebrow="Danh mục sản phẩm" 
-              title="8 danh mục chuyên biệt cho nông nghiệp & y tế"
+              title="8 danh mục sản phẩm y tế chuyên biệt"
               align="left"
               className="mb-0 md:mb-0" // override default margin
             />

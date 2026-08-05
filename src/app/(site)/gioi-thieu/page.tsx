@@ -128,7 +128,7 @@ export default function AboutPage() {
                 </span>
                 <h3 className="font-bold text-2xl">Sứ mệnh</h3>
                 <p className="text-text-muted text-lg leading-relaxed font-medium">
-                  Cung cấp các sản phẩm chất lượng cao, an toàn cho con người và môi trường vì một mục tiêu VN xanh
+                  Cung cấp các sản phẩm chất lượng cao, an toàn cho con người và môi trường vì một mục tiêu Việt Nam xanh
                 </p>
               </Card>
             </MotionWrapper>

@@ -25,8 +25,8 @@ export default function HomePage() {
     <>
       <HighlightBanner />
       <HeroSection />
-      <FeaturedProductsSection />
       <IntroSection />
+      <FeaturedProductsSection />
       <VisionMissionSection />
       <CategoryShowcase />
       <PartnersMarquee />

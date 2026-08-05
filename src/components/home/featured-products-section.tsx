@@ -10,10 +10,10 @@ export async function FeaturedProductsSection() {
   if (!featuredProducts.length) return null;
 
   return (
-    <section className="relative py-16 md:py-24 overflow-hidden bg-white">
+    <section className="relative py-16 md:py-24 overflow-hidden" style={{ background: "linear-gradient(135deg, #eaf6d5 0%, #f3fbe6 50%, #e8f5c8 100%)" }}>
       {/* Decorative background blobs */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-secondary/5 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/2 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/15 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary-dark/10 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/2 pointer-events-none" />
 
       <SectionHeader 
         eyebrow="SẢN PHẨM" 

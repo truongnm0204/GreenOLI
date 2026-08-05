@@ -19,11 +19,12 @@ export function PageHeader({
   return (
     <header
       className={cn(
-        "relative overflow-hidden bg-surface-light molecular-pattern",
-        "py-12 md:py-16",
+        "relative overflow-hidden py-12 md:py-16 border-b border-primary/20",
         className,
       )}
+      style={{ background: "linear-gradient(135deg, #e8f5c8 0%, #f0fadf 40%, #eaf6d5 100%)" }}
     >
+      <div className="absolute inset-0 botanical-leaf-pattern opacity-80 pointer-events-none z-0" />
       <div className="container-page">
         {breadcrumb && breadcrumb.length > 0 ? (
           <Breadcrumb items={breadcrumb} className="mb-6 animate-fade-in" />
