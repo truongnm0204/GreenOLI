@@ -21,15 +21,19 @@ export const mediaUrl = (media: unknown): string => {
   return "";
 };
 
-/** Chuyển /api/media/file/x → /media/x (static public/), giữ URL ngoài hoặc khác. */
+/**
+ * Chuyển URL media Payload → URL static (public/media, public/documents).
+ * Xử lý cả dạng tương đối (`/api/media/file/x`) lẫn tuyệt đối
+ * (`https://domain/api/media/file/x`) vì DB có thể lưu serverURL đầy đủ
+ * khi upload trên Vercel (vd `https://xxx.vercel.app/api/media/file/x`).
+ * URL ngoài (Cloudinary, http khác) giữ nguyên.
+ */
 const normalizeMediaUrl = (url: string): string => {
-  if (url.startsWith("/api/media/file/")) {
-    return `/media/${url.slice("/api/media/file/".length)}`;
-  }
-  if (url.startsWith("/api/documents/file/")) {
-    return `/documents/${url.slice("/api/documents/file/".length)}`;
-  }
-  return url;
+  const match = url.match(/\/api\/(media|documents)\/file\/(.+)$/);
+  if (!match) return url;
+  const collection = match[1] === "media" ? "media" : "documents";
+  const filename = match[2];
+  return `/${collection}/${filename}`;
 };
 
 /** Lấy mảng URL ảnh từ field upload hasMany (galleryImages). */
