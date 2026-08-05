@@ -6,9 +6,15 @@ import type { CollectionConfig } from "payload";
  */
 export const Users: CollectionConfig = {
   slug: "users",
+  labels: {
+    singular: "Tài khoản",
+    plural: "Tài khoản admin",
+  },
   auth: true,
   admin: {
+    group: "Hệ thống",
     useAsTitle: "email",
+    description: "Tài khoản đăng nhập trang quản trị.",
   },
   fields: [
     // email + password do `auth: true` tự thêm.

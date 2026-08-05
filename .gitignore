@@ -40,3 +40,14 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
  /plans
+
+# CMS local uploads (giữ .gitkeep, không commit binary)
+/public/media/*
+!/public/media/.gitkeep
+/public/documents/*
+!/public/documents/.gitkeep
+
+# Playwright MCP artifacts + dev logs
+.playwright-mcp/
+dev.log
+dev.err.log

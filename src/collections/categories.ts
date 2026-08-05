@@ -3,16 +3,22 @@ import { mediaUploadField } from "./fields/media-upload-field";
 
 /**
  * Collection categories: nhóm sản phẩm. Map 1-1 với type `Category` (src/types/category.ts).
- * heroImage là relationship tới media (Cloudinary). Public read cho site.
+ * heroImage là relationship tới media (local disk). Public read cho site.
  */
 export const Categories: CollectionConfig = {
   slug: "categories",
+  labels: {
+    singular: "Danh mục",
+    plural: "Danh mục sản phẩm",
+  },
   access: {
     read: () => true,
   },
   admin: {
+    group: "Sản phẩm",
     useAsTitle: "name",
     defaultColumns: ["name", "slug", "tagline"],
+    description: "Nhóm sản phẩm hiển thị trên cửa hàng.",
   },
   fields: [
     {

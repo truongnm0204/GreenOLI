@@ -18,6 +18,8 @@ const eslintConfig = [
       "out/**",
       "build/**",
       "next-env.d.ts",
+      // CommonJS helper scripts (require hợp lệ trong .cjs)
+      "scripts/*.cjs",
     ],
   },
 ];

@@ -1,6 +1,8 @@
 import { Users } from "./users";
 import { Media } from "./media";
+import { Documents } from "./documents";
 import { Categories } from "./categories";
+import { PackagingUnits } from "./packaging-units";
 import { Products } from "./products";
 import { Articles } from "./articles";
 import { Services } from "./services";
@@ -11,12 +13,14 @@ import { Brands } from "./brands";
 
 /**
  * Danh sách toàn bộ collections nạp vào Payload.
- * Thứ tự: auth/media trước, rồi nội dung, cuối là leads.
+ * Media = kho file ảnh/video local (ẩn menu). Không còn documents/attachments.
  */
 export const collections = [
   Users,
   Media,
+  Documents,
   Categories,
+  PackagingUnits,
   Products,
   Articles,
   Services,

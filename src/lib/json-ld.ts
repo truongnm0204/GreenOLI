@@ -65,7 +65,7 @@ export const productSchema = (product: Product) => ({
   "@type": "Product",
   name: product.name,
   description: product.shortDescription,
-  image: [product.heroImage, ...product.galleryImages],
+  image: [product.heroImage, ...product.galleryImages.map((g) => g.url)],
   category: product.category,
   brand: { "@type": "Brand", name: SITE_CONFIG.name },
   offers: {

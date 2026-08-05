@@ -334,3 +334,13 @@ body {
 .tinted-shadow-primary {
   box-shadow: 0 10px 40px -10px rgba(128, 188, 0, 0.3);
 }
+/* ---------------------------------------------------------------------------
+ * Chuẩn hóa font nội dung rich text (paste từ Word/trang web)
+ * Ngăn font lạ (Calibri, Times New Roman...) xâm nhập vào editor + prose.
+ * ------------------------------------------------------------------------- */
+.lexical-editor :is(p, h1, h2, h3, h4, h5, h6, li, blockquote, span),
+.ContentEditable__root :is(p, h1, h2, h3, h4, h5, h6, li, blockquote, span),
+.prose :is(p, h1, h2, h3, h4, h5, h6, li, blockquote, span) {
+  font-family: var(--font-be-vietnam-pro), system-ui, -apple-system, "Segoe UI",
+    Roboto, sans-serif !important;
+}

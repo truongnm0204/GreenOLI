@@ -19,10 +19,8 @@
     "@hookform/resolvers": "^5.4.0",
     "@payloadcms/db-postgres": "3.85.0",
     "@payloadcms/next": "3.85.0",
-    "@payloadcms/plugin-cloud-storage": "^3.85.0",
     "@payloadcms/richtext-lexical": "3.85.0",
     "@payloadcms/ui": "3.85.0",
-    "cloudinary": "^2.10.0",
     "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.42.2",
     "lucide-react": "^0.460.0",
@@ -32,6 +30,7 @@
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-hook-form": "^7.80.0",
+    "sharp": "^0.35.3",
     "xlsx": "^0.18.5",
     "zod": "^4.4.3"
   },

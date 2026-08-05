@@ -11,9 +11,9 @@ import { textToLexical } from "./lib/text-to-lexical.ts";
 
 /**
  * Seed dữ liệu tĩnh cũ vào Payload.
- * Thứ tự theo dependency: media (upload Cloudinary) → categories → products
+ * Thứ tự theo dependency: media (upload local) → categories → products
  * → articles → services → partners → gallery.
- * Ảnh: fetch từ URL picsum cũ → upload lên Cloudinary qua Payload (media collection).
+ * Ảnh: fetch từ URL picsum cũ → upload local qua Payload (media → public/media).
  * Idempotent: xóa sạch dữ liệu cũ trước khi seed lại.
  */
 
@@ -85,7 +85,8 @@ async function main() {
     const heroImage = await uploadImage(p.heroImage, p.name);
     const galleryImages: number[] = [];
     for (const g of p.galleryImages) {
-      galleryImages.push(await uploadImage(g, p.name));
+      const url = typeof g === "string" ? g : g.url;
+      galleryImages.push(await uploadImage(url, p.name));
     }
     const categoryId = categoryIdBySlug.get(p.category);
     if (!categoryId) throw new Error(`Không tìm thấy category: ${p.category}`);

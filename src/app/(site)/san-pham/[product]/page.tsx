@@ -1,15 +1,12 @@
 import Script from "next/script";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Phone, Mail, ShieldCheck } from "lucide-react";
 import { PageHeader } from "@/components/layout/page-header";
-import { ProductGallery } from "@/components/shop/product-gallery";
+import { ProductVariantPanel } from "@/components/shop/product-variant-panel";
 import { ProductSpecs } from "@/components/shop/product-specs";
+import { ProductDescription } from "@/components/shop/product-description";
 import { ProductCard } from "@/components/shop/product-card";
 import { FloatingCTA } from "@/components/shop/floating-cta";
-import { Button } from "@/components/ui/button";
-import { Chip } from "@/components/ui/chip";
-import { Card } from "@/components/ui/card";
 import { MotionWrapper } from "@/components/ui/motion-wrapper";
 import { AnimatedText } from "@/components/motion/animated-text";
 import {
@@ -53,7 +50,6 @@ export default async function ProductPage({
   if (!product) notFound();
   const category = await getCategoryBySlug(product.category);
   const related = await getRelatedProducts(product.slug);
-  const images = [product.heroImage, ...product.galleryImages];
 
   return (
     <>
@@ -68,79 +64,17 @@ export default async function ProductPage({
         ]}
       />
 
+      {/* Hero section — client island: gallery + variant chips + CTA */}
       <section className="py-16 md:py-24 relative overflow-hidden">
         <div className="bg-blob bg-blob-secondary w-[400px] h-[400px] top-0 -left-20 opacity-10" />
-        <div className="container-page grid gap-12 lg:grid-cols-12 relative z-10">
-          <MotionWrapper delay={0.1} direction="up" className="lg:col-span-6">
-            <div className="sticky top-28 z-10 shadow-ambient-lg rounded-3xl overflow-hidden hover-card-effect">
-              <ProductGallery images={images} alt={product.name} />
-            </div>
-          </MotionWrapper>
-          <div className="lg:col-span-6 space-y-8">
-            <MotionWrapper delay={0.2} direction="up" className="space-y-4">
-              {category ? (
-                <Chip variant="primary">{category.name}</Chip>
-              ) : null}
-              <h1 className="font-bold text-3xl md:text-4xl lg:text-5xl text-text-primary leading-tight">
-                <AnimatedText text={product.name} />
-              </h1>
-              <p className="text-text-muted text-lg md:text-xl leading-relaxed font-medium">
-                {product.longDescription}
-              </p>
-            </MotionWrapper>
-
-            <MotionWrapper delay={0.4} direction="up">
-              <Card padding="md" className="space-y-4 rounded-2xl shadow-ambient hover-card-effect border-none">
-                {product.specs.map((spec) => (
-                  <div
-                    key={spec.label}
-                    className="grid grid-cols-3 gap-4 text-base border-b border-border-soft/60 pb-4 last:border-0 last:pb-0"
-                  >
-                    <dt className="text-text-muted">{spec.label}</dt>
-                    <dd className="col-span-2 font-bold text-text-primary">
-                      {spec.value}
-                    </dd>
-                  </div>
-                ))}
-              </Card>
-            </MotionWrapper>
-
-            <MotionWrapper delay={0.5} direction="up" className="flex flex-wrap gap-4 pt-4">
-              <Button
-                href={`tel:${SITE_CONFIG.hotline.replace(/\s/g, "")}`}
-                size="lg"
-                className="h-14 px-8 text-base shadow-xl hover:-translate-y-1"
-              >
-                <Phone className="size-5" aria-hidden />
-                Gọi mua ngay
-              </Button>
-              <Button href="/lien-he" variant="outline" size="lg" className="h-14 px-8 text-base bg-white/50 backdrop-blur hover:-translate-y-1">
-                <Mail className="size-5" aria-hidden />
-                Yêu cầu báo giá
-              </Button>
-            </MotionWrapper>
-
-            <MotionWrapper delay={0.6} direction="up" className="flex items-start gap-4 rounded-2xl bg-surface-light p-6 border border-border-soft/60 shadow-inner hover-card-effect">
-              <ShieldCheck className="size-8 text-primary-dark flex-none mt-1" aria-hidden />
-              <p className="text-base text-text-muted leading-relaxed">
-                <span className="font-bold text-text-primary">Sản phẩm chính hãng</span> – có CO/CQ và MSDS đầy đủ. Đổi trả trong 7 ngày
-                nếu phát hiện lỗi từ nhà sản xuất.
-              </p>
-            </MotionWrapper>
-
-            {product.tags.length > 0 ? (
-              <MotionWrapper delay={0.7} direction="up" className="flex flex-wrap gap-2 pt-4">
-                {product.tags.map((t) => (
-                  <Chip key={t} variant="neutral" className="hover:bg-surface-container transition-colors">
-                    #{t}
-                  </Chip>
-                ))}
-              </MotionWrapper>
-            ) : null}
-          </div>
-        </div>
+        <ProductVariantPanel
+          product={product}
+          categoryName={category?.name}
+          categorySlug={category?.slug}
+        />
       </section>
 
+      {/* Thông số kỹ thuật & hướng dẫn — server component */}
       <section className="bg-surface-light py-16 md:py-24 relative overflow-hidden">
         <div className="bg-blob bg-blob-primary w-[500px] h-[500px] top-0 -right-40 opacity-10" />
         <div className="container-page space-y-10 relative z-10">
@@ -154,6 +88,20 @@ export default async function ProductPage({
           </MotionWrapper>
         </div>
       </section>
+
+      {/* Mô tả / bài giới thiệu sản phẩm — Lexical rich text */}
+      {product.description && (
+        <section className="container-page py-16 md:py-20">
+          <MotionWrapper delay={0.1} direction="up" className="mb-10">
+            <h2 className="font-bold text-3xl md:text-4xl text-text-primary">
+              <AnimatedText text="Mô tả sản phẩm" />
+            </h2>
+          </MotionWrapper>
+          <MotionWrapper delay={0.3} direction="up">
+            <ProductDescription content={product.description} />
+          </MotionWrapper>
+        </section>
+      )}
 
       {related.length > 0 ? (
         <section className="container-page py-16 md:py-24">
@@ -202,4 +150,3 @@ export default async function ProductPage({
     </>
   );
 }
-

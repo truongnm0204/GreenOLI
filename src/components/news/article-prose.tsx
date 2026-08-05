@@ -1,7 +1,11 @@
 import * as React from "react";
 import { RichText } from "@payloadcms/richtext-lexical/react";
+import type {
+  JSXConvertersFunction,
+} from "@payloadcms/richtext-lexical/react";
 import type { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
 import type { ArticleBody } from "@/types/article";
+import { embeddedUploadConverter } from "@/lib/embedded-upload-converter";
 
 type Props = {
   body: ArticleBody;
@@ -24,7 +28,16 @@ export function ArticleProse({ body }: Props) {
         [&_strong]:font-semibold [&_strong]:text-text-primary
         [&_a]:text-primary-dark [&_a]:underline"
     >
-      <RichText data={body as SerializedEditorState} />
+      <RichText
+        data={body as SerializedEditorState}
+        converters={jsxConverters}
+      />
     </div>
   );
 }
+
+// Tài liệu nhúng (PDF/Word) render iframe preview ngay trong bài viết
+const jsxConverters: JSXConvertersFunction = ({ defaultConverters }) => ({
+  ...defaultConverters,
+  upload: embeddedUploadConverter,
+});

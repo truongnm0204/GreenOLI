@@ -69,7 +69,9 @@ export interface Config {
   collections: {
     users: User;
     media: Media;
+    documents: Document;
     categories: Category;
+    'packaging-units': PackagingUnit;
     products: Product;
     articles: Article;
     services: Service;
@@ -86,7 +88,9 @@ export interface Config {
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    documents: DocumentsSelect<false> | DocumentsSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
+    'packaging-units': PackagingUnitsSelect<false> | PackagingUnitsSelect<true>;
     products: ProductsSelect<false> | ProductsSelect<true>;
     articles: ArticlesSelect<false> | ArticlesSelect<true>;
     services: ServicesSelect<false> | ServicesSelect<true>;
@@ -134,6 +138,8 @@ export interface UserAuthOperations {
   };
 }
 /**
+ * Tài khoản đăng nhập trang quản trị.
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
@@ -160,12 +166,51 @@ export interface User {
   collection: 'users';
 }
 /**
+ * Kho file ảnh/video local trên máy chủ (public/media). Ảnh tải trong form sản phẩm/bài viết sẽ lưu vào đây.
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media".
  */
 export interface Media {
   id: number;
+  /**
+   * Để trống khi tải lên — hệ thống tự lấy từ tên file.
+   */
   alt: string;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
+  sizes?: {
+    thumbnail?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+  };
+}
+/**
+ * Tải PDF/Word/Excel lên máy chủ (lưu local). Dùng cho tài liệu đính kèm sản phẩm.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "documents".
+ */
+export interface Document {
+  id: number;
+  /**
+   * Ví dụ: MSDS phiên bản 2024, Catalogue dòng sản phẩm làm sạch
+   */
+  description?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -179,6 +224,8 @@ export interface Media {
   focalY?: number | null;
 }
 /**
+ * Nhóm sản phẩm hiển thị trên cửa hàng.
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "categories".
  */
@@ -190,6 +237,9 @@ export interface Category {
   tagline: string;
   description: string;
   longDescription: string;
+  /**
+   * Kéo thả hoặc chọn ảnh/video mới. File lưu trên máy chủ. "Chọn file đã tải trên máy chủ" chỉ tái dùng file local, không phải Cloudinary. Nhớ Lưu thay đổi.
+   */
   heroImage: number | Media;
   /**
    * Tên icon lucide-react để render
@@ -199,6 +249,32 @@ export interface Category {
   createdAt: string;
 }
 /**
+ * Quản lý các đơn vị đóng gói sản phẩm (kg, lít, cái, bộ...). Tắt isActive thay vì xóa để không ảnh hưởng sản phẩm đang dùng.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "packaging-units".
+ */
+export interface PackagingUnit {
+  id: number;
+  /**
+   * Ví dụ: Kilogram, Lít, Cái, Bộ
+   */
+  name: string;
+  /**
+   * Viết thường, ví dụ: kg, lít, cái, bộ. Dùng để hiển thị trên chip và tự sinh label.
+   */
+  symbol: string;
+  sortOrder?: number | null;
+  /**
+   * Tắt để ẩn khỏi danh sách chọn khi tạo quy cách mới. Không xóa để bảo toàn sản phẩm cũ.
+   */
+  isActive?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Quản lý danh mục sản phẩm, ảnh, quy cách đóng gói và tài liệu đính kèm.
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "products".
  */
@@ -210,7 +286,13 @@ export interface Product {
   brand?: (number | null) | Brand;
   shortDescription: string;
   longDescription: string;
+  /**
+   * Kéo thả hoặc chọn ảnh/video mới. File lưu trên máy chủ. "Chọn file đã tải trên máy chủ" chỉ tái dùng file local, không phải Cloudinary. Nhớ Lưu thay đổi.
+   */
   heroImage: number | Media;
+  /**
+   * Kéo thả hoặc chọn ảnh/video mới. File lưu trên máy chủ. "Chọn file đã tải trên máy chủ" chỉ tái dùng file local, không phải Cloudinary. Nhớ Lưu thay đổi.
+   */
   galleryImages?: (number | Media)[] | null;
   specs?:
     | {
@@ -222,7 +304,31 @@ export interface Product {
   composition: string;
   usage: string;
   warning: string;
-  packaging: string;
+  /**
+   * Thêm từng quy cách. Nhãn hiển thị tự sinh nếu để trống. Ảnh riêng nếu để trống sẽ dùng ảnh hero.
+   */
+  packagingOptions?:
+    | {
+        /**
+         * Có thể để trống, ví dụ chỉ đơn vị "cái", "hộp". Hoặc nhập "1", "5", "25".
+         */
+        quantity?: number | null;
+        unit: number | PackagingUnit;
+        /**
+         * Để trống → tự tạo "5 kg", "20 lít". Hoặc nhập "Túi 5 kg", "Thùng 25 kg"
+         */
+        customLabel?: string | null;
+        /**
+         * Ảnh riêng cho quy cách này. Để trống → dùng ảnh đại diện sản phẩm.
+         */
+        variantImage?: (number | null) | Media;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Ghi chú ngắn nếu cần, ví dụ: 'Liên hệ để đặt số lượng lớn'
+   */
+  packaging?: string | null;
   certifications?:
     | {
         value: string;
@@ -235,10 +341,44 @@ export interface Product {
         id?: string | null;
       }[]
     | null;
+  /**
+   * Dán/soạn bài giới thiệu có sẵn tại đây (như Word): tiêu đề, đoạn văn, danh sách, chèn ảnh/video, gallery. Không cần làm lại từ đầu — tải ảnh minh họa trực tiếp trong editor.
+   */
+  description?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  /**
+   * Upload file PDF/Word cho mỗi tài liệu. Hiển thị thành danh sách tải xuống trên trang sản phẩm.
+   */
+  attachments?:
+    | {
+        type: 'msds' | 'catalogue' | 'manual' | 'technical' | 'other';
+        /**
+         * Ví dụ: "MSDS - Green Oli Degreaser 2024"
+         */
+        label: string;
+        file: number | Document;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }
 /**
+ * Thương hiệu / hãng sản xuất gắn với sản phẩm.
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "brands".
  */
@@ -248,11 +388,16 @@ export interface Brand {
   name: string;
   tagline?: string | null;
   description?: string | null;
+  /**
+   * Kéo thả hoặc chọn ảnh/video mới. File lưu trên máy chủ. "Chọn file đã tải trên máy chủ" chỉ tái dùng file local, không phải Cloudinary. Nhớ Lưu thay đổi.
+   */
   logo?: (number | null) | Media;
   updatedAt: string;
   createdAt: string;
 }
 /**
+ * Tin tức và bài viết hiển thị trên website.
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "articles".
  */
@@ -276,6 +421,9 @@ export interface Article {
     };
     [k: string]: unknown;
   };
+  /**
+   * Kéo thả hoặc chọn ảnh/video mới. File lưu trên máy chủ. "Chọn file đã tải trên máy chủ" chỉ tái dùng file local, không phải Cloudinary. Nhớ Lưu thay đổi.
+   */
   coverImage: number | Media;
   publishedAt: string;
   author: string;
@@ -291,6 +439,8 @@ export interface Article {
   createdAt: string;
 }
 /**
+ * Các dịch vụ công ty hiển thị trên website.
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "services".
  */
@@ -304,34 +454,49 @@ export interface Service {
    * Tên icon lucide-react để render
    */
   iconKey: string;
+  /**
+   * Kéo thả hoặc chọn ảnh/video mới. File lưu trên máy chủ. "Chọn file đã tải trên máy chủ" chỉ tái dùng file local, không phải Cloudinary. Nhớ Lưu thay đổi.
+   */
   image: number | Media;
   updatedAt: string;
   createdAt: string;
 }
 /**
+ * Logo và thông tin đối tác (banner trang chủ).
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "partners".
  */
 export interface Partner {
   id: number;
   name: string;
+  /**
+   * Kéo thả hoặc chọn ảnh/video mới. File lưu trên máy chủ. "Chọn file đã tải trên máy chủ" chỉ tái dùng file local, không phải Cloudinary. Nhớ Lưu thay đổi.
+   */
   logo: number | Media;
   url?: string | null;
   updatedAt: string;
   createdAt: string;
 }
 /**
+ * Ảnh hoạt động / gallery trang chủ (gắn file từ Ảnh & Video).
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "gallery".
  */
 export interface Gallery {
   id: number;
+  /**
+   * Kéo thả hoặc chọn ảnh/video mới. File lưu trên máy chủ. "Chọn file đã tải trên máy chủ" chỉ tái dùng file local, không phải Cloudinary. Nhớ Lưu thay đổi.
+   */
   image: number | Media;
   caption?: string | null;
   updatedAt: string;
   createdAt: string;
 }
 /**
+ * Form liên hệ từ website. Chỉ admin xem/sửa/xóa.
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "leads".
  */
@@ -379,8 +544,16 @@ export interface PayloadLockedDocument {
         value: number | Media;
       } | null)
     | ({
+        relationTo: 'documents';
+        value: number | Document;
+      } | null)
+    | ({
         relationTo: 'categories';
         value: number | Category;
+      } | null)
+    | ({
+        relationTo: 'packaging-units';
+        value: number | PackagingUnit;
       } | null)
     | ({
         relationTo: 'products';
@@ -492,6 +665,38 @@ export interface MediaSelect<T extends boolean = true> {
   height?: T;
   focalX?: T;
   focalY?: T;
+  sizes?:
+    | T
+    | {
+        thumbnail?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+      };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "documents_select".
+ */
+export interface DocumentsSelect<T extends boolean = true> {
+  description?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -506,6 +711,18 @@ export interface CategoriesSelect<T extends boolean = true> {
   longDescription?: T;
   heroImage?: T;
   iconKey?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "packaging-units_select".
+ */
+export interface PackagingUnitsSelect<T extends boolean = true> {
+  name?: T;
+  symbol?: T;
+  sortOrder?: T;
+  isActive?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -532,6 +749,15 @@ export interface ProductsSelect<T extends boolean = true> {
   composition?: T;
   usage?: T;
   warning?: T;
+  packagingOptions?:
+    | T
+    | {
+        quantity?: T;
+        unit?: T;
+        customLabel?: T;
+        variantImage?: T;
+        id?: T;
+      };
   packaging?: T;
   certifications?:
     | T
@@ -543,6 +769,15 @@ export interface ProductsSelect<T extends boolean = true> {
     | T
     | {
         value?: T;
+        id?: T;
+      };
+  description?: T;
+  attachments?:
+    | T
+    | {
+        type?: T;
+        label?: T;
+        file?: T;
         id?: T;
       };
   updatedAt?: T;

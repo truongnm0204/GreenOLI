@@ -7,12 +7,18 @@ import { mediaUploadField } from "./fields/media-upload-field";
  */
 export const Gallery: CollectionConfig = {
   slug: "gallery",
+  labels: {
+    singular: "Ảnh hoạt động",
+    plural: "Thư viện hoạt động",
+  },
   access: {
     read: () => true,
   },
   admin: {
+    group: "Nội dung",
     useAsTitle: "caption",
     defaultColumns: ["caption", "image"],
+    description: "Ảnh hoạt động / gallery trang chủ (gắn file từ Ảnh & Video).",
   },
   fields: [
     mediaUploadField({

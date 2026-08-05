@@ -1,11 +1,28 @@
-import type { Product } from "@/types/product";
+import type { GalleryItem, ProductSpec } from "@/types/product";
 
+/** Seed subset — không cần packagingOptions/attachments. */
+export type ProductSeed = {
+  slug: string;
+  name: string;
+  category: string;
+  shortDescription: string;
+  longDescription: string;
+  heroImage: string;
+  galleryImages: GalleryItem[];
+  specs: ProductSpec[];
+  composition: string;
+  usage: string;
+  warning: string;
+  packaging: string;
+  certifications: string[];
+  tags: string[];
+};
 /**
  * Product seeds extracted from the Stitch reference HTML
  * (homepage product carousel + danh-muc-hoa-chat-diet-con-trung page).
  * All copy is illustrative — replace with vendor data when CMS is wired.
  */
-export const PRODUCTS: Product[] = [
+export const PRODUCTS: ProductSeed[] = [
   {
     slug: "sumipro-ew",
     name: "Sumipro EW",
@@ -16,10 +33,10 @@ export const PRODUCTS: Product[] = [
       "Sumipro EW là chế phẩm hóa chất diệt côn trùng tiên tiến, sử dụng công nghệ nhũ tương trong nước (Emulsion in Water) để bảo đảm hiệu quả tối đa, an toàn cho người sử dụng và thân thiện với môi trường. Sản phẩm đặc trị muỗi, ruồi, gián, kiến và các loại côn trùng gây hại trong khu dân cư, bệnh viện, kho hàng và cơ sở chế biến thực phẩm.",
     heroImage: "https://picsum.photos/seed/sumipro-ew/1200/900",
     galleryImages: [
-      "https://picsum.photos/seed/sumipro-ew-1/1200/900",
-      "https://picsum.photos/seed/sumipro-ew-2/1200/900",
-      "https://picsum.photos/seed/sumipro-ew-3/1200/900",
-      "https://picsum.photos/seed/sumipro-ew-4/1200/900",
+      { url: "https://picsum.photos/seed/sumipro-ew-1/1200/900" },
+      { url: "https://picsum.photos/seed/sumipro-ew-2/1200/900" },
+      { url: "https://picsum.photos/seed/sumipro-ew-3/1200/900" },
+      { url: "https://picsum.photos/seed/sumipro-ew-4/1200/900" },
     ],
     specs: [
       { label: "Hoạt chất", value: "Permethrin 10% + Sumithrin 1%" },
@@ -52,9 +69,9 @@ export const PRODUCTS: Product[] = [
       "Sumithrin 10SEC là sản phẩm chuyên dụng cho dịch vụ kiểm soát côn trùng, hiệu lực nhanh trên muỗi truyền sốt xuất huyết, ruồi nhà và gián Đức. Công thức SEC bám tốt trên bề mặt xốp.",
     heroImage: "https://picsum.photos/seed/sumithrin/1200/900",
     galleryImages: [
-      "https://picsum.photos/seed/sumithrin-1/1200/900",
-      "https://picsum.photos/seed/sumithrin-2/1200/900",
-      "https://picsum.photos/seed/sumithrin-3/1200/900",
+      { url: "https://picsum.photos/seed/sumithrin-1/1200/900" },
+      { url: "https://picsum.photos/seed/sumithrin-2/1200/900" },
+      { url: "https://picsum.photos/seed/sumithrin-3/1200/900" },
     ],
     specs: [
       { label: "Hoạt chất", value: "Sumithrin (d-Phenothrin) 10%" },
@@ -81,8 +98,8 @@ export const PRODUCTS: Product[] = [
       "Pesguard FG 161 phối hợp 2 hoạt chất Pyrethroid mang lại hiệu quả knock-down nhanh và lưu dẫn lâu, được khuyến nghị bởi WHO cho chương trình kiểm soát côn trùng đô thị.",
     heroImage: "https://picsum.photos/seed/pesguard/1200/900",
     galleryImages: [
-      "https://picsum.photos/seed/pesguard-1/1200/900",
-      "https://picsum.photos/seed/pesguard-2/1200/900",
+      { url: "https://picsum.photos/seed/pesguard-1/1200/900" },
+      { url: "https://picsum.photos/seed/pesguard-2/1200/900" },
     ],
     specs: [
       { label: "Hoạt chất", value: "Permethrin 13% + d-Tetramethrin 3.3%" },
@@ -107,8 +124,8 @@ export const PRODUCTS: Product[] = [
       "Map Permethrin 50EC là dung dịch nhũ dầu nồng độ Permethrin 50%, lý tưởng cho ứng dụng phun tồn lưu trên bề mặt khô (tường, sàn, vách kho) trong các chương trình kiểm soát véc-tơ truyền bệnh.",
     heroImage: "https://picsum.photos/seed/permethrin/1200/900",
     galleryImages: [
-      "https://picsum.photos/seed/permethrin-1/1200/900",
-      "https://picsum.photos/seed/permethrin-2/1200/900",
+      { url: "https://picsum.photos/seed/permethrin-1/1200/900" },
+      { url: "https://picsum.photos/seed/permethrin-2/1200/900" },
     ],
     specs: [
       { label: "Hoạt chất", value: "Permethrin 50%" },
@@ -134,8 +151,8 @@ export const PRODUCTS: Product[] = [
       "Sumipro Solution là phiên bản pha sẵn của dòng Sumipro, đóng chai xịt tay tiện lợi cho hộ gia đình, văn phòng và quán cà phê. An toàn cho trẻ em và thú cưng sau khi phun 30 phút.",
     heroImage: "https://picsum.photos/seed/sumipro-sol/1200/900",
     galleryImages: [
-      "https://picsum.photos/seed/sumipro-sol-1/1200/900",
-      "https://picsum.photos/seed/sumipro-sol-2/1200/900",
+      { url: "https://picsum.photos/seed/sumipro-sol-1/1200/900" },
+      { url: "https://picsum.photos/seed/sumipro-sol-2/1200/900" },
     ],
     specs: [
       { label: "Hoạt chất", value: "Permethrin 0.25% + Sumithrin 0.05%" },
@@ -159,8 +176,8 @@ export const PRODUCTS: Product[] = [
       "Sumithrin Extra bổ sung Piperonyl Butoxide (PBO) – chất hiệp đồng giúp ngăn cản chuyển hóa của côn trùng, qua đó tăng hiệu lực của hoạt chất Sumithrin lên gấp 2–3 lần.",
     heroImage: "https://picsum.photos/seed/sumithrin-x/1200/900",
     galleryImages: [
-      "https://picsum.photos/seed/sumithrin-x-1/1200/900",
-      "https://picsum.photos/seed/sumithrin-x-2/1200/900",
+      { url: "https://picsum.photos/seed/sumithrin-x-1/1200/900" },
+      { url: "https://picsum.photos/seed/sumithrin-x-2/1200/900" },
     ],
     specs: [
       { label: "Hoạt chất", value: "Sumithrin 10% + PBO 10%" },
@@ -185,9 +202,9 @@ export const PRODUCTS: Product[] = [
       "Xterm là hệ thống trạm bả mối thế hệ mới sử dụng hoạt chất Hexaflumuron, có khả năng tiêu diệt cả tổ mối thay vì chỉ những con riêng lẻ. Lý tưởng cho công trình mới, biệt thự, kho hàng và di tích lịch sử.",
     heroImage: "https://picsum.photos/seed/xterm/1200/900",
     galleryImages: [
-      "https://picsum.photos/seed/xterm-1/1200/900",
-      "https://picsum.photos/seed/xterm-2/1200/900",
-      "https://picsum.photos/seed/xterm-3/1200/900",
+      { url: "https://picsum.photos/seed/xterm-1/1200/900" },
+      { url: "https://picsum.photos/seed/xterm-2/1200/900" },
+      { url: "https://picsum.photos/seed/xterm-3/1200/900" },
     ],
     specs: [
       { label: "Hoạt chất bả", value: "Hexaflumuron 0.5%" },

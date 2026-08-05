@@ -7,12 +7,18 @@ import { mediaUploadField } from "./fields/media-upload-field";
  */
 export const Partners: CollectionConfig = {
   slug: "partners",
+  labels: {
+    singular: "Đối tác",
+    plural: "Đối tác",
+  },
   access: {
     read: () => true,
   },
   admin: {
+    group: "Nội dung",
     useAsTitle: "name",
     defaultColumns: ["name", "url"],
+    description: "Logo và thông tin đối tác (banner trang chủ).",
   },
   fields: [
     { name: "name", type: "text", required: true, label: "Tên đối tác" },

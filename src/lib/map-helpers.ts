@@ -24,6 +24,28 @@ export const mediaUrls = (items: unknown[] | null | undefined): string[] => {
 };
 
 /**
+ * Lấy mảng GalleryItem (url + mimeType) từ field upload hasMany.
+ * Dùng cho gallery có thể chứa cả ảnh lẫn video.
+ */
+export const mediaItems = (
+  items: unknown[] | null | undefined,
+): Array<{ url: string; mimeType?: string }> => {
+  if (!Array.isArray(items)) return [];
+  const result: Array<{ url: string; mimeType?: string }> = [];
+  for (const item of items) {
+    const url = mediaUrl(item);
+    if (!url) continue;
+    const mimeType =
+      typeof item === "object" && item !== null
+        ? (item as { mimeType?: string | null }).mimeType ?? undefined
+        : undefined;
+    result.push({ url, mimeType });
+  }
+  return result;
+};
+
+
+/**
  * Payload array field lưu dạng [{ value: string, id }] → map về string[].
  * Dùng cho tags, certifications.
  */

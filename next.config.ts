@@ -5,12 +5,15 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       // Stitch placeholder seed images we use during UI phase.
-      // Swap these for the user's CDN once backend uploads are wired.
       { protocol: "https", hostname: "picsum.photos" },
       { protocol: "https", hostname: "fastly.picsum.photos" },
       { protocol: "https", hostname: "lh3.googleusercontent.com" },
-      // Cloudinary CDN — nơi Payload lưu ảnh media (phase 02+).
+      // Compat tạm: DB vẫn còn URL Cloudinary cũ (media.url).
+      // Upload mới đã local (/api/media/file/...). Xóa dòng này sau khi re-upload hết ảnh.
       { protocol: "https", hostname: "res.cloudinary.com" },
+      // Ảnh local served qua Payload API (serverURL + /api/media/file/...)
+      { protocol: "http", hostname: "localhost" },
+      { protocol: "http", hostname: "127.0.0.1" },
     ],
   },
   experimental: {

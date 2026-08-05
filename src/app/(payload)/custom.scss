@@ -1,1 +1,34 @@
-/* Tùy biến giao diện admin Payload (để trống, thêm sau nếu cần). */
+/* ============================================================
+ * Tùy biến giao diện admin Payload.
+ * Font Be Vietnam Pro được load qua next/font trong layout.tsx
+ * (biến --font-be-vietnam-pro).
+ * ============================================================ */
+
+/* Toàn bộ admin dùng font Be Vietnam Pro */
+body,
+.app,
+.app-header,
+.field-type label,
+.field-type input,
+.field-type textarea,
+.btn,
+.pill,
+.table,
+.select,
+.drawer__content,
+.modal__content,
+.rich-text-lexical__editor-wrap,
+.form > * {
+  font-family: var(--font-be-vietnam-pro) !important;
+}
+
+/* Editor rich text — nội dung mô tả sản phẩm / bài viết
+   Ép font Be Vietnam Pro thay cho Georgia/serif mặc định của Lexical,
+   đồng thời chặn font lạ (Calibri, Times New Roman...) lọt vào khi paste. */
+.ContentEditable__root,
+.ContentEditable__root :is(p, h1, h2, h3, h4, h5, h6, li, blockquote, span),
+.lexical-editor :is(p, h1, h2, h3, h4, h5, h6, li, blockquote, span) {
+  font-family: var(--font-be-vietnam-pro) !important;
+  font-size: 15px;
+  line-height: 1.7;
+}

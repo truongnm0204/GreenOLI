@@ -1,5 +1,5 @@
 import type { CollectionConfig } from "payload";
-import { lexicalEditor } from "@payloadcms/richtext-lexical";
+import { lexicalEditor, UploadFeature } from "@payloadcms/richtext-lexical";
 import { mediaUploadField } from "./fields/media-upload-field";
 
 /**
@@ -9,12 +9,18 @@ import { mediaUploadField } from "./fields/media-upload-field";
  */
 export const Articles: CollectionConfig = {
   slug: "articles",
+  labels: {
+    singular: "Bài viết",
+    plural: "Tin tức / Bài viết",
+  },
   access: {
     read: () => true,
   },
   admin: {
+    group: "Nội dung",
     useAsTitle: "title",
     defaultColumns: ["title", "slug", "category", "publishedAt"],
+    description: "Tin tức và bài viết hiển thị trên website.",
   },
   fields: [
     {
@@ -32,7 +38,19 @@ export const Articles: CollectionConfig = {
       type: "richText",
       required: true,
       label: "Nội dung",
-      editor: lexicalEditor(),
+      editor: lexicalEditor({
+        features: ({ defaultFeatures }) => [
+          ...defaultFeatures,
+          // Cho phép paste/chèn ảnh/video + tài liệu trực tiếp vào nội dung.
+          UploadFeature({
+            collections: {
+              media: { fields: [] },
+              documents: { fields: [] },
+            },
+            enabledCollections: ['media', 'documents'],
+          }),
+        ],
+      }),
     },
     mediaUploadField({
       name: "coverImage",

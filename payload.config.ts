@@ -3,24 +3,22 @@ import { fileURLToPath } from "url";
 
 import { postgresAdapter } from "@payloadcms/db-postgres";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
-import { cloudStoragePlugin } from "@payloadcms/plugin-cloud-storage";
+import { vi } from "@payloadcms/translations/languages/vi";
 import { buildConfig } from "payload";
+import sharp from "sharp";
 
 import { collections } from "./src/collections/index.ts";
-import { cloudinaryAdapter } from "./src/lib/cloudinary-adapter.ts";
+import { viAdminOverrides } from "./src/lib/payload-i18n-vi.ts";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
 /**
  * Cấu hình gốc Payload CMS.
- * - Collections nạp từ src/collections/index.ts (media, categories, products, articles,
- *   services, partners, gallery, leads, users).
- * - Media: upload lên Cloudinary qua cloudStoragePlugin + adapter custom.
- * - Postgres: DATABASE_URI. Với Neon dùng pooled connection string (PgBouncer đã gộp
- *   connection phía server), nên client pool max:10 an toàn cho cả serverless lẫn build.
- * - LƯU Ý: KHÔNG đặt max:1 — Next prerender/dev phát nhiều request đồng thời, 1 connection
- *   sẽ gây deadlock chờ nhau (timeout khi build static pages).
+ * - Collections: src/collections/index.ts
+ * - Media: upload local public/media (KHÔNG Cloudinary)
+ * - Admin i18n: tiếng Việt (fallback vi)
+ * - sharp: resize thumbnail
  */
 const POOL_MAX = Number(process.env.DB_POOL_MAX) || 10;
 
@@ -28,10 +26,26 @@ export default buildConfig({
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL,
   admin: {
     user: "users",
+    meta: {
+      titleSuffix: " — GreenOLI CMS",
+    },
+    components: {
+      // Nút Đăng xuất nằm trong menu cạnh avatar (góc phải header) —
+      // slot chuẩn của Payload, tránh nổi đè logo như khi dùng header
+      settingsMenu: ["/src/components/admin/logout-button#LogoutButton"],
+    },
+  },
+  i18n: {
+    fallbackLanguage: "vi",
+    supportedLanguages: { vi },
+    translations: {
+      vi: viAdminOverrides,
+    },
   },
   collections,
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
+  sharp,
   typescript: {
     outputFile: path.resolve(dirname, "src/payload-types.ts"),
   },
@@ -41,14 +55,4 @@ export default buildConfig({
       max: POOL_MAX,
     },
   }),
-  plugins: [
-    cloudStoragePlugin({
-      collections: {
-        media: {
-          adapter: cloudinaryAdapter(),
-          disablePayloadAccessControl: true,
-        },
-      },
-    }),
-  ],
 });

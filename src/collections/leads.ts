@@ -6,6 +6,10 @@ import type { CollectionConfig } from "payload";
  */
 export const Leads: CollectionConfig = {
   slug: "leads",
+  labels: {
+    singular: "Liên hệ",
+    plural: "Liên hệ (Leads)",
+  },
   access: {
     read: ({ req }) => Boolean(req.user),
     update: ({ req }) => Boolean(req.user),
@@ -13,8 +17,10 @@ export const Leads: CollectionConfig = {
     create: () => true,
   },
   admin: {
+    group: "Hệ thống",
     useAsTitle: "fullName",
     defaultColumns: ["fullName", "email", "phone", "subject", "status", "createdAt"],
+    description: "Form liên hệ từ website. Chỉ admin xem/sửa/xóa.",
   },
   fields: [
     { name: "fullName", type: "text", required: true, label: "Họ tên" },

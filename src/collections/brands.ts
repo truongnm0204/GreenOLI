@@ -6,12 +6,18 @@ import { mediaUploadField } from "./fields/media-upload-field";
  */
 export const Brands: CollectionConfig = {
   slug: "brands",
+  labels: {
+    singular: "Hãng sản xuất",
+    plural: "Hãng sản xuất",
+  },
   access: {
     read: () => true,
   },
   admin: {
+    group: "Sản phẩm",
     useAsTitle: "name",
     defaultColumns: ["name", "slug"],
+    description: "Thương hiệu / hãng sản xuất gắn với sản phẩm.",
   },
   fields: [
     {

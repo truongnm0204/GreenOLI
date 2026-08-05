@@ -3,16 +3,22 @@ import { mediaUploadField } from "./fields/media-upload-field";
 
 /**
  * Collection services: dịch vụ. Map 1-1 với type `Service` (src/types/service.ts).
- * image là relationship tới media (Cloudinary). Public read cho site.
+ * image là relationship tới media (local disk). Public read cho site.
  */
 export const Services: CollectionConfig = {
   slug: "services",
+  labels: {
+    singular: "Dịch vụ",
+    plural: "Dịch vụ",
+  },
   access: {
     read: () => true,
   },
   admin: {
+    group: "Nội dung",
     useAsTitle: "name",
     defaultColumns: ["name", "slug", "tagline"],
+    description: "Các dịch vụ công ty hiển thị trên website.",
   },
   fields: [
     {
