@@ -49,3 +49,8 @@ next-env.d.ts
 .playwright-mcp/
 dev.log
 dev.err.log
+
+# DB dumps (chứa dữ liệu nhạy cảm)
+neon_migration_dump.sql
+greenoli_db_export.sql
+oliDB.sql

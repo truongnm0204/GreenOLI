@@ -6,15 +6,30 @@
 /**
  * Lấy URL ảnh từ field media (relationship depth=1 trả object có .url).
  * Nhận unknown vì doc field từ Payload chưa được typed chặt; trả "" nếu chưa có ảnh.
+ *
+ * Với Vercel (deploy static): URL Payload trả về `/api/media/file/<filename>`
+ * là route API đọc disk — serverless không phục vụ được file đã commit.
+ * File thật nằm `public/media/<filename>` → đổi sang `/media/<filename>` (static).
  */
 export const mediaUrl = (media: unknown): string => {
   if (!media) return "";
-  if (typeof media === "string") return media;
+  if (typeof media === "string") return normalizeMediaUrl(media);
   if (typeof media === "number") return "";
   if (typeof media === "object" && "url" in media) {
-    return (media as { url?: string | null }).url ?? "";
+    return normalizeMediaUrl((media as { url?: string | null }).url ?? "");
   }
   return "";
+};
+
+/** Chuyển /api/media/file/x → /media/x (static public/), giữ URL ngoài hoặc khác. */
+const normalizeMediaUrl = (url: string): string => {
+  if (url.startsWith("/api/media/file/")) {
+    return `/media/${url.slice("/api/media/file/".length)}`;
+  }
+  if (url.startsWith("/api/documents/file/")) {
+    return `/documents/${url.slice("/api/documents/file/".length)}`;
+  }
+  return url;
 };
 
 /** Lấy mảng URL ảnh từ field upload hasMany (galleryImages). */

@@ -1,4 +1,5 @@
 import type { JSXConverter, SerializedLexicalNodeWithParent } from "@payloadcms/richtext-lexical/react";
+import { mediaUrl } from "@/lib/map-helpers";
 
 /**
  * Override converter "upload" dùng chung cho RichText:
@@ -27,7 +28,12 @@ export const embeddedUploadConverter: JSXConverter<SerializedLexicalNodeWithPare
   if (uploadNode.relationTo !== "documents") {
     return undefined;
   }
-  if (!value || typeof value !== "object" || !value.url) {
+  if (!value || typeof value !== "object") {
+    return undefined;
+  }
+  // Chuẩn hóa URL: /api/documents/file/x → /documents/x (static trên Vercel)
+  const url = mediaUrl(value);
+  if (!url) {
     return undefined;
   }
 
@@ -40,7 +46,7 @@ export const embeddedUploadConverter: JSXConverter<SerializedLexicalNodeWithPare
         </span>
       </div>
       <iframe
-        src={value.url}
+        src={url}
         title={value.filename ?? "Tài liệu"}
         className="h-[70vh] w-full rounded-b-xl border border-t-0 border-border-soft"
         loading="lazy"
