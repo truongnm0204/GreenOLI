@@ -3,7 +3,7 @@
 import * as React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { CheckCircle2, Send, AlertCircle } from "lucide-react";
+import { CheckCircle2, Send, AlertCircle, Loader2 } from "lucide-react";
 import { Input, Textarea } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ContactSchema, type ContactValues } from "@/lib/contact-schema";
@@ -102,9 +102,18 @@ export function ContactForm() {
         {...register("message")}
       />
 
-      <Button type="submit" disabled={isSubmitting} className="w-full sm:w-auto">
-        <Send className="size-4" aria-hidden />
-        {isSubmitting ? "Đang gửi..." : "Gửi yêu cầu"}
+      <Button type="submit" disabled={isSubmitting} className="w-full sm:w-auto font-bold">
+        {isSubmitting ? (
+          <>
+            <Loader2 className="size-4 animate-spin" aria-hidden />
+            Đang gửi thông tin...
+          </>
+        ) : (
+          <>
+            <Send className="size-4" aria-hidden />
+            Gửi yêu cầu
+          </>
+        )}
       </Button>
 
       {submitted ? (

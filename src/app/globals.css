@@ -352,3 +352,162 @@ body {
   font-family: var(--font-be-vietnam-pro), system-ui, -apple-system, "Segoe UI",
     Roboto, sans-serif !important;
 }
+
+/* ---------------------------------------------------------------------------
+ * Oli Green Molecular Precision Loader
+ * ------------------------------------------------------------------------- */
+.oli-loader {
+  --oli-green: #80bc00;
+  --oli-purple: #6d43c5;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  min-height: 100dvh;
+  background: radial-gradient(
+      circle at center,
+      rgba(128, 188, 0, 0.12),
+      transparent 40%
+    ),
+    linear-gradient(135deg, #ffffff 0%, #f4f9ec 100%);
+}
+
+.oli-loader__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+}
+
+.oli-loader__molecule {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 260px;
+  height: 150px;
+}
+
+.oli-loader__logo {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  padding: 14px 24px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 18px 50px rgba(109, 67, 197, 0.1), 0 4px 20px rgba(128, 188, 0, 0.12);
+  backdrop-filter: blur(10px);
+  animation: oli-logo-pulse 2s ease-in-out infinite;
+}
+
+.oli-loader__orbit {
+  position: absolute;
+  width: 235px;
+  height: 105px;
+  border: 1.5px solid rgba(128, 188, 0, 0.35);
+  border-radius: 50%;
+  animation: oli-orbit-rotate 3s linear infinite;
+}
+
+.oli-loader__orbit::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1.5px dashed rgba(109, 67, 197, 0.2);
+  border-radius: inherit;
+}
+
+.oli-loader__dot {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  background: var(--oli-green);
+  box-shadow: 0 0 12px rgba(128, 188, 0, 0.7);
+}
+
+.oli-loader__dot--one {
+  top: -6px;
+  left: 50%;
+}
+
+.oli-loader__dot--two {
+  right: 14px;
+  bottom: 6px;
+  background: var(--oli-purple);
+  box-shadow: 0 0 12px rgba(109, 67, 197, 0.7);
+}
+
+.oli-loader__dot--three {
+  bottom: 5px;
+  left: 20px;
+}
+
+.oli-loader__text {
+  margin: 0;
+  color: var(--color-primary-dark);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.oli-loader__progress {
+  position: relative;
+  overflow: hidden;
+  width: 180px;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(128, 188, 0, 0.15);
+}
+
+.oli-loader__progress span {
+  position: absolute;
+  inset-block: 0;
+  width: 45%;
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--oli-green),
+    var(--oli-purple),
+    transparent
+  );
+  animation: oli-progress 1.3s ease-in-out infinite;
+}
+
+@keyframes oli-orbit-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes oli-logo-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.95;
+  }
+  50% {
+    transform: scale(1.03);
+    opacity: 1;
+  }
+}
+
+@keyframes oli-progress {
+  from {
+    left: -50%;
+  }
+  to {
+    left: 105%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .oli-loader__orbit,
+  .oli-loader__logo,
+  .oli-loader__progress span {
+    animation: none;
+  }
+}
+
