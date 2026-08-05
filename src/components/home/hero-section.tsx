@@ -31,8 +31,8 @@ export function HeroSection() {
     <section id="giai-phap" className="relative overflow-hidden" style={{ background: "linear-gradient(135deg, #e8f5c8 0%, #f0fadf 30%, #f7faf2 60%, #eaf6d5 100%)" }}>
       {/* Dynamic Animated Background */}
       <AnimatedBackground />
-      {/* Botanical Leaf Watermark Pattern */}
-      <div className="absolute inset-0 botanical-leaf-pattern opacity-80 pointer-events-none z-0" />
+      {/* Botanical & Floral Leaf Watermark Pattern */}
+      <div className="absolute inset-0 floral-leaf-pattern opacity-90 pointer-events-none z-0" />
 
       <div className="container-page relative z-10 py-20 md:py-28 lg:py-32 grid items-center gap-10 lg:grid-cols-12">
         <div className="lg:col-span-7 space-y-6">

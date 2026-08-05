@@ -39,8 +39,8 @@ export function IntroSection() {
 
   return (
     <section className="py-16 md:py-24 relative overflow-hidden" style={{ background: "linear-gradient(180deg, #ffffff 0%, #f3fbe6 60%, #eaf6d5 100%)" }}>
-      {/* Botanical Leaf Watermark Pattern */}
-      <div className="absolute inset-0 botanical-leaf-pattern opacity-80 pointer-events-none" />
+      {/* Botanical & Floral Leaf Watermark Pattern */}
+      <div className="absolute inset-0 floral-leaf-pattern opacity-90 pointer-events-none" />
       <div className="container-page relative z-10">
       <div className="grid gap-12 lg:grid-cols-12 items-center">
         <MotionWrapper delay={0.1} direction="left" className="lg:col-span-5">

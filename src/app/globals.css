@@ -229,6 +229,14 @@ body {
   background-size: 36px 36px, 140px 140px;
 }
 
+/* Rich Floral & Leaf Vine Watermark Pattern (Họa tiết hoa hòe cây lá sinh động) */
+.floral-leaf-pattern {
+  background-image: 
+    radial-gradient(circle at 2px 2px, rgba(128, 188, 0, 0.18) 2px, transparent 0),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cg fill='none' stroke='rgba(128, 188, 0, 0.12)' stroke-width='1.5'%3E%3Cpath d='M20 40 C40 10 70 20 90 40 C70 80 40 100 20 40 Z'/%3E%3Cpath d='M100 120 C120 90 150 100 160 120 C140 160 110 170 100 120 Z'/%3E%3Ccircle cx='80' cy='80' r='9' stroke='rgba(109, 67, 197, 0.15)'/%3E%3Cpath d='M80 69 L80 59 M80 91 L80 101 M69 80 L59 80 M91 80 L101 80' stroke='rgba(109, 67, 197, 0.15)'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 40px 40px, 160px 160px;
+}
+
 /* Ambient lift used on premium cards */
 .shadow-ambient {
   box-shadow: var(--shadow-ambient);
