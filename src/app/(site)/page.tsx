@@ -20,6 +20,11 @@ export const metadata: Metadata = buildMetadata({
   path: "/",
 });
 
+// ISR thay SSG: build không cần DB, nội dung mới hiện sau tối đa 5 phút.
+// (Trang chủ gọi nhiều section async query Payload — nếu để SSG, Vercel build
+//  sẽ treo khi DB chưa reachable trong lúc "Generating static pages".)
+export const revalidate = 300;
+
 export default function HomePage() {
   return (
     <>

@@ -41,11 +41,9 @@ yarn-error.log*
 next-env.d.ts
  /plans
 
-# CMS local uploads (giữ .gitkeep, không commit binary)
-/public/media/*
-!/public/media/.gitkeep
-/public/documents/*
-!/public/documents/.gitkeep
+# CMS local uploads — KHÔNG ignore: deploy Vercel cần file ảnh làm static.
+# (Phương án A: commit binary để Vercel phục vụ /media, /documents.)
+# public/media và public/documents được commit.
 
 # Playwright MCP artifacts + dev logs
 .playwright-mcp/
