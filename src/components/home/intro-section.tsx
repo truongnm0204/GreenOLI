@@ -7,10 +7,10 @@ import { SectionHeader } from "@/components/ui/section-header";
 import { motion, type Variants } from "framer-motion";
 
 const HIGHLIGHTS = [
-  "Hơn 10 năm phân phối hóa chất y tế tại Việt Nam",
-  "Đại lý chính thức của Sumitomo, Bayer, Syngenta, BASF",
-  "Đội ngũ 50+ kỹ sư y tế dự phòng và kiểm soát côn trùng",
-  "Cam kết 100% sản phẩm chính hãng, có CO/CQ và MSDS",
+  "Phân phối hóa chất & thiết bị kiểm soát côn trùng, mối, chuột",
+  "Hợp tác cùng các thương hiệu quốc tế uy tín",
+  "Tư vấn giải pháp an toàn, hướng tới tiêu chuẩn ESG",
+  "Cam kết sản phẩm chính hãng, có tài liệu kỹ thuật / MSDS",
 ];
 
 export function IntroSection() {
@@ -53,7 +53,7 @@ export function IntroSection() {
           >
             <Image
               src="/intro_greenoli.png"
-              alt="Văn phòng Oli Xanh tại TP. Hồ Chí Minh"
+              alt="Hình ảnh hoạt động và giải pháp Oli Xanh"
               fill
               sizes="(max-width: 1024px) 100vw, 40vw"
               className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -65,16 +65,16 @@ export function IntroSection() {
         <div className="lg:col-span-7 space-y-6">
           <SectionHeader 
             eyebrow="Về Oli Xanh" 
-            title="Đối tác hóa chất y tế đáng tin cậy của 500+ doanh nghiệp Việt"
+            title="Đối tác kiểm soát côn trùng đáng tin cậy khu vực phía Bắc"
             align="left"
             className="mb-6 md:mb-8"
           />
           
           <MotionWrapper delay={0.5} direction="up">
             <p className="text-text-muted text-lg leading-relaxed font-medium">
-              Thành lập từ năm 2014, Oli Xanh đã đồng hành cùng hàng trăm cơ sở y tế,
-              doanh nghiệp và đơn vị kiểm soát côn trùng trên cả nước. Chúng tôi tin
-              rằng môi trường an toàn và sức khỏe cộng đồng phải đi cùng nhau.
+              Oli Xanh đồng hành cùng doanh nghiệp, nhà thầu và đơn vị dịch vụ trong
+              kiểm soát côn trùng, mối và chuột. Chúng tôi tin rằng hiệu quả kỹ thuật
+              phải đi cùng an toàn cho sức khỏe và môi trường.
             </p>
           </MotionWrapper>
           

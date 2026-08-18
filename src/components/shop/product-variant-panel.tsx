@@ -10,7 +10,7 @@ import { MotionWrapper } from "@/components/ui/motion-wrapper";
 import { AnimatedText } from "@/components/motion/animated-text";
 import { cn } from "@/lib/cn";
 import type { Product, PackagingOption, GalleryItem } from "@/types/product";
-import { SITE_CONFIG } from "@/data/site-config";
+import { primaryTelHref } from "@/data/site-config";
 
 type Props = {
   product: Product;
@@ -77,10 +77,16 @@ export function ProductVariantPanel({
     });
   }, [product.packagingOptions]);
 
-  // URL yêu cầu báo giá kèm thông tin variant đang chọn
-  const quoteHref = selectedOption
-    ? `/lien-he?product=${encodeURIComponent(product.slug)}&variant=${encodeURIComponent(selectedOption.id)}&qc=${encodeURIComponent(selectedOption.label)}`
-    : `/lien-he?product=${encodeURIComponent(product.slug)}`;
+  // URL yêu cầu báo giá kèm slug + tên SP + quy cách (form prefill)
+  const quoteParams = new URLSearchParams({
+    product: product.slug,
+    name: product.name,
+  });
+  if (selectedOption) {
+    quoteParams.set("variant", selectedOption.id);
+    quoteParams.set("qc", selectedOption.label);
+  }
+  const quoteHref = `/lien-he?${quoteParams.toString()}`;
 
   return (
     <div className="container-page grid gap-12 lg:grid-cols-12 relative z-10">
@@ -190,7 +196,7 @@ export function ProductVariantPanel({
         {/* CTA buttons */}
         <MotionWrapper delay={0.5} direction="up" className="flex flex-wrap gap-4 pt-4">
           <Button
-            href={`tel:${SITE_CONFIG.hotline.replace(/\s/g, "")}`}
+            href={primaryTelHref()}
             size="lg"
             className="h-14 px-8 text-base shadow-xl hover:-translate-y-1"
           >

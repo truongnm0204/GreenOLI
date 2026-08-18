@@ -12,9 +12,9 @@ import { breadcrumbSchema } from "@/lib/json-ld";
 export const revalidate = 300;
 
 export const metadata: Metadata = buildMetadata({
-  title: "Tin Tức – Kiến thức y tế dự phòng & kiểm soát côn trùng",
+  title: "Tin Tức – Kiến thức kiểm soát côn trùng & giải pháp xanh",
   description:
-    "Cập nhật những bài viết mới nhất về hóa chất y tế, kiểm soát côn trùng và xu hướng y tế xanh từ đội ngũ kỹ sư Oli Xanh.",
+    "Cập nhật bài viết về kiểm soát côn trùng, mối, chuột và xu hướng giải pháp an toàn, hướng ESG từ đội ngũ Oli Xanh.",
   path: "/tin-tuc",
 });
 

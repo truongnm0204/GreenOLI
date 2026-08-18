@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { MotionWrapper } from "@/components/ui/motion-wrapper";
 import { AnimatedText } from "@/components/motion/animated-text";
 import { AnimatedBackground } from "@/components/ui/animated-background";
-import { SITE_CONFIG } from "@/data/site-config";
+import { SITE_CONFIG, primaryTelHref } from "@/data/site-config";
 
 export function ContactCta() {
   return (
@@ -37,13 +37,13 @@ export function ContactCta() {
           <div className="md:col-span-5 flex flex-col gap-4 md:items-end">
             <MotionWrapper direction="up" delay={0.6}>
               <Button
-                href={`tel:${SITE_CONFIG.hotline.replace(/\s/g, "")}`}
+                href={primaryTelHref()}
                 variant="secondary"
                 size="lg"
                 className="bg-white text-primary-dark hover:bg-white/90 shadow-xl hover:-translate-y-1 h-14 px-8 text-base font-bold w-full md:w-auto"
               >
                 <Phone className="size-5" aria-hidden />
-                {SITE_CONFIG.hotline}
+                {SITE_CONFIG.hotlines[0]?.label ?? SITE_CONFIG.hotline}
               </Button>
             </MotionWrapper>
             <MotionWrapper direction="up" delay={0.7}>

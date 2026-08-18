@@ -2,7 +2,8 @@
 
 import { MessageCircle, Phone, ArrowUp } from "lucide-react";
 import * as React from "react";
-import { SITE_CONFIG } from "@/data/site-config";
+import { SITE_CONFIG, primaryTelHref } from "@/data/site-config";
+import { trackOutbound, trackPhoneClick } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
 
 type Item = {
@@ -16,18 +17,21 @@ type Item = {
 const ITEMS: Item[] = [
   {
     label: "Gọi hotline",
-    href: `tel:${SITE_CONFIG.hotline.replace(/\s/g, "")}`,
+    href: primaryTelHref(),
     icon: <Phone className="size-5" />,
     className: "bg-primary text-on-primary hover:bg-primary-dark",
   },
-  {
-    label: "Zalo",
-    href: SITE_CONFIG.social.zalo,
-    icon: <MessageCircle className="size-5" />,
-    className: "bg-secondary text-on-secondary hover:bg-secondary-strong",
-    external: true,
-  },
-
+  ...(SITE_CONFIG.social.zalo
+    ? [
+        {
+          label: "Zalo",
+          href: SITE_CONFIG.social.zalo,
+          icon: <MessageCircle className="size-5" />,
+          className: "bg-secondary text-on-secondary hover:bg-secondary-strong",
+          external: true,
+        } satisfies Item,
+      ]
+    : []),
 ];
 
 export function FloatingSocialPanel() {
@@ -52,6 +56,13 @@ export function FloatingSocialPanel() {
           target={item.external ? "_blank" : undefined}
           rel={item.external ? "noopener noreferrer" : undefined}
           aria-label={item.label}
+          onClick={() => {
+            if (item.href.startsWith("tel:")) {
+              trackPhoneClick(item.label);
+            } else if (item.external) {
+              trackOutbound(item.href, item.label);
+            }
+          }}
           className={cn(
             "grid size-11 md:size-12 place-items-center rounded-full shadow-ambient transition-all hover:scale-110",
             item.className,

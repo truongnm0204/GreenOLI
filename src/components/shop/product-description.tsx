@@ -1,111 +1,6 @@
-import React from "react";
 import type { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
-import type {
-  JSXConverters,
-  JSXConvertersFunction,
-} from "@payloadcms/richtext-lexical/react";
 import { RichText as LexicalRichText } from "@payloadcms/richtext-lexical/react";
-import Image from "next/image";
-import { embeddedUploadConverter } from "@/lib/embedded-upload-converter";
-
-/**
- * Chuyển YouTube / Vimeo URL thành embed URL cho iframe.
- * Hỗ trợ: youtube.com/watch?v=, youtu.be/, vimeo.com/
- */
-function toEmbedUrl(url: string): string {
-  // YouTube
-  const ytMatch = url.match(
-    /(?:youtube\.com\/watch\?v=|youtu\.be\/)([A-Za-z0-9_-]{11})/,
-  );
-  if (ytMatch) return `https://www.youtube.com/embed/${ytMatch[1]}`;
-  // Vimeo
-  const vimeoMatch = url.match(/vimeo\.com\/(\d+)/);
-  if (vimeoMatch) return `https://player.vimeo.com/video/${vimeoMatch[1]}`;
-  return url;
-}
-
-/** Converter cho block videoEmbed */
-const VideoEmbedConverter: JSXConverters[string] = ({ node }: { node: Record<string, unknown> }) => {
-  const fields = (node.fields ?? {}) as { url?: string; caption?: string };
-  const embedUrl = toEmbedUrl(fields.url ?? "");
-  if (!embedUrl) return null;
-  return (
-    <figure className="my-6 w-full">
-      <div className="relative aspect-video w-full overflow-hidden rounded-2xl shadow-ambient">
-        <iframe
-          src={embedUrl}
-          title={fields.caption ?? "Video sản phẩm"}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          className="absolute inset-0 h-full w-full border-0"
-        />
-      </div>
-      {fields.caption && (
-        <figcaption className="mt-2 text-center text-sm text-text-muted italic">
-          {fields.caption}
-        </figcaption>
-      )}
-    </figure>
-  );
-};
-
-/** Converter cho block imageGallery */
-const ImageGalleryConverter: JSXConverters[string] = ({ node }: { node: Record<string, unknown> }) => {
-  const fields = (node.fields ?? {}) as {
-    images?: Array<{
-      image?: { url?: string; alt?: string };
-      caption?: string;
-    }>;
-  };
-  const images = fields.images ?? [];
-  if (images.length === 0) return null;
-
-  return (
-    <div
-      className={`my-6 grid gap-3 ${
-        images.length === 1
-          ? "grid-cols-1"
-          : images.length === 2
-          ? "grid-cols-2"
-          : "grid-cols-2 md:grid-cols-3"
-      }`}
-    >
-      {images.map((item, idx) => {
-        const src = item.image?.url;
-        if (!src) return null;
-        return (
-          <figure key={idx} className="overflow-hidden rounded-xl">
-            <div className="relative aspect-square bg-surface-light">
-              <Image
-                src={src}
-                alt={item.image?.alt ?? item.caption ?? `Ảnh ${idx + 1}`}
-                fill
-                sizes="(max-width: 768px) 50vw, 33vw"
-                className="object-contain"
-              />
-            </div>
-            {item.caption && (
-              <figcaption className="mt-1 text-center text-xs text-text-muted italic">
-                {item.caption}
-              </figcaption>
-            )}
-          </figure>
-        );
-      })}
-    </div>
-  );
-};
-
-const jsxConverters: JSXConvertersFunction = ({ defaultConverters }) => ({
-  ...defaultConverters,
-  // Tài liệu nhúng (PDF/Word) render iframe preview ngay trong bài
-  upload: embeddedUploadConverter,
-  blocks: {
-    ...((defaultConverters as Record<string, unknown>).blocks ?? {}),
-    videoEmbed: VideoEmbedConverter,
-    imageGallery: ImageGalleryConverter,
-  },
-});
+import { productDescriptionConverters } from "@/lib/richtext-converters";
 
 type Props = {
   content: SerializedEditorState;
@@ -113,8 +8,8 @@ type Props = {
 
 /**
  * ProductDescription — render Lexical JSON từ Payload thành React.
- * Hỗ trợ tất cả default features (heading, list, bold, italic, link, upload/image)
- * + custom blocks: videoEmbed, imageGallery.
+ * Features: heading/list/link/upload + blocks video/gallery/fullBleed/twoColumn/cta
+ * + auto-unfurl YT/Vimeo + CSS layout catalog (Shopee-like).
  */
 export function ProductDescription({ content }: Props) {
   if (!content) return null;
@@ -122,28 +17,30 @@ export function ProductDescription({ content }: Props) {
   return (
     <div
       className={[
-        "prose prose-lg max-w-none",
-        // Heading styles
-        "prose-headings:font-bold prose-headings:text-text-primary",
-        "prose-h2:text-2xl prose-h3:text-xl",
-        // Body text
-        "prose-p:text-text-muted prose-p:leading-relaxed",
-        // Links
-        "prose-a:text-primary-dark prose-a:underline hover:prose-a:text-primary",
-        // Lists
-        "prose-li:text-text-muted",
-        // Images
-        "prose-img:rounded-xl prose-img:shadow-ambient",
-        // Blockquote
-        "prose-blockquote:border-l-primary prose-blockquote:text-text-muted",
-        // Code
-        "prose-code:bg-surface-container prose-code:rounded prose-code:px-1",
+        "product-description max-w-none",
+        "text-base md:text-lg leading-relaxed text-text-primary",
+        "[&_h1]:mt-10 [&_h1]:mb-4 [&_h1]:text-3xl [&_h1]:md:text-4xl [&_h1]:font-bold [&_h1]:text-text-primary [&_h1]:tracking-tight",
+        "[&_h2]:mt-10 [&_h2]:mb-3 [&_h2]:text-2xl [&_h2]:md:text-3xl [&_h2]:font-bold [&_h2]:text-text-primary [&_h2]:tracking-tight",
+        "[&_h3]:mt-8 [&_h3]:mb-2.5 [&_h3]:text-xl [&_h3]:md:text-2xl [&_h3]:font-semibold [&_h3]:text-text-primary",
+        "[&_h4]:mt-6 [&_h4]:mb-2 [&_h4]:text-lg [&_h4]:font-semibold [&_h4]:text-text-primary",
+        "[&_p]:my-4 [&_p]:text-text-primary/90 [&_p]:leading-[1.8]",
+        "[&_a]:text-primary-dark [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-primary",
+        "[&_ul]:my-4 [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-6 [&_ul]:marker:text-primary-dark",
+        "[&_ol]:my-4 [&_ol]:list-decimal [&_ol]:space-y-2 [&_ol]:pl-6 [&_ol]:marker:text-primary-dark [&_ol]:marker:font-semibold",
+        "[&_li]:text-text-primary/90 [&_li]:leading-relaxed",
+        "[&_img]:my-6 [&_img]:h-auto [&_img]:w-full [&_img]:max-w-full [&_img]:rounded-2xl [&_img]:object-contain [&_img]:shadow-ambient [&_img]:ring-1 [&_img]:ring-border-soft/50",
+        "[&_figure]:my-8 [&_figure]:w-full",
+        "[&_figcaption]:mt-2 [&_figcaption]:text-center [&_figcaption]:text-sm [&_figcaption]:text-text-muted [&_figcaption]:italic",
+        "[&_blockquote]:my-6 [&_blockquote]:border-l-4 [&_blockquote]:border-primary [&_blockquote]:bg-primary/5 [&_blockquote]:px-5 [&_blockquote]:py-3 [&_blockquote]:text-text-muted",
+        "[&_hr]:my-10 [&_hr]:border-border-soft",
+        "[&_code]:rounded [&_code]:bg-surface-container [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-sm",
+        "[&_table]:my-8 [&_table]:w-full [&_table]:border-collapse [&_table]:text-sm md:[&_table]:text-base",
+        "[&_th]:border [&_th]:border-border-soft [&_th]:bg-surface-container [&_th]:px-3 [&_th]:py-2.5 [&_th]:text-left [&_th]:font-semibold",
+        "[&_td]:border [&_td]:border-border-soft [&_td]:px-3 [&_td]:py-2.5 [&_td]:text-text-primary/90",
+        "[&_strong]:font-semibold [&_strong]:text-text-primary",
       ].join(" ")}
     >
-      <LexicalRichText
-        data={content}
-        converters={jsxConverters}
-      />
+      <LexicalRichText data={content} converters={productDescriptionConverters} />
     </div>
   );
 }

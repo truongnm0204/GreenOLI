@@ -342,7 +342,7 @@ export interface Product {
       }[]
     | null;
   /**
-   * Dán/soạn bài giới thiệu có sẵn tại đây (như Word): tiêu đề, đoạn văn, danh sách, chèn ảnh/video, gallery. Không cần làm lại từ đầu — tải ảnh minh họa trực tiếp trong editor.
+   * Soạn như Word (tiêu đề, đậm/nghiêng, list, bảng). Ảnh/video file: dán (Ctrl+V), kéo thả hoặc Upload trong toolbar — lưu thẳng, không cần vào menu Media trước. YouTube/Vimeo: dán link một dòng riêng hoặc chèn block Video (có preview trong admin). Layout: block Ảnh full, Hai cột, Banner CTA, Thư viện ảnh. PDF/Word: Upload → Documents.
    */
   description?: {
     root: {

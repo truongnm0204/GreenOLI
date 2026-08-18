@@ -6,6 +6,7 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { FloatingSocialPanel } from "@/components/layout/floating-social-panel";
 import { ScrollProgress } from "@/components/layout/scroll-progress";
+import { GaScripts } from "@/components/analytics/ga-scripts";
 import { SITE_CONFIG } from "@/data/site-config";
 import { getAllCategories } from "@/data/categories";
 import { getAllBrands } from "@/data/brands";
@@ -29,16 +30,15 @@ export const metadata: Metadata = {
   authors: [{ name: SITE_CONFIG.name, url: SITE_CONFIG.url }],
   keywords: [
     "Oli Xanh",
-    "hóa chất y tế",
-    "phân bón",
-    "thuốc bảo vệ thực vật",
+    "GreenOLI",
     "kiểm soát côn trùng",
     "kiểm soát mối",
+    "kiểm soát chuột",
     "kiểm soát muỗi",
-    "Sumipro",
-    "Sumithrin",
-    "Pesguard",
-    "Permethrin",
+    "hóa chất kiểm soát côn trùng",
+    "thiết bị kiểm soát côn trùng",
+    "giải pháp ESG",
+    "phân phối phía Bắc",
   ],
   openGraph: {
     type: "website",
@@ -90,8 +90,15 @@ export default async function RootLayout({
   return (
     <html lang="vi" className={beVietnamPro.variable}>
       <body className="min-h-screen bg-surface text-text-primary antialiased">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white focus:shadow-lg"
+        >
+          Bỏ qua điều hướng, tới nội dung chính
+        </a>
+        <GaScripts />
         <SiteHeader categories={navCategories} brands={navBrands} />
-        <main id="main-content" className="pt-[var(--header-h,76px)]">
+        <main id="main-content" className="pt-[var(--header-h,76px)]" tabIndex={-1}>
           {children}
         </main>
         <SiteFooter categories={navCategories} />

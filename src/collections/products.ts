@@ -8,6 +8,11 @@ import {
 import { mediaUploadField } from "./fields/media-upload-field";
 import { VideoEmbedBlock } from "./blocks/video-embed.block";
 import { ImageGalleryBlock } from "./blocks/image-gallery.block";
+import { FullBleedImageBlock } from "./blocks/full-bleed-image.block";
+import { TwoColumnBlock } from "./blocks/two-column.block";
+import { CtaBannerBlock } from "./blocks/cta-banner.block";
+import { normalizeDescriptionVideos } from "@/lib/normalize-description-videos";
+import { VideoPasteFeature } from "@/features/video-paste/feature.server";
 
 /**
  * Collection products: sản phẩm.
@@ -33,8 +38,15 @@ export const Products: CollectionConfig = {
   },
   hooks: {
     beforeValidate: [
-      async ({ data, operation }) => {
-        if (!data?.packagingOptions) return data;
+      async ({ data }) => {
+        if (!data) return data;
+
+        // B2-lite: paragraph chỉ là URL YT/Vimeo → block videoEmbed khi lưu
+        if (data.description) {
+          data.description = normalizeDescriptionVideos(data.description);
+        }
+
+        if (!data.packagingOptions) return data;
         // Chặn 2 option trùng (quantity + unit) trong cùng sản phẩm
         const opts = data.packagingOptions as Array<{
           quantity?: number;
@@ -191,7 +203,10 @@ export const Products: CollectionConfig = {
       label: "Mô tả sản phẩm (bài giới thiệu)",
       admin: {
         description:
-          "Dán/soạn bài giới thiệu có sẵn tại đây (như Word): tiêu đề, đoạn văn, danh sách, chèn ảnh/video, gallery. Không cần làm lại từ đầu — tải ảnh minh họa trực tiếp trong editor.",
+          "Soạn như Word (tiêu đề, đậm/nghiêng, list, bảng). " +
+          "Ảnh/video file: dán (Ctrl+V), kéo thả hoặc Upload trong toolbar — lưu thẳng, không cần vào menu Media trước. " +
+          "YouTube/Vimeo: dán link một dòng riêng hoặc chèn block Video (có preview trong admin). " +
+          "Layout: block Ảnh full, Hai cột, Banner CTA, Thư viện ảnh. PDF/Word: Upload → Documents.",
       },
       editor: lexicalEditor({
         features: ({ defaultFeatures }) => [
@@ -205,11 +220,19 @@ export const Products: CollectionConfig = {
               media: { fields: [] },
               documents: { fields: [] },
             },
-            enabledCollections: ['media', 'documents'],
+            enabledCollections: ["media", "documents"],
           }),
           BlocksFeature({
-            blocks: [VideoEmbedBlock, ImageGalleryBlock],
+            blocks: [
+              VideoEmbedBlock,
+              ImageGalleryBlock,
+              FullBleedImageBlock,
+              TwoColumnBlock,
+              CtaBannerBlock,
+            ],
           }),
+          // Paste URL YT/Vimeo → chèn block videoEmbed ngay trong editor
+          VideoPasteFeature(),
         ],
       }),
     },

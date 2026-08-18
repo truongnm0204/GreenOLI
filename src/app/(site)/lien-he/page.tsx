@@ -1,46 +1,52 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Mail, MapPin, Phone, Clock, Facebook, Youtube, MessageCircle } from "lucide-react";
+import { Suspense } from "react";
+import {
+  Mail,
+  MapPin,
+  Phone,
+  Clock,
+  Facebook,
+  Youtube,
+  MessageCircle,
+  Send,
+} from "lucide-react";
 import { ContactHeroSection } from "@/components/contact/contact-hero";
 import { Card } from "@/components/ui/card";
 import { ContactForm } from "@/components/contact/contact-form";
 import { MotionWrapper } from "@/components/ui/motion-wrapper";
 import { AnimatedText } from "@/components/motion/animated-text";
-import { SITE_CONFIG } from "@/data/site-config";
+import {
+  SITE_CONFIG,
+  activeSocialLinks,
+} from "@/data/site-config";
 import { buildMetadata } from "@/lib/seo";
 import { breadcrumbSchema, localBusinessSchema } from "@/lib/json-ld";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Liên Hệ – Tư vấn miễn phí 24/7",
+  title: "Liên Hệ – Tư vấn giải pháp kiểm soát côn trùng",
   description:
-    "Liên hệ Oli Xanh để nhận tư vấn miễn phí về sản phẩm hóa chất y tế, phân bón và dịch vụ kiểm soát côn trùng. Hotline 24/7.",
+    "Liên hệ Oli Xanh để nhận tư vấn sản phẩm và giải pháp kiểm soát côn trùng, mối, chuột. Hotline hỗ trợ trong giờ làm việc.",
   path: "/lien-he",
 });
 
-const INFO = [
-  { icon: MapPin, label: "Địa chỉ", value: SITE_CONFIG.address },
-  {
-    icon: Phone,
-    label: "Hotline",
-    value: SITE_CONFIG.hotline,
-    href: `tel:${SITE_CONFIG.hotline.replace(/\s/g, "")}`,
-  },
-  {
-    icon: Mail,
-    label: "Email",
-    value: SITE_CONFIG.email,
-    href: `mailto:${SITE_CONFIG.email}`,
-  },
-  { icon: Clock, label: "Giờ làm việc", value: SITE_CONFIG.workingHours },
-];
+const SOCIAL_ICON = {
+  facebook: Facebook,
+  youtube: Youtube,
+  zalo: MessageCircle,
+  tiktok: Send,
+} as const;
 
-const SOCIAL = [
-  { icon: Facebook, label: "Facebook", href: SITE_CONFIG.social.facebook },
-  { icon: MessageCircle, label: "Zalo", href: SITE_CONFIG.social.zalo },
-  { icon: Youtube, label: "YouTube", href: SITE_CONFIG.social.youtube },
-];
+const SOCIAL_LABEL: Record<keyof typeof SITE_CONFIG.social, string> = {
+  facebook: "Facebook",
+  youtube: "YouTube",
+  zalo: "Zalo",
+  tiktok: "TikTok",
+};
 
 export default function ContactPage() {
+  const socials = activeSocialLinks();
+
   return (
     <>
       <ContactHeroSection
@@ -60,7 +66,13 @@ export default function ContactPage() {
               <p className="text-text-muted mb-6 text-lg font-medium">
                 Mọi thông tin của bạn được bảo mật theo chính sách của Oli Xanh.
               </p>
-              <ContactForm />
+              <Suspense
+                fallback={
+                  <p className="text-sm text-text-muted">Đang tải form…</p>
+                }
+              >
+                <ContactForm />
+              </Suspense>
             </Card>
           </MotionWrapper>
 
@@ -68,77 +80,121 @@ export default function ContactPage() {
             <MotionWrapper delay={0.3} direction="up">
               <Card className="space-y-6 p-8 rounded-[2rem] shadow-ambient hover-card-effect border-none">
                 <h3 className="font-bold text-xl text-text-primary flex items-center gap-2">
-                  <span className="w-2 h-6 rounded-full bg-primary inline-block"></span>
+                  <span className="w-2 h-6 rounded-full bg-primary inline-block" />
                   Thông tin liên hệ
                 </h3>
                 <ul className="space-y-5">
-                  {INFO.map((item, idx) => {
-                    const Icon = item.icon;
-                    const content = (
-                      <MotionWrapper delay={0.4 + idx * 0.1} direction="up" className="flex items-start gap-4">
-                        <span className="grid size-11 place-items-center rounded-xl bg-primary/10 text-primary-dark flex-none">
-                          <Icon className="size-5" aria-hidden />
+                  <li className="flex items-start gap-4">
+                    <span className="grid size-11 place-items-center rounded-xl bg-primary/10 text-primary-dark flex-none">
+                      <MapPin className="size-5" aria-hidden />
+                    </span>
+                    <span>
+                      <span className="block text-xs uppercase tracking-wider text-text-muted font-bold">
+                        Địa chỉ
+                      </span>
+                      <span className="block text-base text-text-primary mt-1 font-medium">
+                        {SITE_CONFIG.address}
+                      </span>
+                    </span>
+                  </li>
+
+                  {SITE_CONFIG.hotlines.map((h) => (
+                    <li key={h.tel}>
+                      <a
+                        href={`tel:${h.tel}`}
+                        className="flex items-start gap-4 hover:text-primary-dark transition-colors group"
+                      >
+                        <span className="grid size-11 place-items-center rounded-xl bg-primary/10 text-primary-dark flex-none group-hover:bg-primary/20">
+                          <Phone className="size-5" aria-hidden />
                         </span>
                         <span>
                           <span className="block text-xs uppercase tracking-wider text-text-muted font-bold">
-                            {item.label}
+                            Hotline
                           </span>
                           <span className="block text-base text-text-primary mt-1 font-medium">
-                            {item.value}
+                            {h.label}
                           </span>
                         </span>
-                      </MotionWrapper>
-                    );
-                    return (
-                      <li key={item.label}>
-                        {item.href ? (
-                          <a
-                            href={item.href}
-                            className="block hover:text-primary-dark transition-colors group"
-                          >
-                            <div className="group-hover:translate-x-1 transition-transform w-full">
-                              {content}
-                            </div>
-                          </a>
-                        ) : (
-                          content
-                        )}
-                      </li>
-                    );
-                  })}
+                      </a>
+                    </li>
+                  ))}
+
+                  {SITE_CONFIG.email ? (
+                    <li>
+                      <a
+                        href={`mailto:${SITE_CONFIG.email}`}
+                        className="flex items-start gap-4 hover:text-primary-dark transition-colors group"
+                      >
+                        <span className="grid size-11 place-items-center rounded-xl bg-primary/10 text-primary-dark flex-none">
+                          <Mail className="size-5" aria-hidden />
+                        </span>
+                        <span>
+                          <span className="block text-xs uppercase tracking-wider text-text-muted font-bold">
+                            Email
+                          </span>
+                          <span className="block text-base text-text-primary mt-1 font-medium">
+                            {SITE_CONFIG.email}
+                          </span>
+                        </span>
+                      </a>
+                    </li>
+                  ) : null}
+
+                  <li className="flex items-start gap-4">
+                    <span className="grid size-11 place-items-center rounded-xl bg-primary/10 text-primary-dark flex-none">
+                      <Clock className="size-5" aria-hidden />
+                    </span>
+                    <span>
+                      <span className="block text-xs uppercase tracking-wider text-text-muted font-bold">
+                        Giờ làm việc
+                      </span>
+                      <span className="block text-base text-text-primary mt-1 font-medium">
+                        {SITE_CONFIG.workingHours}
+                      </span>
+                    </span>
+                  </li>
                 </ul>
               </Card>
             </MotionWrapper>
 
-            <MotionWrapper delay={0.5} direction="up">
-              <Card className="space-y-4 p-8 rounded-[2rem] shadow-ambient hover-card-effect border-none">
-                <h3 className="font-bold text-xl text-text-primary flex items-center gap-2">
-                  <span className="w-2 h-6 rounded-full bg-secondary inline-block"></span>
-                  Kết nối mạng xã hội
-                </h3>
-                <div className="flex flex-wrap gap-3">
-                  {SOCIAL.map(({ icon: Icon, label, href }) => (
-                    <a
-                      key={label}
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={label}
-                      className="grid size-12 place-items-center rounded-xl bg-surface-container hover:bg-primary-light hover:text-primary-dark hover:-translate-y-1 hover:shadow-lg transition-all"
-                    >
-                      <Icon className="size-5" />
-                    </a>
-                  ))}
-                </div>
-              </Card>
-            </MotionWrapper>
+            {socials.length > 0 ? (
+              <MotionWrapper delay={0.5} direction="up">
+                <Card className="space-y-4 p-8 rounded-[2rem] shadow-ambient hover-card-effect border-none">
+                  <h3 className="font-bold text-xl text-text-primary flex items-center gap-2">
+                    <span className="w-2 h-6 rounded-full bg-secondary inline-block" />
+                    Kết nối mạng xã hội
+                  </h3>
+                  <div className="flex flex-wrap gap-3">
+                    {socials.map(({ key, href }) => {
+                      const Icon = SOCIAL_ICON[key] ?? Send;
+                      return (
+                        <a
+                          key={key}
+                          href={href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={SOCIAL_LABEL[key]}
+                          className="grid size-12 place-items-center rounded-xl bg-surface-container hover:bg-primary-light hover:text-primary-dark hover:-translate-y-1 hover:shadow-lg transition-all"
+                        >
+                          <Icon className="size-5" />
+                        </a>
+                      );
+                    })}
+                  </div>
+                </Card>
+              </MotionWrapper>
+            ) : null}
           </div>
         </div>
       </section>
 
       <section className="pb-16 md:pb-24" aria-label="Bản đồ Google Maps">
         <div className="container-page">
-          <MotionWrapper delay={0.2} direction="up" className="overflow-hidden rounded-[2rem] shadow-ambient-lg group">
+          <MotionWrapper
+            delay={0.2}
+            direction="up"
+            className="overflow-hidden rounded-[2rem] shadow-ambient-lg group"
+          >
             <iframe
               title="Vị trí Oli Xanh trên Google Maps"
               src={SITE_CONFIG.mapEmbedUrl}
@@ -174,4 +230,3 @@ export default function ContactPage() {
     </>
   );
 }
-

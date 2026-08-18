@@ -9,14 +9,15 @@ import { CategoryShowcase } from "@/components/home/category-showcase";
 import { PartnersMarquee } from "@/components/home/partners-marquee";
 import { GalleryCarousel } from "@/components/home/gallery-carousel";
 import { NewsHighlight } from "@/components/home/news-highlight";
+import { FaqSection } from "@/components/home/faq-section";
 import { ContactCta } from "@/components/home/contact-cta";
 import { buildMetadata } from "@/lib/seo";
 import { breadcrumbSchema } from "@/lib/json-ld";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Oli Xanh – Giải pháp hóa chất y tế & kiểm soát côn trùng",
+  title: "Oli Xanh – Giải pháp kiểm soát côn trùng, mối & chuột",
   description:
-    "Phân phối hóa chất y tế, phân bón, thuốc bảo vệ thực vật và dịch vụ kiểm soát côn trùng chuyên nghiệp. Đại lý chính hãng Sumitomo, Bayer, Syngenta, BASF.",
+    "Công ty TNHH Hóa Chất và Thiết Bị Oli Xanh phân phối độc quyền khu vực phía Bắc sản phẩm kiểm soát côn trùng, mối, chuột từ các tập đoàn đa quốc gia. An toàn – ESG – tư vấn chuyên sâu.",
   path: "/",
 });
 
@@ -37,6 +38,7 @@ export default function HomePage() {
       <PartnersMarquee />
       {/* <GalleryCarousel /> */}
       <NewsHighlight />
+      <FaqSection />
       <ContactCta />
       <Script
         id="ld-home-breadcrumb"

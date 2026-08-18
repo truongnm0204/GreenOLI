@@ -12,7 +12,9 @@ import {
   X,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ProductSearchField } from "@/components/shop/product-search-field";
 import { NAV_ITEMS, SITE_CONFIG } from "@/data/site-config";
+import { trackPhoneClick } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
 
 const HEADER_HEIGHT_VAR = { ["--header-h" as never]: "76px" } as React.CSSProperties;
@@ -62,21 +64,36 @@ export function SiteHeader({ categories, brands }: { categories: NavCategory[], 
       {/* Utility strip */}
       <div className="hidden lg:block border-b border-primary/20 bg-primary/8">
         <div className="container-page flex h-9 items-center justify-between text-xs text-text-muted">
-          <div className="flex items-center gap-5">
-            <a
-              href={`tel:${SITE_CONFIG.hotline.replace(/\s/g, "")}`}
-              className="flex items-center gap-1.5 hover:text-primary-dark"
-            >
-              <Phone className="size-3.5" aria-hidden />
-              Hotline: <span className="font-medium">{SITE_CONFIG.hotline}</span>
-            </a>
-            <a
-              href={`mailto:${SITE_CONFIG.email}`}
-              className="flex items-center gap-1.5 hover:text-primary-dark"
-            >
-              <Mail className="size-3.5" aria-hidden />
-              {SITE_CONFIG.email}
-            </a>
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-1">
+            <span className="flex items-center gap-1.5">
+              <Phone className="size-3.5 shrink-0" aria-hidden />
+              Hotline:{" "}
+              {SITE_CONFIG.hotlines.map((h, i) => (
+                <span key={h.tel} className="inline-flex items-center">
+                  {i > 0 ? (
+                    <span className="mx-1.5 text-text-muted/50" aria-hidden>
+                      ·
+                    </span>
+                  ) : null}
+                  <a
+                    href={`tel:${h.tel}`}
+                    className="font-medium hover:text-primary-dark"
+                    onClick={() => trackPhoneClick(`header:${h.label}`)}
+                  >
+                    {h.label}
+                  </a>
+                </span>
+              ))}
+            </span>
+            {SITE_CONFIG.email ? (
+              <a
+                href={`mailto:${SITE_CONFIG.email}`}
+                className="flex items-center gap-1.5 hover:text-primary-dark"
+              >
+                <Mail className="size-3.5" aria-hidden />
+                {SITE_CONFIG.email}
+              </a>
+            ) : null}
           </div>
         </div>
       </div>
@@ -190,7 +207,15 @@ export function SiteHeader({ categories, brands }: { categories: NavCategory[], 
           })}
         </nav>
 
-        <div className="hidden lg:flex">
+        <div className="hidden lg:flex items-center gap-3">
+          <ProductSearchField
+            action="/cua-hang"
+            size="sm"
+            placeholder="Tìm sản phẩm…"
+            ariaLabel="Tìm kiếm sản phẩm"
+            className="w-52 xl:w-64"
+            id="header-product-search"
+          />
           <Button href="/lien-he" size="sm">
             Liên hệ ngay
           </Button>
@@ -213,6 +238,15 @@ export function SiteHeader({ categories, brands }: { categories: NavCategory[], 
       {mobileOpen ? (
         <div id="mobile-nav" className="lg:hidden border-t border-border-soft animate-fade-up" style={{ animationDuration: "200ms" }}>
           <nav className="container-page flex flex-col py-3 gap-1" aria-label="Mobile">
+            <div className="px-1 pb-3">
+              <ProductSearchField
+                action="/cua-hang"
+                size="md"
+                placeholder="Tìm sản phẩm…"
+                ariaLabel="Tìm kiếm sản phẩm"
+                id="header-product-search-mobile"
+              />
+            </div>
             {NAV_ITEMS.map((item) => {
               const isActive =
                 item.href === "/"

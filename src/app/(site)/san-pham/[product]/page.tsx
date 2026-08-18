@@ -89,17 +89,24 @@ export default async function ProductPage({
         </div>
       </section>
 
-      {/* Mô tả / bài giới thiệu sản phẩm — Lexical rich text */}
+      {/* Mô tả / bài giới thiệu — layout rộng kiểu trang catalog (Shopee-like) */}
       {product.description && (
-        <section className="container-page py-16 md:py-20">
-          <MotionWrapper delay={0.1} direction="up" className="mb-10">
-            <h2 className="font-bold text-3xl md:text-4xl text-text-primary">
-              <AnimatedText text="Mô tả sản phẩm" />
-            </h2>
-          </MotionWrapper>
-          <MotionWrapper delay={0.3} direction="up">
-            <ProductDescription content={product.description} />
-          </MotionWrapper>
+        <section className="border-t border-border-soft/60 bg-surface-container-lowest py-14 md:py-20">
+          <div className="container-page">
+            <MotionWrapper delay={0.1} direction="up" className="mb-8 md:mb-10">
+              <h2 className="font-bold text-3xl md:text-4xl text-text-primary">
+                <AnimatedText text="Mô tả sản phẩm" />
+              </h2>
+              <p className="mt-2 max-w-2xl text-sm md:text-base text-text-muted">
+                Chi tiết, hình ảnh và video giới thiệu sản phẩm
+              </p>
+            </MotionWrapper>
+            <MotionWrapper delay={0.25} direction="up">
+              <div className="mx-auto max-w-4xl rounded-3xl border border-border-soft/70 bg-white px-4 py-8 shadow-sm sm:px-8 md:px-12 md:py-12">
+                <ProductDescription content={product.description} />
+              </div>
+            </MotionWrapper>
+          </div>
         </section>
       )}
 
@@ -146,7 +153,13 @@ export default async function ProductPage({
           ),
         }}
       />
-      <FloatingCTA productName={product.name} />
+      <FloatingCTA
+        productName={product.name}
+        contactHref={`/lien-he?${new URLSearchParams({
+          product: product.slug,
+          name: product.name,
+        }).toString()}`}
+      />
     </>
   );
 }

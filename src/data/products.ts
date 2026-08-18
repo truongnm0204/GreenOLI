@@ -1,6 +1,13 @@
+import type { Where } from "payload";
 import type { Product, PackagingOption } from "@/types/product";
 import { getPayloadClient } from "@/lib/payload-client";
 import { mediaUrl, mediaItems, valueList, relSlug } from "@/lib/map-helpers";
+import {
+  SHOP_PAGE_SIZE,
+  normalizeSearchTerm,
+  payloadSortFromShopSort,
+  type ShopSort,
+} from "@/lib/shop-query";
 
 /**
  * Data layer products: query Payload Local API, map về type `Product`.
@@ -181,4 +188,127 @@ export const getRelatedProducts = async (
   if (!current) return [];
   const sameCategory = await getProductsByCategory(current.category);
   return sameCategory.filter((p) => p.slug !== slug).slice(0, limit);
+};
+
+export type FindProductsInput = {
+  q?: string;
+  categorySlug?: string;
+  brandSlug?: string;
+  page?: number;
+  pageSize?: number;
+  sort?: ShopSort;
+};
+
+export type FindProductsResult = {
+  products: Product[];
+  page: number;
+  pageSize: number;
+  totalDocs: number;
+  totalPages: number;
+};
+
+function buildTextSearchClause(term: string): Where {
+  return {
+    or: [
+      { name: { contains: term } },
+      { shortDescription: { contains: term } },
+      { "tags.value": { contains: term } },
+    ],
+  };
+}
+
+function buildTextSearchClauseWithoutTags(term: string): Where {
+  return {
+    or: [
+      { name: { contains: term } },
+      { shortDescription: { contains: term } },
+    ],
+  };
+}
+
+function buildFindWhere(
+  input: {
+    searchTerm: string;
+    categorySlug?: string;
+    brandSlug?: string;
+  },
+  includeTags: boolean,
+): Where | undefined {
+  const and: Where[] = [];
+
+  if (input.categorySlug) {
+    and.push({ "category.slug": { equals: input.categorySlug } });
+  }
+  if (input.brandSlug) {
+    and.push({ "brand.slug": { equals: input.brandSlug } });
+  }
+  if (input.searchTerm) {
+    and.push(
+      includeTags
+        ? buildTextSearchClause(input.searchTerm)
+        : buildTextSearchClauseWithoutTags(input.searchTerm),
+    );
+  }
+
+  if (and.length === 0) return undefined;
+  if (and.length === 1) return and[0];
+  return { and };
+}
+
+/**
+ * Server-side catalog query: search + category + brand + sort + pagination.
+ * Does not load the full catalog client-side.
+ * Tags path (`tags.value`) is attempted first; on query failure falls back to
+ * name + shortDescription only so listing never hard-fails.
+ */
+export const findProducts = async (
+  input: FindProductsInput = {},
+): Promise<FindProductsResult> => {
+  const pageSize =
+    input.pageSize && input.pageSize > 0
+      ? Math.floor(input.pageSize)
+      : SHOP_PAGE_SIZE;
+  const page =
+    input.page && input.page > 0 ? Math.floor(input.page) : 1;
+  const sort = payloadSortFromShopSort(input.sort ?? "newest");
+  const searchTerm = normalizeSearchTerm(input.q);
+  const categorySlug = input.categorySlug?.trim() || undefined;
+  const brandSlug = input.brandSlug?.trim() || undefined;
+
+  const payload = await getPayloadClient();
+
+  const runFind = async (includeTags: boolean) => {
+    const where = buildFindWhere(
+      { searchTerm, categorySlug, brandSlug },
+      includeTags,
+    );
+    return payload.find({
+      collection: "products",
+      where,
+      limit: pageSize,
+      page,
+      depth: 2,
+      sort,
+    });
+  };
+
+  let result;
+  try {
+    result = await runFind(true);
+  } catch (err) {
+    // Nested array path may be unsupported by the adapter — degrade gracefully.
+    console.warn(
+      "[findProducts] tags search path failed; falling back to name + shortDescription",
+      err,
+    );
+    result = await runFind(false);
+  }
+
+  return {
+    products: (result.docs as ProductDoc[]).map(toProduct),
+    page: result.page ?? page,
+    pageSize,
+    totalDocs: result.totalDocs ?? 0,
+    totalPages: result.totalPages ?? 0,
+  };
 };

@@ -8,6 +8,8 @@ type Props = {
   categoryLabel?: string;
   /** Map slug danh mục → nhãn hiển thị (khi lưới trộn nhiều danh mục). */
   categoryLabels?: Record<string, string>;
+  /** Tuỳ chỉnh thông báo khi lưới trống (catalog / tìm kiếm). */
+  emptyMessage?: string;
   className?: string;
 };
 
@@ -15,12 +17,13 @@ export function ProductGrid({
   products,
   categoryLabel,
   categoryLabels,
+  emptyMessage = "Chưa có sản phẩm trong danh mục này.",
   className,
 }: Props) {
   if (products.length === 0) {
     return (
       <div className="rounded-card border border-dashed border-border-soft p-10 text-center text-text-muted">
-        Chưa có sản phẩm trong danh mục này.
+        {emptyMessage}
       </div>
     );
   }

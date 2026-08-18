@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Oli Xanh – Giải pháp hóa chất y tế & kiểm soát côn trùng";
+export const alt = "Oli Xanh – Giải pháp kiểm soát côn trùng, mối & chuột";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SITE_CONFIG } from "@/data/site-config";
 import { getAllCategories } from "@/data/categories";
+import { getAllBrands } from "@/data/brands";
 import { getAllProducts } from "@/data/products";
 import { getAllArticles } from "@/data/articles";
 
@@ -20,11 +21,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Fall back to static routes only so `next build` can complete; runtime
   // ISR/on-demand generation still serves full dynamic content.
   let allCategories: Awaited<ReturnType<typeof getAllCategories>> = [];
+  let allBrands: Awaited<ReturnType<typeof getAllBrands>> = [];
   let allProducts: Awaited<ReturnType<typeof getAllProducts>> = [];
   let allArticles: Awaited<ReturnType<typeof getAllArticles>> = [];
   try {
-    [allCategories, allProducts, allArticles] = await Promise.all([
+    [allCategories, allBrands, allProducts, allArticles] = await Promise.all([
       getAllCategories(),
+      getAllBrands(),
       getAllProducts(),
       getAllArticles(),
     ]);
@@ -37,6 +40,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: now,
     changeFrequency: "weekly",
     priority: 0.8,
+  }));
+
+  const brands: MetadataRoute.Sitemap = allBrands.map((b) => ({
+    url: `${base}/cua-hang/hang/${b.slug}`,
+    lastModified: now,
+    changeFrequency: "weekly",
+    priority: 0.75,
   }));
 
   const products: MetadataRoute.Sitemap = allProducts.map((p) => ({
@@ -53,5 +63,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
-  return [...STATIC, ...categories, ...products, ...articles];
+  return [...STATIC, ...categories, ...brands, ...products, ...articles];
 }

@@ -1,11 +1,8 @@
 import * as React from "react";
 import { RichText } from "@payloadcms/richtext-lexical/react";
-import type {
-  JSXConvertersFunction,
-} from "@payloadcms/richtext-lexical/react";
 import type { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
 import type { ArticleBody } from "@/types/article";
-import { embeddedUploadConverter } from "@/lib/embedded-upload-converter";
+import { articleBodyConverters } from "@/lib/richtext-converters";
 
 type Props = {
   body: ArticleBody;
@@ -13,8 +10,7 @@ type Props = {
 
 /**
  * Render nội dung bài viết từ Lexical rich text (Payload).
- * RichText của @payloadcms/richtext-lexical tự chuyển cây Lexical → HTML an toàn.
- * Styling qua wrapper prose để giữ giao diện cũ (heading, list, paragraph).
+ * Auto-unfurl YouTube/Vimeo + preview tài liệu/video upload giống mô tả SP.
  */
 export function ArticleProse({ body }: Props) {
   return (
@@ -26,18 +22,13 @@ export function ArticleProse({ body }: Props) {
         [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:space-y-1.5 [&_ol]:marker:text-primary-dark [&_ol]:marker:font-semibold
         [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-1.5 [&_ul]:marker:text-primary-dark
         [&_strong]:font-semibold [&_strong]:text-text-primary
-        [&_a]:text-primary-dark [&_a]:underline"
+        [&_a]:text-primary-dark [&_a]:underline
+        [&_img]:my-6 [&_img]:h-auto [&_img]:w-full [&_img]:rounded-2xl [&_img]:object-contain"
     >
       <RichText
         data={body as SerializedEditorState}
-        converters={jsxConverters}
+        converters={articleBodyConverters}
       />
     </div>
   );
 }
-
-// Tài liệu nhúng (PDF/Word) render iframe preview ngay trong bài viết
-const jsxConverters: JSXConvertersFunction = ({ defaultConverters }) => ({
-  ...defaultConverters,
-  upload: embeddedUploadConverter,
-});

@@ -13,7 +13,7 @@ import { breadcrumbSchema } from "@/lib/json-ld";
 export const metadata: Metadata = buildMetadata({
   title: "Giới Thiệu – Câu chuyện và đội ngũ Oli Xanh",
   description:
-    "Hơn 10 năm phân phối hóa chất y tế tại Việt Nam. Tìm hiểu sứ mệnh, giá trị cốt lõi và đội ngũ kỹ sư của Oli Xanh.",
+    "Oli Xanh phân phối hóa chất và thiết bị kiểm soát côn trùng, mối, chuột khu vực phía Bắc. Tìm hiểu sứ mệnh, giá trị cốt lõi và đội ngũ kỹ sư.",
   path: "/gioi-thieu",
 });
 
