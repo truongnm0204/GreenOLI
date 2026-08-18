@@ -1,0 +1,70 @@
+# Production-like local stack: Next.js + Payload + PostgreSQL
+# Usage:
+#   1. cp .env.example .env   # set PAYLOAD_SECRET, POSTGRES_PASSWORD, etc.
+#   2. docker compose up --build
+# App: http://localhost:3000
+# Postgres is internal-only (service name `postgres`) — not published on host
+# to avoid clashing with docker-compose.dev.yml (which binds 5432).
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: greenoli-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-greenoli}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-greenoli}
+      POSTGRES_DB: ${POSTGRES_DB:-greenoli}
+    volumes:
+      # Separate from docker-compose.dev.yml volume name to avoid password/data clashes.
+      - greenoli_pgdata_prod:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    # No host ports — web reaches DB via Docker network hostname `postgres`.
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        # Build-time only (no live DB). Runtime DATABASE_URI is set below.
+        PAYLOAD_SECRET: ${PAYLOAD_SECRET:-build-time-secret-change-at-runtime}
+        NEXT_PUBLIC_SERVER_URL: ${NEXT_PUBLIC_SERVER_URL:-http://localhost:3000}
+    container_name: greenoli-web
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "3000:3000"
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      NODE_ENV: production
+      PORT: "3000"
+      HOSTNAME: "0.0.0.0"
+      # Service hostname `postgres` (not localhost) inside the compose network.
+      DATABASE_URI: postgresql://${POSTGRES_USER:-greenoli}:${POSTGRES_PASSWORD:-greenoli}@postgres:5432/${POSTGRES_DB:-greenoli}
+      DATABASE_URI_UNPOOLED: postgresql://${POSTGRES_USER:-greenoli}:${POSTGRES_PASSWORD:-greenoli}@postgres:5432/${POSTGRES_DB:-greenoli}
+      PAYLOAD_SECRET: ${PAYLOAD_SECRET:-change-me-to-a-long-random-string}
+      NEXT_PUBLIC_SERVER_URL: ${NEXT_PUBLIC_SERVER_URL:-http://localhost:3000}
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASS: ${SMTP_PASS:-}
+      SMTP_FROM: ${SMTP_FROM:-}
+      LEAD_NOTIFY_EMAIL: ${LEAD_NOTIFY_EMAIL:-}
+    volumes:
+      # Durable CMS uploads (align with WORKDIR /app/public/...)
+      - greenoli_media:/app/public/media
+      - greenoli_documents:/app/public/documents
+
+volumes:
+  greenoli_pgdata_prod:
+  greenoli_media:
+  greenoli_documents:

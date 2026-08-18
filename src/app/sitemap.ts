@@ -7,11 +7,6 @@ import { getAllArticles } from "@/data/articles";
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = SITE_CONFIG.url;
   const now = new Date();
-  const [allCategories, allProducts, allArticles] = await Promise.all([
-    getAllCategories(),
-    getAllProducts(),
-    getAllArticles(),
-  ]);
 
   const STATIC: MetadataRoute.Sitemap = [
     { url: `${base}/`, lastModified: now, changeFrequency: "weekly", priority: 1 },
@@ -20,6 +15,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${base}/tin-tuc`, lastModified: now, changeFrequency: "daily", priority: 0.8 },
     { url: `${base}/lien-he`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
   ];
+
+  // During Docker image build there is often no reachable Postgres.
+  // Fall back to static routes only so `next build` can complete; runtime
+  // ISR/on-demand generation still serves full dynamic content.
+  let allCategories: Awaited<ReturnType<typeof getAllCategories>> = [];
+  let allProducts: Awaited<ReturnType<typeof getAllProducts>> = [];
+  let allArticles: Awaited<ReturnType<typeof getAllArticles>> = [];
+  try {
+    [allCategories, allProducts, allArticles] = await Promise.all([
+      getAllCategories(),
+      getAllProducts(),
+      getAllArticles(),
+    ]);
+  } catch {
+    return STATIC;
+  }
 
   const categories: MetadataRoute.Sitemap = allCategories.map((c) => ({
     url: `${base}/cua-hang/${c.slug}`,

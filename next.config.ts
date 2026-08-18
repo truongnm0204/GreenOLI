@@ -2,6 +2,9 @@ import type { NextConfig } from "next";
 import { withPayload } from "@payloadcms/next/withPayload";
 
 const nextConfig: NextConfig = {
+  // Docker runner uses `next start` + prod node_modules so `payload migrate`
+  // works at container boot. Do not set output:"standalone" unless the image
+  // CMD switches to `node server.js` and still ships a Payload CLI path.
   serverExternalPackages: ["sharp"],
   images: {
     remotePatterns: [

@@ -33,6 +33,10 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+# Local AI/agent tooling — may contain API keys; never commit
+.codex/
+.claude/
+
 # vercel
 .vercel
 *.md

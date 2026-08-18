@@ -1,0 +1,59 @@
+# Dependencies & build output
+node_modules
+.next
+out
+build
+coverage
+
+# CMS uploads live in Docker volumes at runtime — keep image lean.
+# Keep folder placeholders only.
+public/media/**
+!public/media/.gitkeep
+public/documents/**
+!public/documents/.gitkeep
+
+# Git / IDE
+.git
+.gitignore
+.claude
+.codex
+.vscode
+.idea
+
+# Env & secrets — never bake into image
+.env
+.env.*
+!.env.example
+
+# Logs & local artifacts
+*.log
+dev.log
+dev.err.log
+migrate-run.log
+migrate2.log
+psql_out.txt
+psql_out_2.txt
+*.tsbuildinfo
+
+# DB dumps (sensitive / large)
+*.sql
+neon_migration_dump.sql
+greenoli_db_export.sql
+oliDB.sql
+
+# Playwright / test artifacts
+.playwright-mcp
+
+# Docs & plans (not needed at runtime)
+docs
+plans
+references
+*.md
+!README.md
+
+# Large local import sources
+du-lieu-nhap-cms-oli-day-du.xlsx
+repomix-index.md
+
+# Dev-only compose (prod compose is separate)
+docker-compose.dev.yml
