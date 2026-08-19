@@ -1,41 +1,48 @@
 import type { JSXConverter, SerializedLexicalNodeWithParent } from "@payloadcms/richtext-lexical/react";
 import { mediaUrl } from "@/lib/map-helpers";
 
+type UploadValue = {
+  id?: string | number;
+  url?: string | null;
+  mimeType?: string | null;
+  filename?: string | null;
+  alt?: string | null;
+  width?: number | null;
+  height?: number | null;
+  sizes?: {
+    thumbnail?: { url?: string | null } | null;
+  } | null;
+};
+
 /**
- * Override converter "upload" dùng chung cho RichText:
- * - Tài liệu (PDF/Word/Excel, relationTo=documents) → iframe preview nhúng trong bài
- * - Video file (mime video/*, relationTo=media) → thẻ <video> full-width
- * - Ảnh (media image) → trả undefined để default converter Payload xử lý
- *
- * Node upload trong Lexical:
- *   { type: 'upload', relationTo: 'documents' | 'media', value: { url, mimeType, filename, ... } }
+ * Converter "upload" cho RichText storefront:
+ * - Video file → <video>
+ * - Documents → iframe preview
+ * - Ảnh media → <figure><img> (BẮT BUỘC tự render — không return undefined
+ *   vì override `upload` đã thay default converter của Payload)
  */
 export const embeddedUploadConverter: JSXConverter<SerializedLexicalNodeWithParent> = ({
   node,
 }) => {
   const uploadNode = node as unknown as {
     relationTo?: string;
-    value?: {
-      url?: string;
-      mimeType?: string;
-      filename?: string;
-      alt?: string;
-    } | number | null;
+    value?: UploadValue | number | string | null;
   };
 
   const value = uploadNode.value;
 
+  // Chưa populate (chỉ còn id) → không render (tránh chèn số id)
   if (!value || typeof value !== "object") {
-    return undefined;
+    return null;
   }
 
-  const mime = value.mimeType ?? "";
+  const mime = (value.mimeType ?? "").toLowerCase();
   const url = mediaUrl(value);
   if (!url) {
-    return undefined;
+    return null;
   }
 
-  // Video upload trực tiếp trong editor (mp4/webm…) — không cần qua gallery UI riêng
+  // Video upload trực tiếp trong editor
   if (mime.startsWith("video/")) {
     return (
       <figure className="product-desc-video my-8 w-full not-prose">
@@ -63,8 +70,8 @@ export const embeddedUploadConverter: JSXConverter<SerializedLexicalNodeWithPare
     );
   }
 
-  // Tài liệu → iframe preview nhúng ngay trong bài
-  if (uploadNode.relationTo === "documents") {
+  // Tài liệu PDF/Word
+  if (uploadNode.relationTo === "documents" || mime.includes("pdf") || mime.includes("word") || mime.includes("officedocument")) {
     return (
       <div className="my-6 not-prose">
         <div className="flex items-center justify-between gap-3 rounded-t-xl border border-border-soft bg-surface-container px-4 py-2.5">
@@ -90,6 +97,29 @@ export const embeddedUploadConverter: JSXConverter<SerializedLexicalNodeWithPare
     );
   }
 
-  // Ảnh / loại khác → default converter
-  return undefined;
+  // Ảnh (mặc định cho media image/* và mọi upload còn lại có URL)
+  const alt = (value.alt || value.filename || "Ảnh mô tả").trim();
+  const width = typeof value.width === "number" && value.width > 0 ? value.width : undefined;
+  const height =
+    typeof value.height === "number" && value.height > 0 ? value.height : undefined;
+
+  return (
+    <figure className="product-desc-image my-8 w-full not-prose">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={url}
+        alt={alt}
+        width={width}
+        height={height}
+        loading="lazy"
+        decoding="async"
+        className="mx-auto h-auto max-h-[min(720px,80vh)] w-auto max-w-full rounded-2xl object-contain shadow-ambient ring-1 ring-border-soft/50"
+      />
+      {value.alt ? (
+        <figcaption className="mt-2.5 text-center text-sm text-text-muted italic">
+          {value.alt}
+        </figcaption>
+      ) : null}
+    </figure>
+  );
 };

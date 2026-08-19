@@ -1,16 +1,18 @@
 "use client";
 
 import * as React from "react";
-import { Phone, Mail, ShieldCheck, Package } from "lucide-react";
+import { Phone, Mail, ShieldCheck, Package, FileText } from "lucide-react";
 import { ProductGallery } from "@/components/shop/product-gallery";
 import { Button } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
 import { Card } from "@/components/ui/card";
 import { MotionWrapper } from "@/components/ui/motion-wrapper";
-import { AnimatedText } from "@/components/motion/animated-text";
 import { cn } from "@/lib/cn";
-import type { Product, PackagingOption, GalleryItem } from "@/types/product";
+import type { GalleryItem, Product } from "@/types/product";
 import { primaryTelHref } from "@/data/site-config";
+import { trackEvent, trackPhoneClick } from "@/lib/analytics";
+import { useProductPurchase } from "@/components/shop/product-purchase-context";
+import { ProductSlaLine } from "@/components/shop/product-sla-line";
 
 type Props = {
   product: Product;
@@ -18,43 +20,45 @@ type Props = {
   categorySlug?: string;
 };
 
+const KEY_SPEC_LIMIT = 5;
+
+function shortUsp(text: string, max = 180): string {
+  const t = (text || "").replace(/\s+/g, " ").trim();
+  if (t.length <= max) return t;
+  const cut = t.slice(0, max);
+  const lastSpace = cut.lastIndexOf(" ");
+  return `${(lastSpace > 80 ? cut.slice(0, lastSpace) : cut).trim()}…`;
+}
+
 /**
- * ProductVariantPanel — client island.
- * Quản lý state: variant đang chọn + ảnh tương ứng.
- * Gallery và variant là 2 state độc lập:
- *   - Click chip → gallery đổi ảnh
- *   - Vuốt gallery → chip KHÔNG thay đổi
+ * ProductVariantPanel — gallery + quy cách + CTA.
+ * State quy cách lấy từ ProductPurchaseProvider (dùng chung bottom CTA / floating).
  */
-export function ProductVariantPanel({
-  product,
-  categoryName,
-}: Props) {
+export function ProductVariantPanel({ product, categoryName }: Props) {
+  const {
+    selectedOption,
+    selectedOptionId,
+    setSelectedOptionId,
+    quoteHref,
+  } = useProductPurchase();
+
   const hasVariants = product.packagingOptions.length > 0;
+  const keySpecs = product.specs.slice(0, KEY_SPEC_LIMIT);
+  const hasMoreSpecs = product.specs.length > KEY_SPEC_LIMIT;
+  const usp = shortUsp(product.shortDescription || product.longDescription || "");
 
-  // Mặc định chọn option đầu tiên (như Shopee)
-  const [selectedOptionId, setSelectedOptionId] = React.useState<string | null>(
-    product.packagingOptions[0]?.id ?? null,
-  );
-
-  const selectedOption: PackagingOption | null =
-    product.packagingOptions.find((o) => o.id === selectedOptionId) ?? null;
-
-  // activeImage URL: variantImage nếu có, fallback về heroImage
   const activeImageUrl = selectedOption?.variantImage ?? product.heroImage;
 
-  // Gallery: hero + gallery + các variantImage còn thiếu (dedupe theo URL).
-  // Mỗi quy cách có ảnh riêng đều cần nằm trong gallery để scroll tới được.
   const galleryImages = React.useMemo<GalleryItem[]>(() => {
     const seen = new Set<string>();
     const result: GalleryItem[] = [];
     const push = (item: GalleryItem | undefined) => {
-      if (!item || !item.url || seen.has(item.url)) return;
+      if (!item?.url || seen.has(item.url)) return;
       seen.add(item.url);
       result.push(item);
     };
     push({ url: product.heroImage, mimeType: "image/jpeg" });
     product.galleryImages.forEach(push);
-    // Ảnh riêng của từng quy cách → thêm cuối gallery
     product.packagingOptions.forEach((opt) => {
       if (!opt.variantImage) return;
       push({ url: opt.variantImage, mimeType: "image/jpeg" });
@@ -62,13 +66,11 @@ export function ProductVariantPanel({
     return result;
   }, [product.heroImage, product.galleryImages, product.packagingOptions]);
 
-  // Index active trong gallery để scroll đến đúng vị trí
   const activeIndex = React.useMemo(
     () => galleryImages.findIndex((item) => item.url === activeImageUrl),
     [galleryImages, activeImageUrl],
   );
 
-  // Preload các variantImage là ảnh (bỏ qua video)
   React.useEffect(() => {
     product.packagingOptions.forEach((opt) => {
       if (!opt.variantImage) return;
@@ -77,22 +79,13 @@ export function ProductVariantPanel({
     });
   }, [product.packagingOptions]);
 
-  // URL yêu cầu báo giá kèm slug + tên SP + quy cách (form prefill)
-  const quoteParams = new URLSearchParams({
-    product: product.slug,
-    name: product.name,
-  });
-  if (selectedOption) {
-    quoteParams.set("variant", selectedOption.id);
-    quoteParams.set("qc", selectedOption.label);
-  }
-  const quoteHref = `/lien-he?${quoteParams.toString()}`;
+  const msds = product.attachments?.find((a) => a.type === "msds");
+  const catalogue = product.attachments?.find((a) => a.type === "catalogue");
 
   return (
-    <div className="container-page grid gap-12 lg:grid-cols-12 relative z-10">
-      {/* Gallery — nhận activeIndex để scroll đến ảnh variant */}
-      <MotionWrapper delay={0.1} direction="up" className="lg:col-span-6">
-        <div className="sticky top-28 z-10 shadow-ambient-lg rounded-3xl overflow-hidden hover-card-effect">
+    <div className="container-page relative z-10 grid gap-10 lg:grid-cols-12 lg:gap-12">
+      <MotionWrapper delay={0.05} direction="up" className="lg:col-span-6">
+        <div className="sticky top-28 z-10 overflow-hidden rounded-3xl shadow-ambient-lg hover-card-effect">
           <ProductGallery
             images={galleryImages}
             alt={product.name}
@@ -101,41 +94,60 @@ export function ProductVariantPanel({
         </div>
       </MotionWrapper>
 
-      {/* Info panel */}
-      <div className="lg:col-span-6 space-y-8">
-        <MotionWrapper delay={0.2} direction="up" className="space-y-4">
-          {categoryName ? (
-            <Chip variant="primary">{categoryName}</Chip>
-          ) : null}
-          <h1 className="font-bold text-3xl md:text-4xl lg:text-5xl text-text-primary leading-tight">
-            <AnimatedText text={product.name} />
+      <div className="space-y-6 lg:col-span-6 lg:space-y-7">
+        <MotionWrapper delay={0.1} direction="up" className="space-y-3">
+          {categoryName ? <Chip variant="primary">{categoryName}</Chip> : null}
+          <h1 className="text-3xl font-bold leading-tight text-text-primary md:text-4xl lg:text-[2.75rem]">
+            {product.name}
           </h1>
-          <p className="text-text-muted text-lg md:text-xl leading-relaxed font-medium">
-            {product.longDescription}
-          </p>
+          {usp ? (
+            <p className="text-base leading-relaxed text-text-muted md:text-lg">
+              {usp}{" "}
+              {product.description ? (
+                <a
+                  href="#mo-ta-san-pham"
+                  className="font-semibold text-primary-dark underline-offset-2 hover:underline"
+                >
+                  Xem mô tả chi tiết
+                </a>
+              ) : null}
+            </p>
+          ) : null}
         </MotionWrapper>
 
-        {/* Thông số specs */}
-        <MotionWrapper delay={0.4} direction="up">
-          <Card padding="md" className="space-y-4 rounded-2xl shadow-ambient hover-card-effect border-none">
-            {product.specs.map((spec) => (
-              <div
-                key={spec.label}
-                className="grid grid-cols-3 gap-4 text-base border-b border-border-soft/60 pb-4 last:border-0 last:pb-0"
-              >
-                <dt className="text-text-muted">{spec.label}</dt>
-                <dd className="col-span-2 font-bold text-text-primary">
-                  {spec.value}
-                </dd>
-              </div>
-            ))}
-          </Card>
-        </MotionWrapper>
+        {/* Key specs only — full technical content ở section dưới */}
+        {keySpecs.length > 0 ? (
+          <MotionWrapper delay={0.15} direction="up">
+            <Card
+              padding="md"
+              className="space-y-3 rounded-2xl border-none shadow-ambient hover-card-effect"
+            >
+              {keySpecs.map((spec) => (
+                <div
+                  key={spec.label}
+                  className="grid grid-cols-3 gap-3 border-b border-border-soft/60 pb-3 text-sm last:border-0 last:pb-0 md:text-base"
+                >
+                  <dt className="text-text-muted">{spec.label}</dt>
+                  <dd className="col-span-2 font-semibold text-text-primary">
+                    {spec.value}
+                  </dd>
+                </div>
+              ))}
+              {(hasMoreSpecs || product.composition) && (
+                <a
+                  href="#thong-so"
+                  className="inline-flex text-sm font-semibold text-primary-dark underline-offset-2 hover:underline"
+                >
+                  Xem đầy đủ thông số & hướng dẫn
+                </a>
+              )}
+            </Card>
+          </MotionWrapper>
+        ) : null}
 
-        {/* Variant selector — chips quy cách */}
-        {hasVariants && (
-          <MotionWrapper delay={0.45} direction="up" className="space-y-3">
-            <p className="text-sm font-semibold text-text-muted uppercase tracking-wide flex items-center gap-2">
+        {hasVariants ? (
+          <MotionWrapper delay={0.2} direction="up" className="space-y-3">
+            <p className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-text-muted">
               <Package className="size-4" aria-hidden />
               Quy cách có sẵn
             </p>
@@ -153,81 +165,127 @@ export function ProductVariantPanel({
                     aria-pressed={isSelected}
                     onClick={() => setSelectedOptionId(opt.id)}
                     className={cn(
-                      // Base
                       "relative inline-flex items-center gap-2 rounded-xl border px-4 py-2 text-sm font-semibold transition-all duration-200",
-                      // Default
                       "border-border-soft bg-surface-light text-text-primary",
-                      // Hover
-                      "hover:border-primary/50 hover:bg-primary/5 hover:-translate-y-0.5",
-                      // Selected
+                      "hover:-translate-y-0.5 hover:border-primary/50 hover:bg-primary/5",
                       isSelected && [
-                        "border-primary bg-primary/10 text-primary-dark",
-                        "ring-2 ring-primary/30 shadow-sm scale-[1.03]",
+                        "scale-[1.03] border-primary bg-primary/10 text-primary-dark",
+                        "shadow-sm ring-2 ring-primary/30",
                       ],
-                      // Focus keyboard
                       "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2",
                     )}
                   >
-                    {/* Mini thumbnail nếu có variantImage */}
-                    {opt.variantImage && (
+                    {opt.variantImage ? (
                       // eslint-disable-next-line @next/next/no-img-element
                       <img
                         src={opt.variantImage}
-                        alt={opt.label}
-                        className="size-6 rounded object-contain bg-white border border-border-soft/40 flex-none"
+                        alt=""
+                        className="size-6 flex-none rounded border border-border-soft/40 bg-white object-contain"
                         aria-hidden
                       />
-                    )}
+                    ) : null}
                     {opt.label}
-                    {isSelected && (
-                      <span className="size-1.5 rounded-full bg-primary flex-none" aria-hidden />
-                    )}
+                    {isSelected ? (
+                      <span
+                        className="size-1.5 flex-none rounded-full bg-primary"
+                        aria-hidden
+                      />
+                    ) : null}
                   </button>
                 );
               })}
             </div>
-            {/* Ghi chú phụ nếu có */}
-            {product.packaging && (
-              <p className="text-sm text-text-muted italic">{product.packaging}</p>
-            )}
+            {product.packaging ? (
+              <p className="text-sm italic text-text-muted">{product.packaging}</p>
+            ) : null}
+          </MotionWrapper>
+        ) : null}
+
+        <MotionWrapper delay={0.25} direction="up" className="space-y-3 pt-1">
+          <div className="flex flex-wrap gap-3">
+            <Button
+              href={primaryTelHref()}
+              size="lg"
+              className="h-14 px-8 text-base shadow-xl hover:-translate-y-1"
+              onClick={() => trackPhoneClick(`product_hero:${product.name}`)}
+            >
+              <Phone className="size-5" aria-hidden />
+              Gọi mua ngay
+            </Button>
+            <Button
+              href={quoteHref}
+              variant="outline"
+              size="lg"
+              className="h-14 bg-white/50 px-8 text-base backdrop-blur hover:-translate-y-1"
+              onClick={() =>
+                trackEvent("click_quote", {
+                  event_category: "engagement",
+                  event_label: `product_hero:${product.slug}`,
+                  product_name: product.name,
+                  variant: selectedOption?.label,
+                })
+              }
+            >
+              <Mail className="size-5" aria-hidden />
+              {selectedOption
+                ? `Báo giá: ${selectedOption.label}`
+                : "Yêu cầu báo giá"}
+            </Button>
+          </div>
+          <ProductSlaLine compact />
+        </MotionWrapper>
+
+        {(msds || catalogue) && (
+          <MotionWrapper delay={0.28} direction="up" className="flex flex-wrap gap-3">
+            {msds?.fileUrl ? (
+              <a
+                href={msds.fileUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-border-soft bg-white px-3 py-1.5 text-sm font-medium text-text-primary hover:border-primary/40 hover:text-primary-dark"
+              >
+                <FileText className="size-4" aria-hidden />
+                {msds.label || "MSDS"}
+              </a>
+            ) : null}
+            {catalogue?.fileUrl ? (
+              <a
+                href={catalogue.fileUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-border-soft bg-white px-3 py-1.5 text-sm font-medium text-text-primary hover:border-primary/40 hover:text-primary-dark"
+              >
+                <FileText className="size-4" aria-hidden />
+                {catalogue.label || "Catalogue"}
+              </a>
+            ) : null}
           </MotionWrapper>
         )}
 
-        {/* CTA buttons */}
-        <MotionWrapper delay={0.5} direction="up" className="flex flex-wrap gap-4 pt-4">
-          <Button
-            href={primaryTelHref()}
-            size="lg"
-            className="h-14 px-8 text-base shadow-xl hover:-translate-y-1"
-          >
-            <Phone className="size-5" aria-hidden />
-            Gọi mua ngay
-          </Button>
-          <Button
-            href={quoteHref}
-            variant="outline"
-            size="lg"
-            className="h-14 px-8 text-base bg-white/50 backdrop-blur hover:-translate-y-1"
-          >
-            <Mail className="size-5" aria-hidden />
-            {selectedOption ? `Báo giá: ${selectedOption.label}` : "Yêu cầu báo giá"}
-          </Button>
-        </MotionWrapper>
-
-        {/* Badge chính hãng */}
-        <MotionWrapper delay={0.6} direction="up" className="flex items-start gap-4 rounded-2xl bg-surface-light p-6 border border-border-soft/60 shadow-inner hover-card-effect">
-          <ShieldCheck className="size-8 text-primary-dark flex-none mt-1" aria-hidden />
-          <p className="text-base text-text-muted leading-relaxed">
-            <span className="font-bold text-text-primary">Sản phẩm chính hãng</span> – có CO/CQ và MSDS đầy đủ. Đổi trả trong 7 ngày
-            nếu phát hiện lỗi từ nhà sản xuất.
+        <MotionWrapper
+          delay={0.3}
+          direction="up"
+          className="flex items-start gap-4 rounded-2xl border border-border-soft/60 bg-surface-light p-5 shadow-inner hover-card-effect"
+        >
+          <ShieldCheck
+            className="mt-0.5 size-7 flex-none text-primary-dark"
+            aria-hidden
+          />
+          <p className="text-sm leading-relaxed text-text-muted md:text-base">
+            <span className="font-bold text-text-primary">Sản phẩm chính hãng</span>{" "}
+            – có CO/CQ và MSDS đầy đủ. Đổi trả trong 7 ngày nếu lỗi nhà sản xuất.
+            Báo giá nhanh theo quy cách bạn chọn.
           </p>
         </MotionWrapper>
 
-        {/* Tags */}
         {product.tags.length > 0 ? (
-          <MotionWrapper delay={0.7} direction="up" className="flex flex-wrap gap-2 pt-4">
+          <MotionWrapper delay={0.35} direction="up" className="flex flex-wrap gap-2">
             {product.tags.map((t) => (
-              <Chip key={t} variant="neutral" className="hover:bg-surface-container transition-colors">
+              <Chip
+                key={t}
+                variant="neutral"
+                className="transition-colors hover:bg-surface-container"
+              >
                 #{t}
               </Chip>
             ))}

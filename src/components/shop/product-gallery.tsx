@@ -6,22 +6,24 @@ import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight, Play } from "lucide-react";
 import { cn } from "@/lib/cn";
 import type { GalleryItem } from "@/types/product";
+import {
+  ImageLightbox,
+  ZoomHint,
+  type LightboxItem,
+} from "@/components/ui/image-lightbox";
 
 type Props = {
   images: GalleryItem[];
   alt: string;
   /**
-   * Index ảnh/video cần hiển thị — được điều khiển từ variant selector bên ngoài.
-   * Khi thay đổi, carousel tự scroll đến đúng vị trí.
+   * Index ảnh/video cần hiển thị — điều khiển từ variant selector.
    */
   activeIndex?: number;
 };
 
-/** Kiểm tra item có phải video không */
 const isVideo = (item: GalleryItem) =>
   item.mimeType?.startsWith("video/") ?? false;
 
-/** Render một slide: <video> hoặc <Image> tùy mimeType */
 function GallerySlide({
   item,
   alt,
@@ -31,6 +33,8 @@ function GallerySlide({
   alt: string;
   priority?: boolean;
 }) {
+  const [loaded, setLoaded] = React.useState(false);
+
   if (isVideo(item)) {
     return (
       <video
@@ -39,38 +43,46 @@ function GallerySlide({
         loop
         muted
         playsInline
-        className="absolute inset-0 h-full w-full object-contain bg-white"
+        className="absolute inset-0 h-full w-full bg-white object-contain"
         aria-label={alt}
       />
     );
   }
   return (
-    <Image
-      src={item.url}
-      alt={alt}
-      fill
-      sizes="(max-width: 1024px) 100vw, 50vw"
-      priority={priority}
-      className="object-contain bg-white"
-    />
+    <>
+      {!loaded ? (
+        <div
+          className="absolute inset-0 animate-pulse bg-gradient-to-br from-surface-container via-surface-light to-surface-container"
+          aria-hidden
+        />
+      ) : null}
+      <Image
+        src={item.url}
+        alt={alt}
+        fill
+        sizes="(max-width: 1024px) 100vw, 50vw"
+        priority={priority}
+        onLoad={() => setLoaded(true)}
+        className={cn(
+          "bg-white object-contain transition-opacity duration-300",
+          loaded ? "opacity-100" : "opacity-0",
+        )}
+      />
+    </>
   );
 }
 
-/** Thumbnail: video hiện overlay play icon */
 function GalleryThumb({
   item,
-  alt: _alt,
   selected,
   onClick,
   index,
 }: {
   item: GalleryItem;
-  alt: string;
   selected: boolean;
   onClick: () => void;
   index: number;
 }) {
-  void _alt;
   const video = isVideo(item);
   return (
     <button
@@ -79,7 +91,7 @@ function GalleryThumb({
       aria-label={`Xem ${video ? "video" : "ảnh"} ${index + 1}`}
       aria-pressed={selected}
       className={cn(
-        "relative flex-none size-20 rounded-input overflow-hidden border-2 transition-colors",
+        "relative size-20 flex-none overflow-hidden rounded-input border-2 transition-colors",
         selected
           ? "border-primary"
           : "border-transparent hover:border-border-soft",
@@ -87,17 +99,15 @@ function GalleryThumb({
     >
       {video ? (
         <>
-          {/* Video thumbnail — dùng poster frame đầu tiên */}
           <video
             src={item.url}
             muted
             playsInline
             preload="metadata"
-            className="absolute inset-0 h-full w-full object-contain bg-white pointer-events-none"
+            className="pointer-events-none absolute inset-0 h-full w-full bg-white object-contain"
           />
-          {/* Play overlay */}
-          <span className="absolute inset-0 flex items-center justify-center bg-black/30 rounded-input">
-            <Play className="size-5 text-white fill-white" aria-hidden />
+          <span className="absolute inset-0 flex items-center justify-center rounded-input bg-black/30">
+            <Play className="size-5 fill-white text-white" aria-hidden />
           </span>
         </>
       ) : (
@@ -106,7 +116,7 @@ function GalleryThumb({
           alt={`Thumbnail ${index + 1}`}
           fill
           sizes="80px"
-          className="object-contain bg-white"
+          className="bg-white object-contain"
         />
       )}
     </button>
@@ -114,22 +124,42 @@ function GalleryThumb({
 }
 
 export function ProductGallery({ images, alt, activeIndex }: Props) {
-  const [mainRef, mainApi] = useEmblaCarousel({ loop: true });
+  const safeImages = React.useMemo(
+    () => (images ?? []).filter((i) => Boolean(i?.url)),
+    [images],
+  );
+
+  const [mainRef, mainApi] = useEmblaCarousel({ loop: safeImages.length > 1 });
   const [thumbRef, thumbApi] = useEmblaCarousel({
     containScroll: "keepSnaps",
     dragFree: true,
   });
   const [selected, setSelected] = React.useState(0);
+  const [lightboxOpen, setLightboxOpen] = React.useState(false);
+  const [lightboxIndex, setLightboxIndex] = React.useState(0);
 
-  // Scroll đến slide khi variant được chọn từ bên ngoài
+  const imageOnly = React.useMemo(() => {
+    const items: LightboxItem[] = [];
+    const map: number[] = []; // gallery idx → lightbox idx
+    safeImages.forEach((item, i) => {
+      if (isVideo(item) || !item.url) {
+        map[i] = -1;
+        return;
+      }
+      map[i] = items.length;
+      items.push({ src: item.url, alt: `${alt} – ${i + 1}` });
+    });
+    return { items, map };
+  }, [safeImages, alt]);
+
   React.useEffect(() => {
     if (activeIndex === undefined || activeIndex < 0 || !mainApi) return;
+    if (activeIndex >= safeImages.length) return;
     mainApi.scrollTo(activeIndex, false);
-  }, [activeIndex, mainApi]);
+  }, [activeIndex, mainApi, safeImages.length]);
 
   const onThumbClick = (idx: number) => {
-    if (!mainApi) return;
-    mainApi.scrollTo(idx);
+    mainApi?.scrollTo(idx);
   };
 
   React.useEffect(() => {
@@ -146,27 +176,68 @@ export function ProductGallery({ images, alt, activeIndex }: Props) {
     };
   }, [mainApi, thumbApi]);
 
+  const openLightboxFor = (galleryIdx: number) => {
+    const li = imageOnly.map[galleryIdx];
+    if (li == null || li < 0) return;
+    setLightboxIndex(li);
+    setLightboxOpen(true);
+  };
+
+  if (!safeImages.length) {
+    return (
+      <div className="relative aspect-square overflow-hidden rounded-card bg-surface-light shadow-ambient">
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-surface-container via-surface-light to-surface-container px-6 text-center">
+          <span className="text-sm font-semibold text-text-muted">
+            Chưa có ảnh sản phẩm
+          </span>
+          <span className="text-xs text-text-muted/80">{alt}</span>
+        </div>
+      </div>
+    );
+  }
+
+  const currentIsImage = !isVideo(safeImages[selected] ?? { url: "" });
+
   return (
     <div className="space-y-3">
-      {/* Main slide */}
       <div className="relative overflow-hidden rounded-card bg-surface-light shadow-ambient">
         <div ref={mainRef}>
           <div className="flex">
-            {images.map((item, idx) => (
-              <div key={idx} className="relative flex-[0_0_100%] aspect-square">
-                <GallerySlide item={item} alt={`${alt} – ${idx + 1}`} priority={idx === 0} />
-              </div>
-            ))}
+            {safeImages.map((item, idx) => {
+              const canZoom = !isVideo(item);
+              return (
+                <div
+                  key={`${item.url}-${idx}`}
+                  className="relative aspect-square flex-[0_0_100%]"
+                >
+                  {canZoom ? (
+                    <button
+                      type="button"
+                      className="absolute inset-0 z-[1] cursor-zoom-in"
+                      aria-label={`Phóng to ảnh ${idx + 1}`}
+                      onClick={() => openLightboxFor(idx)}
+                    />
+                  ) : null}
+                  <GallerySlide
+                    item={item}
+                    alt={`${alt} – ${idx + 1}`}
+                    priority={idx === 0}
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
 
-        {images.length > 1 && (
+        {currentIsImage && imageOnly.items.length > 0 ? <ZoomHint /> : null}
+
+        {safeImages.length > 1 && (
           <>
             <button
               type="button"
               aria-label="Ảnh trước"
               onClick={() => mainApi?.scrollPrev()}
-              className="absolute left-3 top-1/2 -translate-y-1/2 grid size-10 place-items-center rounded-full bg-surface-container-lowest/95 shadow-ambient hover:bg-primary hover:text-on-primary transition-colors"
+              className="absolute left-3 top-1/2 z-[2] grid size-10 -translate-y-1/2 place-items-center rounded-full bg-surface-container-lowest/95 shadow-ambient transition-colors hover:bg-primary hover:text-on-primary"
             >
               <ChevronLeft className="size-5" />
             </button>
@@ -174,7 +245,7 @@ export function ProductGallery({ images, alt, activeIndex }: Props) {
               type="button"
               aria-label="Ảnh kế tiếp"
               onClick={() => mainApi?.scrollNext()}
-              className="absolute right-3 top-1/2 -translate-y-1/2 grid size-10 place-items-center rounded-full bg-surface-container-lowest/95 shadow-ambient hover:bg-primary hover:text-on-primary transition-colors"
+              className="absolute right-3 top-1/2 z-[2] grid size-10 -translate-y-1/2 place-items-center rounded-full bg-surface-container-lowest/95 shadow-ambient transition-colors hover:bg-primary hover:text-on-primary"
             >
               <ChevronRight className="size-5" />
             </button>
@@ -182,15 +253,13 @@ export function ProductGallery({ images, alt, activeIndex }: Props) {
         )}
       </div>
 
-      {/* Thumbnails */}
-      {images.length > 1 && (
+      {safeImages.length > 1 && (
         <div className="overflow-hidden" ref={thumbRef}>
           <div className="flex gap-3">
-            {images.map((item, idx) => (
+            {safeImages.map((item, idx) => (
               <GalleryThumb
-                key={idx}
+                key={`${item.url}-thumb-${idx}`}
                 item={item}
-                alt={alt}
                 selected={idx === selected}
                 onClick={() => onThumbClick(idx)}
                 index={idx}
@@ -199,6 +268,14 @@ export function ProductGallery({ images, alt, activeIndex }: Props) {
           </div>
         </div>
       )}
+
+      <ImageLightbox
+        open={lightboxOpen}
+        items={imageOnly.items}
+        index={lightboxIndex}
+        onClose={() => setLightboxOpen(false)}
+        onIndexChange={setLightboxIndex}
+      />
     </div>
   );
 }

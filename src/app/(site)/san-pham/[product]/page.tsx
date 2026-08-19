@@ -5,22 +5,24 @@ import { PageHeader } from "@/components/layout/page-header";
 import { ProductVariantPanel } from "@/components/shop/product-variant-panel";
 import { ProductSpecs } from "@/components/shop/product-specs";
 import { ProductDescription } from "@/components/shop/product-description";
-import { ProductCard } from "@/components/shop/product-card";
+import { ProductBottomCta } from "@/components/shop/product-bottom-cta";
+import { ProductAttachments } from "@/components/shop/product-attachments";
+import { ProductSectionNav } from "@/components/shop/product-section-nav";
+import { ProductVariantCompare } from "@/components/shop/product-variant-compare";
+import { ProductRelatedSection } from "@/components/shop/product-related-section";
 import { FloatingCTA } from "@/components/shop/floating-cta";
+import { ProductPurchaseProvider } from "@/components/shop/product-purchase-context";
 import { MotionWrapper } from "@/components/ui/motion-wrapper";
-import { AnimatedText } from "@/components/motion/animated-text";
 import {
   getProductBySlug,
   getRelatedProducts,
 } from "@/data/products";
 import { getCategoryBySlug } from "@/data/categories";
-import { SITE_CONFIG } from "@/data/site-config";
 import { buildMetadata } from "@/lib/seo";
 import { breadcrumbSchema, productSchema } from "@/lib/json-ld";
 
 type Params = { product: string };
 
-// ISR thay SSG: build không cần DB; sản phẩm mới hiện sau tối đa 5 phút.
 export const revalidate = 300;
 export const dynamicParams = true;
 
@@ -49,12 +51,29 @@ export default async function ProductPage({
   const product = await getProductBySlug(slug);
   if (!product) notFound();
   const category = await getCategoryBySlug(product.category);
-  const related = await getRelatedProducts(product.slug);
+  const relatedResult = await getRelatedProducts(product.slug);
+  const related = relatedResult.products;
+
+  const hasDescription = Boolean(product.description);
+  const hasDocs = (product.attachments ?? []).some((a) => a.fileUrl);
+  const hasCompare = (product.packagingOptions ?? []).length >= 2;
+
+  const sectionNav = [
+    ...(hasDescription
+      ? [{ id: "mo-ta-san-pham", label: "Mô tả" }]
+      : []),
+    { id: "thong-so", label: "Kỹ thuật" },
+    ...(hasCompare ? [{ id: "quy-cach", label: "Quy cách" }] : []),
+    ...(hasDocs ? [{ id: "tai-lieu", label: "Tài liệu" }] : []),
+    { id: "bao-gia", label: "Báo giá" },
+    ...(related.length > 0 ? [{ id: "lien-quan", label: "Liên quan" }] : []),
+  ];
 
   return (
-    <>
+    <ProductPurchaseProvider product={product}>
+      {/* Chỉ breadcrumb — H1 nằm ở hero, tránh trùng tên SP */}
       <PageHeader
-        title={product.name}
+        compact
         breadcrumb={[
           { label: "Cửa hàng", href: "/cua-hang" },
           ...(category
@@ -64,9 +83,9 @@ export default async function ProductPage({
         ]}
       />
 
-      {/* Hero section — client island: gallery + variant chips + CTA */}
-      <section className="py-16 md:py-24 relative overflow-hidden">
-        <div className="bg-blob bg-blob-secondary w-[400px] h-[400px] top-0 -left-20 opacity-10" />
+      {/* Hero */}
+      <section className="relative overflow-hidden py-12 md:py-16 lg:py-20">
+        <div className="bg-blob bg-blob-secondary -left-20 top-0 h-[400px] w-[400px] opacity-10" />
         <ProductVariantPanel
           product={product}
           categoryName={category?.name}
@@ -74,61 +93,105 @@ export default async function ProductPage({
         />
       </section>
 
-      {/* Thông số kỹ thuật & hướng dẫn — server component */}
-      <section className="bg-surface-light py-16 md:py-24 relative overflow-hidden">
-        <div className="bg-blob bg-blob-primary w-[500px] h-[500px] top-0 -right-40 opacity-10" />
-        <div className="container-page space-y-10 relative z-10">
-          <MotionWrapper delay={0.1} direction="up">
-            <h2 className="font-bold text-3xl md:text-4xl text-text-primary text-center">
-              <AnimatedText text="Thông số kỹ thuật & hướng dẫn" />
-            </h2>
+      <ProductSectionNav items={sectionNav} />
+
+      {/* Mô tả trước (nội dung marketing) — dễ scan hơn kỹ thuật */}
+      {hasDescription ? (
+        <section
+          id="mo-ta-san-pham"
+          className="scroll-mt-28 border-t border-border-soft/60 bg-surface-container-lowest py-12 md:py-16"
+        >
+          <div className="container-page">
+            <MotionWrapper delay={0.05} direction="up" className="mb-6 md:mb-8">
+              <h2 className="text-2xl font-bold text-text-primary md:text-3xl">
+                Mô tả sản phẩm
+              </h2>
+              <p className="mt-1.5 max-w-2xl text-sm text-text-muted md:text-base">
+                Hình ảnh, video và nội dung giới thiệu chi tiết
+              </p>
+            </MotionWrapper>
+
+            <MotionWrapper delay={0.1} direction="up">
+              <div className="rounded-3xl border border-border-soft/60 bg-white px-4 py-6 shadow-sm sm:px-6 md:px-10 md:py-10 lg:px-12">
+                <ProductDescription content={product.description!} />
+              </div>
+            </MotionWrapper>
+          </div>
+        </section>
+      ) : null}
+
+      {/* Kỹ thuật */}
+      <section
+        id="thong-so"
+        className="relative scroll-mt-28 overflow-hidden bg-surface-light py-12 md:py-16"
+      >
+        <div className="bg-blob bg-blob-primary -right-40 top-0 h-[500px] w-[500px] opacity-10" />
+        <div className="container-page relative z-10 space-y-8">
+          <MotionWrapper delay={0.05} direction="up">
+            <div className="max-w-3xl">
+              <h2 className="text-2xl font-bold text-text-primary md:text-3xl">
+                Thông số kỹ thuật & hướng dẫn
+              </h2>
+              <p className="mt-2 text-sm text-text-muted md:text-base">
+                Thành phần, cách dùng và lưu ý an toàn — tham chiếu nhanh trước khi đặt hàng.
+              </p>
+            </div>
           </MotionWrapper>
-          <MotionWrapper delay={0.3} direction="up">
+          <MotionWrapper delay={0.1} direction="up">
             <ProductSpecs product={product} />
           </MotionWrapper>
         </div>
       </section>
 
-      {/* Mô tả / bài giới thiệu — layout rộng kiểu trang catalog (Shopee-like) */}
-      {product.description && (
-        <section className="border-t border-border-soft/60 bg-surface-container-lowest py-14 md:py-20">
+      {/* So sánh quy cách */}
+      {hasCompare ? (
+        <section
+          id="quy-cach"
+          className="scroll-mt-28 border-t border-border-soft/60 py-12 md:py-16"
+        >
           <div className="container-page">
-            <MotionWrapper delay={0.1} direction="up" className="mb-8 md:mb-10">
-              <h2 className="font-bold text-3xl md:text-4xl text-text-primary">
-                <AnimatedText text="Mô tả sản phẩm" />
-              </h2>
-              <p className="mt-2 max-w-2xl text-sm md:text-base text-text-muted">
-                Chi tiết, hình ảnh và video giới thiệu sản phẩm
-              </p>
+            <MotionWrapper delay={0.05} direction="up">
+              <ProductVariantCompare />
             </MotionWrapper>
-            <MotionWrapper delay={0.25} direction="up">
-              <div className="mx-auto max-w-4xl rounded-3xl border border-border-soft/70 bg-white px-4 py-8 shadow-sm sm:px-8 md:px-12 md:py-12">
-                <ProductDescription content={product.description} />
-              </div>
-            </MotionWrapper>
-          </div>
-        </section>
-      )}
-
-      {related.length > 0 ? (
-        <section className="container-page py-16 md:py-24">
-          <MotionWrapper delay={0.1} direction="up" className="mb-12">
-            <h2 className="font-bold text-3xl md:text-4xl text-text-primary">
-              <AnimatedText text="Sản phẩm cùng danh mục" />
-            </h2>
-          </MotionWrapper>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {related.map((p, idx) => (
-              <MotionWrapper key={p.slug} delay={0.2 + idx * 0.1} direction="up">
-                <ProductCard
-                  product={p}
-                  categoryLabel={category?.name}
-                />
-              </MotionWrapper>
-            ))}
           </div>
         </section>
       ) : null}
+
+      {/* Tài liệu */}
+      {hasDocs ? (
+        <section
+          id="tai-lieu"
+          className="scroll-mt-28 border-t border-border-soft/60 py-12 md:py-16"
+        >
+          <div className="container-page">
+            <MotionWrapper delay={0.05} direction="up">
+              <ProductAttachments
+                attachments={product.attachments}
+                productName={product.name}
+              />
+            </MotionWrapper>
+          </div>
+        </section>
+      ) : null}
+
+      {/* CTA chốt — luôn có, giữ quy cách đang chọn */}
+      <section
+        id="bao-gia"
+        className="scroll-mt-28 border-t border-border-soft/60 bg-surface-container-lowest py-12 md:py-16"
+      >
+        <div className="container-page">
+          <MotionWrapper delay={0.05} direction="up">
+            <ProductBottomCta />
+          </MotionWrapper>
+        </div>
+      </section>
+
+      <ProductRelatedSection
+        products={related}
+        categoryLabel={category?.name}
+        categorySlug={category?.slug}
+        sameBrandHint={relatedResult.hasSameBrand}
+      />
 
       <Script
         id="ld-product"
@@ -153,13 +216,8 @@ export default async function ProductPage({
           ),
         }}
       />
-      <FloatingCTA
-        productName={product.name}
-        contactHref={`/lien-he?${new URLSearchParams({
-          product: product.slug,
-          name: product.name,
-        }).toString()}`}
-      />
-    </>
+
+      <FloatingCTA />
+    </ProductPurchaseProvider>
   );
 }

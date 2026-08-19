@@ -19,8 +19,8 @@ export const VideoEmbedBlock: Block = {
       required: true,
       admin: {
         description:
-          "Dán link YouTube hoặc Vimeo. Ví dụ: https://www.youtube.com/watch?v=... hoặc https://youtu.be/...",
-        placeholder: "https://www.youtube.com/watch?v=...",
+          "Dán link YouTube/Vimeo (watch, live, shorts, youtu.be, embed) hoặc nguyên thẻ iframe. Ví dụ: https://www.youtube.com/live/…",
+        placeholder: "https://www.youtube.com/live/…",
         components: {
           Field: "/src/components/admin/video-url-field#VideoUrlField",
         },

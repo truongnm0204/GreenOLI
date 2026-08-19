@@ -149,7 +149,15 @@ export const getProductBySlug = async (
     depth: 2,
   });
   const doc = docs[0] as ProductDoc | undefined;
-  return doc ? toProduct(doc) : undefined;
+  if (!doc) return undefined;
+  const product = toProduct(doc);
+  if (product.description) {
+    const { hydrateDescriptionUploads } = await import(
+      "@/lib/hydrate-description-uploads"
+    );
+    product.description = await hydrateDescriptionUploads(product.description);
+  }
+  return product;
 };
 
 export const getProductsByCategory = async (
@@ -180,14 +188,53 @@ export const getProductsByBrand = async (
   return (docs as ProductDoc[]).map(toProduct);
 };
 
+export type RelatedProductsResult = {
+  products: Product[];
+  /** true chỉ khi có ≥1 SP thực sự cùng brand (không tính fill category) */
+  hasSameBrand: boolean;
+};
+
+/**
+ * SP liên quan / hay đi kèm:
+ * 1) cùng brand (nếu có)
+ * 2) bù bằng cùng category
+ * 3) loại chính nó, dedupe, giới hạn limit
+ */
 export const getRelatedProducts = async (
   slug: string,
   limit = 4,
-): Promise<Product[]> => {
+): Promise<RelatedProductsResult> => {
   const current = await getProductBySlug(slug);
-  if (!current) return [];
-  const sameCategory = await getProductsByCategory(current.category);
-  return sameCategory.filter((p) => p.slug !== slug).slice(0, limit);
+  if (!current) return { products: [], hasSameBrand: false };
+
+  const picked: Product[] = [];
+  const seen = new Set<string>([slug]);
+  let sameBrandCount = 0;
+
+  const pushMany = (list: Product[], fromBrand: boolean) => {
+    for (const p of list) {
+      if (seen.has(p.slug)) continue;
+      seen.add(p.slug);
+      picked.push(p);
+      if (fromBrand) sameBrandCount += 1;
+      if (picked.length >= limit) break;
+    }
+  };
+
+  if (current.brand) {
+    const sameBrand = await getProductsByBrand(current.brand);
+    pushMany(sameBrand, true);
+  }
+
+  if (picked.length < limit && current.category) {
+    const sameCategory = await getProductsByCategory(current.category);
+    pushMany(sameCategory, false);
+  }
+
+  return {
+    products: picked.slice(0, limit),
+    hasSameBrand: sameBrandCount > 0,
+  };
 };
 
 export type FindProductsInput = {

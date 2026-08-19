@@ -2,6 +2,7 @@ import { MediaUploadField as MediaUploadField_b555e400768ffb5fee6238a098a713b8 }
 import { RscEntryLexicalCell as RscEntryLexicalCell_44fe37237e0ebf4470c9990d8cb7b07e } from '@payloadcms/richtext-lexical/rsc'
 import { RscEntryLexicalField as RscEntryLexicalField_44fe37237e0ebf4470c9990d8cb7b07e } from '@payloadcms/richtext-lexical/rsc'
 import { LexicalDiffComponent as LexicalDiffComponent_44fe37237e0ebf4470c9990d8cb7b07e } from '@payloadcms/richtext-lexical/rsc'
+import { ImagePasteFeatureClient as ImagePasteFeatureClient_d6cc3e069562e7da6b346b1406d38738 } from '../../../../src/features/image-paste/feature.client'
 import { VideoPasteFeatureClient as VideoPasteFeatureClient_cc2c022fedce7f7d64e9bd8c99b71f7b } from '../../../../src/features/video-paste/feature.client'
 import { BlocksFeatureClient as BlocksFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from '@payloadcms/richtext-lexical/client'
 import { VideoUrlField as VideoUrlField_a8cb74bbe31389b652b6e87392a5bd5e } from '../../../../src/components/admin/video-url-field'
@@ -35,6 +36,7 @@ export const importMap = {
   "@payloadcms/richtext-lexical/rsc#RscEntryLexicalCell": RscEntryLexicalCell_44fe37237e0ebf4470c9990d8cb7b07e,
   "@payloadcms/richtext-lexical/rsc#RscEntryLexicalField": RscEntryLexicalField_44fe37237e0ebf4470c9990d8cb7b07e,
   "@payloadcms/richtext-lexical/rsc#LexicalDiffComponent": LexicalDiffComponent_44fe37237e0ebf4470c9990d8cb7b07e,
+  "/src/features/image-paste/feature.client#ImagePasteFeatureClient": ImagePasteFeatureClient_d6cc3e069562e7da6b346b1406d38738,
   "/src/features/video-paste/feature.client#VideoPasteFeatureClient": VideoPasteFeatureClient_cc2c022fedce7f7d64e9bd8c99b71f7b,
   "@payloadcms/richtext-lexical/client#BlocksFeatureClient": BlocksFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
   "/src/components/admin/video-url-field#VideoUrlField": VideoUrlField_a8cb74bbe31389b652b6e87392a5bd5e,

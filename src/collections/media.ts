@@ -18,6 +18,10 @@ export const Media: CollectionConfig = {
   },
   access: {
     read: () => true,
+    // Admin đăng nhập mới được upload (paste ảnh / form).
+    create: ({ req }) => Boolean(req.user),
+    update: ({ req }) => Boolean(req.user),
+    delete: ({ req }) => Boolean(req.user),
   },
   admin: {
     // Không ẩn — cần để UploadFeature/drawer liệt kê được collection này khi chèn ảnh

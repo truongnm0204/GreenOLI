@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion, HTMLMotionProps } from "framer-motion";
+import { motion, useReducedMotion, type HTMLMotionProps } from "framer-motion";
 import { cn } from "@/lib/cn";
 
 interface MotionWrapperProps extends HTMLMotionProps<"div"> {
@@ -22,6 +22,8 @@ export function MotionWrapper({
   viewportAmount = 0.2,
   ...props
 }: MotionWrapperProps) {
+  const reduceMotion = useReducedMotion();
+
   const directions = {
     up: { y: 40, x: 0 },
     down: { y: -40, x: 0 },
@@ -29,6 +31,15 @@ export function MotionWrapper({
     right: { x: -40, y: 0 },
     none: { x: 0, y: 0 },
   };
+
+  // Accessibility: không animate khi user bật reduced motion
+  if (reduceMotion) {
+    return (
+      <div className={cn(className)} {...(props as React.HTMLAttributes<HTMLDivElement>)}>
+        {children}
+      </div>
+    );
+  }
 
   return (
     <motion.div
@@ -43,8 +54,8 @@ export function MotionWrapper({
       }}
       viewport={{ once: true, amount: viewportAmount }}
       transition={{
-        duration: duration,
-        delay: delay,
+        duration,
+        delay,
         ease: [0.25, 0.25, 0, 1],
       }}
       className={cn(className)}

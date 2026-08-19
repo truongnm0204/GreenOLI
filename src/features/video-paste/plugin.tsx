@@ -9,28 +9,16 @@ import {
   PASTE_COMMAND,
 } from "lexical";
 import { useEffect } from "react";
-
-const YT =
-  /(?:youtube\.com\/watch\?(?:[^#]*&)?v=|youtube\.com\/embed\/|youtube\.com\/shorts\/|youtu\.be\/)([A-Za-z0-9_-]{11})/i;
-const VIMEO = /(?:vimeo\.com\/|player\.vimeo\.com\/video\/)(\d+)/i;
-
-function extractVideoUrl(raw: string): string | null {
-  const t = raw.trim();
-  if (!t || /\s/.test(t)) return null;
-  if (YT.test(t) || VIMEO.test(t)) return t;
-  return null;
-}
+import { extractLoneVideoUrl } from "@/lib/video-embed";
 
 /**
- * Chỉ chặn paste khi clipboard *chỉ* là 1 URL YT/Vimeo thuần.
- * Nếu có file ảnh, HTML/img, hoặc text lẫn nội dung khác → trả false
- * để Payload/Lexical (UploadFeature) xử lý bình thường — tránh "Failed to fetch"
- * / mất ảnh khi paste Word/trang web.
+ * Chỉ chặn paste khi clipboard *chỉ* là 1 URL YT/Vimeo (hoặc iframe embed thuần).
+ * Hỗ trợ watch, youtu.be, shorts, live, embed, music, và thẻ iframe.
+ * Có file ảnh / HTML có <img> → để Payload UploadFeature xử lý.
  */
 function shouldHandleVideoOnlyPaste(data: DataTransfer | null): string | null {
   if (!data) return null;
 
-  // Có file đính kèm (ảnh chụp màn hình, kéo thả…) → không xen vào.
   if (data.files && data.files.length > 0) return null;
   const items = data.items;
   if (items) {
@@ -43,21 +31,24 @@ function shouldHandleVideoOnlyPaste(data: DataTransfer | null): string | null {
 
   const html = data.getData("text/html") ?? "";
   if (html) {
-    // HTML có ảnh / rich content → để editor mặc định xử lý.
     if (/<img\b/i.test(html) || /data:image\//i.test(html)) return null;
-    // HTML dài hơn một link đơn → bỏ qua.
+    // Iframe-only HTML paste
+    const iframeOnly = html
+      .replace(/<!--[\s\S]*?-->/g, "")
+      .replace(/<\/?(html|body|p|div|span)[^>]*>/gi, "")
+      .trim();
+    if (/^<iframe[\s\S]*<\/iframe>$/i.test(iframeOnly)) {
+      return extractLoneVideoUrl(iframeOnly);
+    }
+    // Rich HTML dài → không nuốt
     const stripped = html.replace(/<[^>]+>/g, "").trim();
     if (stripped && /\s/.test(stripped)) return null;
   }
 
   const text = data.getData("text/plain") ?? "";
-  return extractVideoUrl(text);
+  return extractLoneVideoUrl(text);
 }
 
-/**
- * Khi paste clipboard chỉ chứa 1 URL YT/Vimeo → chèn block videoEmbed ngay.
- * Ưu tiên HIGH hơn link auto-paste của Payload link feature.
- */
 export function VideoPastePlugin() {
   const [editor] = useLexicalComposerContext();
 
@@ -82,7 +73,6 @@ export function VideoPastePlugin() {
 
           return true;
         } catch (err) {
-          // Không chặn paste mặc định nếu plugin lỗi.
           console.warn("[VideoPastePlugin]", err);
           return false;
         }

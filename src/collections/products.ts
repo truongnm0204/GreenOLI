@@ -13,6 +13,7 @@ import { TwoColumnBlock } from "./blocks/two-column.block";
 import { CtaBannerBlock } from "./blocks/cta-banner.block";
 import { normalizeDescriptionVideos } from "@/lib/normalize-description-videos";
 import { VideoPasteFeature } from "@/features/video-paste/feature.server";
+import { ImagePasteFeature } from "@/features/image-paste/feature.server";
 
 /**
  * Collection products: sản phẩm.
@@ -233,6 +234,8 @@ export const Products: CollectionConfig = {
           }),
           // Paste URL YT/Vimeo → chèn block videoEmbed ngay trong editor
           VideoPasteFeature(),
+          // Paste ảnh file / remote URL (server import) — tránh Failed to fetch CORS
+          ImagePasteFeature(),
         ],
       }),
     },
