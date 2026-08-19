@@ -292,6 +292,8 @@ docker run --rm -v oliproject_greenoli_media:/data -v /root/backups:/backup alpi
 |---|---|
 | Caddy không cấp SSL | DNS chưa trỏ / port 80 bị chặn / `SITE_ADDRESS` sai |
 | `payload migrate` fail | Sai `POSTGRES_PASSWORD` / URI có ký tự đặc biệt |
+| Container kẹt prompt *dev mode / data loss* | Dump local có `payload_migrations.batch = -1`. Entrypoint mới tự xóa marker. Fix tay: `DELETE FROM payload_migrations WHERE batch = -1;` rồi `restart web` |
+| `npm error signal SIGTERM` khi start | Thường do `docker restart` / OOM kill trong lúc app đang chạy — xem `docker inspect` / free RAM, không phải lỗi Next riêng |
 | Trang trắng / URL sai | `NEXT_PUBLIC_SERVER_URL` không khớp domain → rebuild |
 | Ảnh 404 | Chưa copy `public/media` vào volume |
 | Admin login fail sau restore | Dùng đúng user trong dump; clear cookie |
