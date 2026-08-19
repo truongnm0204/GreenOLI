@@ -24,9 +24,9 @@ export function ShopHeroSection({
         className,
       )}
     >
-      {/* 1. Nền phòng thí nghiệm & sản xuất hóa chất y tế chính */}
+      {/* 1. Nền phòng thí nghiệm & sản xuất hóa chất y tế chính Banner.png */}
       <Image
-        src="/images/medical_banner_bg.png"
+        src="/images/Banner.png"
         alt="Nền hóa chất y tế và kiểm soát dịch bệnh Oli Xanh"
         fill
         className="object-cover"

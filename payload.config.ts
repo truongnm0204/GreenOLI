@@ -9,6 +9,7 @@ import sharp from "sharp";
 
 import { collections } from "./src/collections/index.ts";
 import { viAdminOverrides } from "./src/lib/payload-i18n-vi.ts";
+import { migrations } from "./src/migrations/index.ts";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -54,5 +55,8 @@ export default buildConfig({
       connectionString: process.env.DATABASE_URI || "",
       max: POOL_MAX,
     },
+    // Production / Docker: entrypoint runs `payload migrate` — needs this list.
+    // Dev still uses drizzle push when NODE_ENV !== 'production'.
+    prodMigrations: migrations,
   }),
 });

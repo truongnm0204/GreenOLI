@@ -1,0 +1,26 @@
+# Reverse proxy + HTTPS (Let's Encrypt) for GreenOLI on VPS
+# Domain: set via env or edit host below.
+# Compose mounts this file into the caddy service.
+
+{
+	email {$CADDY_EMAIL}
+}
+
+{$SITE_ADDRESS} {
+	encode gzip zstd
+
+	# Next.js + Payload (container name / service: web)
+	reverse_proxy web:3000
+
+	header {
+		# Basic hardening (safe defaults)
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		-Server
+	}
+
+	log {
+		output stdout
+		format console
+	}
+}

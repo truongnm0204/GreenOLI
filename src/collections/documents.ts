@@ -17,6 +17,10 @@ export const Documents: CollectionConfig = {
   },
   access: {
     read: () => true,
+    // Admin đăng nhập mới được thêm/sửa/xóa tài liệu (MSDS, catalogue...).
+    create: ({ req }) => Boolean(req.user),
+    update: ({ req }) => Boolean(req.user),
+    delete: ({ req }) => Boolean(req.user),
   },
   admin: {
     group: "Nội dung",

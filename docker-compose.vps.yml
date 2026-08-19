@@ -1,0 +1,100 @@
+# VPS stack: Postgres + Next/Payload + Caddy (HTTPS)
+# Usage on server:
+#   cp .env.vps.example .env
+#   # edit secrets + domain
+#   docker compose -f docker-compose.vps.yml up -d --build
+#
+# App (internal): web:3000
+# Public: Caddy :80/:443 → https://your-domain
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: greenoli-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-greenoli}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+      POSTGRES_DB: ${POSTGRES_DB:-greenoli}
+    volumes:
+      - greenoli_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 15s
+    # Do NOT publish 5432 to the internet.
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        PAYLOAD_SECRET: ${PAYLOAD_SECRET:?Set PAYLOAD_SECRET in .env}
+        # Baked into client bundle at build time — must match public HTTPS URL
+        NEXT_PUBLIC_SERVER_URL: ${NEXT_PUBLIC_SERVER_URL:?Set NEXT_PUBLIC_SERVER_URL}
+    container_name: greenoli-web
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      PORT: "3000"
+      HOSTNAME: "0.0.0.0"
+      DATABASE_URI: postgresql://${POSTGRES_USER:-greenoli}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-greenoli}
+      DATABASE_URI_UNPOOLED: postgresql://${POSTGRES_USER:-greenoli}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-greenoli}
+      PAYLOAD_SECRET: ${PAYLOAD_SECRET}
+      NEXT_PUBLIC_SERVER_URL: ${NEXT_PUBLIC_SERVER_URL}
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASS: ${SMTP_PASS:-}
+      SMTP_FROM: ${SMTP_FROM:-}
+      LEAD_NOTIFY_EMAIL: ${LEAD_NOTIFY_EMAIL:-}
+      NEXT_PUBLIC_GA_MEASUREMENT_ID: ${NEXT_PUBLIC_GA_MEASUREMENT_ID:-}
+    volumes:
+      - greenoli_media:/app/public/media
+      - greenoli_documents:/app/public/documents
+    # Only reachable on Docker network; Caddy proxies public traffic.
+    expose:
+      - "3000"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "fetch('http://127.0.0.1:3000/').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+  caddy:
+    image: caddy:2-alpine
+    container_name: greenoli-caddy
+    restart: unless-stopped
+    depends_on:
+      web:
+        condition: service_started
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    environment:
+      SITE_ADDRESS: ${SITE_ADDRESS:-localhost}
+      CADDY_EMAIL: ${CADDY_EMAIL:-admin@example.com}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  greenoli_pgdata:
+  greenoli_media:
+  greenoli_documents:
+  caddy_data:
+  caddy_config:

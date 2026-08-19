@@ -58,3 +58,8 @@ dev.err.log
 neon_migration_dump.sql
 greenoli_db_export.sql
 oliDB.sql
+
+# Local DB dumps (sensitive)
+greenoli_local_dump*.sql
+*.sql.bak
+

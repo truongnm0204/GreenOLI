@@ -7,10 +7,10 @@ import { ChevronRight, ChevronDown } from "lucide-react";
 
 export function HighlightBanner() {
   return (
-    <section className="relative w-full min-h-[calc(100vh-76px)] flex flex-col justify-center overflow-hidden">
+    <section className="relative w-full min-h-[calc(100vh-76px)] flex flex-col justify-center overflow-hidden pt-8 md:pt-16 pb-12">
       {/* Background Image */}
       <Image
-        src="/images/medical_banner_bg.png"
+        src="/images/Banner.png"
         alt="Oli Xanh Banner Background"
         fill
         className="object-cover"
@@ -21,7 +21,7 @@ export function HighlightBanner() {
       <div className="absolute inset-0 z-0" style={{ background: "linear-gradient(135deg, rgba(232,245,200,0.55) 0%, rgba(255,255,255,0.25) 50%, rgba(234,246,213,0.45) 100%)" }} />
       
       {/* Container */}
-      <div className="relative z-10 w-full container-page px-4 py-12 flex flex-col items-center justify-center">
+      <div className="relative z-10 w-full container-page px-4 pt-8 md:pt-12 pb-12 flex flex-col items-center justify-center">
         
         {/* Center Content */}
         <MotionWrapper delay={0.2} direction="up" className="flex flex-col items-center text-center max-w-4xl w-full">
