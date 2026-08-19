@@ -21,7 +21,7 @@ export function HeroSection() {
       <div className="container-page relative z-10 grid items-center gap-8 lg:gap-12 lg:grid-cols-12">
         {/* Left Column: Content */}
         <div className="lg:col-span-6 space-y-6">
-          <MotionWrapper delay={0.1} direction="up" className="flex flex-wrap items-center gap-3">
+          <MotionWrapper trigger="mount" delay={0.05} direction="up" className="flex flex-wrap items-center gap-3">
             <Chip
               variant="primary"
               className="px-4 py-1.5 shadow-sm"
@@ -48,13 +48,13 @@ export function HeroSection() {
             </span>
           </h1>
           
-          <MotionWrapper delay={0.9} direction="up">
+          <MotionWrapper trigger="mount" delay={0.25} direction="up">
             <p className="text-lg md:text-xl text-text-muted leading-relaxed max-w-xl font-medium">
               Phân phối độc quyền các sản phẩm kiểm soát côn trùng, mối, chuột an toàn và bền vững theo tiêu chuẩn ESG toàn cầu.
             </p>
           </MotionWrapper>
 
-          <MotionWrapper delay={1.1} direction="up">
+          <MotionWrapper trigger="mount" delay={0.35} direction="up">
             <div className="flex flex-wrap gap-4 pt-2">
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                 <Button href="/cua-hang" size="lg" className="hover-card-effect tinted-shadow-primary h-14 px-8 text-base font-bold">
@@ -77,7 +77,7 @@ export function HeroSection() {
               { val: 100, suffix: "%", label: "Sản phẩm chính hãng" },
             ].map((stat, idx) => (
               <li key={stat.label}>
-                <MotionWrapper delay={1.2 + (idx * 0.15)} direction="up">
+                <MotionWrapper trigger="mount" delay={0.45 + idx * 0.08} direction="up">
                   <p className="text-3xl md:text-4xl font-extrabold text-primary-dark tracking-tight">
                     <AnimatedCounter value={stat.val} suffix={stat.suffix} duration={3.5} />
                   </p>
@@ -92,14 +92,8 @@ export function HeroSection() {
 
         {/* Right Column: Extra Large Hero Image Card */}
         <div className="lg:col-span-6 relative mt-6 lg:mt-0">
-          <MotionWrapper delay={0.4} direction="left">
-            <motion.div
-              initial={{ scale: 0.92, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="relative w-full aspect-[4/3] lg:aspect-[16/11] min-h-[380px] sm:min-h-[440px] lg:min-h-[480px] xl:min-h-[540px] rounded-[2.5rem] overflow-hidden shadow-2xl shadow-primary-dark/20 border-4 border-white bg-white hover-card-effect group"
-            >
+          <MotionWrapper trigger="mount" delay={0.2} direction="left">
+            <div className="relative w-full aspect-[4/3] lg:aspect-[16/11] min-h-[380px] sm:min-h-[440px] lg:min-h-[480px] xl:min-h-[540px] rounded-[2.5rem] overflow-hidden shadow-2xl shadow-primary-dark/20 border-4 border-white bg-white hover-card-effect group">
               <Image
                 src="/hero.png"
                 alt="Sản phẩm kiểm soát côn trùng chính hãng Oli Xanh"
@@ -109,7 +103,7 @@ export function HeroSection() {
                 className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-transparent pointer-events-none" />
-            </motion.div>
+            </div>
           </MotionWrapper>
         </div>
       </div>

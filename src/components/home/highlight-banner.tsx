@@ -24,7 +24,7 @@ export function HighlightBanner() {
       <div className="relative z-10 w-full container-page px-4 pt-8 md:pt-12 pb-12 flex flex-col items-center justify-center">
         
         {/* Center Content */}
-        <MotionWrapper delay={0.2} direction="up" className="flex flex-col items-center text-center max-w-4xl w-full">
+        <MotionWrapper trigger="mount" delay={0.15} direction="up" className="flex flex-col items-center text-center max-w-4xl w-full">
 
           <div className="flex items-center justify-center gap-4 mb-6 w-full">
             <div className="h-px w-12 md:w-24 bg-primary" />
