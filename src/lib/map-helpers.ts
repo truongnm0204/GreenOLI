@@ -7,9 +7,12 @@
  * Lấy URL ảnh từ field media (relationship depth=1 trả object có .url).
  * Nhận unknown vì doc field từ Payload chưa được typed chặt; trả "" nếu chưa có ảnh.
  *
- * Với Vercel (deploy static): URL Payload trả về `/api/media/file/<filename>`
- * là route API đọc disk — serverless không phục vụ được file đã commit.
- * File thật nằm `public/media/<filename>` → đổi sang `/media/<filename>` (static).
+ * Production (Docker/VPS): giữ URL Payload `/api/media/file/<filename>` — handler
+ * đọc disk qua staticDir. Không map sang `/media/...` vì `next start` không đảm bảo
+ * serve file upload sau build (public/ chỉ tin cậy với file có lúc build).
+ *
+ * Absolute same-origin URLs bị rút về path tương đối để tránh lệch domain.
+ * URL ngoài (Cloudinary, CDN khác) giữ nguyên.
  */
 export const mediaUrl = (media: unknown): string => {
   if (!media) return "";
@@ -22,18 +25,41 @@ export const mediaUrl = (media: unknown): string => {
 };
 
 /**
- * Chuyển URL media Payload → URL static (public/media, public/documents).
- * Xử lý cả dạng tương đối (`/api/media/file/x`) lẫn tuyệt đối
- * (`https://domain/api/media/file/x`) vì DB có thể lưu serverURL đầy đủ
- * khi upload trên Vercel (vd `https://xxx.vercel.app/api/media/file/x`).
- * URL ngoài (Cloudinary, http khác) giữ nguyên.
+ * Chuẩn hoá URL media cho frontend.
+ * - `/api/media|documents/file/...` (tương đối hoặc absolute same-app) → path tương đối API
+ * - URL ngoài giữ nguyên
  */
 const normalizeMediaUrl = (url: string): string => {
-  const match = url.match(/\/api\/(media|documents)\/file\/(.+)$/);
-  if (!match) return url;
-  const collection = match[1] === "media" ? "media" : "documents";
-  const filename = match[2];
-  return `/${collection}/${filename}`;
+  if (!url) return "";
+
+  // Absolute Payload file URL → relative API path (works behind any public domain)
+  const apiMatch = url.match(/\/api\/(media|documents)\/file\/(.+)$/);
+  if (apiMatch) {
+    return `/api/${apiMatch[1]}/file/${apiMatch[2]}`;
+  }
+
+  // Legacy static paths written when we mapped to public/ — keep working if file exists
+  if (url.startsWith("/media/") || url.startsWith("/documents/")) {
+    return url;
+  }
+
+  // Absolute same-host URL without /api/…/file (rare) — strip origin if it matches serverURL
+  try {
+    if (url.startsWith("http://") || url.startsWith("https://")) {
+      const parsed = new URL(url);
+      const server = process.env.NEXT_PUBLIC_SERVER_URL;
+      if (server) {
+        const base = new URL(server);
+        if (parsed.origin === base.origin) {
+          return `${parsed.pathname}${parsed.search}`;
+        }
+      }
+    }
+  } catch {
+    // ignore invalid URL
+  }
+
+  return url;
 };
 
 /** Lấy mảng URL ảnh từ field upload hasMany (galleryImages). */

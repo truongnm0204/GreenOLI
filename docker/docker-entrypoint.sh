@@ -36,6 +36,14 @@ if [ -z "${DATABASE_URI}" ]; then
   exit 1
 fi
 
+# Named volumes mount as root and hide image-layer ownership on
+# /app/public/media|documents. App must write as uid 1001 (nextjs).
+if [ "$(id -u)" = "0" ]; then
+  echo "[entrypoint] Fixing ownership on upload volumes for nextjs (uid 1001)..."
+  mkdir -p /app/public/media /app/public/documents
+  chown -R nextjs:nodejs /app/public/media /app/public/documents
+fi
+
 # Dumps restored from local `payload dev` often contain a synthetic row:
 #   payload_migrations.batch = -1  (name usually "dev")
 # `payload migrate` then prompts interactively and hangs in Docker (no TTY).
@@ -62,13 +70,25 @@ try {
 }
 "
 
+# Always run app processes as nextjs (not root).
+as_app() {
+  if [ "$(id -u)" = "0" ]; then
+    gosu nextjs "$@"
+  else
+    "$@"
+  fi
+}
+
 echo "[entrypoint] Running Payload migrations..."
 # Fail the container if migrate fails (do not start a half-ready app).
 # Force non-interactive even if a future Payload version prompts again.
-if ! sh -c 'yes n 2>/dev/null | npx payload migrate'; then
+if ! as_app sh -c 'yes n 2>/dev/null | npx payload migrate'; then
   echo "[entrypoint] ERROR: payload migrate failed. Check DATABASE_URI / POSTGRES_PASSWORD."
   exit 1
 fi
 
 echo "[entrypoint] Starting application: $*"
+if [ "$(id -u)" = "0" ]; then
+  exec gosu nextjs "$@"
+fi
 exec "$@"

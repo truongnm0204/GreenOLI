@@ -1,9 +1,8 @@
 import type { CollectionConfig } from "payload";
 import path from "path";
-import { fileURLToPath } from "url";
 
-const filename = fileURLToPath(import.meta.url);
-const dirname = path.dirname(filename);
+/** Same rule as media: cwd-based path so Docker volume mounts stay correct. */
+const documentsStaticDir = path.resolve(process.cwd(), "public/documents");
 
 /**
  * Collection documents: file PDF/Word/Excel (MSDS, catalogue, hướng dẫn).
@@ -30,7 +29,7 @@ export const Documents: CollectionConfig = {
     defaultColumns: ["filename", "mimeType", "filesize", "updatedAt"],
   },
   upload: {
-    staticDir: path.resolve(dirname, "../../public/documents"),
+    staticDir: documentsStaticDir,
     bulkUpload: true,
     displayPreview: true,
     mimeTypes: [

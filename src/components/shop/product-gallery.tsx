@@ -33,7 +33,9 @@ function GallerySlide({
   alt: string;
   priority?: boolean;
 }) {
-  const [loaded, setLoaded] = React.useState(false);
+  const [status, setStatus] = React.useState<"loading" | "ok" | "error">(
+    "loading",
+  );
 
   if (isVideo(item)) {
     return (
@@ -50,24 +52,36 @@ function GallerySlide({
   }
   return (
     <>
-      {!loaded ? (
+      {status === "loading" ? (
         <div
           className="absolute inset-0 animate-pulse bg-gradient-to-br from-surface-container via-surface-light to-surface-container"
           aria-hidden
         />
       ) : null}
-      <Image
-        src={item.url}
-        alt={alt}
-        fill
-        sizes="(max-width: 1024px) 100vw, 50vw"
-        priority={priority}
-        onLoad={() => setLoaded(true)}
-        className={cn(
-          "bg-white object-contain transition-opacity duration-300",
-          loaded ? "opacity-100" : "opacity-0",
-        )}
-      />
+      {status === "error" ? (
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-1 bg-surface-light px-4 text-center">
+          <span className="text-sm font-semibold text-text-muted">
+            Không tải được ảnh
+          </span>
+          <span className="max-w-full truncate text-xs text-text-muted/70">
+            {item.url}
+          </span>
+        </div>
+      ) : (
+        <Image
+          src={item.url}
+          alt={alt}
+          fill
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          priority={priority}
+          onLoad={() => setStatus("ok")}
+          onError={() => setStatus("error")}
+          className={cn(
+            "bg-white object-contain transition-opacity duration-300",
+            status === "ok" ? "opacity-100" : "opacity-0",
+          )}
+        />
+      )}
     </>
   );
 }

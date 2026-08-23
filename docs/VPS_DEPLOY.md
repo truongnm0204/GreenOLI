@@ -295,7 +295,7 @@ docker run --rm -v oliproject_greenoli_media:/data -v /root/backups:/backup alpi
 | Container kẹt prompt *dev mode / data loss* | Dump local có `payload_migrations.batch = -1`. Entrypoint mới tự xóa marker. Fix tay: `DELETE FROM payload_migrations WHERE batch = -1;` rồi `restart web` |
 | `npm error signal SIGTERM` khi start | Thường do `docker restart` / OOM kill trong lúc app đang chạy — xem `docker inspect` / free RAM, không phải lỗi Next riêng |
 | Trang trắng / URL sai | `NEXT_PUBLIC_SERVER_URL` không khớp domain → rebuild |
-| Ảnh 404 | Chưa copy `public/media` vào volume |
+| Ảnh 404 / ảnh SP mới không hiện | (1) Rebuild image mới (staticDir + mediaUrl + volume chown). (2) Kiểm tra file trên volume: `docker compose -f docker-compose.vps.yml exec web ls -la /app/public/media \| head`. (3) Mở trực tiếp `https://domain/api/media/file/<filename>` — nếu 500/404 thì file chưa ghi được (permission) hoặc path sai. (4) Entrypoint mới `chown nextjs` volume lúc boot; nếu volume cũ vẫn root-only: `docker compose -f docker-compose.vps.yml exec -u 0 web chown -R nextjs:nodejs /app/public/media /app/public/documents` rồi restart. (5) Ảnh upload trước khi fix có thể phải **upload lại** nếu file không từng ghi vào volume. |
 | Admin login fail sau restore | Dùng đúng user trong dump; clear cookie |
 | Build OOM | VPS RAM thấp — thêm swap 2GB hoặc build image trên máy mạnh rồi `docker load` |
 | Port 80/443 occupied | Tắt nginx/apache host: `systemctl stop nginx` |

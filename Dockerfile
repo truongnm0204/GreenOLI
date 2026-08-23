@@ -68,7 +68,11 @@ ENV NEXT_TELEMETRY_DISABLED=1
 ENV PORT=3000
 ENV HOSTNAME=0.0.0.0
 
-RUN groupadd --system --gid 1001 nodejs \
+# gosu: entrypoint starts as root to chown volume mounts, then drops to nextjs.
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends gosu \
+  && rm -rf /var/lib/apt/lists/* \
+  && groupadd --system --gid 1001 nodejs \
   && useradd --system --uid 1001 --gid nodejs nextjs \
   && mkdir -p public/media public/documents \
   && chown -R nextjs:nodejs public
@@ -84,10 +88,12 @@ COPY --from=builder --chown=nextjs:nodejs /app/next.config.ts ./next.config.ts
 COPY --from=builder --chown=nextjs:nodejs /app/tsconfig.json ./tsconfig.json
 COPY --from=builder --chown=nextjs:nodejs /app/next-env.d.ts ./next-env.d.ts
 
-COPY --chown=nextjs:nodejs docker/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
-RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+COPY docker/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh \
+  && chown nextjs:nodejs /usr/local/bin/docker-entrypoint.sh
 
-USER nextjs
+# Start as root so entrypoint can chown named volumes, then gosu → nextjs.
+# Do NOT set USER nextjs here — that would prevent volume chown on boot.
 EXPOSE 3000
 
 ENTRYPOINT ["docker-entrypoint.sh"]

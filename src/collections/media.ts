@@ -1,13 +1,18 @@
 import type { CollectionConfig } from "payload";
 import path from "path";
-import { fileURLToPath } from "url";
 
-const filename = fileURLToPath(import.meta.url);
-const dirname = path.dirname(filename);
+/**
+ * Absolute upload dir from process.cwd() (WORKDIR /app in Docker).
+ * Do NOT use import.meta.url + ../../public — after Next/Payload bundles
+ * collections, that path can resolve to .next/.../public and miss the
+ * docker volume at /app/public/media.
+ */
+const mediaStaticDir = path.resolve(process.cwd(), "public/media");
 
 /**
  * Collection media: upload ảnh/video lên disk local (public/media).
  * URL Payload: /api/media/file/<filename>
+ * Site maps to /media/<filename> (static) via mediaUrl().
  * Không dùng Cloudinary / cloud storage.
  */
 export const Media: CollectionConfig = {
@@ -55,7 +60,7 @@ export const Media: CollectionConfig = {
     ],
   },
   upload: {
-    staticDir: path.resolve(dirname, "../../public/media"),
+    staticDir: mediaStaticDir,
     bulkUpload: true,
     adminThumbnail: "thumbnail",
     displayPreview: true,
