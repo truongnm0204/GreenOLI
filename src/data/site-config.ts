@@ -64,7 +64,7 @@ export type NavItem = {
 
 export const NAV_ITEMS: NavItem[] = [
   { href: "/", label: "Trang chủ" },
-  { href: "/gioi-thieu", label: "Giới thiệu" },
+  { href: "/gioi-thieu", label: "Về Oli Xanh" },
   { href: "/cua-hang", label: "Sản phẩm", hasDropdown: true },
   { href: "/tin-tuc", label: "Tin tức" },
   { href: "/lien-he", label: "Liên hệ" },

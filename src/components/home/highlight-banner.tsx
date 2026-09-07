@@ -60,7 +60,7 @@ export function HighlightBanner() {
 
         {/* Scroll Down Button */}
         <a 
-          href="#giai-phap" 
+          href="#san-pham-noi-bat" 
           className="mt-16 animate-bounce bg-white/50 hover:bg-white/80 p-3 rounded-full backdrop-blur-md transition-colors text-primary-dark shadow-sm"
           aria-label="Scroll down"
         >

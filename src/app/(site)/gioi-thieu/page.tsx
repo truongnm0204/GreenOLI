@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Script from "next/script";
 import { Award, Leaf, Users, ShieldCheck, Sparkles, Target } from "lucide-react";
-import { AboutHeroSection } from "@/components/about/about-hero";
+import { HeroSection } from "@/components/home/hero-section";
+import { IntroSection } from "@/components/home/intro-section";
 import { Card } from "@/components/ui/card";
 import { ContactCta } from "@/components/home/contact-cta";
 import { MotionWrapper } from "@/components/ui/motion-wrapper";
@@ -11,7 +12,7 @@ import { buildMetadata } from "@/lib/seo";
 import { breadcrumbSchema } from "@/lib/json-ld";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Giới Thiệu – Câu chuyện và đội ngũ Oli Xanh",
+  title: "Về Oli Xanh – Giải pháp kiểm soát côn trùng & Đội ngũ",
   description:
     "Oli Xanh phân phối hóa chất và thiết bị kiểm soát côn trùng, mối, chuột khu vực phía Bắc. Tìm hiểu sứ mệnh, giá trị cốt lõi và đội ngũ kỹ sư.",
   path: "/gioi-thieu",
@@ -43,15 +44,8 @@ const VALUES = [
 export default function AboutPage() {
   return (
     <>
-      <AboutHeroSection
-        title={
-          <>
-            Câu chuyện <span className="text-primary-dark">Oli Xanh</span>
-          </>
-        }
-        description="10+ năm đồng hành cùng các cơ sở y tế, doanh nghiệp và cộng đồng vì một Việt Nam xanh, an toàn và bền vững."
-        breadcrumb={[{ label: "Giới thiệu" }]}
-      />
+      <HeroSection />
+      <IntroSection />
 
       <section className="container-page py-16 md:py-24">
         <div className="grid gap-12 lg:grid-cols-12 items-center">
@@ -181,7 +175,7 @@ export default function AboutPage() {
           __html: JSON.stringify(
             breadcrumbSchema([
               { name: "Trang chủ", href: "/" },
-              { name: "Giới thiệu", href: "/gioi-thieu" },
+              { name: "Về Oli Xanh", href: "/gioi-thieu" },
             ]),
           ),
         }}

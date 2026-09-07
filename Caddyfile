@@ -24,3 +24,7 @@
 		format console
 	}
 }
+
+www.{$SITE_ADDRESS} {
+	redir https://{$SITE_ADDRESS}{uri} permanent
+}

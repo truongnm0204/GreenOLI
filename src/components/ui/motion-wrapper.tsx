@@ -108,10 +108,14 @@ export function MotionWrapper({
   return (
     <motion.div
       ref={ref}
-      initial={{
-        opacity: 0,
-        ...directions[direction],
-      }}
+      initial={
+        trigger === "mount"
+          ? false
+          : {
+              opacity: 0,
+              ...directions[direction],
+            }
+      }
       animate={
         show
           ? {

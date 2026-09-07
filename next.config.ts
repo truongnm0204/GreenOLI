@@ -23,6 +23,14 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["lucide-react"],
   },
+  async rewrites() {
+    return [
+      {
+        source: "/ve-oli-xanh",
+        destination: "/gioi-thieu",
+      },
+    ];
+  },
 };
 
 export default withPayload(nextConfig);

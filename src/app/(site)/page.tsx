@@ -1,9 +1,7 @@
 import Script from "next/script";
 import type { Metadata } from "next";
-import { HeroSection } from "@/components/home/hero-section";
 import { FeaturedProductsSection } from "@/components/home/featured-products-section";
 import { HighlightBanner } from "@/components/home/highlight-banner";
-import { IntroSection } from "@/components/home/intro-section";
 import { VisionMissionSection } from "@/components/home/vision-mission";
 import { CategoryShowcase } from "@/components/home/category-showcase";
 import { PartnersMarquee } from "@/components/home/partners-marquee";
@@ -30,8 +28,6 @@ export default function HomePage() {
   return (
     <>
       <HighlightBanner />
-      <HeroSection />
-      <IntroSection />
       <FeaturedProductsSection />
       <VisionMissionSection />
       <CategoryShowcase />
