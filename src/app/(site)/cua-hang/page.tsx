@@ -8,7 +8,7 @@ import { MotionWrapper } from "@/components/ui/motion-wrapper";
 import { ShopTabs } from "@/components/shop/shop-tabs";
 import { getAllCategories } from "@/data/categories";
 import { getAllBrands } from "@/data/brands";
-import { findProducts, getAllProducts } from "@/data/products";
+import { findProducts, getAllProducts, getFeaturedProducts } from "@/data/products";
 import { buildMetadata } from "@/lib/seo";
 import { breadcrumbSchema } from "@/lib/json-ld";
 import {
@@ -130,8 +130,7 @@ export default async function ShopPage({
     );
   }
 
-  const allProducts = await getAllProducts();
-  const featured = allProducts.slice(0, 6);
+  const featured = await getFeaturedProducts(6);
 
   return (
     <>

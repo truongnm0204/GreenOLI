@@ -43,6 +43,7 @@ export type PackagingOption = {
 export type Product = {
   slug: string;
   name: string;
+  isFeatured?: boolean;
   category: string; // category slug
   brand?: string; // brand slug
   shortDescription: string;

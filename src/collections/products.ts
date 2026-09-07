@@ -34,7 +34,7 @@ export const Products: CollectionConfig = {
   admin: {
     group: "Sản phẩm",
     useAsTitle: "name",
-    defaultColumns: ["name", "slug", "category"],
+    defaultColumns: ["name", "slug", "category", "isFeatured"],
     description: "Quản lý danh mục sản phẩm, ảnh, quy cách đóng gói và tài liệu đính kèm.",
   },
   hooks: {
@@ -72,6 +72,16 @@ export const Products: CollectionConfig = {
     ],
   },
   fields: [
+    {
+      name: "isFeatured",
+      type: "checkbox",
+      label: "Sản phẩm nổi bật (Hiển thị trang chủ)",
+      defaultValue: false,
+      admin: {
+        position: "sidebar",
+        description: "Bật để ưu tiên hiển thị sản phẩm này trong mục Sản phẩm nổi bật ở Trang chủ.",
+      },
+    },
     {
       name: "slug",
       type: "text",

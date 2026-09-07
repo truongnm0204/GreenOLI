@@ -5,6 +5,7 @@ import * as migration_20260708_134955_add_brands_collection from './20260708_134
 import * as migration_20260804_084902 from './20260804_084902';
 import * as migration_20260804_add_packaging_units_collection from './20260804_add_packaging_units_collection';
 import * as migration_20260804_add_description_and_attachments from './20260804_add_description_and_attachments';
+import * as migration_20260907_add_is_featured_to_products from './20260907_add_is_featured_to_products';
 
 export const migrations = [
   {
@@ -41,5 +42,10 @@ export const migrations = [
     up: migration_20260804_add_description_and_attachments.up,
     down: migration_20260804_add_description_and_attachments.down,
     name: '20260804_add_description_and_attachments',
+  },
+  {
+    up: migration_20260907_add_is_featured_to_products.up,
+    down: migration_20260907_add_is_featured_to_products.down,
+    name: '20260907_add_is_featured_to_products',
   },
 ];

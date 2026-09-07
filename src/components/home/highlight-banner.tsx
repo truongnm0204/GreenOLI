@@ -61,8 +61,12 @@ export function HighlightBanner() {
         {/* Scroll Down Button */}
         <a 
           href="#san-pham-noi-bat" 
+          onClick={(e) => {
+            e.preventDefault();
+            document.getElementById("san-pham-noi-bat")?.scrollIntoView({ behavior: "smooth" });
+          }}
           className="mt-16 animate-bounce bg-white/50 hover:bg-white/80 p-3 rounded-full backdrop-blur-md transition-colors text-primary-dark shadow-sm"
-          aria-label="Scroll down"
+          aria-label="Cuộn xuống mục sản phẩm nổi bật"
         >
           <ChevronDown className="size-6" />
         </a>

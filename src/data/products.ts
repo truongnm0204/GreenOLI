@@ -40,6 +40,7 @@ type RawAttachment = {
 type ProductDoc = {
   slug: string;
   name: string;
+  isFeatured?: boolean | null;
   category: unknown;
   brand?: unknown;
   shortDescription: string;
@@ -94,6 +95,7 @@ const mapPackagingOption = (opt: RawPackagingOption): PackagingOption => {
 const toProduct = (doc: ProductDoc): Product => ({
   slug: doc.slug,
   name: doc.name,
+  isFeatured: Boolean(doc.isFeatured),
   category: relSlug(doc.category as { slug?: string }),
   brand: doc.brand ? relSlug(doc.brand as { slug?: string }) : undefined,
   shortDescription: doc.shortDescription,
@@ -136,6 +138,53 @@ export const getAllProducts = async (): Promise<Product[]> => {
     sort: "createdAt",
   });
   return (docs as ProductDoc[]).map(toProduct);
+};
+
+/**
+ * Lấy danh sách sản phẩm nổi bật:
+ * Ưu tiên các sản phẩm có `isFeatured: true`.
+ * Nếu chưa đủ `limit`, tự động bù thêm sản phẩm mới nhất để luôn hiển thị đủ.
+ */
+export const getFeaturedProducts = async (limit = 6): Promise<Product[]> => {
+  try {
+    const payload = await getPayloadClient();
+
+    // 1. Lấy sản phẩm có isFeatured = true
+    const { docs: featuredDocs } = await payload.find({
+      collection: "products",
+      where: { isFeatured: { equals: true } },
+      limit,
+      depth: 2,
+      sort: "-createdAt",
+    });
+
+    const featuredProducts = (featuredDocs as ProductDoc[]).map(toProduct);
+
+    // 2. Nếu chưa đủ limit, bù thêm các sản phẩm mới nhất
+    if (featuredProducts.length < limit) {
+      const existingSlugs = new Set(featuredProducts.map((p) => p.slug));
+
+      const { docs: recentDocs } = await payload.find({
+        collection: "products",
+        limit: limit + 5,
+        depth: 2,
+        sort: "-createdAt",
+      });
+
+      for (const doc of recentDocs as ProductDoc[]) {
+        if (!existingSlugs.has(doc.slug)) {
+          featuredProducts.push(toProduct(doc));
+          existingSlugs.add(doc.slug);
+          if (featuredProducts.length >= limit) break;
+        }
+      }
+    }
+
+    return featuredProducts;
+  } catch (err) {
+    console.error("Lỗi khi lấy sản phẩm nổi bật (getFeaturedProducts):", err);
+    return [];
+  }
 };
 
 export const getProductBySlug = async (
