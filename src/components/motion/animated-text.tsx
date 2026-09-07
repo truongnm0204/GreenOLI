@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { motion, type Variants } from "framer-motion";
 
 interface AnimatedTextProps {
@@ -18,13 +19,18 @@ export function AnimatedText({
   once = true,
   trigger = "mount",
 }: AnimatedTextProps) {
+  const [mounted, setMounted] = React.useState(false);
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const isString = typeof text === "string";
   const useMount = trigger === "mount";
 
   if (!isString) {
     return (
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={mounted ? { opacity: 0, y: 20 } : false}
         {...(useMount
           ? { animate: { opacity: 1, y: 0 } }
           : { whileInView: { opacity: 1, y: 0 }, viewport: { once } })}
@@ -66,7 +72,7 @@ export function AnimatedText({
     <motion.div
       className={className}
       variants={container}
-      initial="hidden"
+      initial={mounted ? "hidden" : false}
       {...(useMount
         ? { animate: "visible" }
         : { whileInView: "visible", viewport: { once } })}

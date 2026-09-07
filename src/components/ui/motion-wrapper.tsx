@@ -51,8 +51,10 @@ export function MotionWrapper({
     margin: "0px 0px -8% 0px",
   });
   const [fallbackVisible, setFallbackVisible] = React.useState(false);
+  const [mounted, setMounted] = React.useState(false);
 
   React.useEffect(() => {
+    setMounted(true);
     if (trigger === "mount" || reduceMotion) {
       setFallbackVisible(true);
       return;
@@ -109,7 +111,7 @@ export function MotionWrapper({
     <motion.div
       ref={ref}
       initial={
-        trigger === "mount"
+        !mounted || trigger === "mount"
           ? false
           : {
               opacity: 0,
