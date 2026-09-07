@@ -14,7 +14,7 @@ export async function PartnersMarquee() {
           className="mb-8"
         />
       </div>
-      <MotionWrapper delay={0.3} direction="up" className="w-full flex">
+      <MotionWrapper delay={0.05} direction="up" className="w-full flex">
         <Image
           src="/logoGroup.png"
           alt="Các nhãn hàng đối tác hàng đầu"

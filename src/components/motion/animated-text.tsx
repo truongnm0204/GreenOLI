@@ -24,13 +24,17 @@ export function AnimatedText({
     setMounted(true);
   }, []);
 
+  if (!mounted) {
+    return <span className={className}>{text}</span>;
+  }
+
   const isString = typeof text === "string";
   const useMount = trigger === "mount";
 
   if (!isString) {
     return (
       <motion.div
-        initial={mounted ? { opacity: 0, y: 20 } : false}
+        initial={{ opacity: 0, y: 15 }}
         {...(useMount
           ? { animate: { opacity: 1, y: 0 } }
           : { whileInView: { opacity: 1, y: 0 }, viewport: { once } })}

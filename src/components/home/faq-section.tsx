@@ -27,7 +27,7 @@ export function FaqSection() {
 
         <div className="mx-auto max-w-3xl space-y-3">
           {HOME_FAQS.map((item, idx) => (
-            <MotionWrapper key={item.id} delay={0.05 * idx} direction="up">
+            <MotionWrapper key={item.id} delay={Math.min(0.04 * idx, 0.2)} direction="up">
               <details className="group rounded-2xl border border-border-soft/80 bg-white px-5 py-1 shadow-sm open:shadow-ambient transition-shadow">
                 <summary className="cursor-pointer list-none py-4 font-semibold text-text-primary marker:content-none flex items-start gap-3 [&::-webkit-details-marker]:hidden">
                   <HelpCircle
@@ -53,7 +53,7 @@ export function FaqSection() {
         </div>
 
         <MotionWrapper
-          delay={0.35}
+          delay={0.1}
           direction="up"
           className="mt-10 flex justify-center"
         >

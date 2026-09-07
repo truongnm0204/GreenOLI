@@ -38,7 +38,7 @@ export async function NewsHighlight() {
 
         <div className="grid gap-6 md:grid-cols-3">
           {items.map((article, idx) => (
-            <MotionWrapper key={article.slug} direction="up" delay={0.2 + (idx * 0.15)}>
+            <MotionWrapper key={article.slug} direction="up" delay={idx * 0.08}>
               <NewsCard article={article} />
             </MotionWrapper>
           ))}

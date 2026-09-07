@@ -5,7 +5,6 @@ import { Card } from "@/components/ui/card";
 import { MotionWrapper } from "@/components/ui/motion-wrapper";
 import { SectionHeader } from "@/components/ui/section-header";
 import { AnimatedText } from "@/components/motion/animated-text";
-import { motion, type Variants } from "framer-motion";
 
 const PILLARS = [
   {
@@ -26,31 +25,6 @@ const PILLARS = [
 ];
 
 export function VisionMissionSection() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 40, scale: 0.95 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 15,
-      },
-    },
-  };
-
   return (
     <section className="relative bg-primary-dark overflow-hidden py-16 md:py-24 pt-32">
 
@@ -64,7 +38,7 @@ export function VisionMissionSection() {
             <>
               <AnimatedText text="Khoa học vì sức khỏe cộng đồng" delay={0.1} />
               <span className="hidden md:block h-2" />
-              <AnimatedText text="và môi trường bền vững" delay={0.3} className="text-white/90" />
+              <AnimatedText text="và môi trường bền vững" delay={0.2} className="text-white/90" />
             </>
           }
           theme="dark"
@@ -72,15 +46,9 @@ export function VisionMissionSection() {
           className="max-w-3xl mb-12 md:mb-16"
         />
         
-        <motion.div 
-          className="grid gap-6 md:grid-cols-3"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          {PILLARS.map(({ icon: Icon, title, body }) => (
-            <motion.div key={title} variants={itemVariants} className="h-full">
+        <div className="grid gap-6 md:grid-cols-3">
+          {PILLARS.map(({ icon: Icon, title, body }, idx) => (
+            <MotionWrapper key={title} delay={idx * 0.08} direction="up" className="h-full">
               <Card className="space-y-5 h-full hover-card-effect border-none bg-surface/95 backdrop-blur-sm shadow-xl p-8 transition-all hover:-translate-y-2">
                 <span className="grid size-16 place-items-center rounded-2xl bg-primary/15 text-primary-dark shadow-inner">
                   <Icon className="size-8" aria-hidden />
@@ -88,9 +56,9 @@ export function VisionMissionSection() {
                 <h3 className="font-bold text-2xl text-text-primary">{title}</h3>
                 <p className="text-text-muted leading-relaxed text-lg">{body}</p>
               </Card>
-            </motion.div>
+            </MotionWrapper>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

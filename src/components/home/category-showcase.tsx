@@ -36,7 +36,7 @@ export async function CategoryShowcase() {
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {categories.map((cat, idx) => (
-            <MotionWrapper key={cat.slug} delay={0.2 + Math.min(idx * 0.1, 0.6)} direction="up">
+            <MotionWrapper key={cat.slug} delay={Math.min(idx * 0.04, 0.25)} direction="up">
               <CategoryCard category={cat} />
             </MotionWrapper>
           ))}

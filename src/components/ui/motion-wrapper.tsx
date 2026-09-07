@@ -23,33 +23,42 @@ interface MotionWrapperProps extends HTMLMotionProps<"div"> {
   trigger?: "view" | "mount";
 }
 
+const directions = {
+  up: { y: 20, x: 0 },
+  down: { y: -20, x: 0 },
+  left: { x: 20, y: 0 },
+  right: { x: -20, y: 0 },
+  none: { x: 0, y: 0 },
+};
+
 /**
  * Scroll / mount reveal wrapper.
  *
- * Important: never leave above-the-fold content stuck at opacity:0.
- * Framer `whileInView` can miss the first paint (SSR hydration, full-viewport
- * heroes, sticky headers) — user only sees content after a client navigation.
- * We combine useInView + a layout fallback that forces visible if the node
- * already intersects the viewport after mount.
+ * Designed to ensure content is NEVER hidden in SSR or if scrolling fast.
+ * - During SSR / before mount: renders semantic visible markup (no opacity:0).
+ * - Positive margin (150px) triggers before element reaches viewport bottom.
+ * - Scroll/resize fallback ensures visibility even if IntersectionObserver misses.
  */
 export function MotionWrapper({
   children,
   delay = 0,
   direction = "up",
-  duration = 0.3,
+  duration = 0.25,
   className,
-  viewportAmount = 0.05,
+  viewportAmount = 0,
   trigger = "view",
   ...props
 }: MotionWrapperProps) {
   const reduceMotion = useReducedMotion();
   const ref = React.useRef<HTMLDivElement | null>(null);
+
+  // Positive bottom margin so animation triggers 150px BEFORE element enters view
   const inView = useInView(ref, {
     once: true,
     amount: viewportAmount === "all" ? 1 : viewportAmount === "some" ? 0.05 : viewportAmount,
-    // Trigger a bit before the element fully enters (helps full-bleed heroes).
-    margin: "0px 0px -8% 0px",
+    margin: "0px 0px 150px 0px",
   });
+
   const [fallbackVisible, setFallbackVisible] = React.useState(false);
   const [mounted, setMounted] = React.useState(false);
 
@@ -59,44 +68,52 @@ export function MotionWrapper({
       setFallbackVisible(true);
       return;
     }
-    const el = ref.current;
-    if (!el || typeof window === "undefined") return;
 
     const check = () => {
+      const el = ref.current;
+      if (!el) return;
       const rect = el.getBoundingClientRect();
       const vh = window.innerHeight || document.documentElement.clientHeight;
-      const vw = window.innerWidth || document.documentElement.clientWidth;
-      const visible =
-        rect.width > 0 &&
-        rect.height > 0 &&
-        rect.bottom > 0 &&
-        rect.right > 0 &&
-        rect.top < vh &&
-        rect.left < vw;
-      if (visible) setFallbackVisible(true);
+      // If element is within 200px of viewport bottom or already scrolled past
+      if (rect.top < vh + 200 && rect.bottom > -100) {
+        setFallbackVisible(true);
+        window.removeEventListener("scroll", check);
+        window.removeEventListener("resize", check);
+      }
     };
 
-    // After layout/paint — catches "already in view" cases IO missed on hydrate.
-    const raf = requestAnimationFrame(() => {
-      check();
-      // Second pass after fonts/images may shift layout
-      window.setTimeout(check, 120);
-    });
+    // Initial check after mount
+    check();
+    const raf = requestAnimationFrame(check);
 
-    return () => cancelAnimationFrame(raf);
+    // Also listen to scroll/resize as fallback in case IntersectionObserver lags
+    window.addEventListener("scroll", check, { passive: true });
+    window.addEventListener("resize", check, { passive: true });
+
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", check);
+      window.removeEventListener("resize", check);
+    };
   }, [trigger, reduceMotion]);
-
-  const directions = {
-    up: { y: 40, x: 0 },
-    down: { y: -40, x: 0 },
-    left: { x: 40, y: 0 },
-    right: { x: -40, y: 0 },
-    none: { x: 0, y: 0 },
-  };
 
   if (reduceMotion) {
     return (
       <div
+        className={cn(className)}
+        {...(props as React.HTMLAttributes<HTMLDivElement>)}
+      >
+        {children}
+      </div>
+    );
+  }
+
+  // During SSR (not mounted yet), render clean HTML without opacity: 0.
+  // This ensures SEO crawlers and initial paint never see blank or missing sections.
+  if (!mounted) {
+    return (
+      <div
+        ref={ref}
         className={cn(className)}
         {...(props as React.HTMLAttributes<HTMLDivElement>)}
       >
@@ -110,14 +127,10 @@ export function MotionWrapper({
   return (
     <motion.div
       ref={ref}
-      initial={
-        !mounted || trigger === "mount"
-          ? false
-          : {
-              opacity: 0,
-              ...directions[direction],
-            }
-      }
+      initial={{
+        opacity: 0,
+        ...directions[direction],
+      }}
       animate={
         show
           ? {
