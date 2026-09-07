@@ -6,7 +6,7 @@
 	email {$CADDY_EMAIL}
 }
 
-{$SITE_ADDRESS} {
+http://{$SITE_ADDRESS}, https://{$SITE_ADDRESS} {
 	encode gzip zstd
 
 	# Next.js + Payload (container name / service: web)
@@ -25,6 +25,6 @@
 	}
 }
 
-www.{$SITE_ADDRESS} {
+http://www.{$SITE_ADDRESS}, https://www.{$SITE_ADDRESS} {
 	redir https://{$SITE_ADDRESS}{uri} permanent
 }
