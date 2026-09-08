@@ -10,7 +10,7 @@ export function HighlightBanner() {
     <section className="relative w-full min-h-[calc(100vh-76px)] flex flex-col justify-center overflow-hidden pt-8 md:pt-16 pb-12">
       {/* Background Image */}
       <Image
-        src="/images/Banner.png"
+        src="/images/Banner2.png"
         alt="Oli Xanh Banner Background"
         fill
         className="object-cover"

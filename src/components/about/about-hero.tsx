@@ -25,9 +25,9 @@ export function AboutHeroSection({
         className,
       )}
     >
-      {/* 1 Ảnh nền phòng thí nghiệm & sản xuất hóa chất y tế Banner.png */}
+      {/* 1 Ảnh nền phòng thí nghiệm & sản xuất hóa chất y tế Banner2.png */}
       <Image
-        src="/images/Banner.png"
+        src="/images/Banner2.png"
         alt="Nền hóa chất y tế và chăn nuôi Oli Xanh"
         fill
         className="object-cover"
