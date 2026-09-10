@@ -95,7 +95,7 @@ export function HeroSection() {
           <MotionWrapper trigger="mount" delay={0.2} direction="left">
             <div className="relative w-full aspect-[4/3] lg:aspect-[16/11] min-h-[380px] sm:min-h-[440px] lg:min-h-[480px] xl:min-h-[540px] rounded-[2.5rem] overflow-hidden shadow-2xl shadow-primary-dark/20 border-4 border-white bg-white hover-card-effect group">
               <Image
-                src="/hero.png"
+                src="/hero2.png"
                 alt="Sản phẩm kiểm soát côn trùng chính hãng Oli Xanh"
                 fill
                 priority
