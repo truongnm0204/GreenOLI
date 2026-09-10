@@ -52,7 +52,7 @@ export function IntroSection() {
             className="relative aspect-[4/5] rounded-[2rem] overflow-hidden tinted-shadow-primary hover-card-effect group"
           >
             <Image
-              src="/intro_greenoli.png"
+              src="/intro_greenoli2.png"
               alt="Hình ảnh hoạt động và giải pháp Oli Xanh"
               fill
               sizes="(max-width: 1024px) 100vw, 40vw"
