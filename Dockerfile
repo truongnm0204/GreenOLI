@@ -1,7 +1,7 @@
 # GreenOLI production-like image (Next.js 15 + Payload CMS 3)
 # Runner uses prod node_modules + `next start` so `payload migrate` works at boot.
 
-FROM node:20-bookworm-slim AS base
+FROM public.ecr.aws/docker/library/node:20-bookworm-slim AS base
 WORKDIR /app
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
