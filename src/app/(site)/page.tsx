@@ -2,11 +2,9 @@ import Script from "next/script";
 import type { Metadata } from "next";
 import { FeaturedProductsSection } from "@/components/home/featured-products-section";
 import { HighlightBanner } from "@/components/home/highlight-banner";
-import { VisionMissionSection } from "@/components/home/vision-mission";
 import { CategoryShowcase } from "@/components/home/category-showcase";
 import { PartnersMarquee } from "@/components/home/partners-marquee";
 import { GalleryCarousel } from "@/components/home/gallery-carousel";
-import { NewsHighlight } from "@/components/home/news-highlight";
 import { FaqSection } from "@/components/home/faq-section";
 import { ContactCta } from "@/components/home/contact-cta";
 import { buildMetadata } from "@/lib/seo";
@@ -29,11 +27,9 @@ export default function HomePage() {
     <>
       <HighlightBanner />
       <FeaturedProductsSection />
-      <VisionMissionSection />
       <CategoryShowcase />
       <PartnersMarquee />
       {/* <GalleryCarousel /> */}
-      <NewsHighlight />
       <FaqSection />
       <ContactCta />
       <Script
