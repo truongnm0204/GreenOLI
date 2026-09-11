@@ -1,4 +1,3 @@
-# syntax=docker/dockerfile:1
 # GreenOLI production-like image (Next.js 15 + Payload CMS 3)
 # Runner uses prod node_modules + `next start` so `payload migrate` works at boot.
 
