@@ -10,6 +10,7 @@ export interface SectionHeaderProps {
   theme?: "light" | "dark";
   align?: "left" | "center";
   className?: string;
+  titleClassName?: string;
 }
 
 export function SectionHeader({
@@ -18,6 +19,7 @@ export function SectionHeader({
   theme = "light",
   align = "center",
   className,
+  titleClassName,
 }: SectionHeaderProps) {
   const isDark = theme === "dark";
   const isCenter = align === "center";
@@ -26,7 +28,7 @@ export function SectionHeader({
     <MotionWrapper 
       delay={0.1} 
       direction="up" 
-      className={cn("mb-10 md:mb-16 max-w-4xl", isCenter ? "mx-auto flex flex-col items-center text-center" : "", className)}
+      className={cn("mb-10 md:mb-16", !className?.includes("max-w-") && "max-w-4xl", isCenter ? "mx-auto flex flex-col items-center text-center" : "", className)}
     >
       <div className={cn("flex items-center gap-2 mb-3", isCenter ? "justify-center" : "")}>
         <Leaf className={cn("size-5", isDark ? "text-primary-light" : "text-secondary")} />
@@ -37,7 +39,8 @@ export function SectionHeader({
       </div>
       <h2 className={cn(
         "font-extrabold text-3xl md:text-4xl lg:text-5xl uppercase leading-tight drop-shadow-sm",
-        isDark ? "text-white" : "text-primary-dark"
+        isDark ? "text-white" : "text-primary-dark",
+        titleClassName
       )}>
         {typeof title === "string" ? <AnimatedText text={title} /> : title}
       </h2>

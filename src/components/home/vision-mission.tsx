@@ -36,14 +36,22 @@ export function VisionMissionSection() {
           eyebrow="Định hướng chiến lược"
           title={
             <>
-              <AnimatedText text="Khoa học vì sức khỏe cộng đồng" delay={0.1} />
-              <span className="hidden md:block h-2" />
-              <AnimatedText text="và môi trường bền vững" delay={0.2} className="text-white/90" />
+              <AnimatedText 
+                text="Khoa học vì sức khỏe cộng đồng" 
+                delay={0.1} 
+                className="md:whitespace-nowrap"
+              />
+              <AnimatedText 
+                text="và môi trường bền vững" 
+                delay={0.2} 
+                className="text-white/90 md:whitespace-nowrap mt-1 md:mt-2" 
+              />
             </>
           }
           theme="dark"
           align="left"
-          className="max-w-3xl mb-12 md:mb-16"
+          className="max-w-5xl mb-12 md:mb-16"
+          titleClassName="text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
         />
         
         <div className="grid gap-6 md:grid-cols-3">
