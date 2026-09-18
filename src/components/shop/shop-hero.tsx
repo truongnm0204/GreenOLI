@@ -45,7 +45,7 @@ export function ShopHeroSection({
 
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary-dark text-xs font-bold shadow-sm">
             <Sparkles className="size-3.5 text-primary" />
-            <span>Hóa chất Y tế & Chế phẩm Diệt côn trùng Chính hãng</span>
+            <span>Thiết bị & Chế phẩm Diệt côn trùng Chính hãng</span>
           </div>
           
           <h1
