@@ -4,7 +4,6 @@ import Script from "next/script";
 import { HeroSection } from "@/components/home/hero-section";
 import { IntroSection } from "@/components/home/intro-section";
 import { VisionMissionSection } from "@/components/home/vision-mission";
-import { NewsHighlight } from "@/components/home/news-highlight";
 import { ContactCta } from "@/components/home/contact-cta";
 import { MotionWrapper } from "@/components/ui/motion-wrapper";
 import { AnimatedText } from "@/components/motion/animated-text";
@@ -83,8 +82,6 @@ export default function AboutPage() {
       </section>
 
       <VisionMissionSection />
-
-      <NewsHighlight />
 
       <ContactCta />
 

@@ -280,6 +280,10 @@ export interface PackagingUnit {
  */
 export interface Product {
   id: number;
+  /**
+   * Bật để ưu tiên hiển thị sản phẩm này trong mục Sản phẩm nổi bật ở Trang chủ.
+   */
+  isFeatured?: boolean | null;
   slug: string;
   name: string;
   category: number | Category;
@@ -731,6 +735,7 @@ export interface PackagingUnitsSelect<T extends boolean = true> {
  * via the `definition` "products_select".
  */
 export interface ProductsSelect<T extends boolean = true> {
+  isFeatured?: T;
   slug?: T;
   name?: T;
   category?: T;

@@ -20,7 +20,7 @@ export async function CategoryShowcase() {
           <div className="max-w-2xl">
             <SectionHeader 
               eyebrow="Danh mục sản phẩm" 
-              title="8 danh mục sản phẩm y tế chuyên biệt"
+              title="8 danh mục sản phẩm"
               align="left"
               className="mb-0 md:mb-0" // override default margin
             />

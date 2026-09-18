@@ -103,6 +103,8 @@
   --animate-scale-in: scale-in 0.55s ease-out both;
   --animate-blur-in: blur-in 0.7s ease-out both;
   --animate-pulse-ring: pulse-ring 2.5s ease-out infinite;
+  --animate-phone-ring: phone-ring 4s ease-in-out infinite;
+  --animate-truck-drive: truck-drive 4s ease-in-out infinite;
 }
 
 /* ---------------------------------------------------------------------------
@@ -158,6 +160,25 @@
   50% { transform: translateY(20px); }
 }
 
+@keyframes phone-ring {
+  0%, 100% { transform: rotate(0deg); }
+  2%, 6%, 10% { transform: rotate(-14deg); }
+  4%, 8%, 12% { transform: rotate(14deg); }
+  14% { transform: rotate(0deg); }
+}
+
+@keyframes truck-drive {
+  0%, 100% { transform: translateX(0); }
+  12%, 28% { transform: translateX(4px); }
+  20% { transform: translateX(1px); }
+  36% { transform: translateX(0); }
+}
+
+@keyframes text-glow-red {
+  0%, 100% { filter: drop-shadow(0 0 0 rgba(220, 38, 38, 0)); }
+  50% { filter: drop-shadow(0 0 3px rgba(220, 38, 38, 0.45)); }
+}
+
 /* ---------------------------------------------------------------------------
  * Custom Animation Utilities
  * Bypass Tailwind v4 JIT to ensure animations work correctly.
@@ -172,6 +193,10 @@
 .animate-pulse-ring { animation: pulse-ring 2.5s ease-out infinite; }
 .animate-float { animation: float 6s ease-in-out infinite; }
 .animate-float-reverse { animation: float-reverse 7s ease-in-out infinite; }
+.animate-phone-ring { animation: phone-ring 4s ease-in-out infinite; transform-origin: center bottom; }
+.animate-phone-ring-delayed { animation: phone-ring 4s ease-in-out infinite 2s; transform-origin: center bottom; }
+.animate-truck-drive { animation: truck-drive 4s ease-in-out infinite 1s; }
+.animate-glow-red { animation: text-glow-red 3s ease-in-out infinite; }
 
 
 /* ---------------------------------------------------------------------------
