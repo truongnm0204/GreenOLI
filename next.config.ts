@@ -29,6 +29,10 @@ const nextConfig: NextConfig = {
         source: "/ve-oli-xanh",
         destination: "/gioi-thieu",
       },
+      {
+        source: "/cuahang",
+        destination: "/cua-hang",
+      },
     ];
   },
 };

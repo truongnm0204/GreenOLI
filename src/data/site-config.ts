@@ -11,11 +11,11 @@ export const SITE_CONFIG = {
   ogImage: "/opengraph-image",
   locale: "vi_VN",
   /** Chuỗi hiển thị gộp (footer/copy). Gọi điện dùng `hotlines`. */
-  hotline: "0976 187 957 – 0866 795 576",
+  hotline: "0976 187 957 - 0866 795 576",
   /** Từng số — mỗi phần tử một `tel:` hợp lệ. */
   hotlines: [
-    { label: "0976 187 957", tel: "0976187957", role: "Hotline dịch vụ" },
-    { label: "0866 795 576", tel: "0866795576", role: "Hotline bán hàng" },
+    { label: "0976 187 957", tel: "0976187957", role: "Hotline" },
+    { label: "0866 795 576", tel: "0866795576", role: "Hotline" },
   ] as const,
   /** Để trống nếu chưa công bố — UI không render mailto. */
   email: "",

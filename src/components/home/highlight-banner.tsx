@@ -50,8 +50,8 @@ export function HighlightBanner() {
           </div>
 
           <Button 
-            href="/tin-tuc" 
-            className="bg-orange-500 hover:bg-orange-600 text-white rounded-full px-8 py-6 text-base font-bold shadow-lg hover:shadow-orange-500/30 transition-all hover:-translate-y-1"
+            href="/cua-hang" 
+            className="bg-primary hover:bg-primary-dark text-white rounded-full px-8 py-6 text-base font-bold shadow-lg hover:shadow-primary/30 transition-all hover:-translate-y-1"
           >
             CLICK ĐỂ XEM CHI TIẾT
             <ChevronRight className="ml-2 size-5" />

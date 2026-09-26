@@ -15,12 +15,11 @@ export async function CategoryShowcase() {
       <div className="container-page relative z-10">
         <MotionWrapper
           delay={0.1} direction="up"
-          className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 md:mb-12"
+          className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8 md:mb-10"
         >
           <div className="max-w-2xl">
             <SectionHeader 
               eyebrow="Danh mục sản phẩm" 
-              title="8 danh mục sản phẩm"
               align="left"
               className="mb-0 md:mb-0" // override default margin
             />

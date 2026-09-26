@@ -66,40 +66,39 @@ export function SiteHeader({ categories, brands }: { categories: NavCategory[], 
       <div className="hidden lg:block border-b border-primary/20 bg-primary/8 py-1.5">
         <div className="container-page flex items-center justify-between">
           <div className="flex flex-wrap items-center gap-4 xl:gap-7">
-            {SITE_CONFIG.hotlines.map((h, idx) => (
-              <div
-                key={h.tel}
-                className="group flex items-center gap-2 rounded-lg px-2 py-1 transition-all duration-200 hover:bg-white/90 hover:shadow-xs"
-              >
-                <div className="flex size-7 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary transition-transform duration-200 group-hover:scale-110">
-                  <PhoneCall
-                    className={cn(
-                      "size-4 shrink-0 transition-transform",
-                      idx === 0 ? "animate-phone-ring" : "animate-phone-ring-delayed"
-                    )}
-                    aria-hidden
-                  />
+            <div className="group flex items-center gap-2 rounded-lg px-2 py-1 transition-all duration-200 hover:bg-white/90 hover:shadow-xs">
+              <div className="flex size-7 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary transition-transform duration-200 group-hover:scale-110">
+                <PhoneCall
+                  className="size-4 shrink-0 animate-phone-ring transition-transform"
+                  aria-hidden
+                />
+              </div>
+              <div className="flex flex-col text-left">
+                <div className="flex items-center gap-1.5 leading-tight">
+                  <span className="relative flex size-1.5">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex size-1.5 rounded-full bg-emerald-500"></span>
+                  </span>
+                  <span className="text-[11px] font-medium text-text-secondary">
+                    Hotline
+                  </span>
                 </div>
-                <div className="flex flex-col text-left">
-                  <div className="flex items-center gap-1.5 leading-tight">
-                    <span className="relative flex size-1.5">
-                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
-                      <span className="relative inline-flex size-1.5 rounded-full bg-emerald-500"></span>
-                    </span>
-                    <span className="text-[11px] font-medium text-text-secondary">
-                      {h.role}
-                    </span>
-                  </div>
-                  <a
-                    href={`tel:${h.tel}`}
-                    className="text-sm font-bold leading-tight text-red-600 tracking-tight transition-colors group-hover:text-red-700 hover:underline"
-                    onClick={() => trackPhoneClick(`header:${h.label}`)}
-                  >
-                    {h.label}
-                  </a>
+                <div className="flex items-center gap-1.5 text-sm font-bold leading-tight text-red-600 tracking-tight">
+                  {SITE_CONFIG.hotlines.map((h, idx) => (
+                    <React.Fragment key={h.tel}>
+                      {idx > 0 && <span className="text-red-600/70 font-semibold">-</span>}
+                      <a
+                        href={`tel:${h.tel}`}
+                        className="transition-colors hover:text-red-700 hover:underline"
+                        onClick={() => trackPhoneClick(`header:${h.label}`)}
+                      >
+                        {h.label}
+                      </a>
+                    </React.Fragment>
+                  ))}
                 </div>
               </div>
-            ))}
+            </div>
 
             <div className="group flex items-center gap-2 rounded-lg px-2 py-1 transition-all duration-200 hover:bg-white/90 hover:shadow-xs">
               <div className="flex size-7 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary transition-transform duration-200 group-hover:scale-110">
@@ -288,35 +287,38 @@ export function SiteHeader({ categories, brands }: { categories: NavCategory[], 
               />
             </div>
             {/* Mobile hotlines */}
-            <div className="grid grid-cols-2 gap-2 px-1 pb-2">
-              {SITE_CONFIG.hotlines.map((h, idx) => (
-                <a
-                  key={h.tel}
-                  href={`tel:${h.tel}`}
-                  className="flex items-center gap-2 rounded-xl bg-primary/5 p-2.5 border border-primary/15 transition-colors active:bg-primary/10"
-                  onClick={() => trackPhoneClick(`mobile-drawer:${h.label}`)}
-                >
-                  <div className="flex size-7 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary">
-                    <PhoneCall
-                      className={cn(
-                        "size-3.5 shrink-0",
-                        idx === 0 ? "animate-phone-ring" : "animate-phone-ring-delayed"
-                      )}
-                      aria-hidden
-                    />
+            <div className="px-1 pb-2">
+              <div className="flex items-center gap-2.5 rounded-xl bg-primary/5 p-2.5 border border-primary/15">
+                <div className="flex size-7 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary">
+                  <PhoneCall
+                    className="size-3.5 shrink-0 animate-phone-ring"
+                    aria-hidden
+                  />
+                </div>
+                <div className="flex flex-col min-w-0">
+                  <div className="flex items-center gap-1">
+                    <span className="relative flex size-1.5">
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+                      <span className="relative inline-flex size-1.5 rounded-full bg-emerald-500"></span>
+                    </span>
+                    <span className="text-[10px] font-medium text-text-secondary truncate">Hotline</span>
                   </div>
-                  <div className="flex flex-col min-w-0">
-                    <div className="flex items-center gap-1">
-                      <span className="relative flex size-1.5">
-                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
-                        <span className="relative inline-flex size-1.5 rounded-full bg-emerald-500"></span>
-                      </span>
-                      <span className="text-[10px] font-medium text-text-secondary truncate">{h.role}</span>
-                    </div>
-                    <span className="text-xs font-bold text-red-600 truncate">{h.label}</span>
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-red-600 flex-wrap">
+                    {SITE_CONFIG.hotlines.map((h, idx) => (
+                      <React.Fragment key={h.tel}>
+                        {idx > 0 && <span className="text-red-600/70 font-semibold">-</span>}
+                        <a
+                          href={`tel:${h.tel}`}
+                          className="hover:underline hover:text-red-700"
+                          onClick={() => trackPhoneClick(`mobile-drawer:${h.label}`)}
+                        >
+                          {h.label}
+                        </a>
+                      </React.Fragment>
+                    ))}
                   </div>
-                </a>
-              ))}
+                </div>
+              </div>
             </div>
             {NAV_ITEMS.map((item) => {
               const isActive =
