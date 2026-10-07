@@ -136,7 +136,7 @@ export default async function ShopPage({
     <>
       <ShopHeroSection
         title="Cửa Hàng Oli Xanh"
-        description="Toàn bộ sản phẩm chính hãng từ các thương hiệu hàng đầu thế giới, được phân loại theo 8 danh mục chuyên biệt."
+        description="Toàn bộ sản phẩm chính hãng từ các thương hiệu hàng đầu thế giới."
         breadcrumb={[{ label: "Cửa hàng" }]}
       />
 
