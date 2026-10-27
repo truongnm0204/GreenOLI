@@ -4,7 +4,7 @@ Mục tiêu: chạy site + Payload CMS + Postgres trên **một VPS**, domain HT
 
 | | |
 |---|---|
-| Domain mẫu | `truongnm-dev.id.vn` |
+| Domain mẫu | `greenoli.id.vn` |
 | IP VPS mẫu | `162.4.177.116` |
 | Stack | `docker-compose.vps.yml` = Postgres + web + Caddy |
 | Media | Volume Docker `greenoli_media` / `greenoli_documents` |
@@ -56,9 +56,9 @@ Chỉ cần bản ghi trỏ đúng IP. Kiểm tra:
 
 ```bash
 # trên máy bất kỳ
-ping truongnm-dev.id.vn
+ping greenoli.id.vn
 # hoặc
-nslookup truongnm-dev.id.vn
+nslookup greenoli.id.vn
 ```
 
 Phải ra `162.4.177.116`. Nếu chưa → **đợi DNS** (5–30 phút, đôi khi lâu hơn) trước bước HTTPS.
@@ -132,8 +132,8 @@ nano .env
 Điền tối thiểu:
 
 ```env
-SITE_ADDRESS=truongnm-dev.id.vn
-NEXT_PUBLIC_SERVER_URL=https://truongnm-dev.id.vn
+SITE_ADDRESS=greenoli.id.vn
+NEXT_PUBLIC_SERVER_URL=https://greenoli.id.vn
 CADDY_EMAIL=email-that@cua-ban.com
 
 POSTGRES_USER=greenoli
@@ -178,13 +178,13 @@ Kiểm tra nội bộ:
 ```bash
 curl -sI http://127.0.0.1:3000 | head
 # qua Caddy (sau khi DNS OK):
-curl -sI https://truongnm-dev.id.vn | head
+curl -sI https://greenoli.id.vn | head
 ```
 
 Mở trình duyệt:
 
-- Site: https://truongnm-dev.id.vn  
-- Admin: https://truongnm-dev.id.vn/admin  
+- Site: https://greenoli.id.vn  
+- Admin: https://greenoli.id.vn/admin  
 
 ---
 
@@ -319,7 +319,7 @@ echo '/swapfile none swap sw 0 0' >> /etc/fstab
 [ ] Docker + ufw 22/80/443
 [ ] .env từ .env.vps.example (secret mạnh)
 [ ] docker compose -f docker-compose.vps.yml up -d --build
-[ ] https://truongnm-dev.id.vn mở được
+[ ] https://greenoli.id.vn mở được
 [ ] Restore SQL dump
 [ ] Copy media/documents
 [ ] Login /admin OK

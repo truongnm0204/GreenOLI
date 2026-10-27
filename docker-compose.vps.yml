@@ -85,8 +85,8 @@ services:
       - "443:443"
       - "443:443/udp"
     environment:
-      SITE_ADDRESS: ${SITE_ADDRESS:-localhost}
-      CADDY_EMAIL: ${CADDY_EMAIL:-admin@example.com}
+      SITE_ADDRESS: ${SITE_ADDRESS:-greenoli.id.vn}
+      CADDY_EMAIL: ${CADDY_EMAIL:-admin@greenoli.id.vn}
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
       - caddy_data:/data

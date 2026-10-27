@@ -7,7 +7,7 @@ export const SITE_CONFIG = {
   tagline: "CÔNG TY TNHH HÓA CHẤT VÀ THIẾT BỊ OLI XANH",
   description:
     "Công ty TNHH Hóa Chất và Thiết Bị Oli Xanh chuyên phân phối độc quyền khu vực phía Bắc sản phẩm kiểm soát côn trùng, mối, chuột từ các tập đoàn đa quốc gia. Giải pháp an toàn cho sức khỏe và môi trường, hướng đến tiêu chuẩn ESG.",
-  url: "https://greenoli.vn",
+  url: (process.env.NEXT_PUBLIC_SERVER_URL || "https://greenoli.id.vn").replace(/\/+$/, ""),
   ogImage: "/opengraph-image",
   locale: "vi_VN",
   /** Chuỗi hiển thị gộp (footer/copy). Gọi điện dùng `hotlines`. */

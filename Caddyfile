@@ -1,12 +1,12 @@
 # Reverse proxy + HTTPS (Let's Encrypt) for GreenOLI on VPS
-# Domain: set via env or edit host below.
+# Domain: greenoli.id.vn (set via SITE_ADDRESS in .env)
 # Compose mounts this file into the caddy service.
 
 {
-	email {$CADDY_EMAIL}
+	email {$CADDY_EMAIL:admin@greenoli.id.vn}
 }
 
-http://{$SITE_ADDRESS}, https://{$SITE_ADDRESS} {
+http://{$SITE_ADDRESS:greenoli.id.vn}, https://{$SITE_ADDRESS:greenoli.id.vn} {
 	encode gzip zstd
 
 	# Next.js + Payload (container name / service: web)
@@ -25,6 +25,7 @@ http://{$SITE_ADDRESS}, https://{$SITE_ADDRESS} {
 	}
 }
 
-http://www.{$SITE_ADDRESS}, https://www.{$SITE_ADDRESS} {
-	redir https://{$SITE_ADDRESS}{uri} permanent
+http://www.{$SITE_ADDRESS:greenoli.id.vn}, https://www.{$SITE_ADDRESS:greenoli.id.vn} {
+	redir https://{$SITE_ADDRESS:greenoli.id.vn}{uri} permanent
 }
+
