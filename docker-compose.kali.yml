@@ -57,6 +57,11 @@ services:
     volumes:
       - greenoli_media:/app/public/media
       - greenoli_documents:/app/public/documents
+    networks:
+      greenoli_net:
+        # Fixed IP so Cloudflare Tunnel Service URL can use
+        # http://172.30.0.10:3000 — CF validator rejects bare `web` hostname.
+        ipv4_address: 172.30.0.10
     expose:
       - "3000"
     healthcheck:
@@ -83,6 +88,15 @@ services:
       web:
         condition: service_started
     # Outbound-only: connects to Cloudflare edge on 7844/udp (QUIC).
+    networks:
+      - greenoli_net
+
+networks:
+  greenoli_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.30.0.0/24
 
 volumes:
   greenoli_pgdata:
