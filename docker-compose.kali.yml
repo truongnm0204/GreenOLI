@@ -25,6 +25,8 @@ services:
       retries: 12
       start_period: 15s
     # Never published — only reachable inside the compose network.
+    networks:
+      - greenoli_net
 
   web:
     build:
